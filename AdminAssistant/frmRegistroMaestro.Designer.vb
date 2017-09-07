@@ -22,35 +22,49 @@ Partial Class frmRegistroMaestro
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRegistroMaestro))
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtClave = New System.Windows.Forms.TextBox()
+        Me.MaestroBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.EasyEnglishDataSet1 = New AdminAssistant.EasyEnglishDataSet1()
+        Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.txtDomicilio = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
-        Me.btnAceptar = New System.Windows.Forms.Button()
+        Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.txtTel = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.txtCorreo = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.txtCertificado = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cboNivel = New System.Windows.Forms.ComboBox()
+        Me.btnModificar = New System.Windows.Forms.Button()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.MaestroTableAdapter = New AdminAssistant.EasyEnglishDataSet1TableAdapters.maestroTableAdapter()
+        Me.SqlSelectCommand1 = New System.Data.SqlClient.SqlCommand()
+        Me.SqlConnection1 = New System.Data.SqlClient.SqlConnection()
+        Me.SqlInsertCommand1 = New System.Data.SqlClient.SqlCommand()
+        Me.SqlUpdateCommand1 = New System.Data.SqlClient.SqlCommand()
+        Me.SqlDeleteCommand1 = New System.Data.SqlClient.SqlCommand()
+        Me.SqlDataAdapter1 = New System.Data.SqlClient.SqlDataAdapter()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MaestroBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EasyEnglishDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PictureBox2
         '
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(43, 26)
+        Me.PictureBox2.Location = New System.Drawing.Point(41, 64)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(137, 127)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -63,7 +77,7 @@ Partial Class frmRegistroMaestro
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Red
-        Me.Label1.Location = New System.Drawing.Point(228, 84)
+        Me.Label1.Location = New System.Drawing.Point(247, 122)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(232, 56)
         Me.Label1.TabIndex = 17
@@ -73,7 +87,7 @@ Partial Class frmRegistroMaestro
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(208, 26)
+        Me.Label2.Location = New System.Drawing.Point(227, 64)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(282, 58)
         Me.Label2.TabIndex = 16
@@ -83,51 +97,67 @@ Partial Class frmRegistroMaestro
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(39, 167)
+        Me.Label14.Location = New System.Drawing.Point(39, 206)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(62, 24)
         Me.Label14.TabIndex = 41
         Me.Label14.Text = "Clave"
         '
-        'TextBox1
+        'txtClave
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.TextBox1.Location = New System.Drawing.Point(39, 204)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(284, 26)
-        Me.TextBox1.TabIndex = 42
+        Me.txtClave.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MaestroBindingSource, "idMaestro", True))
+        Me.txtClave.Enabled = False
+        Me.txtClave.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.txtClave.Location = New System.Drawing.Point(39, 243)
+        Me.txtClave.Name = "txtClave"
+        Me.txtClave.Size = New System.Drawing.Size(284, 26)
+        Me.txtClave.TabIndex = 42
         '
-        'TextBox2
+        'MaestroBindingSource
         '
-        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.TextBox2.Location = New System.Drawing.Point(39, 285)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(395, 26)
-        Me.TextBox2.TabIndex = 1
+        Me.MaestroBindingSource.DataMember = "maestro"
+        Me.MaestroBindingSource.DataSource = Me.EasyEnglishDataSet1
+        '
+        'EasyEnglishDataSet1
+        '
+        Me.EasyEnglishDataSet1.DataSetName = "EasyEnglishDataSet1"
+        Me.EasyEnglishDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'txtNombre
+        '
+        Me.txtNombre.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MaestroBindingSource, "nombre", True))
+        Me.txtNombre.Enabled = False
+        Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.txtNombre.Location = New System.Drawing.Point(39, 324)
+        Me.txtNombre.Name = "txtNombre"
+        Me.txtNombre.Size = New System.Drawing.Size(395, 26)
+        Me.txtNombre.TabIndex = 1
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(39, 248)
+        Me.Label3.Location = New System.Drawing.Point(39, 287)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(85, 24)
         Me.Label3.TabIndex = 43
         Me.Label3.Text = "Nombre"
         '
-        'TextBox3
+        'txtDomicilio
         '
-        Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.TextBox3.Location = New System.Drawing.Point(453, 285)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(388, 26)
-        Me.TextBox3.TabIndex = 2
+        Me.txtDomicilio.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MaestroBindingSource, "domicilio", True))
+        Me.txtDomicilio.Enabled = False
+        Me.txtDomicilio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.txtDomicilio.Location = New System.Drawing.Point(453, 324)
+        Me.txtDomicilio.Name = "txtDomicilio"
+        Me.txtDomicilio.Size = New System.Drawing.Size(439, 26)
+        Me.txtDomicilio.TabIndex = 2
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(453, 248)
+        Me.Label4.Location = New System.Drawing.Point(453, 287)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(96, 24)
         Me.Label4.TabIndex = 45
@@ -142,9 +172,9 @@ Partial Class frmRegistroMaestro
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevo.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnNuevo.Location = New System.Drawing.Point(14, 505)
+        Me.btnNuevo.Location = New System.Drawing.Point(14, 544)
         Me.btnNuevo.Name = "btnNuevo"
-        Me.btnNuevo.Size = New System.Drawing.Size(202, 50)
+        Me.btnNuevo.Size = New System.Drawing.Size(161, 50)
         Me.btnNuevo.TabIndex = 7
         Me.btnNuevo.Text = "Nuevo"
         Me.btnNuevo.UseVisualStyleBackColor = False
@@ -158,94 +188,102 @@ Partial Class frmRegistroMaestro
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnSalir.Location = New System.Drawing.Point(677, 505)
+        Me.btnSalir.Location = New System.Drawing.Point(757, 544)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(202, 50)
+        Me.btnSalir.Size = New System.Drawing.Size(161, 50)
         Me.btnSalir.TabIndex = 50
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = False
         '
-        'btnAceptar
+        'btnGuardar
         '
-        Me.btnAceptar.BackColor = System.Drawing.Color.LimeGreen
-        Me.btnAceptar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnAceptar.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
-        Me.btnAceptar.FlatAppearance.BorderSize = 0
-        Me.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAceptar.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAceptar.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnAceptar.Location = New System.Drawing.Point(234, 505)
-        Me.btnAceptar.Name = "btnAceptar"
-        Me.btnAceptar.Size = New System.Drawing.Size(202, 50)
-        Me.btnAceptar.TabIndex = 8
-        Me.btnAceptar.Text = "Aceptar"
-        Me.btnAceptar.UseVisualStyleBackColor = False
+        Me.btnGuardar.BackColor = System.Drawing.Color.LimeGreen
+        Me.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnGuardar.Enabled = False
+        Me.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
+        Me.btnGuardar.FlatAppearance.BorderSize = 0
+        Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btnGuardar.Location = New System.Drawing.Point(388, 544)
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(161, 50)
+        Me.btnGuardar.TabIndex = 8
+        Me.btnGuardar.Text = "Guardar"
+        Me.btnGuardar.UseVisualStyleBackColor = False
         '
         'btnCancelar
         '
         Me.btnCancelar.BackColor = System.Drawing.Color.Crimson
         Me.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnCancelar.Enabled = False
         Me.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
         Me.btnCancelar.FlatAppearance.BorderSize = 0
         Me.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnCancelar.Location = New System.Drawing.Point(455, 505)
+        Me.btnCancelar.Location = New System.Drawing.Point(576, 544)
         Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(202, 50)
+        Me.btnCancelar.Size = New System.Drawing.Size(161, 50)
         Me.btnCancelar.TabIndex = 9
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = False
         '
-        'TextBox4
+        'txtTel
         '
-        Me.TextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.TextBox4.Location = New System.Drawing.Point(39, 363)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(228, 26)
-        Me.TextBox4.TabIndex = 3
+        Me.txtTel.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MaestroBindingSource, "telefono", True))
+        Me.txtTel.Enabled = False
+        Me.txtTel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.txtTel.Location = New System.Drawing.Point(39, 402)
+        Me.txtTel.Name = "txtTel"
+        Me.txtTel.Size = New System.Drawing.Size(228, 26)
+        Me.txtTel.TabIndex = 3
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(39, 326)
+        Me.Label5.Location = New System.Drawing.Point(39, 365)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(93, 24)
         Me.Label5.TabIndex = 51
         Me.Label5.Text = "Teléfono"
         '
-        'TextBox5
+        'txtCorreo
         '
-        Me.TextBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.TextBox5.Location = New System.Drawing.Point(291, 363)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(395, 26)
-        Me.TextBox5.TabIndex = 4
+        Me.txtCorreo.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MaestroBindingSource, "correo", True))
+        Me.txtCorreo.Enabled = False
+        Me.txtCorreo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.txtCorreo.Location = New System.Drawing.Point(291, 402)
+        Me.txtCorreo.Name = "txtCorreo"
+        Me.txtCorreo.Size = New System.Drawing.Size(395, 26)
+        Me.txtCorreo.TabIndex = 4
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(291, 326)
+        Me.Label6.Location = New System.Drawing.Point(291, 365)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(74, 24)
         Me.Label6.TabIndex = 53
         Me.Label6.Text = "Correo"
         '
-        'TextBox6
+        'txtCertificado
         '
-        Me.TextBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.TextBox6.Location = New System.Drawing.Point(39, 431)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(395, 26)
-        Me.TextBox6.TabIndex = 6
+        Me.txtCertificado.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MaestroBindingSource, "certificado", True))
+        Me.txtCertificado.Enabled = False
+        Me.txtCertificado.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.txtCertificado.Location = New System.Drawing.Point(39, 470)
+        Me.txtCertificado.Name = "txtCertificado"
+        Me.txtCertificado.Size = New System.Drawing.Size(395, 26)
+        Me.txtCertificado.TabIndex = 6
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(39, 394)
+        Me.Label7.Location = New System.Drawing.Point(39, 433)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(109, 24)
         Me.Label7.TabIndex = 55
@@ -255,45 +293,117 @@ Partial Class frmRegistroMaestro
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(703, 326)
+        Me.Label8.Location = New System.Drawing.Point(743, 365)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(149, 24)
         Me.Label8.TabIndex = 57
         Me.Label8.Text = "Nivel de inglés"
         '
-        'ComboBox1
+        'cboNivel
         '
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"A1", "A2", "B1" & Global.Microsoft.VisualBasic.ChrW(9), "B2" & Global.Microsoft.VisualBasic.ChrW(9), "C1", "C2"})
-        Me.ComboBox1.Location = New System.Drawing.Point(707, 363)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(145, 28)
-        Me.ComboBox1.TabIndex = 5
+        Me.cboNivel.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MaestroBindingSource, "nivelIngles", True))
+        Me.cboNivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboNivel.Enabled = False
+        Me.cboNivel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.cboNivel.FormattingEnabled = True
+        Me.cboNivel.Items.AddRange(New Object() {"A1", "A2", "B1" & Global.Microsoft.VisualBasic.ChrW(9), "B2" & Global.Microsoft.VisualBasic.ChrW(9), "C1", "C2"})
+        Me.cboNivel.Location = New System.Drawing.Point(747, 402)
+        Me.cboNivel.Name = "cboNivel"
+        Me.cboNivel.Size = New System.Drawing.Size(145, 28)
+        Me.cboNivel.TabIndex = 5
+        '
+        'btnModificar
+        '
+        Me.btnModificar.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
+        Me.btnModificar.FlatAppearance.BorderSize = 0
+        Me.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnModificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnModificar.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btnModificar.Location = New System.Drawing.Point(204, 544)
+        Me.btnModificar.Name = "btnModificar"
+        Me.btnModificar.Size = New System.Drawing.Size(161, 50)
+        Me.btnModificar.TabIndex = 58
+        Me.btnModificar.Text = "Modificar"
+        Me.btnModificar.UseVisualStyleBackColor = False
+        '
+        'Label9
+        '
+        Me.Label9.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(1, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.Label9.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label9.Location = New System.Drawing.Point(0, 0)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(930, 45)
+        Me.Label9.TabIndex = 59
+        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'MaestroTableAdapter
+        '
+        Me.MaestroTableAdapter.ClearBeforeFill = True
+        '
+        'SqlSelectCommand1
+        '
+        Me.SqlSelectCommand1.CommandText = "SELECT        maestro.*" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            maestro"
+        Me.SqlSelectCommand1.Connection = Me.SqlConnection1
+        '
+        'SqlConnection1
+        '
+        Me.SqlConnection1.ConnectionString = "Data Source=PRO;Initial Catalog=EasyEnglish;Integrated Security=True"
+        Me.SqlConnection1.FireInfoMessageEventOnUserErrors = False
+        '
+        'SqlInsertCommand1
+        '
+        Me.SqlInsertCommand1.CommandText = resources.GetString("SqlInsertCommand1.CommandText")
+        Me.SqlInsertCommand1.Connection = Me.SqlConnection1
+        Me.SqlInsertCommand1.Parameters.AddRange(New System.Data.SqlClient.SqlParameter() {New System.Data.SqlClient.SqlParameter("@idMaestro", System.Data.SqlDbType.Int, 0, "idMaestro"), New System.Data.SqlClient.SqlParameter("@nombre", System.Data.SqlDbType.NVarChar, 0, "nombre"), New System.Data.SqlClient.SqlParameter("@domicilio", System.Data.SqlDbType.NVarChar, 0, "domicilio"), New System.Data.SqlClient.SqlParameter("@telefono", System.Data.SqlDbType.NVarChar, 0, "telefono"), New System.Data.SqlClient.SqlParameter("@certificado", System.Data.SqlDbType.NVarChar, 0, "certificado"), New System.Data.SqlClient.SqlParameter("@nivelIngles", System.Data.SqlDbType.NVarChar, 0, "nivelIngles"), New System.Data.SqlClient.SqlParameter("@correo", System.Data.SqlDbType.NVarChar, 0, "correo")})
+        '
+        'SqlUpdateCommand1
+        '
+        Me.SqlUpdateCommand1.CommandText = resources.GetString("SqlUpdateCommand1.CommandText")
+        Me.SqlUpdateCommand1.Connection = Me.SqlConnection1
+        Me.SqlUpdateCommand1.Parameters.AddRange(New System.Data.SqlClient.SqlParameter() {New System.Data.SqlClient.SqlParameter("@idMaestro", System.Data.SqlDbType.Int, 0, "idMaestro"), New System.Data.SqlClient.SqlParameter("@nombre", System.Data.SqlDbType.NVarChar, 0, "nombre"), New System.Data.SqlClient.SqlParameter("@domicilio", System.Data.SqlDbType.NVarChar, 0, "domicilio"), New System.Data.SqlClient.SqlParameter("@telefono", System.Data.SqlDbType.NVarChar, 0, "telefono"), New System.Data.SqlClient.SqlParameter("@certificado", System.Data.SqlDbType.NVarChar, 0, "certificado"), New System.Data.SqlClient.SqlParameter("@nivelIngles", System.Data.SqlDbType.NVarChar, 0, "nivelIngles"), New System.Data.SqlClient.SqlParameter("@correo", System.Data.SqlDbType.NVarChar, 0, "correo"), New System.Data.SqlClient.SqlParameter("@Original_idMaestro", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "idMaestro", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_nombre", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "nombre", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_nombre", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "nombre", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_domicilio", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "domicilio", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_domicilio", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "domicilio", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_telefono", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "telefono", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_telefono", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "telefono", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_certificado", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "certificado", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_certificado", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "certificado", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_nivelIngles", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "nivelIngles", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_nivelIngles", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "nivelIngles", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_correo", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "correo", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_correo", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "correo", System.Data.DataRowVersion.Original, Nothing)})
+        '
+        'SqlDeleteCommand1
+        '
+        Me.SqlDeleteCommand1.CommandText = resources.GetString("SqlDeleteCommand1.CommandText")
+        Me.SqlDeleteCommand1.Connection = Me.SqlConnection1
+        Me.SqlDeleteCommand1.Parameters.AddRange(New System.Data.SqlClient.SqlParameter() {New System.Data.SqlClient.SqlParameter("@Original_idMaestro", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "idMaestro", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_nombre", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "nombre", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_nombre", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "nombre", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_domicilio", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "domicilio", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_domicilio", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "domicilio", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_telefono", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "telefono", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_telefono", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "telefono", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_certificado", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "certificado", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_certificado", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "certificado", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_nivelIngles", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "nivelIngles", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_nivelIngles", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "nivelIngles", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_correo", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "correo", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_correo", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "correo", System.Data.DataRowVersion.Original, Nothing)})
+        '
+        'SqlDataAdapter1
+        '
+        Me.SqlDataAdapter1.DeleteCommand = Me.SqlDeleteCommand1
+        Me.SqlDataAdapter1.InsertCommand = Me.SqlInsertCommand1
+        Me.SqlDataAdapter1.SelectCommand = Me.SqlSelectCommand1
+        Me.SqlDataAdapter1.TableMappings.AddRange(New System.Data.Common.DataTableMapping() {New System.Data.Common.DataTableMapping("Table", "maestro", New System.Data.Common.DataColumnMapping() {New System.Data.Common.DataColumnMapping("idMaestro", "idMaestro"), New System.Data.Common.DataColumnMapping("nombre", "nombre"), New System.Data.Common.DataColumnMapping("domicilio", "domicilio"), New System.Data.Common.DataColumnMapping("telefono", "telefono"), New System.Data.Common.DataColumnMapping("certificado", "certificado"), New System.Data.Common.DataColumnMapping("nivelIngles", "nivelIngles"), New System.Data.Common.DataColumnMapping("correo", "correo")})})
+        Me.SqlDataAdapter1.UpdateCommand = Me.SqlUpdateCommand1
         '
         'frmRegistroMaestro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(891, 567)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.ClientSize = New System.Drawing.Size(930, 606)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.btnModificar)
+        Me.Controls.Add(Me.cboNivel)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.TextBox6)
+        Me.Controls.Add(Me.txtCertificado)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.TextBox5)
+        Me.Controls.Add(Me.txtCorreo)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.TextBox4)
+        Me.Controls.Add(Me.txtTel)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.btnSalir)
-        Me.Controls.Add(Me.btnAceptar)
+        Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.btnCancelar)
-        Me.Controls.Add(Me.TextBox3)
+        Me.Controls.Add(Me.txtDomicilio)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtClave)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Label1)
@@ -303,6 +413,8 @@ Partial Class frmRegistroMaestro
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmRegistroMaestro"
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MaestroBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EasyEnglishDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -312,21 +424,32 @@ Partial Class frmRegistroMaestro
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label14 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txtClave As TextBox
+    Friend WithEvents txtNombre As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents txtDomicilio As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents btnNuevo As Button
     Friend WithEvents btnSalir As Button
-    Friend WithEvents btnAceptar As Button
+    Friend WithEvents btnGuardar As Button
     Friend WithEvents btnCancelar As Button
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents txtTel As TextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents txtCorreo As TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents txtCertificado As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cboNivel As ComboBox
+    Friend WithEvents btnModificar As Button
+    Friend WithEvents Label9 As Label
+    Friend WithEvents EasyEnglishDataSet1 As EasyEnglishDataSet1
+    Friend WithEvents MaestroBindingSource As BindingSource
+    Friend WithEvents MaestroTableAdapter As EasyEnglishDataSet1TableAdapters.maestroTableAdapter
+    Friend WithEvents SqlSelectCommand1 As SqlClient.SqlCommand
+    Friend WithEvents SqlConnection1 As SqlClient.SqlConnection
+    Friend WithEvents SqlInsertCommand1 As SqlClient.SqlCommand
+    Friend WithEvents SqlUpdateCommand1 As SqlClient.SqlCommand
+    Friend WithEvents SqlDeleteCommand1 As SqlClient.SqlCommand
+    Friend WithEvents SqlDataAdapter1 As SqlClient.SqlDataAdapter
 End Class

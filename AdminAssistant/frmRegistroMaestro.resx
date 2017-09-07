@@ -120,62 +120,130 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="PictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        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
+        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
+        RgAAwwgAYBgBAAwjAIBhiyQAW75QVQ+4zwJY4Wde7UIz7gcSO9mAPGwkRQB2fEV+txJg0fIzr3ahGQIA
+        jCQCECAAsIYABAgArCEAAQIAawhAgADAGgIQIACwhgAECACsIQABAgBrCECAAMAaAhAgALCGAAQIAKwh
+        AAECAGsIQIAAwBoCECAAsIYABAgArCEAAQIAawhAgADAGgIQIACwhgAECACsIQABAgBrCECAAMAaAhAg
+        ALCGAAQIAKwhAAECAGsIQIAAwBoCECAAsIYABAgArCEAAQIAawhAgADAGgIQIACwhgAECACsIQABAgBr
+        CECAAMAaAhAgALCGAAQIAKwhAAECAGsIQIAAwBoCECAAsIYABAgArCEAAQIAawhAgADAGgIQIACwhgAE
+        CACsIQABAgBrCECAAMAaAhAgALCGAAQIAKwhAAECAGsIQIAAwBoCECAAsIYABAgArCEAAQIAawhAgADA
         GgIQIACwhgAECACsIQABAgBrCECAAMAaAhAgALCGAAQIAKwhAAECAGsIQIAAwBoCECAAsIYABAgArCEA
-        AQIAawhAgADAGgIQIACwhgAECACsIQABAgBrCECAAMAaAhAgALCGAAQIAKwhAAECAGsIQIAAwBoCECAA
-        sIYABAgArCEAAQIAawhAgADAGgIQIACwhgAECACsIQABAgBrCECAAMAaAhAgALCGAAQIAKwhAAECAGsI
-        QIAAwBoCECAAsIYABAgArCEAAQIAawhAgADAGgIQIACwhgAECACsIQABAgBrCECAAMAaAhAgALCGAAQI
-        AKwhAAECAGsIQIAAwBoCECAAsIYABAgArCEAAQIAawhAgADAGgIQIACwhgAECACsIQABAgBrCECAAMAa
-        AhAgALCGAAQIAKwhAIHtX6qqZ78N2OFnXu1CM4skAACGQQAAwwgAYBgBAAwjAIBhBAAwjAAAhhEAwDAC
-        ABhGAADDCABgGAEADCMAgGEEADCMAACGEQDAsPwB+OA7Vy//cNOad09uvKZayKl7Vzzn3uyji8Fr9179
-        wi/vHKvO5sjU5T9Tz2J4/k7VXYf8r416dhT5nVG79D9+5/zuqZ1sQh428d7ExPKjE73qrG6+Zb16dhSt
-        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
+        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
 </value>
   </data>
+  <metadata name="MaestroBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>180, 17</value>
+  </metadata>
+  <metadata name="MaestroBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>180, 17</value>
+  </metadata>
+  <metadata name="EasyEnglishDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="EasyEnglishDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="MaestroTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>355, 17</value>
+  </metadata>
+  <metadata name="SqlSelectCommand1.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="SqlSelectCommand1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 0</value>
+  </metadata>
+  <metadata name="SqlSelectCommand1.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="SqlConnection1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>669, 17</value>
+  </metadata>
+  <metadata name="SqlInsertCommand1.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="SqlInsertCommand1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 0</value>
+  </metadata>
+  <metadata name="SqlInsertCommand1.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="SqlInsertCommand1.CommandText" xml:space="preserve">
+    <value>INSERT INTO [maestro] ([idMaestro], [nombre], [domicilio], [telefono], [certificado], [nivelIngles], [correo]) VALUES (@idMaestro, @nombre, @domicilio, @telefono, @certificado, @nivelIngles, @correo);
+SELECT idMaestro, nombre, domicilio, telefono, certificado, nivelIngles, correo FROM maestro WHERE (idMaestro = @idMaestro)</value>
+  </data>
+  <metadata name="SqlUpdateCommand1.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="SqlUpdateCommand1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 0</value>
+  </metadata>
+  <metadata name="SqlUpdateCommand1.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="SqlUpdateCommand1.CommandText" xml:space="preserve">
+    <value>UPDATE [maestro] SET [idMaestro] = @idMaestro, [nombre] = @nombre, [domicilio] = @domicilio, [telefono] = @telefono, [certificado] = @certificado, [nivelIngles] = @nivelIngles, [correo] = @correo WHERE (([idMaestro] = @Original_idMaestro) AND ((@IsNull_nombre = 1 AND [nombre] IS NULL) OR ([nombre] = @Original_nombre)) AND ((@IsNull_domicilio = 1 AND [domicilio] IS NULL) OR ([domicilio] = @Original_domicilio)) AND ((@IsNull_telefono = 1 AND [telefono] IS NULL) OR ([telefono] = @Original_telefono)) AND ((@IsNull_certificado = 1 AND [certificado] IS NULL) OR ([certificado] = @Original_certificado)) AND ((@IsNull_nivelIngles = 1 AND [nivelIngles] IS NULL) OR ([nivelIngles] = @Original_nivelIngles)) AND ((@IsNull_correo = 1 AND [correo] IS NULL) OR ([correo] = @Original_correo)));
+SELECT idMaestro, nombre, domicilio, telefono, certificado, nivelIngles, correo FROM maestro WHERE (idMaestro = @idMaestro)</value>
+  </data>
+  <metadata name="SqlDeleteCommand1.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="SqlDeleteCommand1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 0</value>
+  </metadata>
+  <metadata name="SqlDeleteCommand1.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="SqlDeleteCommand1.CommandText" xml:space="preserve">
+    <value>DELETE FROM [maestro] WHERE (([idMaestro] = @Original_idMaestro) AND ((@IsNull_nombre = 1 AND [nombre] IS NULL) OR ([nombre] = @Original_nombre)) AND ((@IsNull_domicilio = 1 AND [domicilio] IS NULL) OR ([domicilio] = @Original_domicilio)) AND ((@IsNull_telefono = 1 AND [telefono] IS NULL) OR ([telefono] = @Original_telefono)) AND ((@IsNull_certificado = 1 AND [certificado] IS NULL) OR ([certificado] = @Original_certificado)) AND ((@IsNull_nivelIngles = 1 AND [nivelIngles] IS NULL) OR ([nivelIngles] = @Original_nivelIngles)) AND ((@IsNull_correo = 1 AND [correo] IS NULL) OR ([correo] = @Original_correo)))</value>
+  </data>
+  <metadata name="SqlDataAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>525, 17</value>
+  </metadata>
 </root>
