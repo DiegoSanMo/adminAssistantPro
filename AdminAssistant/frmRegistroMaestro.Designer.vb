@@ -56,11 +56,11 @@ Partial Class frmRegistroMaestro
         Me.btnSiguiente = New System.Windows.Forms.Button()
         Me.MaestroTableAdapter = New AdminAssistant.EasyEnglishDataSetManiTableAdapters.maestroTableAdapter()
         Me.SqlSelectCommand1 = New System.Data.SqlClient.SqlCommand()
+        Me.SqlConnection1 = New System.Data.SqlClient.SqlConnection()
         Me.SqlInsertCommand2 = New System.Data.SqlClient.SqlCommand()
         Me.SqlUpdateCommand1 = New System.Data.SqlClient.SqlCommand()
         Me.SqlDeleteCommand1 = New System.Data.SqlClient.SqlCommand()
         Me.SqlDataAdapter1 = New System.Data.SqlClient.SqlDataAdapter()
-        Me.SqlConnection1 = New System.Data.SqlClient.SqlConnection()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MaestroBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EasyEnglishDataSetMani, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -423,6 +423,12 @@ Partial Class frmRegistroMaestro
         Me.SqlSelectCommand1.CommandText = "SELECT * FROM maestro;"
         Me.SqlSelectCommand1.Connection = Me.SqlConnection1
         '
+        'SqlConnection1
+        '
+        Me.SqlConnection1.ConnectionString = "Data Source=DESKTOP-B3IP6AD\MANI;Initial Catalog=EasyEnglish;Integrated Security=" &
+    "True"
+        Me.SqlConnection1.FireInfoMessageEventOnUserErrors = False
+        '
         'SqlInsertCommand2
         '
         Me.SqlInsertCommand2.CommandText = resources.GetString("SqlInsertCommand2.CommandText")
@@ -448,12 +454,6 @@ Partial Class frmRegistroMaestro
         Me.SqlDataAdapter1.SelectCommand = Me.SqlSelectCommand1
         Me.SqlDataAdapter1.TableMappings.AddRange(New System.Data.Common.DataTableMapping() {New System.Data.Common.DataTableMapping("Table", "maestro", New System.Data.Common.DataColumnMapping() {New System.Data.Common.DataColumnMapping("idMaestro", "idMaestro"), New System.Data.Common.DataColumnMapping("nombre", "nombre"), New System.Data.Common.DataColumnMapping("domicilio", "domicilio"), New System.Data.Common.DataColumnMapping("telefono", "telefono"), New System.Data.Common.DataColumnMapping("certificado", "certificado"), New System.Data.Common.DataColumnMapping("nivelIngles", "nivelIngles"), New System.Data.Common.DataColumnMapping("correo", "correo")})})
         Me.SqlDataAdapter1.UpdateCommand = Me.SqlUpdateCommand1
-        '
-        'SqlConnection1
-        '
-        Me.SqlConnection1.ConnectionString = "Data Source=DESKTOP-B3IP6AD\MANI;Initial Catalog=EasyEnglish;Integrated Security=" &
-    "True"
-        Me.SqlConnection1.FireInfoMessageEventOnUserErrors = False
         '
         'frmRegistroMaestro
         '
@@ -487,7 +487,7 @@ Partial Class frmRegistroMaestro
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label2)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow
         Me.Name = "frmRegistroMaestro"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmRegistroMaestro"

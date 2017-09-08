@@ -126,14 +126,7 @@ Public Class frmRegistroMaestro
 
     End Sub
 
-    Private Sub SqlDataAdapter1_RowUpdated(sender As Object, e As SqlRowUpdatedEventArgs)
-        If e.Status = UpdateStatus.ErrorsOccurred Then
-            MessageBox.Show(e.Errors.Message & vbCrLf &
-            e.Row.Item("nombre", DataRowVersion.Original) & vbCrLf &
-            e.Row.Item("nombre", DataRowVersion.Current))
-            e.Status = UpdateStatus.SkipCurrentRow
-        End If
-    End Sub
+
 
     Private Sub btnPrimero_Click(sender As Object, e As EventArgs) Handles btnPrimero.Click
         MaestroBindingSource.MoveFirst()
@@ -149,5 +142,14 @@ Public Class frmRegistroMaestro
 
     Private Sub btnUltimo_Click(sender As Object, e As EventArgs) Handles btnUltimo.Click
         MaestroBindingSource.MoveLast()
+    End Sub
+
+    Private Sub SqlDataAdapter1_RowUpdated(sender As Object, e As SqlRowUpdatedEventArgs) Handles SqlDataAdapter1.RowUpdated
+        If e.Status = UpdateStatus.ErrorsOccurred Then
+            MessageBox.Show(e.Errors.Message & vbCrLf &
+            e.Row.Item("nombre", DataRowVersion.Original) & vbCrLf &
+            e.Row.Item("nombre", DataRowVersion.Current))
+            e.Status = UpdateStatus.SkipCurrentRow
+        End If
     End Sub
 End Class

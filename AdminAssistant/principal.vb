@@ -7,26 +7,26 @@
     End Sub
 
     Private Sub RegistroToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles RegistroToolStripMenuItem1.Click
-        frmRegistroMaestro.ShowDialog()
+        frmRegistroMaestro.Show()
     End Sub
 
     Private Sub RegistroToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistroToolStripMenuItem.Click
-        frmRegistroAlumno.ShowDialog()
+        frmRegistroAlumno.Show()
     End Sub
 
     Private Sub RegistroToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles RegistroToolStripMenuItem2.Click
-        frmRegistroCiclo.ShowDialog()
+        frmRegistroCiclo.Show()
     End Sub
 
     Private Sub ConsultaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultaToolStripMenuItem.Click
-        frmConsultaAlumnos.ShowDialog()
+        frmConsultaAlumnos.Show()
     End Sub
 
     Private Sub ConsultaToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ConsultaToolStripMenuItem2.Click
-        frmConsultaCiclo.ShowDialog()
+        frmConsultaCiclo.Show()
     End Sub
 
     Private Sub ConsultaToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ConsultaToolStripMenuItem1.Click
-        frmConsultaMaestros.ShowDialog()
+        frmConsultaMaestros.Show()
     End Sub
 End Class

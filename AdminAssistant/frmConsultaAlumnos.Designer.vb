@@ -24,22 +24,22 @@ Partial Class frmConsultaAlumnos
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.btnSalir = New System.Windows.Forms.Button()
-        Me.EasyEnglishDataSetMani = New AdminAssistant.EasyEnglishDataSetMani()
-        Me.AlumnoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.AlumnoTableAdapter = New AdminAssistant.EasyEnglishDataSetManiTableAdapters.alumnoTableAdapter()
         Me.IdAlumnoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NombreDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DomicilioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TelefonoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SituacionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.UltimoNivelAcreditadoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AlumnoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.EasyEnglishDataSetMani = New AdminAssistant.EasyEnglishDataSetMani()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnSalir = New System.Windows.Forms.Button()
+        Me.AlumnoTableAdapter = New AdminAssistant.EasyEnglishDataSetManiTableAdapters.alumnoTableAdapter()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EasyEnglishDataSetMani, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AlumnoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EasyEnglishDataSetMani, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -52,68 +52,6 @@ Partial Class frmConsultaAlumnos
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(746, 150)
         Me.DataGridView1.TabIndex = 0
-        '
-        'Label2
-        '
-        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(1, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.Label2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label2.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label2.Location = New System.Drawing.Point(0, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(776, 45)
-        Me.Label2.TabIndex = 2
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.Red
-        Me.Label1.Location = New System.Drawing.Point(170, 55)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(424, 56)
-        Me.Label1.TabIndex = 3
-        Me.Label1.Text = "Consulta general"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(12, 0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(164, 41)
-        Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Alumnos"
-        '
-        'btnSalir
-        '
-        Me.btnSalir.BackColor = System.Drawing.Color.SlateBlue
-        Me.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSalir.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
-        Me.btnSalir.FlatAppearance.BorderSize = 0
-        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSalir.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnSalir.Location = New System.Drawing.Point(650, 293)
-        Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(108, 50)
-        Me.btnSalir.TabIndex = 68
-        Me.btnSalir.Text = "Aceptar"
-        Me.btnSalir.UseVisualStyleBackColor = False
-        '
-        'EasyEnglishDataSetMani
-        '
-        Me.EasyEnglishDataSetMani.DataSetName = "EasyEnglishDataSetMani"
-        Me.EasyEnglishDataSetMani.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'AlumnoBindingSource
-        '
-        Me.AlumnoBindingSource.DataMember = "alumno"
-        Me.AlumnoBindingSource.DataSource = Me.EasyEnglishDataSetMani
-        '
-        'AlumnoTableAdapter
-        '
-        Me.AlumnoTableAdapter.ClearBeforeFill = True
         '
         'IdAlumnoDataGridViewTextBoxColumn
         '
@@ -153,13 +91,76 @@ Partial Class frmConsultaAlumnos
         Me.UltimoNivelAcreditadoDataGridViewTextBoxColumn.HeaderText = "UltimoNivelAcreditado"
         Me.UltimoNivelAcreditadoDataGridViewTextBoxColumn.Name = "UltimoNivelAcreditadoDataGridViewTextBoxColumn"
         '
+        'AlumnoBindingSource
+        '
+        Me.AlumnoBindingSource.DataMember = "alumno"
+        Me.AlumnoBindingSource.DataSource = Me.EasyEnglishDataSetMani
+        '
+        'EasyEnglishDataSetMani
+        '
+        Me.EasyEnglishDataSetMani.DataSetName = "EasyEnglishDataSetMani"
+        Me.EasyEnglishDataSetMani.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Label2
+        '
+        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(1, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.Label2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label2.Location = New System.Drawing.Point(0, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(776, 45)
+        Me.Label2.TabIndex = 2
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.Red
+        Me.Label1.Location = New System.Drawing.Point(124, 59)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(305, 56)
+        Me.Label1.TabIndex = 3
+        Me.Label1.Text = "Consulta de"
+        '
+        'btnSalir
+        '
+        Me.btnSalir.BackColor = System.Drawing.Color.LimeGreen
+        Me.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSalir.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
+        Me.btnSalir.FlatAppearance.BorderSize = 0
+        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSalir.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btnSalir.Location = New System.Drawing.Point(346, 293)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(108, 50)
+        Me.btnSalir.TabIndex = 68
+        Me.btnSalir.Text = "Aceptar"
+        Me.btnSalir.UseVisualStyleBackColor = False
+        '
+        'AlumnoTableAdapter
+        '
+        Me.AlumnoTableAdapter.ClearBeforeFill = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.Red
+        Me.Label3.Location = New System.Drawing.Point(425, 59)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(223, 56)
+        Me.Label3.TabIndex = 69
+        Me.Label3.Text = "alumnos"
+        '
         'frmConsultaAlumnos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(776, 355)
-        Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.DataGridView1)
@@ -167,8 +168,8 @@ Partial Class frmConsultaAlumnos
         Me.Name = "frmConsultaAlumnos"
         Me.Text = "frmConsultaAlumnos"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EasyEnglishDataSetMani, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AlumnoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EasyEnglishDataSetMani, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -176,7 +177,6 @@ Partial Class frmConsultaAlumnos
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents Label3 As Label
     Friend WithEvents btnSalir As Button
     Friend WithEvents EasyEnglishDataSetMani As EasyEnglishDataSetMani
     Friend WithEvents AlumnoBindingSource As BindingSource
@@ -187,4 +187,5 @@ Partial Class frmConsultaAlumnos
     Friend WithEvents TelefonoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents SituacionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents UltimoNivelAcreditadoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Label3 As Label
 End Class
