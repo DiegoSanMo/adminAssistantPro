@@ -63,6 +63,17 @@ Namespace My
                 Return CType(Me("EasyEnglishConnectionString"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-B3IP6AD\MANI;Initial Catalog=EasyEnglish;Integrated Security="& _ 
+            "True")>  _
+        Public ReadOnly Property EasyEnglishConnectionString1() As String
+            Get
+                Return CType(Me("EasyEnglishConnectionString1"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

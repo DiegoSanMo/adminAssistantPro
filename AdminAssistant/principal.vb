@@ -13,4 +13,8 @@
     Private Sub RegistroToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistroToolStripMenuItem.Click
         frmRegistroAlumno.ShowDialog()
     End Sub
+
+    Private Sub RegistroToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles RegistroToolStripMenuItem2.Click
+        frmRegistroCiclo.ShowDialog()
+    End Sub
 End Class

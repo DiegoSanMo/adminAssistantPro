@@ -132,4 +132,20 @@ Public Class frmRegistroMaestro
             e.Status = UpdateStatus.SkipCurrentRow
         End If
     End Sub
+
+    Private Sub btnPrimero_Click(sender As Object, e As EventArgs) Handles btnPrimero.Click
+        MaestroBindingSource.MoveFirst()
+    End Sub
+
+    Private Sub btnAnterior_Click(sender As Object, e As EventArgs) Handles btnAnterior.Click
+        MaestroBindingSource.MovePrevious()
+    End Sub
+
+    Private Sub btnSiguiente_Click(sender As Object, e As EventArgs) Handles btnSiguiente.Click
+        MaestroBindingSource.MoveNext()
+    End Sub
+
+    Private Sub btnUltimo_Click(sender As Object, e As EventArgs) Handles btnUltimo.Click
+        MaestroBindingSource.MoveLast()
+    End Sub
 End Class

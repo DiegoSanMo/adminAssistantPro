@@ -41,6 +41,7 @@ Partial Class principal
         Me.MovimientosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConsultaToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -138,7 +139,7 @@ Partial Class principal
         '
         'CiclosToolStripMenuItem1
         '
-        Me.CiclosToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistroToolStripMenuItem2})
+        Me.CiclosToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistroToolStripMenuItem2, Me.ConsultaToolStripMenuItem2})
         Me.CiclosToolStripMenuItem1.Name = "CiclosToolStripMenuItem1"
         Me.CiclosToolStripMenuItem1.Size = New System.Drawing.Size(231, 44)
         Me.CiclosToolStripMenuItem1.Text = "Ciclos"
@@ -146,7 +147,7 @@ Partial Class principal
         'RegistroToolStripMenuItem2
         '
         Me.RegistroToolStripMenuItem2.Name = "RegistroToolStripMenuItem2"
-        Me.RegistroToolStripMenuItem2.Size = New System.Drawing.Size(216, 44)
+        Me.RegistroToolStripMenuItem2.Size = New System.Drawing.Size(230, 44)
         Me.RegistroToolStripMenuItem2.Text = "Registro"
         '
         'MovimientosToolStripMenuItem
@@ -166,6 +167,12 @@ Partial Class principal
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(219, 43)
         Me.SalirToolStripMenuItem.Text = "Salir"
+        '
+        'ConsultaToolStripMenuItem2
+        '
+        Me.ConsultaToolStripMenuItem2.Name = "ConsultaToolStripMenuItem2"
+        Me.ConsultaToolStripMenuItem2.Size = New System.Drawing.Size(230, 44)
+        Me.ConsultaToolStripMenuItem2.Text = "Consulta"
         '
         'principal
         '
@@ -206,4 +213,5 @@ Partial Class principal
     Friend WithEvents MovimientosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReportesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ConsultaToolStripMenuItem2 As ToolStripMenuItem
 End Class
