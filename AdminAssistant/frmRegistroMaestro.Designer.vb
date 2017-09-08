@@ -30,7 +30,7 @@ Partial Class frmRegistroMaestro
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtClave = New System.Windows.Forms.TextBox()
         Me.MaestroBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.EasyEnglishDataSet1 = New AdminAssistant.EasyEnglishDataSet1()
+        Me.EasyEnglishDataSetMani = New AdminAssistant.EasyEnglishDataSetMani()
         Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtDomicilio = New System.Windows.Forms.TextBox()
@@ -49,20 +49,21 @@ Partial Class frmRegistroMaestro
         Me.cboNivel = New System.Windows.Forms.ComboBox()
         Me.btnModificar = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.MaestroTableAdapter = New AdminAssistant.EasyEnglishDataSet1TableAdapters.maestroTableAdapter()
-        Me.SqlSelectCommand1 = New System.Data.SqlClient.SqlCommand()
-        Me.SqlConnection1 = New System.Data.SqlClient.SqlConnection()
         Me.SqlInsertCommand1 = New System.Data.SqlClient.SqlCommand()
-        Me.SqlUpdateCommand1 = New System.Data.SqlClient.SqlCommand()
-        Me.SqlDeleteCommand1 = New System.Data.SqlClient.SqlCommand()
-        Me.SqlDataAdapter1 = New System.Data.SqlClient.SqlDataAdapter()
         Me.btnPrimero = New System.Windows.Forms.Button()
         Me.btnUltimo = New System.Windows.Forms.Button()
         Me.btnAnterior = New System.Windows.Forms.Button()
         Me.btnSiguiente = New System.Windows.Forms.Button()
+        Me.MaestroTableAdapter = New AdminAssistant.EasyEnglishDataSetManiTableAdapters.maestroTableAdapter()
+        Me.SqlSelectCommand1 = New System.Data.SqlClient.SqlCommand()
+        Me.SqlInsertCommand2 = New System.Data.SqlClient.SqlCommand()
+        Me.SqlUpdateCommand1 = New System.Data.SqlClient.SqlCommand()
+        Me.SqlDeleteCommand1 = New System.Data.SqlClient.SqlCommand()
+        Me.SqlDataAdapter1 = New System.Data.SqlClient.SqlDataAdapter()
+        Me.SqlConnection1 = New System.Data.SqlClient.SqlConnection()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MaestroBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EasyEnglishDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EasyEnglishDataSetMani, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PictureBox2
@@ -120,12 +121,12 @@ Partial Class frmRegistroMaestro
         'MaestroBindingSource
         '
         Me.MaestroBindingSource.DataMember = "maestro"
-        Me.MaestroBindingSource.DataSource = Me.EasyEnglishDataSet1
+        Me.MaestroBindingSource.DataSource = Me.EasyEnglishDataSetMani
         '
-        'EasyEnglishDataSet1
+        'EasyEnglishDataSetMani
         '
-        Me.EasyEnglishDataSet1.DataSetName = "EasyEnglishDataSet1"
-        Me.EasyEnglishDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.EasyEnglishDataSetMani.DataSetName = "EasyEnglishDataSetMani"
+        Me.EasyEnglishDataSetMani.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'txtNombre
         '
@@ -305,7 +306,7 @@ Partial Class frmRegistroMaestro
         '
         'cboNivel
         '
-        Me.cboNivel.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MaestroBindingSource, "nivelIngles", True))
+        Me.cboNivel.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.MaestroBindingSource, "nivelIngles", True))
         Me.cboNivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboNivel.Enabled = False
         Me.cboNivel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
@@ -344,45 +345,10 @@ Partial Class frmRegistroMaestro
         Me.Label9.TabIndex = 59
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'MaestroTableAdapter
-        '
-        Me.MaestroTableAdapter.ClearBeforeFill = True
-        '
-        'SqlSelectCommand1
-        '
-        Me.SqlSelectCommand1.CommandText = "SELECT        maestro.*" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            maestro"
-        Me.SqlSelectCommand1.Connection = Me.SqlConnection1
-        '
-        'SqlConnection1
-        '
-        Me.SqlConnection1.ConnectionString = "Data Source=PRO;Initial Catalog=EasyEnglish;Integrated Security=True"
-        Me.SqlConnection1.FireInfoMessageEventOnUserErrors = False
-        '
         'SqlInsertCommand1
         '
         Me.SqlInsertCommand1.CommandText = resources.GetString("SqlInsertCommand1.CommandText")
-        Me.SqlInsertCommand1.Connection = Me.SqlConnection1
         Me.SqlInsertCommand1.Parameters.AddRange(New System.Data.SqlClient.SqlParameter() {New System.Data.SqlClient.SqlParameter("@idMaestro", System.Data.SqlDbType.Int, 0, "idMaestro"), New System.Data.SqlClient.SqlParameter("@nombre", System.Data.SqlDbType.NVarChar, 0, "nombre"), New System.Data.SqlClient.SqlParameter("@domicilio", System.Data.SqlDbType.NVarChar, 0, "domicilio"), New System.Data.SqlClient.SqlParameter("@telefono", System.Data.SqlDbType.NVarChar, 0, "telefono"), New System.Data.SqlClient.SqlParameter("@certificado", System.Data.SqlDbType.NVarChar, 0, "certificado"), New System.Data.SqlClient.SqlParameter("@nivelIngles", System.Data.SqlDbType.NVarChar, 0, "nivelIngles"), New System.Data.SqlClient.SqlParameter("@correo", System.Data.SqlDbType.NVarChar, 0, "correo")})
-        '
-        'SqlUpdateCommand1
-        '
-        Me.SqlUpdateCommand1.CommandText = resources.GetString("SqlUpdateCommand1.CommandText")
-        Me.SqlUpdateCommand1.Connection = Me.SqlConnection1
-        Me.SqlUpdateCommand1.Parameters.AddRange(New System.Data.SqlClient.SqlParameter() {New System.Data.SqlClient.SqlParameter("@idMaestro", System.Data.SqlDbType.Int, 0, "idMaestro"), New System.Data.SqlClient.SqlParameter("@nombre", System.Data.SqlDbType.NVarChar, 0, "nombre"), New System.Data.SqlClient.SqlParameter("@domicilio", System.Data.SqlDbType.NVarChar, 0, "domicilio"), New System.Data.SqlClient.SqlParameter("@telefono", System.Data.SqlDbType.NVarChar, 0, "telefono"), New System.Data.SqlClient.SqlParameter("@certificado", System.Data.SqlDbType.NVarChar, 0, "certificado"), New System.Data.SqlClient.SqlParameter("@nivelIngles", System.Data.SqlDbType.NVarChar, 0, "nivelIngles"), New System.Data.SqlClient.SqlParameter("@correo", System.Data.SqlDbType.NVarChar, 0, "correo"), New System.Data.SqlClient.SqlParameter("@Original_idMaestro", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "idMaestro", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_nombre", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "nombre", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_nombre", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "nombre", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_domicilio", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "domicilio", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_domicilio", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "domicilio", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_telefono", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "telefono", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_telefono", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "telefono", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_certificado", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "certificado", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_certificado", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "certificado", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_nivelIngles", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "nivelIngles", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_nivelIngles", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "nivelIngles", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_correo", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "correo", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_correo", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "correo", System.Data.DataRowVersion.Original, Nothing)})
-        '
-        'SqlDeleteCommand1
-        '
-        Me.SqlDeleteCommand1.CommandText = resources.GetString("SqlDeleteCommand1.CommandText")
-        Me.SqlDeleteCommand1.Connection = Me.SqlConnection1
-        Me.SqlDeleteCommand1.Parameters.AddRange(New System.Data.SqlClient.SqlParameter() {New System.Data.SqlClient.SqlParameter("@Original_idMaestro", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "idMaestro", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_nombre", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "nombre", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_nombre", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "nombre", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_domicilio", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "domicilio", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_domicilio", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "domicilio", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_telefono", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "telefono", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_telefono", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "telefono", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_certificado", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "certificado", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_certificado", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "certificado", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_nivelIngles", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "nivelIngles", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_nivelIngles", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "nivelIngles", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_correo", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "correo", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_correo", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "correo", System.Data.DataRowVersion.Original, Nothing)})
-        '
-        'SqlDataAdapter1
-        '
-        Me.SqlDataAdapter1.DeleteCommand = Me.SqlDeleteCommand1
-        Me.SqlDataAdapter1.InsertCommand = Me.SqlInsertCommand1
-        Me.SqlDataAdapter1.SelectCommand = Me.SqlSelectCommand1
-        Me.SqlDataAdapter1.TableMappings.AddRange(New System.Data.Common.DataTableMapping() {New System.Data.Common.DataTableMapping("Table", "maestro", New System.Data.Common.DataColumnMapping() {New System.Data.Common.DataColumnMapping("idMaestro", "idMaestro"), New System.Data.Common.DataColumnMapping("nombre", "nombre"), New System.Data.Common.DataColumnMapping("domicilio", "domicilio"), New System.Data.Common.DataColumnMapping("telefono", "telefono"), New System.Data.Common.DataColumnMapping("certificado", "certificado"), New System.Data.Common.DataColumnMapping("nivelIngles", "nivelIngles"), New System.Data.Common.DataColumnMapping("correo", "correo")})})
-        Me.SqlDataAdapter1.UpdateCommand = Me.SqlUpdateCommand1
         '
         'btnPrimero
         '
@@ -448,6 +414,47 @@ Partial Class frmRegistroMaestro
         Me.btnSiguiente.Text = ">"
         Me.btnSiguiente.UseVisualStyleBackColor = False
         '
+        'MaestroTableAdapter
+        '
+        Me.MaestroTableAdapter.ClearBeforeFill = True
+        '
+        'SqlSelectCommand1
+        '
+        Me.SqlSelectCommand1.CommandText = "SELECT * FROM maestro;"
+        Me.SqlSelectCommand1.Connection = Me.SqlConnection1
+        '
+        'SqlInsertCommand2
+        '
+        Me.SqlInsertCommand2.CommandText = resources.GetString("SqlInsertCommand2.CommandText")
+        Me.SqlInsertCommand2.Connection = Me.SqlConnection1
+        Me.SqlInsertCommand2.Parameters.AddRange(New System.Data.SqlClient.SqlParameter() {New System.Data.SqlClient.SqlParameter("@idMaestro", System.Data.SqlDbType.Int, 0, "idMaestro"), New System.Data.SqlClient.SqlParameter("@nombre", System.Data.SqlDbType.NVarChar, 0, "nombre"), New System.Data.SqlClient.SqlParameter("@domicilio", System.Data.SqlDbType.NVarChar, 0, "domicilio"), New System.Data.SqlClient.SqlParameter("@telefono", System.Data.SqlDbType.NVarChar, 0, "telefono"), New System.Data.SqlClient.SqlParameter("@certificado", System.Data.SqlDbType.NVarChar, 0, "certificado"), New System.Data.SqlClient.SqlParameter("@nivelIngles", System.Data.SqlDbType.NVarChar, 0, "nivelIngles"), New System.Data.SqlClient.SqlParameter("@correo", System.Data.SqlDbType.NVarChar, 0, "correo")})
+        '
+        'SqlUpdateCommand1
+        '
+        Me.SqlUpdateCommand1.CommandText = resources.GetString("SqlUpdateCommand1.CommandText")
+        Me.SqlUpdateCommand1.Connection = Me.SqlConnection1
+        Me.SqlUpdateCommand1.Parameters.AddRange(New System.Data.SqlClient.SqlParameter() {New System.Data.SqlClient.SqlParameter("@idMaestro", System.Data.SqlDbType.Int, 0, "idMaestro"), New System.Data.SqlClient.SqlParameter("@nombre", System.Data.SqlDbType.NVarChar, 0, "nombre"), New System.Data.SqlClient.SqlParameter("@domicilio", System.Data.SqlDbType.NVarChar, 0, "domicilio"), New System.Data.SqlClient.SqlParameter("@telefono", System.Data.SqlDbType.NVarChar, 0, "telefono"), New System.Data.SqlClient.SqlParameter("@certificado", System.Data.SqlDbType.NVarChar, 0, "certificado"), New System.Data.SqlClient.SqlParameter("@nivelIngles", System.Data.SqlDbType.NVarChar, 0, "nivelIngles"), New System.Data.SqlClient.SqlParameter("@correo", System.Data.SqlDbType.NVarChar, 0, "correo"), New System.Data.SqlClient.SqlParameter("@Original_idMaestro", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "idMaestro", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_nombre", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "nombre", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_nombre", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "nombre", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_domicilio", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "domicilio", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_domicilio", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "domicilio", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_telefono", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "telefono", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_telefono", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "telefono", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_certificado", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "certificado", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_certificado", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "certificado", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_nivelIngles", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "nivelIngles", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_nivelIngles", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "nivelIngles", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_correo", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "correo", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_correo", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "correo", System.Data.DataRowVersion.Original, Nothing)})
+        '
+        'SqlDeleteCommand1
+        '
+        Me.SqlDeleteCommand1.CommandText = resources.GetString("SqlDeleteCommand1.CommandText")
+        Me.SqlDeleteCommand1.Connection = Me.SqlConnection1
+        Me.SqlDeleteCommand1.Parameters.AddRange(New System.Data.SqlClient.SqlParameter() {New System.Data.SqlClient.SqlParameter("@Original_idMaestro", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "idMaestro", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_nombre", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "nombre", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_nombre", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "nombre", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_domicilio", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "domicilio", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_domicilio", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "domicilio", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_telefono", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "telefono", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_telefono", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "telefono", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_certificado", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "certificado", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_certificado", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "certificado", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_nivelIngles", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "nivelIngles", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_nivelIngles", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "nivelIngles", System.Data.DataRowVersion.Original, Nothing), New System.Data.SqlClient.SqlParameter("@IsNull_correo", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, CType(0, Byte), CType(0, Byte), "correo", System.Data.DataRowVersion.Original, True, Nothing, "", "", ""), New System.Data.SqlClient.SqlParameter("@Original_correo", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "correo", System.Data.DataRowVersion.Original, Nothing)})
+        '
+        'SqlDataAdapter1
+        '
+        Me.SqlDataAdapter1.DeleteCommand = Me.SqlDeleteCommand1
+        Me.SqlDataAdapter1.InsertCommand = Me.SqlInsertCommand2
+        Me.SqlDataAdapter1.SelectCommand = Me.SqlSelectCommand1
+        Me.SqlDataAdapter1.TableMappings.AddRange(New System.Data.Common.DataTableMapping() {New System.Data.Common.DataTableMapping("Table", "maestro", New System.Data.Common.DataColumnMapping() {New System.Data.Common.DataColumnMapping("idMaestro", "idMaestro"), New System.Data.Common.DataColumnMapping("nombre", "nombre"), New System.Data.Common.DataColumnMapping("domicilio", "domicilio"), New System.Data.Common.DataColumnMapping("telefono", "telefono"), New System.Data.Common.DataColumnMapping("certificado", "certificado"), New System.Data.Common.DataColumnMapping("nivelIngles", "nivelIngles"), New System.Data.Common.DataColumnMapping("correo", "correo")})})
+        Me.SqlDataAdapter1.UpdateCommand = Me.SqlUpdateCommand1
+        '
+        'SqlConnection1
+        '
+        Me.SqlConnection1.ConnectionString = "Data Source=DESKTOP-B3IP6AD\MANI;Initial Catalog=EasyEnglish;Integrated Security=" &
+    "True"
+        Me.SqlConnection1.FireInfoMessageEventOnUserErrors = False
+        '
         'frmRegistroMaestro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -486,7 +493,7 @@ Partial Class frmRegistroMaestro
         Me.Text = "frmRegistroMaestro"
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MaestroBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EasyEnglishDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EasyEnglishDataSetMani, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -515,17 +522,18 @@ Partial Class frmRegistroMaestro
     Friend WithEvents cboNivel As ComboBox
     Friend WithEvents btnModificar As Button
     Friend WithEvents Label9 As Label
-    Friend WithEvents EasyEnglishDataSet1 As EasyEnglishDataSet1
-    Friend WithEvents MaestroBindingSource As BindingSource
-    Friend WithEvents MaestroTableAdapter As EasyEnglishDataSet1TableAdapters.maestroTableAdapter
-    Friend WithEvents SqlSelectCommand1 As SqlClient.SqlCommand
-    Friend WithEvents SqlConnection1 As SqlClient.SqlConnection
     Friend WithEvents SqlInsertCommand1 As SqlClient.SqlCommand
-    Friend WithEvents SqlUpdateCommand1 As SqlClient.SqlCommand
-    Friend WithEvents SqlDeleteCommand1 As SqlClient.SqlCommand
-    Friend WithEvents SqlDataAdapter1 As SqlClient.SqlDataAdapter
     Friend WithEvents btnPrimero As Button
     Friend WithEvents btnUltimo As Button
     Friend WithEvents btnAnterior As Button
     Friend WithEvents btnSiguiente As Button
+    Friend WithEvents EasyEnglishDataSetMani As EasyEnglishDataSetMani
+    Friend WithEvents MaestroBindingSource As BindingSource
+    Friend WithEvents MaestroTableAdapter As EasyEnglishDataSetManiTableAdapters.maestroTableAdapter
+    Friend WithEvents SqlSelectCommand1 As SqlClient.SqlCommand
+    Friend WithEvents SqlConnection1 As SqlClient.SqlConnection
+    Friend WithEvents SqlInsertCommand2 As SqlClient.SqlCommand
+    Friend WithEvents SqlUpdateCommand1 As SqlClient.SqlCommand
+    Friend WithEvents SqlDeleteCommand1 As SqlClient.SqlCommand
+    Friend WithEvents SqlDataAdapter1 As SqlClient.SqlDataAdapter
 End Class

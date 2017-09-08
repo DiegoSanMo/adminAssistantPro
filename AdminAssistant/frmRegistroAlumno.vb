@@ -19,8 +19,10 @@ Public Class frmRegistroAlumno
     End Sub
 
     Private Sub frmRegistroAlumno_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'EasyEnglishDataSetMani.alumno' Puede moverla o quitarla según sea necesario.
+        Me.AlumnoTableAdapter.Fill(Me.EasyEnglishDataSetMani.alumno)
         'TODO: esta línea de código carga datos en la tabla 'EasyEnglishDataSet.alumno' Puede moverla o quitarla según sea necesario.
-        Me.AlumnoTableAdapter.Fill(Me.EasyEnglishDataSet.alumno)
+        'Me.AlumnoTableAdapter.Fill(Me.EasyEnglishDataSet.alumno)
 
         btnPrimero.Enabled = True
         btnSiguiente.Enabled = True
@@ -34,9 +36,9 @@ Public Class frmRegistroAlumno
 
         AlumnoBindingSource.EndEdit()
         'AlumnoTableAdapter.Update(EasyEnglishDataSet.alumno)
-        SqlDataAdapter1.Update(EasyEnglishDataSet.alumno)
-        EasyEnglishDataSet.Clear()
-        AlumnoTableAdapter.Fill(EasyEnglishDataSet.alumno)
+        SqlDataAdapter1.Update(EasyEnglishDataSetMani.alumno)
+        EasyEnglishDataSetMani.Clear()
+        AlumnoTableAdapter.Fill(EasyEnglishDataSetMani.alumno)
 
         'Se bloquean los controles principales
         txtNombre.Enabled = False

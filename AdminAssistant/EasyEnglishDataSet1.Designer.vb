@@ -1063,7 +1063,7 @@ Namespace EasyEnglishDataSet1TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.AdminAssistant.My.MySettings.Default.EasyEnglishConnectionString
+            Me._connection.ConnectionString = Global.AdminAssistant.My.MySettings.Default.EasyEnglishConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

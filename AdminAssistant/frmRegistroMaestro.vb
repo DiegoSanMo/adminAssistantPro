@@ -2,8 +2,10 @@
 
 Public Class frmRegistroMaestro
     Private Sub frmRegistroMaestro_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'EasyEnglishDataSetMani.maestro' Puede moverla o quitarla según sea necesario.
+        Me.MaestroTableAdapter.Fill(Me.EasyEnglishDataSetMani.maestro)
         'TODO: esta línea de código carga datos en la tabla 'EasyEnglishDataSet1.maestro' Puede moverla o quitarla según sea necesario.
-        Me.MaestroTableAdapter.Fill(Me.EasyEnglishDataSet1.maestro)
+        'Me.MaestroTableAdapter.Fill(Me.EasyEnglishDataSetMani.maestro)
 
     End Sub
 
@@ -38,9 +40,9 @@ Public Class frmRegistroMaestro
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         MaestroBindingSource.EndEdit()
         'AlumnoTableAdapter.Update(EasyEnglishDataSet.alumno)
-        SqlDataAdapter1.Update(EasyEnglishDataSet1.maestro)
-        EasyEnglishDataSet1.Clear()
-        MaestroTableAdapter.Fill(EasyEnglishDataSet1.maestro)
+        SqlDataAdapter1.Update(EasyEnglishDataSetMani.maestro)
+        EasyEnglishDataSetMani.Clear()
+        MaestroTableAdapter.Fill(EasyEnglishDataSetMani.maestro)
 
 
 
@@ -124,7 +126,7 @@ Public Class frmRegistroMaestro
 
     End Sub
 
-    Private Sub SqlDataAdapter1_RowUpdated(sender As Object, e As SqlRowUpdatedEventArgs) Handles SqlDataAdapter1.RowUpdated
+    Private Sub SqlDataAdapter1_RowUpdated(sender As Object, e As SqlRowUpdatedEventArgs)
         If e.Status = UpdateStatus.ErrorsOccurred Then
             MessageBox.Show(e.Errors.Message & vbCrLf &
             e.Row.Item("nombre", DataRowVersion.Original) & vbCrLf &

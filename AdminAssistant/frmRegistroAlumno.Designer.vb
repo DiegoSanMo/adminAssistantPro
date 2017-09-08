@@ -29,8 +29,6 @@ Partial Class frmRegistroAlumno
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.ptbFoto = New System.Windows.Forms.PictureBox()
-        Me.AlumnoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.EasyEnglishDataSet = New AdminAssistant.EasyEnglishDataSet()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.btnCancelar = New System.Windows.Forms.Button()
@@ -57,7 +55,6 @@ Partial Class frmRegistroAlumno
         Me.cboSituacion = New System.Windows.Forms.ComboBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtNoControl = New System.Windows.Forms.TextBox()
-        Me.AlumnoTableAdapter = New AdminAssistant.EasyEnglishDataSetTableAdapters.alumnoTableAdapter()
         Me.SqlSelectCommand1 = New System.Data.SqlClient.SqlCommand()
         Me.SqlConnection1 = New System.Data.SqlClient.SqlConnection()
         Me.SqlInsertCommand1 = New System.Data.SqlClient.SqlCommand()
@@ -71,10 +68,13 @@ Partial Class frmRegistroAlumno
         Me.btnPrimero = New System.Windows.Forms.Button()
         Me.btnUltimo = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.EasyEnglishDataSetMani = New AdminAssistant.EasyEnglishDataSetMani()
+        Me.AlumnoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.AlumnoTableAdapter = New AdminAssistant.EasyEnglishDataSetManiTableAdapters.alumnoTableAdapter()
         CType(Me.ptbFoto, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.AlumnoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EasyEnglishDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EasyEnglishDataSetMani, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AlumnoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label2
@@ -130,16 +130,6 @@ Partial Class frmRegistroAlumno
         Me.ptbFoto.Size = New System.Drawing.Size(204, 197)
         Me.ptbFoto.TabIndex = 9
         Me.ptbFoto.TabStop = False
-        '
-        'AlumnoBindingSource
-        '
-        Me.AlumnoBindingSource.DataMember = "alumno"
-        Me.AlumnoBindingSource.DataSource = Me.EasyEnglishDataSet
-        '
-        'EasyEnglishDataSet
-        '
-        Me.EasyEnglishDataSet.DataSetName = "EasyEnglishDataSet"
-        Me.EasyEnglishDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label7
         '
@@ -408,7 +398,7 @@ Partial Class frmRegistroAlumno
         '
         'cboSituacion
         '
-        Me.cboSituacion.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AlumnoBindingSource, "situacion", True))
+        Me.cboSituacion.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.AlumnoBindingSource, "nombre", True))
         Me.cboSituacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboSituacion.Enabled = False
         Me.cboSituacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
@@ -440,10 +430,6 @@ Partial Class frmRegistroAlumno
         Me.txtNoControl.Size = New System.Drawing.Size(203, 34)
         Me.txtNoControl.TabIndex = 39
         '
-        'AlumnoTableAdapter
-        '
-        Me.AlumnoTableAdapter.ClearBeforeFill = True
-        '
         'SqlSelectCommand1
         '
         Me.SqlSelectCommand1.CommandText = "SELECT        idAlumno, nombre, domicilio, ciudad, estado, telefono, telefonoEmer" &
@@ -453,7 +439,8 @@ Partial Class frmRegistroAlumno
         '
         'SqlConnection1
         '
-        Me.SqlConnection1.ConnectionString = "Data Source=PRO;Initial Catalog=EasyEnglish;Integrated Security=True"
+        Me.SqlConnection1.ConnectionString = "Data Source=DESKTOP-B3IP6AD\MANI;Initial Catalog=EasyEnglish;Integrated Security=" &
+    "True"
         Me.SqlConnection1.FireInfoMessageEventOnUserErrors = False
         '
         'SqlInsertCommand1
@@ -582,6 +569,20 @@ Partial Class frmRegistroAlumno
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
+        'EasyEnglishDataSetMani
+        '
+        Me.EasyEnglishDataSetMani.DataSetName = "EasyEnglishDataSetMani"
+        Me.EasyEnglishDataSetMani.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'AlumnoBindingSource
+        '
+        Me.AlumnoBindingSource.DataMember = "alumno"
+        Me.AlumnoBindingSource.DataSource = Me.EasyEnglishDataSetMani
+        '
+        'AlumnoTableAdapter
+        '
+        Me.AlumnoTableAdapter.ClearBeforeFill = True
+        '
         'frmRegistroAlumno
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -630,9 +631,9 @@ Partial Class frmRegistroAlumno
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmRegistroAlumno"
         CType(Me.ptbFoto, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.AlumnoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EasyEnglishDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EasyEnglishDataSetMani, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AlumnoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -668,9 +669,6 @@ Partial Class frmRegistroAlumno
     Friend WithEvents cboSituacion As ComboBox
     Friend WithEvents Label14 As Label
     Friend WithEvents txtNoControl As TextBox
-    Friend WithEvents EasyEnglishDataSet As EasyEnglishDataSet
-    Friend WithEvents AlumnoBindingSource As BindingSource
-    Friend WithEvents AlumnoTableAdapter As EasyEnglishDataSetTableAdapters.alumnoTableAdapter
     Friend WithEvents SqlSelectCommand1 As SqlClient.SqlCommand
     Friend WithEvents SqlConnection1 As SqlClient.SqlConnection
     Friend WithEvents SqlInsertCommand1 As SqlClient.SqlCommand
@@ -684,4 +682,7 @@ Partial Class frmRegistroAlumno
     Friend WithEvents btnPrimero As Button
     Friend WithEvents btnUltimo As Button
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents EasyEnglishDataSetMani As EasyEnglishDataSetMani
+    Friend WithEvents AlumnoBindingSource As BindingSource
+    Friend WithEvents AlumnoTableAdapter As EasyEnglishDataSetManiTableAdapters.alumnoTableAdapter
 End Class

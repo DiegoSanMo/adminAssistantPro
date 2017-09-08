@@ -17,4 +17,16 @@
     Private Sub RegistroToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles RegistroToolStripMenuItem2.Click
         frmRegistroCiclo.ShowDialog()
     End Sub
+
+    Private Sub ConsultaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultaToolStripMenuItem.Click
+        frmConsultaAlumnos.ShowDialog()
+    End Sub
+
+    Private Sub ConsultaToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ConsultaToolStripMenuItem2.Click
+        frmConsultaCiclo.ShowDialog()
+    End Sub
+
+    Private Sub ConsultaToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ConsultaToolStripMenuItem1.Click
+        frmConsultaMaestros.ShowDialog()
+    End Sub
 End Class

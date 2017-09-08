@@ -38,10 +38,10 @@ Partial Class principal
         Me.ConsultaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.CiclosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistroToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConsultaToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MovimientosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConsultaToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -150,6 +150,12 @@ Partial Class principal
         Me.RegistroToolStripMenuItem2.Size = New System.Drawing.Size(230, 44)
         Me.RegistroToolStripMenuItem2.Text = "Registro"
         '
+        'ConsultaToolStripMenuItem2
+        '
+        Me.ConsultaToolStripMenuItem2.Name = "ConsultaToolStripMenuItem2"
+        Me.ConsultaToolStripMenuItem2.Size = New System.Drawing.Size(230, 44)
+        Me.ConsultaToolStripMenuItem2.Text = "Consulta"
+        '
         'MovimientosToolStripMenuItem
         '
         Me.MovimientosToolStripMenuItem.Name = "MovimientosToolStripMenuItem"
@@ -167,12 +173,6 @@ Partial Class principal
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(219, 43)
         Me.SalirToolStripMenuItem.Text = "Salir"
-        '
-        'ConsultaToolStripMenuItem2
-        '
-        Me.ConsultaToolStripMenuItem2.Name = "ConsultaToolStripMenuItem2"
-        Me.ConsultaToolStripMenuItem2.Size = New System.Drawing.Size(230, 44)
-        Me.ConsultaToolStripMenuItem2.Text = "Consulta"
         '
         'principal
         '
