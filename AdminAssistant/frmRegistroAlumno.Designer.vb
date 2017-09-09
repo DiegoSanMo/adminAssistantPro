@@ -29,7 +29,6 @@ Partial Class frmRegistroAlumno
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.ptbFoto = New System.Windows.Forms.PictureBox()
-        Me.AlumnoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EasyEnglishDataSetMani = New AdminAssistant.EasyEnglishDataSetMani()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
@@ -70,11 +69,14 @@ Partial Class frmRegistroAlumno
         Me.btnPrimero = New System.Windows.Forms.Button()
         Me.btnUltimo = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.AlumnoTableAdapter = New AdminAssistant.EasyEnglishDataSetManiTableAdapters.alumnoTableAdapter()
+        Me.EasyEnglishDataSetDiego = New AdminAssistant.EasyEnglishDataSetDiego()
+        Me.AlumnoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.AlumnoTableAdapter = New AdminAssistant.EasyEnglishDataSetDiegoTableAdapters.alumnoTableAdapter()
         CType(Me.ptbFoto, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.AlumnoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EasyEnglishDataSetMani, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EasyEnglishDataSetDiego, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AlumnoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label2
@@ -130,11 +132,6 @@ Partial Class frmRegistroAlumno
         Me.ptbFoto.Size = New System.Drawing.Size(204, 197)
         Me.ptbFoto.TabIndex = 9
         Me.ptbFoto.TabStop = False
-        '
-        'AlumnoBindingSource
-        '
-        Me.AlumnoBindingSource.DataMember = "alumno"
-        Me.AlumnoBindingSource.DataSource = Me.EasyEnglishDataSetMani
         '
         'EasyEnglishDataSetMani
         '
@@ -408,7 +405,7 @@ Partial Class frmRegistroAlumno
         '
         'cboSituacion
         '
-        Me.cboSituacion.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.AlumnoBindingSource, "nombre", True))
+        Me.cboSituacion.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AlumnoBindingSource, "situacion", True))
         Me.cboSituacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboSituacion.Enabled = False
         Me.cboSituacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
@@ -449,8 +446,7 @@ Partial Class frmRegistroAlumno
         '
         'SqlConnection1
         '
-        Me.SqlConnection1.ConnectionString = "Data Source=DESKTOP-B3IP6AD\MANI;Initial Catalog=EasyEnglish;Integrated Security=" &
-    "True"
+        Me.SqlConnection1.ConnectionString = "Data Source=PRO;Initial Catalog=EasyEnglish;Integrated Security=True"
         Me.SqlConnection1.FireInfoMessageEventOnUserErrors = False
         '
         'SqlInsertCommand1
@@ -579,6 +575,16 @@ Partial Class frmRegistroAlumno
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
+        'EasyEnglishDataSetDiego
+        '
+        Me.EasyEnglishDataSetDiego.DataSetName = "EasyEnglishDataSetDiego"
+        Me.EasyEnglishDataSetDiego.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'AlumnoBindingSource
+        '
+        Me.AlumnoBindingSource.DataMember = "alumno"
+        Me.AlumnoBindingSource.DataSource = Me.EasyEnglishDataSetDiego
+        '
         'AlumnoTableAdapter
         '
         Me.AlumnoTableAdapter.ClearBeforeFill = True
@@ -631,9 +637,10 @@ Partial Class frmRegistroAlumno
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmRegistroAlumno"
         CType(Me.ptbFoto, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.AlumnoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EasyEnglishDataSetMani, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EasyEnglishDataSetDiego, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AlumnoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -683,6 +690,7 @@ Partial Class frmRegistroAlumno
     Friend WithEvents btnUltimo As Button
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents EasyEnglishDataSetMani As EasyEnglishDataSetMani
+    Friend WithEvents EasyEnglishDataSetDiego As EasyEnglishDataSetDiego
     Friend WithEvents AlumnoBindingSource As BindingSource
-    Friend WithEvents AlumnoTableAdapter As EasyEnglishDataSetManiTableAdapters.alumnoTableAdapter
+    Friend WithEvents AlumnoTableAdapter As EasyEnglishDataSetDiegoTableAdapters.alumnoTableAdapter
 End Class

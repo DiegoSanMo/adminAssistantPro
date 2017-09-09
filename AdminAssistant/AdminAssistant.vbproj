@@ -74,10 +74,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EasyEnglishDataSet1.Designer.vb">
+    <Compile Include="EasyEnglishDataSetDiego.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EasyEnglishDataSet1.xsd</DependentUpon>
+      <DependentUpon>EasyEnglishDataSetDiego.xsd</DependentUpon>
     </Compile>
     <Compile Include="EasyEnglishDataSetMani.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -164,16 +164,16 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="EasyEnglishDataSet1.xsc">
-      <DependentUpon>EasyEnglishDataSet1.xsd</DependentUpon>
+    <None Include="EasyEnglishDataSetDiego.xsc">
+      <DependentUpon>EasyEnglishDataSetDiego.xsd</DependentUpon>
     </None>
-    <None Include="EasyEnglishDataSet1.xsd">
+    <None Include="EasyEnglishDataSetDiego.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>EasyEnglishDataSet1.Designer.vb</LastGenOutput>
+      <LastGenOutput>EasyEnglishDataSetDiego.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="EasyEnglishDataSet1.xss">
-      <DependentUpon>EasyEnglishDataSet1.xsd</DependentUpon>
+    <None Include="EasyEnglishDataSetDiego.xss">
+      <DependentUpon>EasyEnglishDataSetDiego.xsd</DependentUpon>
     </None>
     <None Include="EasyEnglishDataSetMani.xsc">
       <DependentUpon>EasyEnglishDataSetMani.xsd</DependentUpon>
