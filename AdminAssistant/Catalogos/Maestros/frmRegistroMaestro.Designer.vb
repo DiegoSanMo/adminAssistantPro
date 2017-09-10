@@ -186,7 +186,7 @@ Partial Class frmRegistroMaestro
         '
         'btnSalir
         '
-        Me.btnSalir.BackColor = System.Drawing.Color.SlateBlue
+        Me.btnSalir.BackColor = System.Drawing.Color.DarkSlateGray
         Me.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnSalir.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
         Me.btnSalir.FlatAppearance.BorderSize = 0
@@ -202,7 +202,7 @@ Partial Class frmRegistroMaestro
         '
         'btnGuardar
         '
-        Me.btnGuardar.BackColor = System.Drawing.Color.LimeGreen
+        Me.btnGuardar.BackColor = System.Drawing.Color.DarkSlateGray
         Me.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnGuardar.Enabled = False
         Me.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
@@ -219,7 +219,7 @@ Partial Class frmRegistroMaestro
         '
         'btnCancelar
         '
-        Me.btnCancelar.BackColor = System.Drawing.Color.Crimson
+        Me.btnCancelar.BackColor = System.Drawing.Color.DarkSlateGray
         Me.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnCancelar.Enabled = False
         Me.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.LightGray

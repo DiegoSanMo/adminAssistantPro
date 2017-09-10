@@ -102,10 +102,10 @@
     <Compile Include="frmConsultaMaestros.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRegistroAlumno.Designer.vb">
+    <Compile Include="Catalogos\Alumnos\frmRegistroAlumno.Designer.vb">
       <DependentUpon>frmRegistroAlumno.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmRegistroAlumno.vb">
+    <Compile Include="Catalogos\Alumnos\frmRegistroAlumno.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmRegistroCiclo.Designer.vb">
@@ -114,13 +114,19 @@
     <Compile Include="frmRegistroCiclo.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRegistroMaestro.Designer.vb">
+    <Compile Include="Catalogos\Maestros\frmRegistroMaestro.Designer.vb">
       <DependentUpon>frmRegistroMaestro.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmRegistroMaestro.vb">
+    <Compile Include="Catalogos\Maestros\frmRegistroMaestro.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module1.vb" />
+    <Compile Include="Movimientos\frmInscripciones.Designer.vb">
+      <DependentUpon>frmInscripciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmInscripciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -153,14 +159,17 @@
     <EmbeddedResource Include="frmConsultaMaestros.resx">
       <DependentUpon>frmConsultaMaestros.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRegistroAlumno.resx">
+    <EmbeddedResource Include="Catalogos\Alumnos\frmRegistroAlumno.resx">
       <DependentUpon>frmRegistroAlumno.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistroCiclo.resx">
       <DependentUpon>frmRegistroCiclo.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRegistroMaestro.resx">
+    <EmbeddedResource Include="Catalogos\Maestros\frmRegistroMaestro.resx">
       <DependentUpon>frmRegistroMaestro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Movimientos\frmInscripciones.resx">
+      <DependentUpon>frmInscripciones.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -207,9 +216,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Catalogos\Alumnos\" />
-    <Folder Include="Catalogos\Maestros\" />
-    <Folder Include="Movimientos\" />
     <Folder Include="Reportes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

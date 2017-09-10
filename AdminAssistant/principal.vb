@@ -29,4 +29,8 @@
     Private Sub ConsultaToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ConsultaToolStripMenuItem1.Click
         frmConsultaMaestros.Show()
     End Sub
+
+    Private Sub InscipciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InscipciónToolStripMenuItem.Click
+        frmInscripciones.Show()
+    End Sub
 End Class

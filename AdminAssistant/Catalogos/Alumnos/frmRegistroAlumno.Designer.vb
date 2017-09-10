@@ -173,7 +173,7 @@ Partial Class frmRegistroAlumno
         'btnCancelar
         '
         Me.btnCancelar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCancelar.BackColor = System.Drawing.Color.Crimson
+        Me.btnCancelar.BackColor = System.Drawing.Color.DarkSlateGray
         Me.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
         Me.btnCancelar.FlatAppearance.BorderSize = 0
@@ -279,7 +279,7 @@ Partial Class frmRegistroAlumno
         'btnAceptar
         '
         Me.btnAceptar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAceptar.BackColor = System.Drawing.Color.LimeGreen
+        Me.btnAceptar.BackColor = System.Drawing.Color.DarkSlateGray
         Me.btnAceptar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnAceptar.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
         Me.btnAceptar.FlatAppearance.BorderSize = 0
@@ -296,7 +296,7 @@ Partial Class frmRegistroAlumno
         'btnSalir
         '
         Me.btnSalir.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSalir.BackColor = System.Drawing.Color.LightSlateGray
+        Me.btnSalir.BackColor = System.Drawing.Color.DarkSlateGray
         Me.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnSalir.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
         Me.btnSalir.FlatAppearance.BorderSize = 0

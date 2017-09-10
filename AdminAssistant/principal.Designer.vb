@@ -42,6 +42,7 @@ Partial Class principal
         Me.MovimientosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InscipciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -158,6 +159,7 @@ Partial Class principal
         '
         'MovimientosToolStripMenuItem
         '
+        Me.MovimientosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InscipciónToolStripMenuItem})
         Me.MovimientosToolStripMenuItem.Name = "MovimientosToolStripMenuItem"
         Me.MovimientosToolStripMenuItem.Size = New System.Drawing.Size(219, 43)
         Me.MovimientosToolStripMenuItem.Text = "Movimientos"
@@ -173,6 +175,12 @@ Partial Class principal
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(219, 43)
         Me.SalirToolStripMenuItem.Text = "Salir"
+        '
+        'InscipciónToolStripMenuItem
+        '
+        Me.InscipciónToolStripMenuItem.Name = "InscipciónToolStripMenuItem"
+        Me.InscipciónToolStripMenuItem.Size = New System.Drawing.Size(253, 44)
+        Me.InscipciónToolStripMenuItem.Text = "Inscipción"
         '
         'principal
         '
@@ -212,4 +220,5 @@ Partial Class principal
     Friend WithEvents ReportesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ConsultaToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents InscipciónToolStripMenuItem As ToolStripMenuItem
 End Class
