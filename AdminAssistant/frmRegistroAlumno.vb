@@ -1,8 +1,7 @@
-﻿
-
-Imports System.Data.SqlClient
+﻿Imports System.Data.SqlClient
 
 Public Class frmRegistroAlumno
+    Dim ubicacion As String
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         Me.Close()
         txtNombre.Enabled = False
@@ -19,12 +18,13 @@ Public Class frmRegistroAlumno
     End Sub
 
     Private Sub frmRegistroAlumno_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'EasyEnglishDataSetDiego.alumno' Puede moverla o quitarla según sea necesario.
-        Me.AlumnoTableAdapter.Fill(Me.EasyEnglishDataSetDiego.alumno)
         'TODO: esta línea de código carga datos en la tabla 'EasyEnglishDataSetMani.alumno' Puede moverla o quitarla según sea necesario.
-        Me.AlumnoTableAdapter.Fill(Me.EasyEnglishDataSetDiego.alumno)
-        'TODO: esta línea de código carga datos en la tabla 'EasyEnglishDataSet.alumno' Puede moverla o quitarla según sea necesario.
-        'Me.AlumnoTableAdapter.Fill(Me.EasyEnglishDataSet.alumno)
+        Me.AlumnoTableAdapter.Fill(Me.EasyEnglishDataSetMani.alumno)
+        'TODO: esta línea de código carga datos en la tabla 'EasyEnglishDataSetDiego.alumno' Puede moverla o quitarla según sea necesario.
+        'Me.AlumnoTableAdapter.Fill(Me.EasyEnglishDataSetDiego.alumno)
+        'TODO: esta línea de código carga datos en la tabla 'EasyEnglishDataSetMani.alumno' Puede moverla o quitarla según sea necesario.
+        'Me.AlumnoTableAdapter.Fill(Me.EasyEnglishDataSetDiego.alumno)
+
 
         btnPrimero.Enabled = True
         btnSiguiente.Enabled = True
@@ -34,13 +34,12 @@ Public Class frmRegistroAlumno
     End Sub
 
     Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
-
-
         AlumnoBindingSource.EndEdit()
-        'AlumnoTableAdapter.Update(EasyEnglishDataSet.alumno)
-        SqlDataAdapter1.Update(EasyEnglishDataSetDiego.alumno)
-        EasyEnglishDataSetDiego.Clear()
-        AlumnoTableAdapter.Fill(EasyEnglishDataSetDiego.alumno)
+        AlumnoBindingSource.Current(9) = ubicacion
+        SqlDataAdapter1.Update(EasyEnglishDataSetMani.alumno)
+        'EasyEnglishDataSetMani.Clear()
+        AlumnoTableAdapter.Update(EasyEnglishDataSetMani.alumno)
+
 
         'Se bloquean los controles principales
         txtNombre.Enabled = False
@@ -60,15 +59,6 @@ Public Class frmRegistroAlumno
         btnSiguiente.Enabled = True
         btnAnterior.Enabled = True
         btnUltimo.Enabled = True
-    End Sub
-
-    Private Sub SqlDataAdapter1_RowUpdated(sender As Object, e As SqlRowUpdatedEventArgs) Handles SqlDataAdapter1.RowUpdated
-        If e.Status = UpdateStatus.ErrorsOccurred Then
-            MessageBox.Show(e.Errors.Message & vbCrLf &
-            e.Row.Item("nombre", DataRowVersion.Original) & vbCrLf &
-            e.Row.Item("nombre", DataRowVersion.Current))
-            e.Status = UpdateStatus.SkipCurrentRow
-        End If
     End Sub
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
@@ -153,6 +143,18 @@ Public Class frmRegistroAlumno
 
     Private Sub btnBuscarF_Click(sender As Object, e As EventArgs) Handles btnBuscarF.Click
         OpenFileDialog1.ShowDialog()
+        Dim ruta As String
+        ruta = OpenFileDialog1.FileName
+        ptbFoto.Image = Image.FromFile(ruta)
+        ubicacion = ruta
+    End Sub
 
+    Private Sub SqlDataAdapter1_RowUpdated(sender As Object, e As SqlRowUpdatedEventArgs) Handles SqlDataAdapter1.RowUpdated
+        If e.Status = UpdateStatus.ErrorsOccurred Then
+            MessageBox.Show(e.Errors.Message & vbCrLf &
+            e.Row.Item("nombre", DataRowVersion.Original) & vbCrLf &
+            e.Row.Item("nombre", DataRowVersion.Current))
+            e.Status = UpdateStatus.SkipCurrentRow
+        End If
     End Sub
 End Class

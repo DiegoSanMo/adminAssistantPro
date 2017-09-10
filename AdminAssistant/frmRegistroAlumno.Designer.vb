@@ -29,7 +29,9 @@ Partial Class frmRegistroAlumno
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.ptbFoto = New System.Windows.Forms.PictureBox()
+        Me.AlumnoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EasyEnglishDataSetMani = New AdminAssistant.EasyEnglishDataSetMani()
+        Me.EasyEnglishDataSetDiego = New AdminAssistant.EasyEnglishDataSetDiego()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.btnCancelar = New System.Windows.Forms.Button()
@@ -56,12 +58,6 @@ Partial Class frmRegistroAlumno
         Me.cboSituacion = New System.Windows.Forms.ComboBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtNoControl = New System.Windows.Forms.TextBox()
-        Me.SqlSelectCommand1 = New System.Data.SqlClient.SqlCommand()
-        Me.SqlConnection1 = New System.Data.SqlClient.SqlConnection()
-        Me.SqlInsertCommand1 = New System.Data.SqlClient.SqlCommand()
-        Me.SqlUpdateCommand1 = New System.Data.SqlClient.SqlCommand()
-        Me.SqlDeleteCommand1 = New System.Data.SqlClient.SqlCommand()
-        Me.SqlDataAdapter1 = New System.Data.SqlClient.SqlDataAdapter()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.btnModificar = New System.Windows.Forms.Button()
         Me.btnSiguiente = New System.Windows.Forms.Button()
@@ -69,14 +65,18 @@ Partial Class frmRegistroAlumno
         Me.btnPrimero = New System.Windows.Forms.Button()
         Me.btnUltimo = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.EasyEnglishDataSetDiego = New AdminAssistant.EasyEnglishDataSetDiego()
-        Me.AlumnoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.AlumnoTableAdapter = New AdminAssistant.EasyEnglishDataSetDiegoTableAdapters.alumnoTableAdapter()
+        Me.SqlSelectCommand1 = New System.Data.SqlClient.SqlCommand()
+        Me.SqlConnection1 = New System.Data.SqlClient.SqlConnection()
+        Me.SqlInsertCommand1 = New System.Data.SqlClient.SqlCommand()
+        Me.SqlUpdateCommand1 = New System.Data.SqlClient.SqlCommand()
+        Me.SqlDeleteCommand1 = New System.Data.SqlClient.SqlCommand()
+        Me.SqlDataAdapter1 = New System.Data.SqlClient.SqlDataAdapter()
+        Me.AlumnoTableAdapter = New AdminAssistant.EasyEnglishDataSetManiTableAdapters.alumnoTableAdapter()
         CType(Me.ptbFoto, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EasyEnglishDataSetMani, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EasyEnglishDataSetDiego, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AlumnoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EasyEnglishDataSetMani, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EasyEnglishDataSetDiego, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label2
@@ -113,8 +113,9 @@ Partial Class frmRegistroAlumno
         '
         'Label4
         '
+        Me.Label4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(1, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.Label4.Dock = System.Windows.Forms.DockStyle.Top
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label4.Location = New System.Drawing.Point(0, 0)
@@ -125,18 +126,29 @@ Partial Class frmRegistroAlumno
         '
         'ptbFoto
         '
+        Me.ptbFoto.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ptbFoto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.ptbFoto.DataBindings.Add(New System.Windows.Forms.Binding("Image", Me.AlumnoBindingSource, "foto", True))
         Me.ptbFoto.Location = New System.Drawing.Point(751, 69)
         Me.ptbFoto.Name = "ptbFoto"
         Me.ptbFoto.Size = New System.Drawing.Size(204, 197)
+        Me.ptbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.ptbFoto.TabIndex = 9
         Me.ptbFoto.TabStop = False
+        '
+        'AlumnoBindingSource
+        '
+        Me.AlumnoBindingSource.DataMember = "alumno"
+        Me.AlumnoBindingSource.DataSource = Me.EasyEnglishDataSetMani
         '
         'EasyEnglishDataSetMani
         '
         Me.EasyEnglishDataSetMani.DataSetName = "EasyEnglishDataSetMani"
         Me.EasyEnglishDataSetMani.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'EasyEnglishDataSetDiego
+        '
+        Me.EasyEnglishDataSetDiego.DataSetName = "EasyEnglishDataSetDiego"
+        Me.EasyEnglishDataSetDiego.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label7
         '
@@ -160,6 +172,7 @@ Partial Class frmRegistroAlumno
         '
         'btnCancelar
         '
+        Me.btnCancelar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCancelar.BackColor = System.Drawing.Color.Crimson
         Me.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
@@ -240,6 +253,7 @@ Partial Class frmRegistroAlumno
         '
         'Label11
         '
+        Me.Label11.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.Location = New System.Drawing.Point(723, 403)
@@ -250,8 +264,10 @@ Partial Class frmRegistroAlumno
         '
         'dtpFechaNa
         '
+        Me.dtpFechaNa.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtpFechaNa.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpFechaNa.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.AlumnoBindingSource, "fechaDeNacimiento", True))
+        Me.dtpFechaNa.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AlumnoBindingSource, "fechaDeNacimiento", True))
         Me.dtpFechaNa.Enabled = False
         Me.dtpFechaNa.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.dtpFechaNa.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
@@ -262,6 +278,7 @@ Partial Class frmRegistroAlumno
         '
         'btnAceptar
         '
+        Me.btnAceptar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAceptar.BackColor = System.Drawing.Color.LimeGreen
         Me.btnAceptar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnAceptar.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
@@ -278,6 +295,7 @@ Partial Class frmRegistroAlumno
         '
         'btnSalir
         '
+        Me.btnSalir.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnSalir.BackColor = System.Drawing.Color.LightSlateGray
         Me.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnSalir.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
@@ -294,6 +312,7 @@ Partial Class frmRegistroAlumno
         '
         'btnBuscarF
         '
+        Me.btnBuscarF.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnBuscarF.BackColor = System.Drawing.Color.CornflowerBlue
         Me.btnBuscarF.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnBuscarF.Enabled = False
@@ -311,6 +330,7 @@ Partial Class frmRegistroAlumno
         '
         'Label8
         '
+        Me.Label8.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(723, 332)
@@ -321,6 +341,7 @@ Partial Class frmRegistroAlumno
         '
         'txtTel
         '
+        Me.txtTel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtTel.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AlumnoBindingSource, "telefono", True))
         Me.txtTel.Enabled = False
         Me.txtTel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -374,6 +395,7 @@ Partial Class frmRegistroAlumno
         '
         'txtUNA
         '
+        Me.txtUNA.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtUNA.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AlumnoBindingSource, "ultimoNivelAcreditado", True))
         Me.txtUNA.Enabled = False
         Me.txtUNA.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -385,6 +407,7 @@ Partial Class frmRegistroAlumno
         '
         'Label12
         '
+        Me.Label12.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.Location = New System.Drawing.Point(723, 483)
@@ -405,7 +428,8 @@ Partial Class frmRegistroAlumno
         '
         'cboSituacion
         '
-        Me.cboSituacion.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AlumnoBindingSource, "situacion", True))
+        Me.cboSituacion.DataBindings.Add(New System.Windows.Forms.Binding("SelectedItem", Me.AlumnoBindingSource, "situacion", True))
+        Me.cboSituacion.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.AlumnoBindingSource, "situacion", True))
         Me.cboSituacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboSituacion.Enabled = False
         Me.cboSituacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
@@ -437,16 +461,121 @@ Partial Class frmRegistroAlumno
         Me.txtNoControl.Size = New System.Drawing.Size(203, 34)
         Me.txtNoControl.TabIndex = 39
         '
+        'btnNuevo
+        '
+        Me.btnNuevo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnNuevo.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.btnNuevo.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
+        Me.btnNuevo.FlatAppearance.BorderSize = 0
+        Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNuevo.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btnNuevo.Location = New System.Drawing.Point(36, 648)
+        Me.btnNuevo.Name = "btnNuevo"
+        Me.btnNuevo.Size = New System.Drawing.Size(171, 50)
+        Me.btnNuevo.TabIndex = 11
+        Me.btnNuevo.Text = "Nuevo"
+        Me.btnNuevo.UseVisualStyleBackColor = False
+        '
+        'btnModificar
+        '
+        Me.btnModificar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnModificar.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
+        Me.btnModificar.FlatAppearance.BorderSize = 0
+        Me.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnModificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnModificar.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btnModificar.Location = New System.Drawing.Point(241, 648)
+        Me.btnModificar.Name = "btnModificar"
+        Me.btnModificar.Size = New System.Drawing.Size(171, 50)
+        Me.btnModificar.TabIndex = 41
+        Me.btnModificar.Text = "Modificar"
+        Me.btnModificar.UseVisualStyleBackColor = False
+        '
+        'btnSiguiente
+        '
+        Me.btnSiguiente.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSiguiente.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.btnSiguiente.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSiguiente.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
+        Me.btnSiguiente.FlatAppearance.BorderSize = 0
+        Me.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSiguiente.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSiguiente.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btnSiguiente.Location = New System.Drawing.Point(529, 579)
+        Me.btnSiguiente.Name = "btnSiguiente"
+        Me.btnSiguiente.Size = New System.Drawing.Size(119, 37)
+        Me.btnSiguiente.TabIndex = 42
+        Me.btnSiguiente.Text = ">"
+        Me.btnSiguiente.UseVisualStyleBackColor = False
+        '
+        'btnAnterior
+        '
+        Me.btnAnterior.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAnterior.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.btnAnterior.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnAnterior.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
+        Me.btnAnterior.FlatAppearance.BorderSize = 0
+        Me.btnAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAnterior.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAnterior.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btnAnterior.Location = New System.Drawing.Point(395, 579)
+        Me.btnAnterior.Name = "btnAnterior"
+        Me.btnAnterior.Size = New System.Drawing.Size(119, 37)
+        Me.btnAnterior.TabIndex = 43
+        Me.btnAnterior.Text = "<"
+        Me.btnAnterior.UseVisualStyleBackColor = False
+        '
+        'btnPrimero
+        '
+        Me.btnPrimero.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnPrimero.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.btnPrimero.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnPrimero.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
+        Me.btnPrimero.FlatAppearance.BorderSize = 0
+        Me.btnPrimero.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPrimero.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPrimero.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btnPrimero.Location = New System.Drawing.Point(270, 579)
+        Me.btnPrimero.Name = "btnPrimero"
+        Me.btnPrimero.Size = New System.Drawing.Size(119, 37)
+        Me.btnPrimero.TabIndex = 45
+        Me.btnPrimero.Text = "|<"
+        Me.btnPrimero.UseVisualStyleBackColor = False
+        '
+        'btnUltimo
+        '
+        Me.btnUltimo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnUltimo.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.btnUltimo.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnUltimo.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
+        Me.btnUltimo.FlatAppearance.BorderSize = 0
+        Me.btnUltimo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnUltimo.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUltimo.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btnUltimo.Location = New System.Drawing.Point(663, 579)
+        Me.btnUltimo.Name = "btnUltimo"
+        Me.btnUltimo.Size = New System.Drawing.Size(119, 37)
+        Me.btnUltimo.TabIndex = 44
+        Me.btnUltimo.Text = ">|"
+        Me.btnUltimo.UseVisualStyleBackColor = False
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
         'SqlSelectCommand1
         '
-        Me.SqlSelectCommand1.CommandText = "SELECT        idAlumno, nombre, domicilio, ciudad, estado, telefono, telefonoEmer" &
-    "gencia, situacion, ultimoNivelAcreditado, foto, fechaDeNacimiento, correo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM " &
-    "           alumno"
+        Me.SqlSelectCommand1.CommandText = "SELECT * FROM alumno;"
         Me.SqlSelectCommand1.Connection = Me.SqlConnection1
         '
         'SqlConnection1
         '
-        Me.SqlConnection1.ConnectionString = "Data Source=PRO;Initial Catalog=EasyEnglish;Integrated Security=True"
+        Me.SqlConnection1.ConnectionString = "Data Source=DESKTOP-B3IP6AD\MANI;Initial Catalog=EasyEnglish;Integrated Security=" &
+    "True"
         Me.SqlConnection1.FireInfoMessageEventOnUserErrors = False
         '
         'SqlInsertCommand1
@@ -474,116 +603,6 @@ Partial Class frmRegistroAlumno
         Me.SqlDataAdapter1.SelectCommand = Me.SqlSelectCommand1
         Me.SqlDataAdapter1.TableMappings.AddRange(New System.Data.Common.DataTableMapping() {New System.Data.Common.DataTableMapping("Table", "alumno", New System.Data.Common.DataColumnMapping() {New System.Data.Common.DataColumnMapping("idAlumno", "idAlumno"), New System.Data.Common.DataColumnMapping("nombre", "nombre"), New System.Data.Common.DataColumnMapping("domicilio", "domicilio"), New System.Data.Common.DataColumnMapping("ciudad", "ciudad"), New System.Data.Common.DataColumnMapping("estado", "estado"), New System.Data.Common.DataColumnMapping("telefono", "telefono"), New System.Data.Common.DataColumnMapping("telefonoEmergencia", "telefonoEmergencia"), New System.Data.Common.DataColumnMapping("situacion", "situacion"), New System.Data.Common.DataColumnMapping("ultimoNivelAcreditado", "ultimoNivelAcreditado"), New System.Data.Common.DataColumnMapping("foto", "foto"), New System.Data.Common.DataColumnMapping("fechaDeNacimiento", "fechaDeNacimiento"), New System.Data.Common.DataColumnMapping("correo", "correo")})})
         Me.SqlDataAdapter1.UpdateCommand = Me.SqlUpdateCommand1
-        '
-        'btnNuevo
-        '
-        Me.btnNuevo.BackColor = System.Drawing.Color.DarkSlateGray
-        Me.btnNuevo.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
-        Me.btnNuevo.FlatAppearance.BorderSize = 0
-        Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnNuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNuevo.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnNuevo.Location = New System.Drawing.Point(36, 648)
-        Me.btnNuevo.Name = "btnNuevo"
-        Me.btnNuevo.Size = New System.Drawing.Size(171, 50)
-        Me.btnNuevo.TabIndex = 11
-        Me.btnNuevo.Text = "Nuevo"
-        Me.btnNuevo.UseVisualStyleBackColor = False
-        '
-        'btnModificar
-        '
-        Me.btnModificar.BackColor = System.Drawing.Color.DarkSlateGray
-        Me.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
-        Me.btnModificar.FlatAppearance.BorderSize = 0
-        Me.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnModificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnModificar.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnModificar.Location = New System.Drawing.Point(241, 648)
-        Me.btnModificar.Name = "btnModificar"
-        Me.btnModificar.Size = New System.Drawing.Size(171, 50)
-        Me.btnModificar.TabIndex = 41
-        Me.btnModificar.Text = "Modificar"
-        Me.btnModificar.UseVisualStyleBackColor = False
-        '
-        'btnSiguiente
-        '
-        Me.btnSiguiente.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.btnSiguiente.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSiguiente.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
-        Me.btnSiguiente.FlatAppearance.BorderSize = 0
-        Me.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSiguiente.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSiguiente.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnSiguiente.Location = New System.Drawing.Point(529, 579)
-        Me.btnSiguiente.Name = "btnSiguiente"
-        Me.btnSiguiente.Size = New System.Drawing.Size(119, 37)
-        Me.btnSiguiente.TabIndex = 42
-        Me.btnSiguiente.Text = ">"
-        Me.btnSiguiente.UseVisualStyleBackColor = False
-        '
-        'btnAnterior
-        '
-        Me.btnAnterior.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.btnAnterior.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnAnterior.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
-        Me.btnAnterior.FlatAppearance.BorderSize = 0
-        Me.btnAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAnterior.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAnterior.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnAnterior.Location = New System.Drawing.Point(395, 579)
-        Me.btnAnterior.Name = "btnAnterior"
-        Me.btnAnterior.Size = New System.Drawing.Size(119, 37)
-        Me.btnAnterior.TabIndex = 43
-        Me.btnAnterior.Text = "<"
-        Me.btnAnterior.UseVisualStyleBackColor = False
-        '
-        'btnPrimero
-        '
-        Me.btnPrimero.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.btnPrimero.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnPrimero.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
-        Me.btnPrimero.FlatAppearance.BorderSize = 0
-        Me.btnPrimero.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPrimero.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPrimero.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnPrimero.Location = New System.Drawing.Point(270, 579)
-        Me.btnPrimero.Name = "btnPrimero"
-        Me.btnPrimero.Size = New System.Drawing.Size(119, 37)
-        Me.btnPrimero.TabIndex = 45
-        Me.btnPrimero.Text = "|<"
-        Me.btnPrimero.UseVisualStyleBackColor = False
-        '
-        'btnUltimo
-        '
-        Me.btnUltimo.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.btnUltimo.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnUltimo.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
-        Me.btnUltimo.FlatAppearance.BorderSize = 0
-        Me.btnUltimo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnUltimo.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnUltimo.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnUltimo.Location = New System.Drawing.Point(663, 579)
-        Me.btnUltimo.Name = "btnUltimo"
-        Me.btnUltimo.Size = New System.Drawing.Size(119, 37)
-        Me.btnUltimo.TabIndex = 44
-        Me.btnUltimo.Text = ">|"
-        Me.btnUltimo.UseVisualStyleBackColor = False
-        '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
-        'EasyEnglishDataSetDiego
-        '
-        Me.EasyEnglishDataSetDiego.DataSetName = "EasyEnglishDataSetDiego"
-        Me.EasyEnglishDataSetDiego.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'AlumnoBindingSource
-        '
-        Me.AlumnoBindingSource.DataMember = "alumno"
-        Me.AlumnoBindingSource.DataSource = Me.EasyEnglishDataSetDiego
         '
         'AlumnoTableAdapter
         '
@@ -637,10 +656,10 @@ Partial Class frmRegistroAlumno
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmRegistroAlumno"
         CType(Me.ptbFoto, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EasyEnglishDataSetMani, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EasyEnglishDataSetDiego, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AlumnoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EasyEnglishDataSetMani, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EasyEnglishDataSetDiego, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -676,12 +695,6 @@ Partial Class frmRegistroAlumno
     Friend WithEvents cboSituacion As ComboBox
     Friend WithEvents Label14 As Label
     Friend WithEvents txtNoControl As TextBox
-    Friend WithEvents SqlSelectCommand1 As SqlClient.SqlCommand
-    Friend WithEvents SqlConnection1 As SqlClient.SqlConnection
-    Friend WithEvents SqlInsertCommand1 As SqlClient.SqlCommand
-    Friend WithEvents SqlUpdateCommand1 As SqlClient.SqlCommand
-    Friend WithEvents SqlDeleteCommand1 As SqlClient.SqlCommand
-    Friend WithEvents SqlDataAdapter1 As SqlClient.SqlDataAdapter
     Friend WithEvents btnNuevo As Button
     Friend WithEvents btnModificar As Button
     Friend WithEvents btnSiguiente As Button
@@ -691,6 +704,12 @@ Partial Class frmRegistroAlumno
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents EasyEnglishDataSetMani As EasyEnglishDataSetMani
     Friend WithEvents EasyEnglishDataSetDiego As EasyEnglishDataSetDiego
+    Friend WithEvents SqlSelectCommand1 As SqlClient.SqlCommand
+    Friend WithEvents SqlConnection1 As SqlClient.SqlConnection
+    Friend WithEvents SqlInsertCommand1 As SqlClient.SqlCommand
+    Friend WithEvents SqlUpdateCommand1 As SqlClient.SqlCommand
+    Friend WithEvents SqlDeleteCommand1 As SqlClient.SqlCommand
+    Friend WithEvents SqlDataAdapter1 As SqlClient.SqlDataAdapter
     Friend WithEvents AlumnoBindingSource As BindingSource
-    Friend WithEvents AlumnoTableAdapter As EasyEnglishDataSetDiegoTableAdapters.alumnoTableAdapter
+    Friend WithEvents AlumnoTableAdapter As EasyEnglishDataSetManiTableAdapters.alumnoTableAdapter
 End Class

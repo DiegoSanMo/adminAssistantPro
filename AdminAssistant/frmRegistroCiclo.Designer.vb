@@ -52,9 +52,15 @@ Partial Class frmRegistroCiclo
         Me.SqlUpdateCommand1 = New System.Data.SqlClient.SqlCommand()
         Me.SqlDeleteCommand1 = New System.Data.SqlClient.SqlCommand()
         Me.SqlDataAdapter1 = New System.Data.SqlClient.SqlDataAdapter()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CicloBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EasyEnglishDataSetMani, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label2
@@ -65,14 +71,14 @@ Partial Class frmRegistroCiclo
         Me.Label2.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label2.Location = New System.Drawing.Point(-2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(678, 45)
+        Me.Label2.Size = New System.Drawing.Size(686, 45)
         Me.Label2.TabIndex = 3
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 48)
+        Me.PictureBox1.Location = New System.Drawing.Point(11, 3)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(131, 124)
         Me.PictureBox1.TabIndex = 4
@@ -84,7 +90,7 @@ Partial Class frmRegistroCiclo
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(261, 48)
+        Me.Label1.Location = New System.Drawing.Point(230, 3)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(282, 58)
         Me.Label1.TabIndex = 5
@@ -97,7 +103,7 @@ Partial Class frmRegistroCiclo
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Century Gothic", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(1, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(261, 116)
+        Me.Label3.Location = New System.Drawing.Point(230, 71)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(141, 56)
         Me.Label3.TabIndex = 6
@@ -105,9 +111,11 @@ Partial Class frmRegistroCiclo
         '
         'Label4
         '
+        Me.Label4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Century Gothic", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(12, 196)
+        Me.Label4.Location = New System.Drawing.Point(1, 18)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(216, 42)
         Me.Label4.TabIndex = 7
@@ -115,9 +123,11 @@ Partial Class frmRegistroCiclo
         '
         'txtClaveCiclo
         '
+        Me.txtClaveCiclo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtClaveCiclo.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CicloBindingSource, "idCiclo", True))
         Me.txtClaveCiclo.Enabled = False
-        Me.txtClaveCiclo.Location = New System.Drawing.Point(19, 242)
+        Me.txtClaveCiclo.Location = New System.Drawing.Point(8, 64)
         Me.txtClaveCiclo.Name = "txtClaveCiclo"
         Me.txtClaveCiclo.Size = New System.Drawing.Size(100, 20)
         Me.txtClaveCiclo.TabIndex = 8
@@ -134,9 +144,11 @@ Partial Class frmRegistroCiclo
         '
         'Label5
         '
+        Me.Label5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Century Gothic", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(315, 196)
+        Me.Label5.Location = New System.Drawing.Point(304, 18)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(96, 42)
         Me.Label5.TabIndex = 9
@@ -144,21 +156,24 @@ Partial Class frmRegistroCiclo
         '
         'dtpAnio
         '
+        Me.dtpAnio.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtpAnio.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.CicloBindingSource, "año", True))
         Me.dtpAnio.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CicloBindingSource, "año", True))
         Me.dtpAnio.Enabled = False
         Me.dtpAnio.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpAnio.Location = New System.Drawing.Point(322, 241)
+        Me.dtpAnio.Location = New System.Drawing.Point(311, 63)
         Me.dtpAnio.Name = "dtpAnio"
         Me.dtpAnio.Size = New System.Drawing.Size(99, 20)
         Me.dtpAnio.TabIndex = 10
         '
         'Label6
         '
-        Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Century Gothic", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(540, 196)
+        Me.Label6.Location = New System.Drawing.Point(537, 18)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(143, 42)
         Me.Label6.TabIndex = 11
@@ -166,13 +181,14 @@ Partial Class frmRegistroCiclo
         '
         'cboEstado
         '
-        Me.cboEstado.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cboEstado.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cboEstado.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.CicloBindingSource, "estado", True))
         Me.cboEstado.DataBindings.Add(New System.Windows.Forms.Binding("SelectedItem", Me.CicloBindingSource, "estado", True))
         Me.cboEstado.Enabled = False
         Me.cboEstado.FormattingEnabled = True
         Me.cboEstado.Items.AddRange(New Object() {"Abierto", "Cerrado"})
-        Me.cboEstado.Location = New System.Drawing.Point(547, 240)
+        Me.cboEstado.Location = New System.Drawing.Point(544, 62)
         Me.cboEstado.Name = "cboEstado"
         Me.cboEstado.Size = New System.Drawing.Size(121, 21)
         Me.cboEstado.TabIndex = 12
@@ -187,7 +203,7 @@ Partial Class frmRegistroCiclo
         Me.btnPrimero.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPrimero.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPrimero.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnPrimero.Location = New System.Drawing.Point(81, 311)
+        Me.btnPrimero.Location = New System.Drawing.Point(87, 5)
         Me.btnPrimero.Name = "btnPrimero"
         Me.btnPrimero.Size = New System.Drawing.Size(119, 37)
         Me.btnPrimero.TabIndex = 54
@@ -204,7 +220,7 @@ Partial Class frmRegistroCiclo
         Me.btnUltimo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnUltimo.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnUltimo.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnUltimo.Location = New System.Drawing.Point(491, 311)
+        Me.btnUltimo.Location = New System.Drawing.Point(497, 5)
         Me.btnUltimo.Name = "btnUltimo"
         Me.btnUltimo.Size = New System.Drawing.Size(119, 37)
         Me.btnUltimo.TabIndex = 53
@@ -221,7 +237,7 @@ Partial Class frmRegistroCiclo
         Me.btnAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAnterior.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAnterior.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnAnterior.Location = New System.Drawing.Point(215, 311)
+        Me.btnAnterior.Location = New System.Drawing.Point(221, 5)
         Me.btnAnterior.Name = "btnAnterior"
         Me.btnAnterior.Size = New System.Drawing.Size(119, 37)
         Me.btnAnterior.TabIndex = 52
@@ -238,7 +254,7 @@ Partial Class frmRegistroCiclo
         Me.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSiguiente.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSiguiente.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnSiguiente.Location = New System.Drawing.Point(351, 311)
+        Me.btnSiguiente.Location = New System.Drawing.Point(357, 5)
         Me.btnSiguiente.Name = "btnSiguiente"
         Me.btnSiguiente.Size = New System.Drawing.Size(119, 37)
         Me.btnSiguiente.TabIndex = 51
@@ -254,7 +270,7 @@ Partial Class frmRegistroCiclo
         Me.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnModificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnModificar.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnModificar.Location = New System.Drawing.Point(147, 363)
+        Me.btnModificar.Location = New System.Drawing.Point(153, 57)
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.Size = New System.Drawing.Size(110, 50)
         Me.btnModificar.TabIndex = 50
@@ -270,7 +286,7 @@ Partial Class frmRegistroCiclo
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevo.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnNuevo.Location = New System.Drawing.Point(12, 363)
+        Me.btnNuevo.Location = New System.Drawing.Point(18, 57)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(110, 50)
         Me.btnNuevo.TabIndex = 46
@@ -286,7 +302,7 @@ Partial Class frmRegistroCiclo
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnSalir.Location = New System.Drawing.Point(553, 363)
+        Me.btnSalir.Location = New System.Drawing.Point(559, 57)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(110, 50)
         Me.btnSalir.TabIndex = 49
@@ -303,7 +319,7 @@ Partial Class frmRegistroCiclo
         Me.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAceptar.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAceptar.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnAceptar.Location = New System.Drawing.Point(283, 363)
+        Me.btnAceptar.Location = New System.Drawing.Point(289, 57)
         Me.btnAceptar.Name = "btnAceptar"
         Me.btnAceptar.Size = New System.Drawing.Size(110, 50)
         Me.btnAceptar.TabIndex = 47
@@ -320,7 +336,7 @@ Partial Class frmRegistroCiclo
         Me.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnCancelar.Location = New System.Drawing.Point(419, 363)
+        Me.btnCancelar.Location = New System.Drawing.Point(425, 57)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(110, 50)
         Me.btnCancelar.TabIndex = 48
@@ -369,37 +385,67 @@ Partial Class frmRegistroCiclo
         Me.SqlDataAdapter1.TableMappings.AddRange(New System.Data.Common.DataTableMapping() {New System.Data.Common.DataTableMapping("Table", "ciclo", New System.Data.Common.DataColumnMapping() {New System.Data.Common.DataColumnMapping("idCiclo", "idCiclo"), New System.Data.Common.DataColumnMapping("año", "año"), New System.Data.Common.DataColumnMapping("estado", "estado")})})
         Me.SqlDataAdapter1.UpdateCommand = Me.SqlUpdateCommand1
         '
+        'Panel1
+        '
+        Me.Panel1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.Label3)
+        Me.Panel1.Controls.Add(Me.PictureBox1)
+        Me.Panel1.Location = New System.Drawing.Point(1, 48)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(683, 145)
+        Me.Panel1.TabIndex = 55
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.Label6)
+        Me.Panel2.Controls.Add(Me.Label4)
+        Me.Panel2.Controls.Add(Me.txtClaveCiclo)
+        Me.Panel2.Controls.Add(Me.Label5)
+        Me.Panel2.Controls.Add(Me.dtpAnio)
+        Me.Panel2.Controls.Add(Me.cboEstado)
+        Me.Panel2.Location = New System.Drawing.Point(1, 199)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(683, 100)
+        Me.Panel2.TabIndex = 56
+        '
+        'Panel3
+        '
+        Me.Panel3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel3.Controls.Add(Me.btnSalir)
+        Me.Panel3.Controls.Add(Me.btnCancelar)
+        Me.Panel3.Controls.Add(Me.btnPrimero)
+        Me.Panel3.Controls.Add(Me.btnAceptar)
+        Me.Panel3.Controls.Add(Me.btnUltimo)
+        Me.Panel3.Controls.Add(Me.btnNuevo)
+        Me.Panel3.Controls.Add(Me.btnAnterior)
+        Me.Panel3.Controls.Add(Me.btnModificar)
+        Me.Panel3.Controls.Add(Me.btnSiguiente)
+        Me.Panel3.Location = New System.Drawing.Point(1, 305)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(680, 115)
+        Me.Panel3.TabIndex = 13
+        '
         'frmRegistroCiclo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(676, 425)
-        Me.Controls.Add(Me.btnPrimero)
-        Me.Controls.Add(Me.btnUltimo)
-        Me.Controls.Add(Me.btnAnterior)
-        Me.Controls.Add(Me.btnSiguiente)
-        Me.Controls.Add(Me.btnModificar)
-        Me.Controls.Add(Me.btnNuevo)
-        Me.Controls.Add(Me.btnSalir)
-        Me.Controls.Add(Me.btnAceptar)
-        Me.Controls.Add(Me.btnCancelar)
-        Me.Controls.Add(Me.cboEstado)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.dtpAnio)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.txtClaveCiclo)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.ClientSize = New System.Drawing.Size(684, 425)
+        Me.Controls.Add(Me.Panel3)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label2)
         Me.Name = "frmRegistroCiclo"
         Me.Text = "frmRegistroCiclo"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CicloBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EasyEnglishDataSetMani, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -431,4 +477,7 @@ Partial Class frmRegistroCiclo
     Friend WithEvents SqlUpdateCommand1 As SqlClient.SqlCommand
     Friend WithEvents SqlDeleteCommand1 As SqlClient.SqlCommand
     Friend WithEvents SqlDataAdapter1 As SqlClient.SqlDataAdapter
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Panel3 As Panel
 End Class
