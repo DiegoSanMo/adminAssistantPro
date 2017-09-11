@@ -6,16 +6,13 @@ Public Class frmRegistroMaestro
         Me.MaestroTableAdapter.Fill(Me.EasyEnglishDataSetMani.maestro)
         'TODO: esta línea de código carga datos en la tabla 'EasyEnglishDataSet1.maestro' Puede moverla o quitarla según sea necesario.
         'Me.MaestroTableAdapter.Fill(Me.EasyEnglishDataSetMani.maestro)
-
     End Sub
-
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
         Dim n As Integer
         n = MaestroBindingSource.Count + 1
         MaestroBindingSource.AddNew()
         txtClave.Text = n
-
 
         'activar textbox y botones
         txtNombre.Enabled = True
@@ -32,16 +29,14 @@ Public Class frmRegistroMaestro
         btnNuevo.Enabled = False
         btnModificar.Enabled = False
         btnSalir.Enabled = False
-
-
-
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         MaestroBindingSource.EndEdit()
-        'AlumnoTableAdapter.Update(EasyEnglishDataSet.alumno)
         SqlDataAdapter1.Update(EasyEnglishDataSetMani.maestro)
         EasyEnglishDataSetMani.Clear()
+        MaestroTableAdapter.Update(EasyEnglishDataSetMani.maestro)
+        SqlDataAdapter1.Fill(EasyEnglishDataSetMani.maestro)
         MaestroTableAdapter.Fill(EasyEnglishDataSetMani.maestro)
 
         'activar textbox y botones

@@ -43,8 +43,10 @@ Public Class frmRegistroCiclo
         Else
             CicloBindingSource.EndEdit()
             SqlDataAdapter1.Update(EasyEnglishDataSetMani.ciclo)
-            'EasyEnglishDataSetMani.Clear()
+            EasyEnglishDataSetMani.Clear()
             CicloTableAdapter.Update(EasyEnglishDataSetMani.ciclo)
+            SqlDataAdapter1.Fill(EasyEnglishDataSetMani.ciclo)
+            CicloTableAdapter.Fill(EasyEnglishDataSetMani.ciclo)
         End If
 
         'Se bloquean los botones y controles

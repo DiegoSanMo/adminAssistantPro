@@ -37,9 +37,10 @@ Public Class frmRegistroAlumno
         AlumnoBindingSource.EndEdit()
         AlumnoBindingSource.Current(9) = ubicacion
         SqlDataAdapter1.Update(EasyEnglishDataSetMani.alumno)
-        'EasyEnglishDataSetMani.Clear()
+        EasyEnglishDataSetMani.Clear()
         AlumnoTableAdapter.Update(EasyEnglishDataSetMani.alumno)
-
+        SqlDataAdapter1.Fill(EasyEnglishDataSetMani.alumno)
+        AlumnoTableAdapter.Fill(EasyEnglishDataSetMani.alumno)
 
         'Se bloquean los controles principales
         txtNombre.Enabled = False
