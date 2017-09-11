@@ -44,9 +44,6 @@ Public Class frmRegistroMaestro
         EasyEnglishDataSetMani.Clear()
         MaestroTableAdapter.Fill(EasyEnglishDataSetMani.maestro)
 
-
-
-
         'activar textbox y botones
         txtNombre.Enabled = False
         txtDomicilio.Enabled = False

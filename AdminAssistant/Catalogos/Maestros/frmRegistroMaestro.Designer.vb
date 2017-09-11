@@ -307,6 +307,7 @@ Partial Class frmRegistroMaestro
         'cboNivel
         '
         Me.cboNivel.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.MaestroBindingSource, "nivelIngles", True))
+        Me.cboNivel.DataBindings.Add(New System.Windows.Forms.Binding("SelectedItem", Me.MaestroBindingSource, "nivelIngles", True))
         Me.cboNivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboNivel.Enabled = False
         Me.cboNivel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
