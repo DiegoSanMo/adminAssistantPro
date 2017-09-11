@@ -120,6 +120,12 @@
     <Compile Include="Catalogos\Maestros\frmRegistroMaestro.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmGruposRegistro.Designer.vb">
+      <DependentUpon>frmGruposRegistro.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmGruposRegistro.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Module1.vb" />
     <Compile Include="Movimientos\frmInscripciones.Designer.vb">
       <DependentUpon>frmInscripciones.vb</DependentUpon>
@@ -167,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\Maestros\frmRegistroMaestro.resx">
       <DependentUpon>frmRegistroMaestro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGruposRegistro.resx">
+      <DependentUpon>frmGruposRegistro.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Movimientos\frmInscripciones.resx">
       <DependentUpon>frmInscripciones.vb</DependentUpon>
