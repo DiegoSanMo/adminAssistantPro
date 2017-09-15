@@ -40,9 +40,14 @@ Partial Class principal
         Me.RegistroToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultaToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MovimientosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AbrirCicloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AbrirGrupoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InscipciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ClasificarListasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CerrarCicloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CapturarCalificacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.InscipciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -159,10 +164,46 @@ Partial Class principal
         '
         'MovimientosToolStripMenuItem
         '
-        Me.MovimientosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InscipciónToolStripMenuItem})
+        Me.MovimientosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AbrirCicloToolStripMenuItem, Me.AbrirGrupoToolStripMenuItem, Me.InscipciónToolStripMenuItem, Me.ClasificarListasToolStripMenuItem, Me.CapturarCalificacionesToolStripMenuItem, Me.CerrarCicloToolStripMenuItem})
         Me.MovimientosToolStripMenuItem.Name = "MovimientosToolStripMenuItem"
         Me.MovimientosToolStripMenuItem.Size = New System.Drawing.Size(219, 43)
         Me.MovimientosToolStripMenuItem.Text = "Movimientos"
+        '
+        'AbrirCicloToolStripMenuItem
+        '
+        Me.AbrirCicloToolStripMenuItem.Name = "AbrirCicloToolStripMenuItem"
+        Me.AbrirCicloToolStripMenuItem.Size = New System.Drawing.Size(467, 44)
+        Me.AbrirCicloToolStripMenuItem.Text = "Abrir ciclo"
+        '
+        'AbrirGrupoToolStripMenuItem
+        '
+        Me.AbrirGrupoToolStripMenuItem.Name = "AbrirGrupoToolStripMenuItem"
+        Me.AbrirGrupoToolStripMenuItem.Size = New System.Drawing.Size(467, 44)
+        Me.AbrirGrupoToolStripMenuItem.Text = "Abrir grupo"
+        '
+        'InscipciónToolStripMenuItem
+        '
+        Me.InscipciónToolStripMenuItem.Name = "InscipciónToolStripMenuItem"
+        Me.InscipciónToolStripMenuItem.Size = New System.Drawing.Size(467, 44)
+        Me.InscipciónToolStripMenuItem.Text = "Inscipción"
+        '
+        'ClasificarListasToolStripMenuItem
+        '
+        Me.ClasificarListasToolStripMenuItem.Name = "ClasificarListasToolStripMenuItem"
+        Me.ClasificarListasToolStripMenuItem.Size = New System.Drawing.Size(467, 44)
+        Me.ClasificarListasToolStripMenuItem.Text = "Clasificar listas"
+        '
+        'CerrarCicloToolStripMenuItem
+        '
+        Me.CerrarCicloToolStripMenuItem.Name = "CerrarCicloToolStripMenuItem"
+        Me.CerrarCicloToolStripMenuItem.Size = New System.Drawing.Size(467, 44)
+        Me.CerrarCicloToolStripMenuItem.Text = "Cerrar ciclo"
+        '
+        'CapturarCalificacionesToolStripMenuItem
+        '
+        Me.CapturarCalificacionesToolStripMenuItem.Name = "CapturarCalificacionesToolStripMenuItem"
+        Me.CapturarCalificacionesToolStripMenuItem.Size = New System.Drawing.Size(467, 44)
+        Me.CapturarCalificacionesToolStripMenuItem.Text = "Capturar Calificaciones"
         '
         'ReportesToolStripMenuItem
         '
@@ -175,12 +216,6 @@ Partial Class principal
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(219, 43)
         Me.SalirToolStripMenuItem.Text = "Salir"
-        '
-        'InscipciónToolStripMenuItem
-        '
-        Me.InscipciónToolStripMenuItem.Name = "InscipciónToolStripMenuItem"
-        Me.InscipciónToolStripMenuItem.Size = New System.Drawing.Size(253, 44)
-        Me.InscipciónToolStripMenuItem.Text = "Inscipción"
         '
         'principal
         '
@@ -221,4 +256,9 @@ Partial Class principal
     Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ConsultaToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents InscipciónToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AbrirCicloToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AbrirGrupoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ClasificarListasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CerrarCicloToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CapturarCalificacionesToolStripMenuItem As ToolStripMenuItem
 End Class
