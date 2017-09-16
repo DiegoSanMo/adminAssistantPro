@@ -91,10 +91,10 @@ Public Class principal
             comando.CommandText = "Select estado From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
             lector = comando.ExecuteReader
             lector.Read()
-            'MessageBox.Show(lector(0))
             If lector(0) = "Cerrado" Then
                 If MessageBox.Show("¿Desea abrir un nuevo ciclo?", "Apertura de ciclo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                     ban = True
+                    lector.Close()
                     comando.CommandText = "Create database""" & nombre & """;"
                     comando.ExecuteNonQuery()
                     Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
@@ -139,6 +139,6 @@ Public Class principal
                 MessageBox.Show("No se puede abrir un nuevo ciclo. Tiene que cerrar el ciclo anterior.", "Error de apertura", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         End If
-            conexionsql.Close()
+        conexionsql.Close()
     End Sub
 End Class
