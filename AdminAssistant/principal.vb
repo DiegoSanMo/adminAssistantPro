@@ -15,16 +15,8 @@ Public Class principal
         frmRegistroAlumno.Show()
     End Sub
 
-    Private Sub RegistroToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles RegistroToolStripMenuItem2.Click
-        frmRegistroCiclo.Show()
-    End Sub
-
     Private Sub ConsultaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultaToolStripMenuItem.Click
         frmConsultaAlumnos.Show()
-    End Sub
-
-    Private Sub ConsultaToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ConsultaToolStripMenuItem2.Click
-        frmConsultaCiclo.Show()
     End Sub
 
     Private Sub ConsultaToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ConsultaToolStripMenuItem1.Click
@@ -52,48 +44,101 @@ Public Class principal
 
         Dim ban As Boolean
 
-        If MessageBox.Show("¿Desea abrir un nuevo ciclo?", "Apertura de ciclo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-            ban = True
-            comando.CommandText = "Create database""" & nombre & """;"
-            comando.ExecuteNonQuery()
-            Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
-            Dim comando2 As SqlCommand = conexionsql2.CreateCommand
-            conexionsql2.Open()
-            comando2.CommandText = "Create table grupo(idGrupo int primary key, idMaestro int, cantAlumnos int, hLu time, hMa time, hMi time, hJu time, hVi time, hSa time, nivel int);"
-            comando2.ExecuteNonQuery()
-            comando2.CommandText = "Create table inscripcion(idInscripcion int primary key, idAlumno int, idGrupo int, fecha date);"
-            comando2.ExecuteNonQuery()
-
-            conexionsql2.Close()
-        End If
-
-        If ban = True Then
-            'Crea una segunda bandera
-            Dim ban2 As Boolean = True
-            transaccion = conexionsql.BeginTransaction("TransaccionCiclo")
-            comando.Connection = conexionsql
-            comando.Transaction = transaccion
-            Try
-                comando.CommandText = "Insert into ciclo(idCiclo, anio, estado) values(" & n & ",'" & fecha & "','" & estado & "')"
+        If contReg = 0 Then
+            If MessageBox.Show("¿Desea abrir un nuevo ciclo?", "Apertura de ciclo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                ban = True
+                comando.CommandText = "Create database""" & nombre & """;"
                 comando.ExecuteNonQuery()
+                Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                Dim comando2 As SqlCommand = conexionsql2.CreateCommand
+                conexionsql2.Open()
+                comando2.CommandText = "Create table grupo(idGrupo int primary key, idMaestro int, cantAlumnos int, hLu time, hMa time, hMi time, hJu time, hVi time, hSa time, nivel int);"
+                comando2.ExecuteNonQuery()
+                comando2.CommandText = "Create table inscripcion(idInscripcion int primary key, idAlumno int, idGrupo int, fecha date);"
+                comando2.ExecuteNonQuery()
 
-                If ban2 Then
-                    transaccion.Commit()
-                    MessageBox.Show("El ciclo se creó exitosamente", "Apertura de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Else
-                    transaccion.Rollback()
-                    MessageBox.Show("La creación del ciclo fue cancelada", "Cancelación de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End If
-            Catch ex As Exception
-                MessageBox.Show("Commit Exception Type: {0} No se pudo insertar por error")
+                conexionsql2.Close()
+            End If
 
+            If ban = True Then
+                'Crea una segunda bandera
+                Dim ban2 As Boolean = True
+                transaccion = conexionsql.BeginTransaction("TransaccionCiclo")
+                comando.Connection = conexionsql
+                comando.Transaction = transaccion
                 Try
-                    transaccion.Rollback()
-                Catch ex2 As Exception
-                    MessageBox.Show("Error de ciclo")
+                    comando.CommandText = "Insert into ciclo(idCiclo, anio, estado) values(" & n & "," & Year(fecha) & ",'" & estado & "')"
+                    comando.ExecuteNonQuery()
+
+                    If ban2 Then
+                        transaccion.Commit()
+                        MessageBox.Show("El ciclo se creó exitosamente", "Apertura de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Else
+                        transaccion.Rollback()
+                        MessageBox.Show("La creación del ciclo fue cancelada", "Cancelación de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
+                Catch ex As Exception
+                    MessageBox.Show("Commit Exception Type: {0} No se pudo insertar por error")
+
+                    Try
+                        transaccion.Rollback()
+                    Catch ex2 As Exception
+                        MessageBox.Show("Error de ciclo")
+                    End Try
                 End Try
-            End Try
+            End If
+        Else
+            comando.CommandText = "Select estado From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
+            lector = comando.ExecuteReader
+            lector.Read()
+            'MessageBox.Show(lector(0))
+            If lector(0) = "Cerrado" Then
+                If MessageBox.Show("¿Desea abrir un nuevo ciclo?", "Apertura de ciclo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                    ban = True
+                    comando.CommandText = "Create database""" & nombre & """;"
+                    comando.ExecuteNonQuery()
+                    Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                    Dim comando2 As SqlCommand = conexionsql2.CreateCommand
+                    conexionsql2.Open()
+                    comando2.CommandText = "Create table grupo(idGrupo int primary key, idMaestro int, cantAlumnos int, hLu time, hMa time, hMi time, hJu time, hVi time, hSa time, nivel int);"
+                    comando2.ExecuteNonQuery()
+                    comando2.CommandText = "Create table inscripcion(idInscripcion int primary key, idAlumno int, idGrupo int, fecha date);"
+                    comando2.ExecuteNonQuery()
+
+                    conexionsql2.Close()
+                End If
+
+                If ban = True Then
+                    'Crea una segunda bandera
+                    Dim ban2 As Boolean = True
+                    transaccion = conexionsql.BeginTransaction("TransaccionCiclo")
+                    comando.Connection = conexionsql
+                    comando.Transaction = transaccion
+                    Try
+                        comando.CommandText = "Insert into ciclo(idCiclo, anio, estado) values(" & n & "," & Year(fecha) & ",'" & estado & "')"
+                        comando.ExecuteNonQuery()
+
+                        If ban2 Then
+                            transaccion.Commit()
+                            MessageBox.Show("El ciclo se creó exitosamente", "Apertura de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Else
+                            transaccion.Rollback()
+                            MessageBox.Show("La creación del ciclo fue cancelada", "Cancelación de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        End If
+                    Catch ex As Exception
+                        MessageBox.Show("Commit Exception Type: {0} No se pudo insertar por error")
+
+                        Try
+                            transaccion.Rollback()
+                        Catch ex2 As Exception
+                            MessageBox.Show("Error de ciclo")
+                        End Try
+                    End Try
+                End If
+            ElseIf lector(0) = "Abierto" Then
+                MessageBox.Show("No se puede abrir un nuevo ciclo. Tiene que cerrar el ciclo anterior.", "Error de apertura", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         End If
-        conexionsql.Close()
+            conexionsql.Close()
     End Sub
 End Class
