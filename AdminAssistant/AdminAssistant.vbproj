@@ -90,12 +90,6 @@
     <Compile Include="Catalogos\Alumnos\frmConsultaAlumnos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Catalogos\Ciclos\frmConsultaCiclo.Designer.vb">
-      <DependentUpon>frmConsultaCiclo.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Catalogos\Ciclos\frmConsultaCiclo.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Catalogos\Maestros\frmConsultaMaestros.Designer.vb">
       <DependentUpon>frmConsultaMaestros.vb</DependentUpon>
     </Compile>
@@ -106,12 +100,6 @@
       <DependentUpon>frmRegistroAlumno.vb</DependentUpon>
     </Compile>
     <Compile Include="Catalogos\Alumnos\frmRegistroAlumno.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Catalogos\Ciclos\frmRegistroCiclo.Designer.vb">
-      <DependentUpon>frmRegistroCiclo.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Catalogos\Ciclos\frmRegistroCiclo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Catalogos\Maestros\frmRegistroMaestro.Designer.vb">
@@ -159,17 +147,11 @@
     <EmbeddedResource Include="Catalogos\Alumnos\frmConsultaAlumnos.resx">
       <DependentUpon>frmConsultaAlumnos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Catalogos\Ciclos\frmConsultaCiclo.resx">
-      <DependentUpon>frmConsultaCiclo.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\Maestros\frmConsultaMaestros.resx">
       <DependentUpon>frmConsultaMaestros.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\Alumnos\frmRegistroAlumno.resx">
       <DependentUpon>frmRegistroAlumno.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Catalogos\Ciclos\frmRegistroCiclo.resx">
-      <DependentUpon>frmRegistroCiclo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\Maestros\frmRegistroMaestro.resx">
       <DependentUpon>frmRegistroMaestro.vb</DependentUpon>

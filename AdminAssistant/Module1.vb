@@ -6,6 +6,7 @@ Module Module1
     Public comando As SqlCommand = conexionsql.CreateCommand
     Public lector As SqlDataReader
     Public transaccion As SqlTransaction
+    Public transaccion2 As SqlTransaction
 
     Public cadenaLetra As String = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ "
     Public cadenaDomicilio As String = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ.- "

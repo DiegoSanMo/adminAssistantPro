@@ -47,93 +47,50 @@ Public Class principal
         comando.CommandText = "Select count (*) From ciclo"
         n = comando.ExecuteScalar + 1
 
-        Dim nombre As String = Str(n) + "-" + Year(fecha)
+        Dim nombre As String = CStr(n) + "-" + CStr(Year(fecha))
         Dim estado As String = "Abierto"
 
-        'Inicia la transacción
-        transaccion = conexionsql.BeginTransaction("TransaccionEasyEnglish")
-        'Asigna el objeto de la transacción y la conexión
-        'a un objeto comando para una transacción local pendiente
-        comando.Connection = conexionsql
-        comando.Transaction = transaccion
+        Dim ban As Boolean
 
-        'Checa si hay registros en la tabla "ciclo" y manda un mensaje para ver si sí se quiere
-        'registrar un nuevo ciclo
-        If contReg = 0 Then
+        If MessageBox.Show("¿Desea abrir un nuevo ciclo?", "Apertura de ciclo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+            ban = True
+            comando.CommandText = "Create database""" & nombre & """;"
+            comando.ExecuteNonQuery()
+            Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+            Dim comando2 As SqlCommand = conexionsql2.CreateCommand
+            conexionsql2.Open()
+            comando2.CommandText = "Create table grupo(idGrupo int primary key, idMaestro int, cantAlumnos int, hLu time, hMa time, hMi time, hJu time, hVi time, hSa time, nivel int);"
+            comando2.ExecuteNonQuery()
+            comando2.CommandText = "Create table inscripcion(idInscripcion int primary key, idAlumno int, idGrupo int, fecha date);"
+            comando2.ExecuteNonQuery()
+
+            conexionsql2.Close()
+        End If
+
+        If ban = True Then
+            'Crea una segunda bandera
+            Dim ban2 As Boolean = True
+            transaccion = conexionsql.BeginTransaction("TransaccionCiclo")
+            comando.Connection = conexionsql
+            comando.Transaction = transaccion
             Try
-                comando.CommandText = "Insert into ciclo(idCiclo, año, estado) values(" & n & ",'" & fecha & "','" & estado & "')"
+                comando.CommandText = "Insert into ciclo(idCiclo, anio, estado) values(" & n & ",'" & fecha & "','" & estado & "')"
                 comando.ExecuteNonQuery()
 
-                'Crea la base de datos nueva
-                comando.CommandText = "Create database '" & nombre & "';"
-                comando.ExecuteNonQuery()
-                If MessageBox.Show("¿Desea abrir un nuevo ciclo?", "Abrir nuevo ciclo", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = DialogResult.Yes Then
-                    'comando.CommandText = "Insert into ciclo(idCiclo, año, estado) values(" & n & ",'" & fecha & "','" & estado & "')"
-                    'comando.ExecuteNonQuery()
-
-                    ''Crea la base de datos nueva
-                    'comando.CommandText = "Create database '" & nombre & "';"
-                    'comando.ExecuteNonQuery()
-                    'transaccion.Commit()
+                If ban2 Then
                     transaccion.Commit()
-                    MessageBox.Show("El ciclo fue abierto exitosamente", "Apertura de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show("El ciclo se creó exitosamente", "Apertura de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Else
                     transaccion.Rollback()
-                    MessageBox.Show("No se abrirá el ciclo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show("La creación del ciclo fue cancelada", "Cancelación de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
             Catch ex As Exception
-                MessageBox.Show("Commit Exception Type: {0}No se pudo insertar por error")
+                MessageBox.Show("Commit Exception Type: {0} No se pudo insertar por error")
+
                 Try
                     transaccion.Rollback()
                 Catch ex2 As Exception
-                    MessageBox.Show("Error Rollback")
-                End Try
-            End Try
-        Else
-            Try
-                comando.CommandText = "Select TOP 1 * From ciclo ORDER BY idCiclo DESC"
-                lector = comando.ExecuteReader
-
-                'Verifica el estado del último registro de la tabla
-                If lector(2) = "Cerrado" Then
-                    'Registra el ciclo en la tabla de ciclo
-                    comando.CommandText = "Insert into ciclo(idCiclo, año, estado) values(" & n & ",'" & fecha & "','" & estado & "')"
-                    comando.ExecuteNonQuery()
-                    'Crea la base de datos nueva
-                    comando.CommandText = "Create database '" & nombre & "';"
-                    comando.ExecuteNonQuery()
-                Else
-                    MessageBox.Show("No se puede abrir un ciclo nuevo. Se tiene que cerrar el ciclo anterior", "Error de apertura", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End If
-                If MessageBox.Show("¿Desea abrir un nuevo ciclo?", "Abrir nuevo ciclo", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = DialogResult.Yes Then
-                    'Ordena los registros de la tabla en forma descendente, lo cual obtiene el último registro de la tabla
-                    'comando.CommandText = "Select TOP 1 * From ciclo ORDER BY idCiclo DESC"
-                    'lector = comando.ExecuteReader
-
-                    ''Verifica el estado del último registro de la tabla
-                    'If lector(2) = "Cerrado" Then
-                    '    'Registra el ciclo en la tabla de ciclo
-                    '    comando.CommandText = "Insert into ciclo(idCiclo, año, estado) values(" & n & ",'" & fecha & "','" & estado & "')"
-                    '    comando.ExecuteNonQuery()
-                    'Else
-                    '    MessageBox.Show("No se puede abrir un ciclo nuevo. Se tiene que cerrar el ciclo anterior", "Error de apertura", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    'End If
-                    ''Crea la base de datos nueva
-                    'comando.CommandText = "Create database '" & nombre & "';"
-                    'comando.ExecuteNonQuery()
-                    'Se intenta ejecutar la transacción
-                    transaccion.Commit()
-                    MessageBox.Show("El ciclo fue abierto exitosamente", "Apertura de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Else
-                    transaccion.Rollback()
-                    MessageBox.Show("No se abrirá el ciclo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End If
-            Catch ex As Exception
-                MessageBox.Show("Commit Exception Type: {0}No se pudo insertar por error")
-                Try
-                    transaccion.Rollback()
-                Catch ex2 As Exception
-                    MessageBox.Show("Error Rollback")
+                    MessageBox.Show("Error de ciclo")
                 End Try
             End Try
         End If
