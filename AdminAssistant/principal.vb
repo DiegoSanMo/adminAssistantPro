@@ -32,9 +32,12 @@ Public Class principal
         'Obtiene la fecha actual del sistema
         Dim fecha As Date = System.DateTime.Today
         'Cuenta los registros en la tabla. Asigna ese número a la variable n y lo eleva en uno
-        Dim contReg As Integer
-        comando.CommandText = "Select count(*) From ciclo"
-        contReg = comando.ExecuteScalar
+
+
+
+        'Dim contReg As Integer
+        'comando.CommandText = "Select count(*) From ciclo"
+        'contReg = comando.ExecuteScalar
         Dim n As Integer
         comando.CommandText = "Select count (*) From ciclo"
         n = comando.ExecuteScalar + 1
@@ -44,12 +47,12 @@ Public Class principal
 
         Dim ban As Boolean
 
-        If contReg = 0 Then
+        If n <= 1 Then
             If MessageBox.Show("¿Desea abrir un nuevo ciclo?", "Apertura de ciclo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                 ban = True
                 comando.CommandText = "Create database""" & nombre & """;"
                 comando.ExecuteNonQuery()
-                Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
                 Dim comando2 As SqlCommand = conexionsql2.CreateCommand
                 conexionsql2.Open()
                 comando2.CommandText = "Create table grupo(idGrupo int primary key, idMaestro int, cantAlumnos int, hLu time, hMa time, hMi time, hJu time, hVi time, hSa time, nivel int);"
@@ -97,7 +100,7 @@ Public Class principal
                     lector.Close()
                     comando.CommandText = "Create database""" & nombre & """;"
                     comando.ExecuteNonQuery()
-                    Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                    Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
                     Dim comando2 As SqlCommand = conexionsql2.CreateCommand
                     conexionsql2.Open()
                     comando2.CommandText = "Create table grupo(idGrupo int primary key, idMaestro int, cantAlumnos int, hLu time, hMa time, hMi time, hJu time, hVi time, hSa time, nivel int);"
