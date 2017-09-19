@@ -1,5 +1,4 @@
 ﻿Imports System.Data.SqlClient
-
 Public Class frmRegistroAlumno
     Dim ubicacion As String
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
@@ -19,28 +18,26 @@ Public Class frmRegistroAlumno
 
     Private Sub frmRegistroAlumno_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'EasyEnglishDataSetMani.alumno' Puede moverla o quitarla según sea necesario.
-        Me.AlumnoTableAdapter.Fill(Me.EasyEnglishDataSetMani.alumno)
-        'TODO: esta línea de código carga datos en la tabla 'EasyEnglishDataSetDiego.alumno' Puede moverla o quitarla según sea necesario.
-        'Me.AlumnoTableAdapter.Fill(Me.EasyEnglishDataSetDiego.alumno)
-        'TODO: esta línea de código carga datos en la tabla 'EasyEnglishDataSetMani.alumno' Puede moverla o quitarla según sea necesario.
-        'Me.AlumnoTableAdapter.Fill(Me.EasyEnglishDataSetDiego.alumno)
-
+        Me.AlumnoTableAdapter.Fill(Me.MasterEADataSet.alumno)
 
         btnPrimero.Enabled = True
         btnSiguiente.Enabled = True
         btnAnterior.Enabled = True
         btnUltimo.Enabled = True
-
     End Sub
 
     Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
+        conexionsql.Open()
+        comando.CommandText = "Insert into kardex(idAlumno, n1, n2, n3, n4, n5, n6, n7,	n8, n9, n10, n11, n12) values(" & CInt(txtNoControl.Text) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & ")"
+        comando.ExecuteNonQuery()
+        conexionsql.Close()
         AlumnoBindingSource.EndEdit()
         AlumnoBindingSource.Current(9) = ubicacion
-        SqlDataAdapter1.Update(EasyEnglishDataSetMani.alumno)
-        EasyEnglishDataSetMani.Clear()
-        AlumnoTableAdapter.Update(EasyEnglishDataSetMani.alumno)
-        SqlDataAdapter1.Fill(EasyEnglishDataSetMani.alumno)
-        AlumnoTableAdapter.Fill(EasyEnglishDataSetMani.alumno)
+        SqlDataAdapter1.Update(MasterEADataSet.alumno)
+        MasterEADataSet.Clear()
+        AlumnoTableAdapter.Update(MasterEADataSet.alumno)
+        SqlDataAdapter1.Fill(MasterEADataSet.alumno)
+        AlumnoTableAdapter.Fill(MasterEADataSet.alumno)
 
         'Se bloquean los controles principales
         txtNombre.Enabled = False
@@ -150,7 +147,7 @@ Public Class frmRegistroAlumno
         ubicacion = ruta
     End Sub
 
-    Private Sub SqlDataAdapter1_RowUpdated(sender As Object, e As SqlRowUpdatedEventArgs) Handles SqlDataAdapter1.RowUpdated
+    Private Sub SqlDataAdapter1_RowUpdated(sender As Object, e As SqlRowUpdatedEventArgs) 
         If e.Status = UpdateStatus.ErrorsOccurred Then
             MessageBox.Show(e.Errors.Message & vbCrLf &
             e.Row.Item("nombre", DataRowVersion.Original) & vbCrLf &

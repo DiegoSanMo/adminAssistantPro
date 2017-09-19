@@ -108,17 +108,22 @@
     <Compile Include="Catalogos\Maestros\frmRegistroMaestro.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmGruposRegistro.Designer.vb">
+    <Compile Include="Movimientos\Abrir grupo\frmGruposRegistro.Designer.vb">
       <DependentUpon>frmGruposRegistro.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmGruposRegistro.vb">
+    <Compile Include="Movimientos\Abrir grupo\frmGruposRegistro.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MasterEADataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MasterEADataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Module1.vb" />
-    <Compile Include="Movimientos\frmInscripciones.Designer.vb">
+    <Compile Include="Movimientos\Inscripción\frmInscripciones.Designer.vb">
       <DependentUpon>frmInscripciones.vb</DependentUpon>
     </Compile>
-    <Compile Include="Movimientos\frmInscripciones.vb">
+    <Compile Include="Movimientos\Inscripción\frmInscripciones.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -156,10 +161,10 @@
     <EmbeddedResource Include="Catalogos\Maestros\frmRegistroMaestro.resx">
       <DependentUpon>frmRegistroMaestro.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmGruposRegistro.resx">
+    <EmbeddedResource Include="Movimientos\Abrir grupo\frmGruposRegistro.resx">
       <DependentUpon>frmGruposRegistro.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Movimientos\frmInscripciones.resx">
+    <EmbeddedResource Include="Movimientos\Inscripción\frmInscripciones.resx">
       <DependentUpon>frmInscripciones.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -194,6 +199,17 @@
     </None>
     <None Include="EasyEnglishDataSetMani.xss">
       <DependentUpon>EasyEnglishDataSetMani.xsd</DependentUpon>
+    </None>
+    <None Include="MasterEADataSet.xsc">
+      <DependentUpon>MasterEADataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MasterEADataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MasterEADataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MasterEADataSet.xss">
+      <DependentUpon>MasterEADataSet.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>

@@ -29,8 +29,6 @@ Partial Class frmRegistroMaestro
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtClave = New System.Windows.Forms.TextBox()
-        Me.MaestroBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.EasyEnglishDataSetMani = New AdminAssistant.EasyEnglishDataSetMani()
         Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtDomicilio = New System.Windows.Forms.TextBox()
@@ -54,16 +52,18 @@ Partial Class frmRegistroMaestro
         Me.btnUltimo = New System.Windows.Forms.Button()
         Me.btnAnterior = New System.Windows.Forms.Button()
         Me.btnSiguiente = New System.Windows.Forms.Button()
-        Me.MaestroTableAdapter = New AdminAssistant.EasyEnglishDataSetManiTableAdapters.maestroTableAdapter()
         Me.SqlSelectCommand1 = New System.Data.SqlClient.SqlCommand()
-        Me.SqlConnection1 = New System.Data.SqlClient.SqlConnection()
         Me.SqlInsertCommand2 = New System.Data.SqlClient.SqlCommand()
         Me.SqlUpdateCommand1 = New System.Data.SqlClient.SqlCommand()
         Me.SqlDeleteCommand1 = New System.Data.SqlClient.SqlCommand()
         Me.SqlDataAdapter1 = New System.Data.SqlClient.SqlDataAdapter()
+        Me.SqlConnection1 = New System.Data.SqlClient.SqlConnection()
+        Me.MasterEADataSet = New AdminAssistant.MasterEADataSet()
+        Me.MaestroBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MaestroTableAdapter = New AdminAssistant.MasterEADataSetTableAdapters.maestroTableAdapter()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MasterEADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MaestroBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EasyEnglishDataSetMani, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PictureBox2
@@ -117,16 +117,6 @@ Partial Class frmRegistroMaestro
         Me.txtClave.Name = "txtClave"
         Me.txtClave.Size = New System.Drawing.Size(284, 26)
         Me.txtClave.TabIndex = 42
-        '
-        'MaestroBindingSource
-        '
-        Me.MaestroBindingSource.DataMember = "maestro"
-        Me.MaestroBindingSource.DataSource = Me.EasyEnglishDataSetMani
-        '
-        'EasyEnglishDataSetMani
-        '
-        Me.EasyEnglishDataSetMani.DataSetName = "EasyEnglishDataSetMani"
-        Me.EasyEnglishDataSetMani.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'txtNombre
         '
@@ -306,8 +296,8 @@ Partial Class frmRegistroMaestro
         '
         'cboNivel
         '
-        Me.cboNivel.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.MaestroBindingSource, "nivelIngles", True))
         Me.cboNivel.DataBindings.Add(New System.Windows.Forms.Binding("SelectedItem", Me.MaestroBindingSource, "nivelIngles", True))
+        Me.cboNivel.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.MaestroBindingSource, "nivelIngles", True))
         Me.cboNivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboNivel.Enabled = False
         Me.cboNivel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
@@ -415,20 +405,10 @@ Partial Class frmRegistroMaestro
         Me.btnSiguiente.Text = ">"
         Me.btnSiguiente.UseVisualStyleBackColor = False
         '
-        'MaestroTableAdapter
-        '
-        Me.MaestroTableAdapter.ClearBeforeFill = True
-        '
         'SqlSelectCommand1
         '
         Me.SqlSelectCommand1.CommandText = "SELECT * FROM maestro;"
         Me.SqlSelectCommand1.Connection = Me.SqlConnection1
-        '
-        'SqlConnection1
-        '
-        Me.SqlConnection1.ConnectionString = "Data Source=DESKTOP-B3IP6AD\MANI;Initial Catalog=EasyEnglish;Integrated Security=" &
-    "True"
-        Me.SqlConnection1.FireInfoMessageEventOnUserErrors = False
         '
         'SqlInsertCommand2
         '
@@ -455,6 +435,26 @@ Partial Class frmRegistroMaestro
         Me.SqlDataAdapter1.SelectCommand = Me.SqlSelectCommand1
         Me.SqlDataAdapter1.TableMappings.AddRange(New System.Data.Common.DataTableMapping() {New System.Data.Common.DataTableMapping("Table", "maestro", New System.Data.Common.DataColumnMapping() {New System.Data.Common.DataColumnMapping("idMaestro", "idMaestro"), New System.Data.Common.DataColumnMapping("nombre", "nombre"), New System.Data.Common.DataColumnMapping("domicilio", "domicilio"), New System.Data.Common.DataColumnMapping("telefono", "telefono"), New System.Data.Common.DataColumnMapping("certificado", "certificado"), New System.Data.Common.DataColumnMapping("nivelIngles", "nivelIngles"), New System.Data.Common.DataColumnMapping("correo", "correo")})})
         Me.SqlDataAdapter1.UpdateCommand = Me.SqlUpdateCommand1
+        '
+        'SqlConnection1
+        '
+        Me.SqlConnection1.ConnectionString = "Data Source=DESKTOP-B3IP6AD\MANI;Initial Catalog=MasterEA;Integrated Security=Tru" &
+    "e"
+        Me.SqlConnection1.FireInfoMessageEventOnUserErrors = False
+        '
+        'MasterEADataSet
+        '
+        Me.MasterEADataSet.DataSetName = "MasterEADataSet"
+        Me.MasterEADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'MaestroBindingSource
+        '
+        Me.MaestroBindingSource.DataMember = "maestro"
+        Me.MaestroBindingSource.DataSource = Me.MasterEADataSet
+        '
+        'MaestroTableAdapter
+        '
+        Me.MaestroTableAdapter.ClearBeforeFill = True
         '
         'frmRegistroMaestro
         '
@@ -493,8 +493,8 @@ Partial Class frmRegistroMaestro
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmRegistroMaestro"
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MasterEADataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MaestroBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EasyEnglishDataSetMani, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -528,13 +528,13 @@ Partial Class frmRegistroMaestro
     Friend WithEvents btnUltimo As Button
     Friend WithEvents btnAnterior As Button
     Friend WithEvents btnSiguiente As Button
-    Friend WithEvents EasyEnglishDataSetMani As EasyEnglishDataSetMani
-    Friend WithEvents MaestroBindingSource As BindingSource
-    Friend WithEvents MaestroTableAdapter As EasyEnglishDataSetManiTableAdapters.maestroTableAdapter
     Friend WithEvents SqlSelectCommand1 As SqlClient.SqlCommand
     Friend WithEvents SqlConnection1 As SqlClient.SqlConnection
     Friend WithEvents SqlInsertCommand2 As SqlClient.SqlCommand
     Friend WithEvents SqlUpdateCommand1 As SqlClient.SqlCommand
     Friend WithEvents SqlDeleteCommand1 As SqlClient.SqlCommand
     Friend WithEvents SqlDataAdapter1 As SqlClient.SqlDataAdapter
+    Friend WithEvents MasterEADataSet As MasterEADataSet
+    Friend WithEvents MaestroBindingSource As BindingSource
+    Friend WithEvents MaestroTableAdapter As MasterEADataSetTableAdapters.maestroTableAdapter
 End Class

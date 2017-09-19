@@ -29,20 +29,18 @@ Partial Class frmRegistroAlumno
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.ptbFoto = New System.Windows.Forms.PictureBox()
-        Me.AlumnoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.EasyEnglishDataSetMani = New AdminAssistant.EasyEnglishDataSetMani()
-        Me.EasyEnglishDataSetDiego = New AdminAssistant.EasyEnglishDataSetDiego()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.txtNombre = New System.Windows.Forms.TextBox()
+        Me.AlumnoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MasterEADataSet = New AdminAssistant.MasterEADataSet()
         Me.txtDomicilio = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.txtTelEmergencia = New System.Windows.Forms.TextBox()
         Me.txtCorreo = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.dtpFechaNa = New System.Windows.Forms.DateTimePicker()
         Me.btnAceptar = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnBuscarF = New System.Windows.Forms.Button()
@@ -71,12 +69,12 @@ Partial Class frmRegistroAlumno
         Me.SqlUpdateCommand1 = New System.Data.SqlClient.SqlCommand()
         Me.SqlDeleteCommand1 = New System.Data.SqlClient.SqlCommand()
         Me.SqlDataAdapter1 = New System.Data.SqlClient.SqlDataAdapter()
-        Me.AlumnoTableAdapter = New AdminAssistant.EasyEnglishDataSetManiTableAdapters.alumnoTableAdapter()
+        Me.AlumnoTableAdapter = New AdminAssistant.MasterEADataSetTableAdapters.alumnoTableAdapter()
+        Me.dtpFechaNa = New System.Windows.Forms.DateTimePicker()
         CType(Me.ptbFoto, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.AlumnoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EasyEnglishDataSetMani, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EasyEnglishDataSetDiego, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AlumnoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MasterEADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label2
@@ -135,21 +133,6 @@ Partial Class frmRegistroAlumno
         Me.ptbFoto.TabIndex = 9
         Me.ptbFoto.TabStop = False
         '
-        'AlumnoBindingSource
-        '
-        Me.AlumnoBindingSource.DataMember = "alumno"
-        Me.AlumnoBindingSource.DataSource = Me.EasyEnglishDataSetMani
-        '
-        'EasyEnglishDataSetMani
-        '
-        Me.EasyEnglishDataSetMani.DataSetName = "EasyEnglishDataSetMani"
-        Me.EasyEnglishDataSetMani.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'EasyEnglishDataSetDiego
-        '
-        Me.EasyEnglishDataSetDiego.DataSetName = "EasyEnglishDataSetDiego"
-        Me.EasyEnglishDataSetDiego.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -197,6 +180,16 @@ Partial Class frmRegistroAlumno
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(641, 34)
         Me.txtNombre.TabIndex = 1
+        '
+        'AlumnoBindingSource
+        '
+        Me.AlumnoBindingSource.DataMember = "alumno"
+        Me.AlumnoBindingSource.DataSource = Me.MasterEADataSet
+        '
+        'MasterEADataSet
+        '
+        Me.MasterEADataSet.DataSetName = "MasterEADataSet"
+        Me.MasterEADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'txtDomicilio
         '
@@ -261,20 +254,6 @@ Partial Class frmRegistroAlumno
         Me.Label11.Size = New System.Drawing.Size(207, 24)
         Me.Label11.TabIndex = 24
         Me.Label11.Text = "Fecha de nacimiento"
-        '
-        'dtpFechaNa
-        '
-        Me.dtpFechaNa.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dtpFechaNa.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFechaNa.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.AlumnoBindingSource, "fechaDeNacimiento", True))
-        Me.dtpFechaNa.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AlumnoBindingSource, "fechaDeNacimiento", True))
-        Me.dtpFechaNa.Enabled = False
-        Me.dtpFechaNa.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.dtpFechaNa.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFechaNa.Location = New System.Drawing.Point(723, 434)
-        Me.dtpFechaNa.Name = "dtpFechaNa"
-        Me.dtpFechaNa.Size = New System.Drawing.Size(210, 26)
-        Me.dtpFechaNa.TabIndex = 6
         '
         'btnAceptar
         '
@@ -574,8 +553,8 @@ Partial Class frmRegistroAlumno
         '
         'SqlConnection1
         '
-        Me.SqlConnection1.ConnectionString = "Data Source=DESKTOP-B3IP6AD\MANI;Initial Catalog=EasyEnglish;Integrated Security=" &
-    "True"
+        Me.SqlConnection1.ConnectionString = "Data Source=DESKTOP-B3IP6AD\MANI;Initial Catalog=MasterEA;Integrated Security=Tru" &
+    "e"
         Me.SqlConnection1.FireInfoMessageEventOnUserErrors = False
         '
         'SqlInsertCommand1
@@ -608,12 +587,24 @@ Partial Class frmRegistroAlumno
         '
         Me.AlumnoTableAdapter.ClearBeforeFill = True
         '
+        'dtpFechaNa
+        '
+        Me.dtpFechaNa.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.AlumnoBindingSource, "fechaDeNacimiento", True))
+        Me.dtpFechaNa.Enabled = False
+        Me.dtpFechaNa.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFechaNa.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFechaNa.Location = New System.Drawing.Point(727, 436)
+        Me.dtpFechaNa.Name = "dtpFechaNa"
+        Me.dtpFechaNa.Size = New System.Drawing.Size(200, 26)
+        Me.dtpFechaNa.TabIndex = 46
+        '
         'frmRegistroAlumno
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(1054, 710)
+        Me.Controls.Add(Me.dtpFechaNa)
         Me.Controls.Add(Me.btnPrimero)
         Me.Controls.Add(Me.btnUltimo)
         Me.Controls.Add(Me.btnAnterior)
@@ -633,7 +624,6 @@ Partial Class frmRegistroAlumno
         Me.Controls.Add(Me.btnBuscarF)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnAceptar)
-        Me.Controls.Add(Me.dtpFechaNa)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.txtCorreo)
         Me.Controls.Add(Me.Label10)
@@ -656,10 +646,9 @@ Partial Class frmRegistroAlumno
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmRegistroAlumno"
         CType(Me.ptbFoto, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.AlumnoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EasyEnglishDataSetMani, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EasyEnglishDataSetDiego, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AlumnoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MasterEADataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -679,7 +668,6 @@ Partial Class frmRegistroAlumno
     Friend WithEvents txtCorreo As TextBox
     Friend WithEvents Label10 As Label
     Friend WithEvents Label11 As Label
-    Friend WithEvents dtpFechaNa As DateTimePicker
     Friend WithEvents btnAceptar As Button
     Friend WithEvents btnSalir As Button
     Friend WithEvents btnBuscarF As Button
@@ -702,14 +690,14 @@ Partial Class frmRegistroAlumno
     Friend WithEvents btnPrimero As Button
     Friend WithEvents btnUltimo As Button
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
-    Friend WithEvents EasyEnglishDataSetMani As EasyEnglishDataSetMani
-    Friend WithEvents EasyEnglishDataSetDiego As EasyEnglishDataSetDiego
     Friend WithEvents SqlSelectCommand1 As SqlClient.SqlCommand
     Friend WithEvents SqlConnection1 As SqlClient.SqlConnection
     Friend WithEvents SqlInsertCommand1 As SqlClient.SqlCommand
     Friend WithEvents SqlUpdateCommand1 As SqlClient.SqlCommand
     Friend WithEvents SqlDeleteCommand1 As SqlClient.SqlCommand
     Friend WithEvents SqlDataAdapter1 As SqlClient.SqlDataAdapter
+    Friend WithEvents MasterEADataSet As MasterEADataSet
     Friend WithEvents AlumnoBindingSource As BindingSource
-    Friend WithEvents AlumnoTableAdapter As EasyEnglishDataSetManiTableAdapters.alumnoTableAdapter
+    Friend WithEvents AlumnoTableAdapter As MasterEADataSetTableAdapters.alumnoTableAdapter
+    Friend WithEvents dtpFechaNa As DateTimePicker
 End Class

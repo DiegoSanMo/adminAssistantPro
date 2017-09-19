@@ -2,8 +2,8 @@
 
 Public Class frmRegistroMaestro
     Private Sub frmRegistroMaestro_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'EasyEnglishDataSetMani.maestro' Puede moverla o quitarla según sea necesario.
-        Me.MaestroTableAdapter.Fill(Me.EasyEnglishDataSetMani.maestro)
+        'TODO: esta línea de código carga datos en la tabla 'MasterEADataSet.maestro' Puede moverla o quitarla según sea necesario.
+        Me.MaestroTableAdapter.Fill(Me.MasterEADataSet.maestro)
         'TODO: esta línea de código carga datos en la tabla 'EasyEnglishDataSet1.maestro' Puede moverla o quitarla según sea necesario.
         'Me.MaestroTableAdapter.Fill(Me.EasyEnglishDataSetMani.maestro)
     End Sub
@@ -33,11 +33,11 @@ Public Class frmRegistroMaestro
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         MaestroBindingSource.EndEdit()
-        SqlDataAdapter1.Update(EasyEnglishDataSetMani.maestro)
-        EasyEnglishDataSetMani.Clear()
-        MaestroTableAdapter.Update(EasyEnglishDataSetMani.maestro)
-        SqlDataAdapter1.Fill(EasyEnglishDataSetMani.maestro)
-        MaestroTableAdapter.Fill(EasyEnglishDataSetMani.maestro)
+        SqlDataAdapter1.Update(MasterEADataSet.maestro)
+        MasterEADataSet.Clear()
+        MaestroTableAdapter.Update(MasterEADataSet.maestro)
+        SqlDataAdapter1.Fill(MasterEADataSet.maestro)
+        MaestroTableAdapter.Fill(MasterEADataSet.maestro)
 
         'activar textbox y botones
         txtNombre.Enabled = False
@@ -136,7 +136,7 @@ Public Class frmRegistroMaestro
         MaestroBindingSource.MoveLast()
     End Sub
 
-    Private Sub SqlDataAdapter1_RowUpdated(sender As Object, e As SqlRowUpdatedEventArgs) Handles SqlDataAdapter1.RowUpdated
+    Private Sub SqlDataAdapter1_RowUpdated(sender As Object, e As SqlRowUpdatedEventArgs)
         If e.Status = UpdateStatus.ErrorsOccurred Then
             MessageBox.Show(e.Errors.Message & vbCrLf &
             e.Row.Item("nombre", DataRowVersion.Original) & vbCrLf &
