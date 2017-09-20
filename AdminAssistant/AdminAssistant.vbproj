@@ -178,6 +178,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App - Copia.config" />
     <None Include="EasyEnglishDataSetDiego.xsc">
       <DependentUpon>EasyEnglishDataSetDiego.xsd</DependentUpon>
     </None>
@@ -220,7 +221,9 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Reportes\" />
