@@ -22,17 +22,12 @@ Public Class frmGruposRegistro
 
         idCiclo = lectorGeneral(0)
         anioC = lectorGeneral(1)
-        nombreBaseRemota = CStr(idCiclo) + CStr("-") + CStr(anioC)
+
+        'asigna el nombre de la base de datos
+        Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
+
         lectorGeneral.Close()
         Conexion.Close()
-
-        conexionRemota.Open()
-        comandoRemoto.CommandText = "SELECT DB_NAME() AS [Current Database];"
-        lectorRemoto = comandoRemoto.ExecuteReader
-        lectorRemoto.Read()
-        MsgBox(lectorRemoto(0))
-
-
 
     End Sub
 
@@ -54,10 +49,28 @@ Public Class frmGruposRegistro
         txtMaxAlumnos.Enabled = True
         cboNivel.Enabled = True
 
-        Dim n As Integer
-        comandoRemoto.CommandText = "Select count(idGrupo) from grupo"
-        n = comandoRemoto.ExecuteScalar + 1
 
+        Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
+            Dim comandoRemoto As SqlCommand = conexionRemota.CreateCommand
+            Dim lectorRemoto As SqlDataReader
+
+            conexionRemota.Open()
+
+
+            comandoRemoto.CommandText = "SELECT DB_NAME() AS [Current Database]"
+            lectorRemoto = comandoRemoto.ExecuteReader
+            lectorRemoto.Read()
+
+            MsgBox(lectorRemoto(0))
+            lectorRemoto.Close()
+
+            comandoRemoto.CommandText = "Select count(idGrupo) from grupo"
+            Dim n As Integer = comandoRemoto.ExecuteScalar + 1
+            txtClave.Text = n
+
+            conexionRemota.Close()
+
+        End Using
 
 
     End Sub
@@ -102,7 +115,6 @@ Public Class frmGruposRegistro
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-
         Me.Dispose()
     End Sub
 
