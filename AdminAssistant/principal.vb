@@ -54,6 +54,7 @@ Public Class principal
                     MessageBox.Show("El ciclo se creó exitosamente", "Apertura de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     comando.CommandText = "Create database""" & nombre & """;"
                     comando.ExecuteNonQuery()
+
                     'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
                     Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
                     Dim comando2 As SqlCommand = conexionsql2.CreateCommand
@@ -62,6 +63,7 @@ Public Class principal
                     comando2.ExecuteNonQuery()
                     comando2.CommandText = "Create table inscripcion(idInscripcion int primary key, idAlumno int, idGrupo int, fecha date);"
                     comando2.ExecuteNonQuery()
+
 
                     conexionsql2.Close()
                 Else
@@ -95,6 +97,8 @@ Public Class principal
                         MessageBox.Show("El ciclo se creó exitosamente", "Apertura de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         comando.CommandText = "Create database""" & nombre & """;"
                         comando.ExecuteNonQuery()
+
+
                         'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
                         Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
                         Dim comando2 As SqlCommand = conexionsql2.CreateCommand
@@ -128,6 +132,31 @@ Public Class principal
     End Sub
 
     Private Sub AbrirGrupoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AbrirGrupoToolStripMenuItem.Click
-        frmGruposRegistro.ShowDialog()
+        Conexion.Open()
+
+        Dim n As Integer
+
+        comandoGeneral.CommandText = "Select count(idCiclo) from ciclo"
+        n = comandoGeneral.ExecuteScalar
+
+        If n = 0 Then
+            MessageBox.Show("ERROR, NO SE HA ABIERTO CICLO", "ERROR DE CICLO", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            comandoGeneral.CommandText = "Select estado From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
+            lectorGeneral = comandoGeneral.ExecuteReader
+            lectorGeneral.Read()
+
+            If lectorGeneral(0) = "Cerrado" Then
+                lectorGeneral.Close()
+
+                MessageBox.Show("ERROR, CICLO CERRADO", "CICLO CERRADO", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                Conexion.Close()
+                frmGruposRegistro.Show()
+            End If
+
+        End If
+
+
     End Sub
 End Class

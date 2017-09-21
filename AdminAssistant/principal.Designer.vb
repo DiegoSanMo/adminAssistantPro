@@ -22,6 +22,7 @@ Partial Class principal
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(principal))
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.AlumnosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -45,6 +46,7 @@ Partial Class principal
         Me.CerrarCicloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -195,6 +197,11 @@ Partial Class principal
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(219, 43)
         Me.SalirToolStripMenuItem.Text = "Salir"
         '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
+        '
         'principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -236,4 +243,5 @@ Partial Class principal
     Friend WithEvents ClasificarListasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CerrarCicloToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CapturarCalificacionesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
 End Class

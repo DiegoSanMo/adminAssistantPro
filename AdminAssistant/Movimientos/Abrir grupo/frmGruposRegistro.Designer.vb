@@ -182,6 +182,8 @@ Partial Class frmGruposRegistro
         '
         'cboMaestros
         '
+        Me.cboMaestros.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.cboMaestros.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cboMaestros.Enabled = False
         Me.cboMaestros.FormattingEnabled = True
         Me.cboMaestros.Location = New System.Drawing.Point(10, 47)
