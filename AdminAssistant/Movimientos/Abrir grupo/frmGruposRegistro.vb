@@ -27,12 +27,12 @@ Public Class frmGruposRegistro
         Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
 
 
-        comandoGeneral.CommandText = "select idGrupo, nombre, hLu, hMa, hMi, hJu, hVi, hSa from [" & Name & "].dbo.grupo c join MasterEA.dbo.maestro m on c.idMaestro = m.idMaestro"
+        comandoGeneral.CommandText = "select idGrupo, nombre, nivel, cantAlumnos, hLu, hMa, hMi, hJu, hVi, hSa from [" & Name & "].dbo.grupo c join MasterEA.dbo.maestro m on c.idMaestro = m.idMaestro"
         lectorGeneral = comandoGeneral.ExecuteReader
         dgHorario.Rows.Clear()
 
         While lectorGeneral.Read
-            dgHorario.Rows.Add(lectorGeneral(0), lectorGeneral(1), lectorGeneral(2), lectorGeneral(3), lectorGeneral(4), lectorGeneral(5), lectorGeneral(6), lectorGeneral(7))
+            dgHorario.Rows.Add(lectorGeneral(0), lectorGeneral(1), lectorGeneral(2), lectorGeneral(3), lectorGeneral(4), lectorGeneral(5), lectorGeneral(6), lectorGeneral(7), lectorGeneral(8), lectorGeneral(9))
         End While
         lectorGeneral.Close()
 
@@ -106,10 +106,10 @@ Public Class frmGruposRegistro
 
                 If CInt(txtMaxAlumnos.Text) <= 12 Then
 
-                    If cboNivel.SelectedValue.ToString = " " Then
+                    If cboNivel.SelectedItem = "" Then
                         MsgBox("No se ha seleccionado nivel, favor de ingresarlo")
                         cboNivel.Focus()
-
+                        MsgBox(cboNivel.SelectedValue)
                     Else
 
                         Dim horarioL As String = dtpLunesI.Value.ToLongTimeString + CStr("/") + dtpLunesF.Value.ToLongTimeString
@@ -120,7 +120,7 @@ Public Class frmGruposRegistro
                         Dim horarioSa As String = dtpSabadoI.Value.ToLongTimeString + CStr("/") + dtpSabadoF.Value.ToLongTimeString
 
                         MsgBox(horarioL)
-                        MsgBox(cboNivel.SelectedValue)
+                        MsgBox(cboNivel.SelectedItem)
 
                         Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
                             Dim comandoRemoto As SqlCommand = conexionRemota.CreateCommand
@@ -132,7 +132,7 @@ Public Class frmGruposRegistro
                             comandoRemoto.Transaction = trans
 
                             Try
-                                comandoRemoto.CommandText = "Insert int grupo(idGrupo, idMaestro,  cantAlumnos, hLu, hMa, hMi, hJu, hVi, hSa, nivel) values(" & CInt(txtClave.Text) & ", " & CInt(txtIdMaestro.Text) & ", " & CInt(txtMaxAlumnos.Text) & ", '" & horarioL & "', '" & horarioMa & "', '" & horarioMi & "', '" & horarioJu & "', '" & horarioVi & "', '" & horarioSa & "', " & CInt(cboNivel.SelectedItem) & ")"
+                                comandoRemoto.CommandText = "Insert into grupo(idGrupo, idMaestro,  cantAlumnos, hLu, hMa, hMi, hJu, hVi, hSa, nivel) values(" & CInt(txtClave.Text) & ", " & CInt(txtIdMaestro.Text) & ", " & CInt(txtMaxAlumnos.Text) & ", '" & horarioL & "', '" & horarioMa & "', '" & horarioMi & "', '" & horarioJu & "', '" & horarioVi & "', '" & horarioSa & "', " & CInt(cboNivel.SelectedItem) & ")"
                                 comandoRemoto.ExecuteNonQuery()
                                 If MessageBox.Show("¿Desea registrar el nuevo horario?", "Registro de horario", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                                     trans.Commit()
@@ -246,6 +246,8 @@ Public Class frmGruposRegistro
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+        Conexion.Close()
+
         Me.Dispose()
     End Sub
 
