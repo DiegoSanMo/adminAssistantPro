@@ -70,10 +70,27 @@ Public Class frmGruposRegistro
         dtpSabadoF.Enabled = True
 
 
+        dtpLunesI.Text = "00:00 AM"
+        dtpLunesF.Text = "00:00 AM"
+
+        dtpMartesI.Text = "00:00 AM"
+        dtpMartesF.Text = "00:00 AM"
+
+        dtpMiercolesI.Text = "00:00 AM"
+        dtpMiercolesF.Text = "00:00 AM"
+
+        dtpJuevesI.Text = "00:00 AM"
+        dtpJuevesF.Text = "00:00 AM"
+
+        dtpViernesI.Text = "00:00 AM"
+        dtpViernesF.Text = "00:00 AM"
+
+        dtpSabadoI.Text = "00:00 AM"
+        dtpSabadoF.Text = "00:00 AM"
 
 
 
-        Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
+        Using conexionRemota As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; integrated security = true")
             Dim comandoRemoto As SqlCommand = conexionRemota.CreateCommand
             Dim lectorRemoto As SqlDataReader
 
@@ -122,7 +139,7 @@ Public Class frmGruposRegistro
                         MsgBox(horarioL)
                         MsgBox(cboNivel.SelectedItem)
 
-                        Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
+                        Using conexionRemota As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; integrated security = true")
                             Dim comandoRemoto As SqlCommand = conexionRemota.CreateCommand
 
                             conexionRemota.Open()
@@ -246,7 +263,7 @@ Public Class frmGruposRegistro
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         Conexion.Close()
 
-        Me.Dispose()
+        Me.Close()
     End Sub
 
     Private Sub cboMaestros_TextChanged(sender As Object, e As EventArgs) Handles cboMaestros.TextChanged

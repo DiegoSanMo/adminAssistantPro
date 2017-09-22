@@ -55,8 +55,8 @@ Public Class principal
                     comando.CommandText = "Create database""" & nombre & """;"
                     comando.ExecuteNonQuery()
 
-                    'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
-                    Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                    Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                    'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
                     Dim comando2 As SqlCommand = conexionsql2.CreateCommand
                     conexionsql2.Open()
                     comando2.CommandText = "Create table grupo(idGrupo int primary key, idMaestro int, cantAlumnos int, hLu varchar(50), hMa varchar(50), hMi varchar(50), hJu varchar(50), hVi varchar(50), hSa varchar(50), nivel int);"
@@ -99,8 +99,8 @@ Public Class principal
                         comando.ExecuteNonQuery()
 
 
-                        'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
-                        Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                        Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                        'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
                         Dim comando2 As SqlCommand = conexionsql2.CreateCommand
                         conexionsql2.Open()
                         comando2.CommandText = "Create table grupo(idGrupo int primary key, idMaestro int, cantAlumnos int, hLu varchar(50), hMa varchar(50), hMi varchar(50), hJu varchar(50), hVi varchar(50), hSa varchar(50), nivel int);"
@@ -159,7 +159,5 @@ Public Class principal
                 frmGruposRegistro.Show()
             End If
         End If
-
-
     End Sub
 End Class
