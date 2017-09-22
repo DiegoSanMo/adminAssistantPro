@@ -22,12 +22,18 @@ Public Class frmGruposRegistro
 
         idCiclo = lectorGeneral(0)
         anioC = lectorGeneral(1)
-
+        lectorGeneral.Close()
         'asigna el nombre de la base de datos
         Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
 
-        lectorGeneral.Close()
-        Conexion.Close()
+
+
+
+
+
+
+
+
 
     End Sub
 
@@ -48,6 +54,9 @@ Public Class frmGruposRegistro
         mskSabado.Enabled = True
         txtMaxAlumnos.Enabled = True
         cboNivel.Enabled = True
+
+
+
 
 
         Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
@@ -118,4 +127,37 @@ Public Class frmGruposRegistro
         Me.Dispose()
     End Sub
 
+    Private Sub cboMaestros_TextChanged(sender As Object, e As EventArgs) Handles cboMaestros.TextChanged
+
+        comandoGeneral.CommandText = "Select nombre from maestro where nombre like  '%" & cboMaestros.Text & "%'"
+        lectorGeneral = comandoGeneral.ExecuteReader
+        While lectorGeneral.Read
+            cboMaestros.Items.Add(lectorGeneral(0))
+        End While
+        lectorGeneral.Close()
+
+
+    End Sub
+
+    Private Sub cboMaestros_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboMaestros.SelectedValueChanged
+
+        comandoGeneral.CommandText = "Select idMaestro, correo, telefono from maestro where nombre = '" & cboMaestros.Text & "'"
+        lectorGeneral = comandoGeneral.ExecuteReader
+        lectorGeneral.Read()
+        txtIdMaestro.Text = lectorGeneral(0)
+        txtCorreo.Text = lectorGeneral(1)
+        txtTel.Text = lectorGeneral(2)
+        lectorGeneral.Close()
+
+
+
+    End Sub
+
+    Private Sub cboMaestros_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboMaestros.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub GroupBox2_Enter(sender As Object, e As EventArgs) Handles GroupBox2.Enter
+
+    End Sub
 End Class

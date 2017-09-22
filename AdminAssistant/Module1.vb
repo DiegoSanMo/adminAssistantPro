@@ -19,7 +19,7 @@ Module Module1
     Public comandoGeneral As SqlCommand = Conexion.CreateCommand
     Public lectorGeneral As SqlDataReader
 
-    Public name As String
+    Public Name As String
 
 
 

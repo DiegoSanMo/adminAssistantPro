@@ -59,7 +59,7 @@ Public Class principal
                     Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
                     Dim comando2 As SqlCommand = conexionsql2.CreateCommand
                     conexionsql2.Open()
-                    comando2.CommandText = "Create table grupo(idGrupo int primary key, idMaestro int, cantAlumnos int, hLu time, hMa time, hMi time, hJu time, hVi time, hSa time, nivel int);"
+                    comando2.CommandText = "Create table grupo(idGrupo int primary key, idMaestro int, cantAlumnos int, hLu varchar(50), hMa varchar(50), hMi varchar(50), hJu varchar(50), hVi varchar(50), hSa varchar(50), nivel int);"
                     comando2.ExecuteNonQuery()
                     comando2.CommandText = "Create table inscripcion(idInscripcion int primary key, idAlumno int, idGrupo int, fecha date);"
                     comando2.ExecuteNonQuery()
@@ -103,7 +103,7 @@ Public Class principal
                         Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
                         Dim comando2 As SqlCommand = conexionsql2.CreateCommand
                         conexionsql2.Open()
-                        comando2.CommandText = "Create table grupo(idGrupo int primary key, idMaestro int, cantAlumnos int, hLu time, hMa time, hMi time, hJu time, hVi time, hSa time, nivel int);"
+                        comando2.CommandText = "Create table grupo(idGrupo int primary key, idMaestro int, cantAlumnos int, hLu varchar(50), hMa varchar(50), hMi varchar(50), hJu varchar(50), hVi varchar(50), hSa varchar(50), nivel int);"
                         comando2.ExecuteNonQuery()
                         comando2.CommandText = "Create table inscripcion(idInscripcion int primary key, idAlumno int, idGrupo int, fecha date);"
                         comando2.ExecuteNonQuery()
@@ -125,6 +125,8 @@ Public Class principal
                     End Try
                 End Try
             ElseIf lector(0) = "Abierto" Then
+                lector.Close()
+
                 MessageBox.Show("No se puede abrir un nuevo ciclo. Tiene que cerrar el ciclo anterior.", "Error de apertura", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         End If
@@ -140,6 +142,7 @@ Public Class principal
         n = comandoGeneral.ExecuteScalar
 
         If n = 0 Then
+            Conexion.Close()
             MessageBox.Show("ERROR, NO SE HA ABIERTO CICLO", "ERROR DE CICLO", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
             comandoGeneral.CommandText = "Select estado From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
@@ -148,13 +151,13 @@ Public Class principal
 
             If lectorGeneral(0) = "Cerrado" Then
                 lectorGeneral.Close()
-
+                Conexion.Close()
                 MessageBox.Show("ERROR, CICLO CERRADO", "CICLO CERRADO", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
+                lectorGeneral.Close()
                 Conexion.Close()
                 frmGruposRegistro.Show()
             End If
-
         End If
 
 
