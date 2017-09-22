@@ -112,12 +112,12 @@ Public Class frmGruposRegistro
                         MsgBox(cboNivel.SelectedValue)
                     Else
 
-                        Dim horarioL As String = dtpLunesI.Value.ToLongTimeString + CStr("/") + dtpLunesF.Value.ToLongTimeString
-                        Dim horarioMa As String = dtpMartesI.Value.ToLongTimeString + CStr("/") + dtpMartesF.Value.ToLongTimeString
-                        Dim horarioMi As String = dtpMiercolesI.Value.ToLongTimeString + CStr("/") + dtpMiercolesF.Value.ToLongTimeString
-                        Dim horarioJu As String = dtpJuevesI.Value.ToLongTimeString + CStr("/") + dtpJuevesF.Value.ToLongTimeString
-                        Dim horarioVi As String = dtpViernesI.Value.ToLongTimeString + CStr("/") + dtpViernesF.Value.ToLongTimeString
-                        Dim horarioSa As String = dtpSabadoI.Value.ToLongTimeString + CStr("/") + dtpSabadoF.Value.ToLongTimeString
+                        Dim horarioL As String = dtpLunesI.Value.ToShortTimeString + CStr("/") + dtpLunesF.Value.ToShortTimeString
+                        Dim horarioMa As String = dtpMartesI.Value.ToShortTimeString + CStr("/") + dtpMartesF.Value.ToShortTimeString
+                        Dim horarioMi As String = dtpMiercolesI.Value.ToShortTimeString + CStr("/") + dtpMiercolesF.Value.ToShortTimeString
+                        Dim horarioJu As String = dtpJuevesI.Value.ToShortTimeString + CStr("/") + dtpJuevesF.Value.ToShortTimeString
+                        Dim horarioVi As String = dtpViernesI.Value.ToShortTimeString + CStr("/") + dtpViernesF.Value.ToShortTimeString
+                        Dim horarioSa As String = dtpSabadoI.Value.ToShortTimeString + CStr("/") + dtpSabadoF.Value.ToShortTimeString
 
                         MsgBox(horarioL)
                         MsgBox(cboNivel.SelectedItem)
@@ -138,6 +138,7 @@ Public Class frmGruposRegistro
                                     trans.Commit()
                                     MessageBox.Show("Grupo registrado con éxito", "Registro de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Information)
                                     conexionRemota.Close()
+
                                 Else
                                     transaccion.Rollback()
                                     MessageBox.Show("El registro de grupo ha sido cancelado", "Cancelación de grupo", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -152,9 +153,6 @@ Public Class frmGruposRegistro
                                     MessageBox.Show("Error de grupo")
                                 End Try
                             End Try
-
-
-
 
                             conexionRemota.Close()
                         End Using
