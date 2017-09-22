@@ -27,12 +27,14 @@ Public Class frmGruposRegistro
         Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
 
 
-        comandoGeneral.CommandText = "select idGrupo, nombre, nivel, cantAlumnos, hLu, hMa, hMi, hJu, hVi, hSa from [" & Name & "].dbo.grupo c join MasterEA.dbo.maestro m on c.idMaestro = m.idMaestro"
+
+
+        comandoGeneral.CommandText = "select idGrupo, nombre, nivel, maxAlumnos, hLuIni,  hLuFin, hMaIni, hMaFin, hMiIni, hMiFin, hJuIni, hJuFin, hViIni, hViFin, hSaIni, hSaFin from [" & Name & "].dbo.grupo c join MasterEA.dbo.maestro m on c.idMaestro = m.idMaestro"
         lectorGeneral = comandoGeneral.ExecuteReader
         dgHorario.Rows.Clear()
 
         While lectorGeneral.Read
-            dgHorario.Rows.Add(lectorGeneral(0), lectorGeneral(1), lectorGeneral(2), lectorGeneral(3), lectorGeneral(4), lectorGeneral(5), lectorGeneral(6), lectorGeneral(7), lectorGeneral(8), lectorGeneral(9))
+            dgHorario.Rows.Add(lectorGeneral(0), lectorGeneral(1), lectorGeneral(2), lectorGeneral(3), (lectorGeneral(4) + CStr("/") + lectorGeneral(5)), (lectorGeneral(6) + CStr("/") + lectorGeneral(7)), (lectorGeneral(8) + CStr("/") + lectorGeneral(9)), (lectorGeneral(10) + CStr("/") + lectorGeneral(11)), (lectorGeneral(12) + CStr("/") + lectorGeneral(13)), (lectorGeneral(14) + CStr("/") + lectorGeneral(15)))
         End While
         lectorGeneral.Close()
 
@@ -129,14 +131,14 @@ Public Class frmGruposRegistro
                         MsgBox(cboNivel.SelectedValue)
                     Else
 
-                        Dim horarioL As String = dtpLunesI.Value.ToShortTimeString + CStr("/") + dtpLunesF.Value.ToShortTimeString
-                        Dim horarioMa As String = dtpMartesI.Value.ToShortTimeString + CStr("/") + dtpMartesF.Value.ToShortTimeString
-                        Dim horarioMi As String = dtpMiercolesI.Value.ToShortTimeString + CStr("/") + dtpMiercolesF.Value.ToShortTimeString
-                        Dim horarioJu As String = dtpJuevesI.Value.ToShortTimeString + CStr("/") + dtpJuevesF.Value.ToShortTimeString
-                        Dim horarioVi As String = dtpViernesI.Value.ToShortTimeString + CStr("/") + dtpViernesF.Value.ToShortTimeString
-                        Dim horarioSa As String = dtpSabadoI.Value.ToShortTimeString + CStr("/") + dtpSabadoF.Value.ToShortTimeString
+                        'Dim horarioL As String = dtpLunesI.Value.ToShortTimeString + CStr("/") + dtpLunesF.Value.ToShortTimeString
+                        'Dim horarioMa As String = dtpMartesI.Value.ToShortTimeString + CStr("/") + dtpMartesF.Value.ToShortTimeString
+                        'Dim horarioMi As String = dtpMiercolesI.Value.ToShortTimeString + CStr("/") + dtpMiercolesF.Value.ToShortTimeString
+                        'Dim horarioJu As String = dtpJuevesI.Value.ToShortTimeString + CStr("/") + dtpJuevesF.Value.ToShortTimeString
+                        'Dim horarioVi As String = dtpViernesI.Value.ToShortTimeString + CStr("/") + dtpViernesF.Value.ToShortTimeString
+                        'Dim horarioSa As String = dtpSabadoI.Value.ToShortTimeString + CStr("/") + dtpSabadoF.Value.ToShortTimeString
 
-                        MsgBox(horarioL)
+                        'MsgBox(horarioL)
                         MsgBox(cboNivel.SelectedItem)
 
                         Using conexionRemota As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; integrated security = true")
@@ -149,7 +151,7 @@ Public Class frmGruposRegistro
                             comandoRemoto.Transaction = trans
 
                             Try
-                                comandoRemoto.CommandText = "Insert into grupo(idGrupo, idMaestro,  cantAlumnos, hLu, hMa, hMi, hJu, hVi, hSa, nivel) values(" & CInt(txtClave.Text) & ", " & CInt(txtIdMaestro.Text) & ", " & CInt(txtMaxAlumnos.Text) & ", '" & horarioL & "', '" & horarioMa & "', '" & horarioMi & "', '" & horarioJu & "', '" & horarioVi & "', '" & horarioSa & "', " & CInt(cboNivel.SelectedItem) & ")"
+                                comandoRemoto.CommandText = "Insert into grupo values(" & CInt(txtClave.Text) & ", " & CInt(txtIdMaestro.Text) & ", " & CInt(txtMaxAlumnos.Text) & ", " & 0 & ", " & CInt(cboNivel.SelectedItem) & ", '" & dtpLunesI.Value.ToShortTimeString & "', '" & dtpLunesF.Value.ToShortTimeString & "', '" & dtpMartesI.Value.ToShortTimeString & "', '" & dtpMartesF.Value.ToShortTimeString & "', '" & dtpMiercolesI.Value.ToShortTimeString & "', '" & dtpMiercolesF.Value.ToShortTimeString & "', '" & dtpJuevesI.Value.ToShortTimeString & "', '" & dtpJuevesF.Value.ToShortTimeString & "', '" & dtpViernesI.Value.ToShortTimeString & "', '" & dtpViernesF.Value.ToShortTimeString & "', '" & dtpSabadoI.Value.ToShortTimeString & "', '" & dtpSabadoF.Value.ToShortTimeString & "')"
                                 comandoRemoto.ExecuteNonQuery()
                                 If MessageBox.Show("¿Desea registrar el nuevo horario?", "Registro de horario", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                                     trans.Commit()

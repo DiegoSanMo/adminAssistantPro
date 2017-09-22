@@ -59,7 +59,7 @@ Public Class principal
                     'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
                     Dim comando2 As SqlCommand = conexionsql2.CreateCommand
                     conexionsql2.Open()
-                    comando2.CommandText = "Create table grupo(idGrupo int primary key, idMaestro int, cantAlumnos int, hLu varchar(50), hMa varchar(50), hMi varchar(50), hJu varchar(50), hVi varchar(50), hSa varchar(50), nivel int);"
+                    comando2.CommandText = "Create table grupo(idGrupo int primary Key, idMaestro int, maxAlumnos int, cantInscritos int, nivel int, hLuIni varchar(20), hLuFin varchar(20),  hMaIni varchar(20), hMaFin varchar(20),  hMiIni varchar(20), hMiFin varchar(20),  hJuIni varchar(20), hJuFin varchar(20),  hViIni varchar(20), hViFin varchar(20),  hSaIni varchar(20), hSaFin time)"
                     comando2.ExecuteNonQuery()
                     comando2.CommandText = "Create table inscripcion(idInscripcion int primary key, idAlumno int, idGrupo int, fecha date);"
                     comando2.ExecuteNonQuery()
@@ -103,7 +103,7 @@ Public Class principal
                         'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
                         Dim comando2 As SqlCommand = conexionsql2.CreateCommand
                         conexionsql2.Open()
-                        comando2.CommandText = "Create table grupo(idGrupo int primary key, idMaestro int, cantAlumnos int, hLu varchar(50), hMa varchar(50), hMi varchar(50), hJu varchar(50), hVi varchar(50), hSa varchar(50), nivel int);"
+                        comando2.CommandText = "Create table grupo(idGrupo int primary Key, idMaestro int, maxAlumnos int, cantInscritos int, nivel int, hLuIni time, hLuFin time,  hMaIni time, hMaFin time,  hMiIni time, hMiFin time,  hJuIni time, hJuFin time,  hViIni time, hViFin time,  hSaIni time, hSaFin time)"
                         comando2.ExecuteNonQuery()
                         comando2.CommandText = "Create table inscripcion(idInscripcion int primary key, idAlumno int, idGrupo int, fecha date);"
                         comando2.ExecuteNonQuery()

@@ -110,7 +110,7 @@ Partial Class frmGruposRegistro
         '
         Me.txtClave.Enabled = False
         Me.txtClave.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtClave.Location = New System.Drawing.Point(1189, 116)
+        Me.txtClave.Location = New System.Drawing.Point(1199, 65)
         Me.txtClave.Name = "txtClave"
         Me.txtClave.Size = New System.Drawing.Size(125, 21)
         Me.txtClave.TabIndex = 46
@@ -118,19 +118,19 @@ Partial Class frmGruposRegistro
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(1070, 117)
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(1067, 65)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(110, 18)
+        Me.Label14.Size = New System.Drawing.Size(125, 18)
         Me.Label14.TabIndex = 45
         Me.Label14.Text = "Clave del grupo"
         '
         'PictureBox2
         '
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(1070, 151)
+        Me.PictureBox2.Location = New System.Drawing.Point(1070, 91)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(254, 224)
+        Me.PictureBox2.Size = New System.Drawing.Size(254, 265)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 44
         Me.PictureBox2.TabStop = False
@@ -175,7 +175,7 @@ Partial Class frmGruposRegistro
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 84)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 65)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(1052, 107)
         Me.GroupBox1.TabIndex = 52
@@ -235,7 +235,7 @@ Partial Class frmGruposRegistro
         '
         Me.GroupBox2.Controls.Add(Me.dgHorario)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 381)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 362)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(1302, 211)
         Me.GroupBox2.TabIndex = 57
@@ -260,7 +260,7 @@ Partial Class frmGruposRegistro
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevo.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnNuevo.Location = New System.Drawing.Point(12, 598)
+        Me.btnNuevo.Location = New System.Drawing.Point(18, 579)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(161, 39)
         Me.btnNuevo.TabIndex = 59
@@ -276,7 +276,7 @@ Partial Class frmGruposRegistro
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnSalir.Location = New System.Drawing.Point(1147, 598)
+        Me.btnSalir.Location = New System.Drawing.Point(1152, 579)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(161, 39)
         Me.btnSalir.TabIndex = 62
@@ -293,7 +293,7 @@ Partial Class frmGruposRegistro
         Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnGuardar.Location = New System.Drawing.Point(336, 598)
+        Me.btnGuardar.Location = New System.Drawing.Point(341, 579)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(161, 39)
         Me.btnGuardar.TabIndex = 60
@@ -310,7 +310,7 @@ Partial Class frmGruposRegistro
         Me.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnCancelar.Location = New System.Drawing.Point(754, 598)
+        Me.btnCancelar.Location = New System.Drawing.Point(759, 579)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(161, 39)
         Me.btnCancelar.TabIndex = 61
@@ -334,7 +334,7 @@ Partial Class frmGruposRegistro
         Me.GroupBox3.Controls.Add(Me.txtMaxAlumnos)
         Me.GroupBox3.Controls.Add(Me.Label9)
         Me.GroupBox3.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox3.Location = New System.Drawing.Point(12, 197)
+        Me.GroupBox3.Location = New System.Drawing.Point(12, 178)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(1052, 178)
         Me.GroupBox3.TabIndex = 63
@@ -790,7 +790,7 @@ Partial Class frmGruposRegistro
         Me.Label22.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label22.Location = New System.Drawing.Point(0, 0)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(1336, 70)
+        Me.Label22.Size = New System.Drawing.Size(1336, 62)
         Me.Label22.TabIndex = 64
         Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -800,7 +800,7 @@ Partial Class frmGruposRegistro
         Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(122, Byte), Integer))
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 32.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(773, 8)
+        Me.Label2.Location = New System.Drawing.Point(773, -1)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(165, 49)
         Me.Label2.TabIndex = 66
@@ -812,7 +812,7 @@ Partial Class frmGruposRegistro
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(122, Byte), Integer))
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 32.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(511, 9)
+        Me.Label1.Location = New System.Drawing.Point(511, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(267, 49)
         Me.Label1.TabIndex = 65
@@ -883,7 +883,7 @@ Partial Class frmGruposRegistro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1336, 645)
+        Me.ClientSize = New System.Drawing.Size(1336, 633)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label22)
