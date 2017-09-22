@@ -27,13 +27,14 @@ Public Class frmGruposRegistro
         Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
 
 
+        comandoGeneral.CommandText = "select idGrupo, nombre, hLu, hMa, hMi, hJu, hVi, hSa from [" & Name & "].dbo.grupo c join MasterEA.dbo.maestro m on c.idMaestro = m.idMaestro"
+        lectorGeneral = comandoGeneral.ExecuteReader
+        dgHorario.Rows.Clear()
 
-
-
-
-
-
-
+        While lectorGeneral.Read
+            dgHorario.Rows.Add(lectorGeneral(0), lectorGeneral(1), lectorGeneral(2), lectorGeneral(3), lectorGeneral(4), lectorGeneral(5), lectorGeneral(6), lectorGeneral(7))
+        End While
+        lectorGeneral.Close()
 
     End Sub
 
@@ -46,14 +47,27 @@ Public Class frmGruposRegistro
 
         cboMaestros.Enabled = True
 
-        mskLunes.Enabled = True
-        mskMartes.Enabled = True
-        mskMiercoles.Enabled = True
-        mskJueves.Enabled = True
-        mskViernes.Enabled = True
-        mskSabado.Enabled = True
+
         txtMaxAlumnos.Enabled = True
         cboNivel.Enabled = True
+
+        dtpLunesI.Enabled = True
+        dtpLunesF.Enabled = True
+
+        dtpMartesI.Enabled = True
+        dtpMartesF.Enabled = True
+
+        dtpMiercolesI.Enabled = True
+        dtpMiercolesF.Enabled = True
+
+        dtpJuevesI.Enabled = True
+        dtpJuevesF.Enabled = True
+
+        dtpViernesI.Enabled = True
+        dtpViernesF.Enabled = True
+
+        dtpSabadoI.Enabled = True
+        dtpSabadoF.Enabled = True
 
 
 
@@ -85,22 +99,118 @@ Public Class frmGruposRegistro
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        btnGuardar.Enabled = False
-        btnCancelar.Enabled = False
 
-        btnNuevo.Enabled = True
-        btnSalir.Enabled = True
+        If IsNumeric(txtIdMaestro.Text) Then
 
-        cboMaestros.Enabled = False
+            If IsNumeric(txtMaxAlumnos.Text) Then
 
-        mskLunes.Enabled = False
-        mskMartes.Enabled = False
-        mskMiercoles.Enabled = False
-        mskJueves.Enabled = False
-        mskViernes.Enabled = False
-        mskSabado.Enabled = False
-        txtMaxAlumnos.Enabled = False
-        cboNivel.Enabled = False
+                If CInt(txtMaxAlumnos.Text) <= 12 Then
+
+                    If cboNivel.SelectedValue.ToString = " " Then
+                        MsgBox("No se ha seleccionado nivel, favor de ingresarlo")
+                        cboNivel.Focus()
+
+                    Else
+
+                        Dim horarioL As String = dtpLunesI.Value.ToLongTimeString + CStr("/") + dtpLunesF.Value.ToLongTimeString
+                        Dim horarioMa As String = dtpMartesI.Value.ToLongTimeString + CStr("/") + dtpMartesF.Value.ToLongTimeString
+                        Dim horarioMi As String = dtpMiercolesI.Value.ToLongTimeString + CStr("/") + dtpMiercolesF.Value.ToLongTimeString
+                        Dim horarioJu As String = dtpJuevesI.Value.ToLongTimeString + CStr("/") + dtpJuevesF.Value.ToLongTimeString
+                        Dim horarioVi As String = dtpViernesI.Value.ToLongTimeString + CStr("/") + dtpViernesF.Value.ToLongTimeString
+                        Dim horarioSa As String = dtpSabadoI.Value.ToLongTimeString + CStr("/") + dtpSabadoF.Value.ToLongTimeString
+
+                        MsgBox(horarioL)
+                        MsgBox(cboNivel.SelectedValue)
+
+                        Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
+                            Dim comandoRemoto As SqlCommand = conexionRemota.CreateCommand
+
+                            conexionRemota.Open()
+                            Dim trans As SqlTransaction
+                            trans = conexionRemota.BeginTransaction("InsertarGrupo")
+                            comandoRemoto.Connection = conexionRemota
+                            comandoRemoto.Transaction = trans
+
+                            Try
+                                comandoRemoto.CommandText = "Insert int grupo(idGrupo, idMaestro,  cantAlumnos, hLu, hMa, hMi, hJu, hVi, hSa, nivel) values(" & CInt(txtClave.Text) & ", " & CInt(txtIdMaestro.Text) & ", " & CInt(txtMaxAlumnos.Text) & ", '" & horarioL & "', '" & horarioMa & "', '" & horarioMi & "', '" & horarioJu & "', '" & horarioVi & "', '" & horarioSa & "', " & CInt(cboNivel.SelectedItem) & ")"
+                                comandoRemoto.ExecuteNonQuery()
+                                If MessageBox.Show("¿Desea registrar el nuevo horario?", "Registro de horario", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                                    trans.Commit()
+                                    MessageBox.Show("Grupo registrado con éxito", "Registro de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                    conexionRemota.Close()
+                                Else
+                                    transaccion.Rollback()
+                                    MessageBox.Show("El registro de grupo ha sido cancelado", "Cancelación de grupo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                End If
+
+                            Catch ex As Exception
+                                MessageBox.Show("Commit Exception Type: {0} No se pudo insertar por error")
+                                MsgBox(ex.Message)
+                                Try
+                                    transaccion.Rollback()
+                                Catch ex2 As Exception
+                                    MessageBox.Show("Error de grupo")
+                                End Try
+                            End Try
+
+
+
+
+                            conexionRemota.Close()
+                        End Using
+
+
+
+
+
+
+
+                        'Control de comandos
+                        btnGuardar.Enabled = False
+                        btnCancelar.Enabled = False
+
+                        btnNuevo.Enabled = True
+                        btnSalir.Enabled = True
+
+                        cboMaestros.Enabled = False
+
+                        txtMaxAlumnos.Enabled = False
+                        cboNivel.Enabled = False
+
+                        dtpLunesI.Enabled = False
+                        dtpLunesF.Enabled = False
+
+                        dtpMartesI.Enabled = False
+                        dtpMartesF.Enabled = False
+
+                        dtpMiercolesI.Enabled = False
+                        dtpMiercolesF.Enabled = False
+
+                        dtpJuevesI.Enabled = False
+                        dtpJuevesF.Enabled = False
+
+                        dtpViernesI.Enabled = False
+                        dtpViernesF.Enabled = False
+
+                        dtpSabadoI.Enabled = False
+                        dtpSabadoF.Enabled = False
+
+                    End If
+                Else
+                    MsgBox("La cantidad de alumnos no es permitida, ingresar un valor entre [1-12]")
+                    txtMaxAlumnos.Focus()
+                End If
+            Else
+                MsgBox("Tipo de dato no valido, valores permitidos del [1-12]")
+                txtMaxAlumnos.Focus()
+            End If
+
+        Else
+            MsgBox("No se ha asignado maestro, favor de ingresar maestro")
+            cboMaestros.Focus()
+
+        End If
+
 
     End Sub
 
@@ -113,14 +223,26 @@ Public Class frmGruposRegistro
 
         cboMaestros.Enabled = False
 
-        mskLunes.Enabled = False
-        mskMartes.Enabled = False
-        mskMiercoles.Enabled = False
-        mskJueves.Enabled = False
-        mskViernes.Enabled = False
-        mskSabado.Enabled = False
-        txtMaxAlumnos.Enabled = False
-        cboNivel.Enabled = False
+        dtpLunesI.Enabled = False
+        dtpLunesF.Enabled = False
+
+        dtpMartesI.Enabled = False
+        dtpMartesF.Enabled = False
+
+        dtpMiercolesI.Enabled = False
+        dtpMiercolesF.Enabled = False
+
+        dtpJuevesI.Enabled = False
+        dtpJuevesF.Enabled = False
+
+        dtpViernesI.Enabled = False
+        dtpViernesF.Enabled = False
+
+        dtpSabadoI.Enabled = False
+        dtpSabadoF.Enabled = False
+
+
+
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
@@ -157,7 +279,5 @@ Public Class frmGruposRegistro
 
     End Sub
 
-    Private Sub GroupBox2_Enter(sender As Object, e As EventArgs) Handles GroupBox2.Enter
 
-    End Sub
 End Class
