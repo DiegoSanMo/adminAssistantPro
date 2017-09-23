@@ -23,6 +23,21 @@ Partial Class frmGruposRegistro
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmGruposRegistro))
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle25 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle26 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle27 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle28 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle29 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle30 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.txtClave = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
@@ -88,10 +103,16 @@ Partial Class frmGruposRegistro
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -109,8 +130,8 @@ Partial Class frmGruposRegistro
         'txtClave
         '
         Me.txtClave.Enabled = False
-        Me.txtClave.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtClave.Location = New System.Drawing.Point(1199, 65)
+        Me.txtClave.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtClave.Location = New System.Drawing.Point(141, 73)
         Me.txtClave.Name = "txtClave"
         Me.txtClave.Size = New System.Drawing.Size(125, 21)
         Me.txtClave.TabIndex = 46
@@ -119,7 +140,7 @@ Partial Class frmGruposRegistro
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(1067, 65)
+        Me.Label14.Location = New System.Drawing.Point(15, 73)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(125, 18)
         Me.Label14.TabIndex = 45
@@ -128,7 +149,7 @@ Partial Class frmGruposRegistro
         'PictureBox2
         '
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(1070, 91)
+        Me.PictureBox2.Location = New System.Drawing.Point(12, 100)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(254, 265)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -175,7 +196,7 @@ Partial Class frmGruposRegistro
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 65)
+        Me.GroupBox1.Location = New System.Drawing.Point(272, 73)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(1052, 107)
         Me.GroupBox1.TabIndex = 52
@@ -235,20 +256,33 @@ Partial Class frmGruposRegistro
         '
         Me.GroupBox2.Controls.Add(Me.dgHorario)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 362)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 371)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1302, 211)
+        Me.GroupBox2.Size = New System.Drawing.Size(1312, 211)
         Me.GroupBox2.TabIndex = 57
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Grupos registrados"
         '
         'dgHorario
         '
+        Me.dgHorario.AllowUserToAddRows = False
+        Me.dgHorario.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgHorario.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle16
         Me.dgHorario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgHorario.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column9, Me.Column10, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8})
+        Me.dgHorario.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column9, Me.Column10, Me.Column3, Me.Column11, Me.Column12, Me.Column4, Me.Column5, Me.Column13, Me.Column6, Me.Column14, Me.Column7, Me.Column16, Me.Column15, Me.Column8})
+        Me.dgHorario.EnableHeadersVisualStyles = False
         Me.dgHorario.Location = New System.Drawing.Point(6, 21)
         Me.dgHorario.Name = "dgHorario"
-        Me.dgHorario.Size = New System.Drawing.Size(1290, 180)
+        Me.dgHorario.ReadOnly = True
+        Me.dgHorario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgHorario.Size = New System.Drawing.Size(1295, 180)
         Me.dgHorario.TabIndex = 0
         '
         'btnNuevo
@@ -260,7 +294,7 @@ Partial Class frmGruposRegistro
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevo.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnNuevo.Location = New System.Drawing.Point(18, 579)
+        Me.btnNuevo.Location = New System.Drawing.Point(12, 588)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(161, 39)
         Me.btnNuevo.TabIndex = 59
@@ -276,7 +310,7 @@ Partial Class frmGruposRegistro
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnSalir.Location = New System.Drawing.Point(1152, 579)
+        Me.btnSalir.Location = New System.Drawing.Point(1163, 588)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(161, 39)
         Me.btnSalir.TabIndex = 62
@@ -293,7 +327,7 @@ Partial Class frmGruposRegistro
         Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnGuardar.Location = New System.Drawing.Point(341, 579)
+        Me.btnGuardar.Location = New System.Drawing.Point(330, 588)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(161, 39)
         Me.btnGuardar.TabIndex = 60
@@ -310,7 +344,7 @@ Partial Class frmGruposRegistro
         Me.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnCancelar.Location = New System.Drawing.Point(759, 579)
+        Me.btnCancelar.Location = New System.Drawing.Point(763, 588)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(161, 39)
         Me.btnCancelar.TabIndex = 61
@@ -333,8 +367,9 @@ Partial Class frmGruposRegistro
         Me.GroupBox3.Controls.Add(Me.Label26)
         Me.GroupBox3.Controls.Add(Me.txtMaxAlumnos)
         Me.GroupBox3.Controls.Add(Me.Label9)
+        Me.GroupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox3.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox3.Location = New System.Drawing.Point(12, 178)
+        Me.GroupBox3.Location = New System.Drawing.Point(272, 187)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(1052, 178)
         Me.GroupBox3.TabIndex = 63
@@ -790,7 +825,7 @@ Partial Class frmGruposRegistro
         Me.Label22.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label22.Location = New System.Drawing.Point(0, 0)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(1336, 62)
+        Me.Label22.Size = New System.Drawing.Size(1334, 62)
         Me.Label22.TabIndex = 64
         Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -800,7 +835,7 @@ Partial Class frmGruposRegistro
         Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(122, Byte), Integer))
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 32.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(773, -1)
+        Me.Label2.Location = New System.Drawing.Point(733, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(165, 49)
         Me.Label2.TabIndex = 66
@@ -812,7 +847,7 @@ Partial Class frmGruposRegistro
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(122, Byte), Integer))
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 32.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(511, 0)
+        Me.Label1.Location = New System.Drawing.Point(489, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(267, 49)
         Me.Label1.TabIndex = 65
@@ -820,71 +855,154 @@ Partial Class frmGruposRegistro
         '
         'Column1
         '
+        Me.Column1.FillWeight = 79.87221!
         Me.Column1.HeaderText = "IdGrupo"
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
         '
         'Column2
         '
+        Me.Column2.FillWeight = 249.1117!
         Me.Column2.HeaderText = "Maestro"
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
         Me.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Column2.Width = 300
+        Me.Column2.Width = 312
         '
         'Column9
         '
+        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column9.DefaultCellStyle = DataGridViewCellStyle17
+        Me.Column9.FillWeight = 72.68475!
         Me.Column9.HeaderText = "Nivel"
         Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        Me.Column9.Width = 91
         '
         'Column10
         '
+        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column10.DefaultCellStyle = DataGridViewCellStyle18
+        Me.Column10.FillWeight = 76.42387!
         Me.Column10.HeaderText = "Cantidad alumnos"
         Me.Column10.Name = "Column10"
         Me.Column10.ReadOnly = True
+        Me.Column10.Width = 96
         '
         'Column3
         '
-        Me.Column3.HeaderText = "Lunes"
+        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column3.DefaultCellStyle = DataGridViewCellStyle19
+        Me.Column3.FillWeight = 79.86433!
+        Me.Column3.HeaderText = "Lunes inicio"
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
         '
+        'Column11
+        '
+        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column11.DefaultCellStyle = DataGridViewCellStyle20
+        Me.Column11.HeaderText = "Lunes fin"
+        Me.Column11.Name = "Column11"
+        Me.Column11.ReadOnly = True
+        '
+        'Column12
+        '
+        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column12.DefaultCellStyle = DataGridViewCellStyle21
+        Me.Column12.HeaderText = "Martes inicio"
+        Me.Column12.Name = "Column12"
+        Me.Column12.ReadOnly = True
+        '
         'Column4
         '
-        Me.Column4.HeaderText = "Martes"
+        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle22
+        Me.Column4.FillWeight = 83.03!
+        Me.Column4.HeaderText = "Martes fin"
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
+        Me.Column4.Width = 104
         '
         'Column5
         '
-        Me.Column5.HeaderText = "Miercoles"
+        DataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle23
+        Me.Column5.FillWeight = 85.94282!
+        Me.Column5.HeaderText = "Miercoles inicio"
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
+        Me.Column5.Width = 107
+        '
+        'Column13
+        '
+        DataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column13.DefaultCellStyle = DataGridViewCellStyle24
+        Me.Column13.HeaderText = "Miercoles fin"
+        Me.Column13.Name = "Column13"
+        Me.Column13.ReadOnly = True
         '
         'Column6
         '
-        Me.Column6.HeaderText = "Jueves"
+        DataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle25
+        Me.Column6.FillWeight = 88.62297!
+        Me.Column6.HeaderText = "Jueves inicio"
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
+        Me.Column6.Width = 111
+        '
+        'Column14
+        '
+        DataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column14.DefaultCellStyle = DataGridViewCellStyle26
+        Me.Column14.HeaderText = "Jueves fin"
+        Me.Column14.Name = "Column14"
+        Me.Column14.ReadOnly = True
         '
         'Column7
         '
-        Me.Column7.HeaderText = "Viernes"
+        DataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column7.DefaultCellStyle = DataGridViewCellStyle27
+        Me.Column7.FillWeight = 91.08908!
+        Me.Column7.HeaderText = "Viernes inicio"
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
+        Me.Column7.Width = 114
+        '
+        'Column16
+        '
+        DataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column16.DefaultCellStyle = DataGridViewCellStyle28
+        Me.Column16.HeaderText = "Viernes fin"
+        Me.Column16.Name = "Column16"
+        Me.Column16.ReadOnly = True
+        '
+        'Column15
+        '
+        DataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column15.DefaultCellStyle = DataGridViewCellStyle29
+        Me.Column15.HeaderText = "Sábado inicio"
+        Me.Column15.Name = "Column15"
+        Me.Column15.ReadOnly = True
         '
         'Column8
         '
-        Me.Column8.HeaderText = "Sábado"
+        DataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column8.DefaultCellStyle = DataGridViewCellStyle30
+        Me.Column8.FillWeight = 93.3582!
+        Me.Column8.HeaderText = "Sábado fin"
         Me.Column8.Name = "Column8"
         Me.Column8.ReadOnly = True
+        Me.Column8.Width = 117
         '
         'frmGruposRegistro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1336, 633)
+        Me.ClientSize = New System.Drawing.Size(1334, 633)
         Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.GroupBox3)
@@ -895,7 +1013,6 @@ Partial Class frmGruposRegistro
         Me.Controls.Add(Me.txtClave)
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.Label14)
-        Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.btnCancelar)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.Name = "frmGruposRegistro"
@@ -990,9 +1107,15 @@ Partial Class frmGruposRegistro
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents Column10 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column11 As DataGridViewTextBoxColumn
+    Friend WithEvents Column12 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column13 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column14 As DataGridViewTextBoxColumn
     Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents Column16 As DataGridViewTextBoxColumn
+    Friend WithEvents Column15 As DataGridViewTextBoxColumn
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
 End Class
