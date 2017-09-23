@@ -182,6 +182,29 @@ Public Class frmGruposRegistro
                                 horarioSaF = "-"
                             End If
 
+
+                            'comandoGeneral.CommandText = "select nombre, nivel, hLuIni,  hLuFin, hMaIni, hMaFin, hMiIni, hMiFin, hJuIni, hJuFin, hViIni, hViFin, hSaIni, hSaFin from [" & Name & "].dbo.grupo c join MasterEA.dbo.maestro m on c.idMaestro = m.idMaestro where idMaestro = " & CInt(txtIdMaestro.Text) & " and nivel = " & CInt(cboNivel.SelectedItem) & " and "
+                            'lectorGeneral = comandoGeneral.ExecuteReader
+                            'lectorGeneral.Read()
+                            'Dim teacher As String = lectorGeneral(0)
+                            'Dim level As Integer = lectorGeneral(1)
+                            'Dim hli As String = lectorGeneral(2)
+                            'Dim hlf As String = lectorGeneral(3)
+                            'Dim hmai As String = lectorGeneral(4)
+                            'Dim hmaf As String = lectorGeneral(5)
+                            'Dim hmii As String = lectorGeneral(6)
+                            'Dim hmif As String = lectorGeneral(7)
+                            'Dim hji As String = lectorGeneral(8)
+                            'Dim hjf As String = lectorGeneral(9)
+                            'Dim hvi As String = lectorGeneral(10)
+                            'Dim hvf As String = lectorGeneral(11)
+                            'Dim hsi As String = lectorGeneral(12)
+                            'Dim hsf As String = lectorGeneral(13)
+                            'lectorGeneral.Close()
+
+                            'MsgBox(hli)
+
+
                             Dim comandoRemoto As SqlCommand = conexionRemota.CreateCommand
 
                             conexionRemota.Open()
@@ -191,6 +214,7 @@ Public Class frmGruposRegistro
                             comandoRemoto.Transaction = trans
 
                             Try
+
                                 comandoRemoto.CommandText = "Insert into grupo values(" & CInt(txtClave.Text) & ", " & CInt(txtIdMaestro.Text) & ", " & CInt(txtMaxAlumnos.Text) & ", " & 0 & ", " & CInt(cboNivel.SelectedItem) & ", '" & horarioL & "', '" & horarioLF & "', '" & horarioMa & "', '" & horarioMaF & "', '" & horarioMi & "', '" & horarioMiF & "', '" & horarioJu & "', '" & horarioJuF & "', '" & horarioVi & "', '" & horarioViF & "', '" & horarioSa & "', '" & horarioSaF & "')"
                                 comandoRemoto.ExecuteNonQuery()
                                 If MessageBox.Show("¿Desea registrar el nuevo horario?", "Registro de horario", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
@@ -339,5 +363,7 @@ Public Class frmGruposRegistro
 
     End Sub
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
+    End Sub
 End Class
