@@ -131,6 +131,10 @@ Public Class frmGruposRegistro
                     Else
 
                         Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
+                            Dim comandoRemoto As SqlCommand = conexionRemota.CreateCommand
+                            Dim lectorRemoto As SqlDataReader
+
+                            conexionRemota.Open()
 
                             Dim horarioL As String = CStr(dtpLunesI.Value.ToShortTimeString)
                             Dim horarioLF As String = CStr(dtpLunesF.Value.ToShortTimeString)
@@ -183,99 +187,155 @@ Public Class frmGruposRegistro
                             End If
 
 
-                            'comandoGeneral.CommandText = "select nombre, nivel, hLuIni,  hLuFin, hMaIni, hMaFin, hMiIni, hMiFin, hJuIni, hJuFin, hViIni, hViFin, hSaIni, hSaFin from [" & Name & "].dbo.grupo c join MasterEA.dbo.maestro m on c.idMaestro = m.idMaestro where idMaestro = " & CInt(txtIdMaestro.Text) & " and nivel = " & CInt(cboNivel.SelectedItem) & " and "
-                            'lectorGeneral = comandoGeneral.ExecuteReader
-                            'lectorGeneral.Read()
-                            'Dim teacher As String = lectorGeneral(0)
-                            'Dim level As Integer = lectorGeneral(1)
-                            'Dim hli As String = lectorGeneral(2)
-                            'Dim hlf As String = lectorGeneral(3)
-                            'Dim hmai As String = lectorGeneral(4)
-                            'Dim hmaf As String = lectorGeneral(5)
-                            'Dim hmii As String = lectorGeneral(6)
-                            'Dim hmif As String = lectorGeneral(7)
-                            'Dim hji As String = lectorGeneral(8)
-                            'Dim hjf As String = lectorGeneral(9)
-                            'Dim hvi As String = lectorGeneral(10)
-                            'Dim hvf As String = lectorGeneral(11)
-                            'Dim hsi As String = lectorGeneral(12)
-                            'Dim hsf As String = lectorGeneral(13)
-                            'lectorGeneral.Close()
 
-                            'MsgBox(hli)
+                            MsgBox(dgHorario.RowCount)
 
+                            If dgHorario.RowCount = 0 Then
+                                Try
+                                    Dim trans As SqlTransaction
+                                    trans = conexionRemota.BeginTransaction("InsertarGrupo")
+                                    comandoRemoto.Connection = conexionRemota
+                                    comandoRemoto.Transaction = trans
 
-                            Dim comandoRemoto As SqlCommand = conexionRemota.CreateCommand
+                                    comandoRemoto.CommandText = "Insert into grupo values(" & CInt(txtClave.Text) & ", " & CInt(txtIdMaestro.Text) & ", " & CInt(txtMaxAlumnos.Text) & ", " & 0 & ", " & CInt(cboNivel.SelectedItem) & ", '" & horarioL & "', '" & horarioLF & "', '" & horarioMa & "', '" & horarioMaF & "', '" & horarioMi & "', '" & horarioMiF & "', '" & horarioJu & "', '" & horarioJuF & "', '" & horarioVi & "', '" & horarioViF & "', '" & horarioSa & "', '" & horarioSaF & "')"
+                                    comandoRemoto.ExecuteNonQuery()
+                                    If MessageBox.Show("¿Desea registrar el nuevo horario?", "Registro de horario", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                                        trans.Commit()
+                                        For i = dgHorario.Rows.Count To dgHorario.Rows.Count
+                                            dgHorario.Rows.Add(txtClave.Text, cboMaestros.Text, cboNivel.Text, txtMaxAlumnos.Text, horarioL, horarioLF, horarioMa, horarioMaF, horarioMi, horarioMiF, horarioJu, horarioJuF, horarioVi, horarioViF, horarioSa, horarioSaF)
+                                        Next
+                                        MessageBox.Show("Grupo registrado con éxito", "Registro de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-                            conexionRemota.Open()
-                            Dim trans As SqlTransaction
-                            trans = conexionRemota.BeginTransaction("InsertarGrupo")
-                            comandoRemoto.Connection = conexionRemota
-                            comandoRemoto.Transaction = trans
+                                        'Control de comandos
+                                        btnGuardar.Enabled = False
+                                        btnCancelar.Enabled = False
 
-                            Try
+                                        btnNuevo.Enabled = True
+                                        btnSalir.Enabled = True
 
-                                comandoRemoto.CommandText = "Insert into grupo values(" & CInt(txtClave.Text) & ", " & CInt(txtIdMaestro.Text) & ", " & CInt(txtMaxAlumnos.Text) & ", " & 0 & ", " & CInt(cboNivel.SelectedItem) & ", '" & horarioL & "', '" & horarioLF & "', '" & horarioMa & "', '" & horarioMaF & "', '" & horarioMi & "', '" & horarioMiF & "', '" & horarioJu & "', '" & horarioJuF & "', '" & horarioVi & "', '" & horarioViF & "', '" & horarioSa & "', '" & horarioSaF & "')"
-                                comandoRemoto.ExecuteNonQuery()
-                                If MessageBox.Show("¿Desea registrar el nuevo horario?", "Registro de horario", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-                                    trans.Commit()
-                                    For i = dgHorario.Rows.Count To dgHorario.Rows.Count
-                                        dgHorario.Rows.Add(txtClave.Text, cboMaestros.Text, cboNivel.Text, txtMaxAlumnos.Text, horarioL, horarioLF, horarioMa, horarioMaF, horarioMi, horarioMiF, horarioJu, horarioJuF, horarioVi, horarioViF, horarioSa, horarioSaF)
-                                    Next
+                                        cboMaestros.Enabled = False
 
-                                    MessageBox.Show("Grupo registrado con éxito", "Registro de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                                    conexionRemota.Close()
+                                        txtMaxAlumnos.Enabled = False
+                                        cboNivel.Enabled = False
 
+                                        dtpLunesI.Enabled = False
+                                        dtpLunesF.Enabled = False
+
+                                        dtpMartesI.Enabled = False
+                                        dtpMartesF.Enabled = False
+
+                                        dtpMiercolesI.Enabled = False
+                                        dtpMiercolesF.Enabled = False
+
+                                        dtpJuevesI.Enabled = False
+                                        dtpJuevesF.Enabled = False
+
+                                        dtpViernesI.Enabled = False
+                                        dtpViernesF.Enabled = False
+
+                                        dtpSabadoI.Enabled = False
+                                        dtpSabadoF.Enabled = False
+                                        conexionRemota.Close()
+
+                                    Else
+                                        transaccion.Rollback()
+                                        MessageBox.Show("El registro de grupo ha sido cancelado", "Cancelación de grupo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                    End If
+
+                                Catch ex As Exception
+                                    MessageBox.Show("Commit Exception Type: {0} No se pudo insertar por error")
+                                    MsgBox(ex.Message)
+                                    Try
+                                        transaccion.Rollback()
+                                    Catch ex2 As Exception
+                                        MessageBox.Show("Error de grupo")
+                                        MsgBox(ex2.Message)
+                                    End Try
+                                End Try
+
+                                conexionRemota.Close()
+                            Else
+
+                                Dim ban As Boolean = False
+
+                                For x = 0 To dgHorario.RowCount - 1
+                                    If dgHorario.Rows(x).Cells(4).Value = horarioL And dgHorario.Rows(x).Cells(5).Value = horarioLF And dgHorario.Rows(x).Cells(6).Value = horarioMa And dgHorario.Rows(x).Cells(7).Value = horarioMaF And dgHorario.Rows(x).Cells(8).Value = horarioMi And dgHorario.Rows(x).Cells(9).Value = horarioMiF And dgHorario.Rows(x).Cells(10).Value = horarioJu And dgHorario.Rows(x).Cells(11).Value = horarioJuF And dgHorario.Rows(x).Cells(12).Value = horarioVi And dgHorario.Rows(x).Cells(13).Value = horarioViF And dgHorario.Rows(x).Cells(14).Value = horarioSa And dgHorario.Rows(x).Cells(15).Value = horarioSaF Then
+                                        ban = True
+                                    End If
+                                Next
+
+                                If ban Then
+                                    MsgBox("Horario ya ingresado, favor de ingresar otro horario")
                                 Else
-                                    transaccion.Rollback()
-                                    MessageBox.Show("El registro de grupo ha sido cancelado", "Cancelación de grupo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+                                    Try
+                                        Dim trans As SqlTransaction
+                                        trans = conexionRemota.BeginTransaction("InsertarGrupo")
+                                        comandoRemoto.Connection = conexionRemota
+                                        comandoRemoto.Transaction = trans
+
+                                        comandoRemoto.CommandText = "Insert into grupo values(" & CInt(txtClave.Text) & ", " & CInt(txtIdMaestro.Text) & ", " & CInt(txtMaxAlumnos.Text) & ", " & 0 & ", " & CInt(cboNivel.SelectedItem) & ", '" & horarioL & "', '" & horarioLF & "', '" & horarioMa & "', '" & horarioMaF & "', '" & horarioMi & "', '" & horarioMiF & "', '" & horarioJu & "', '" & horarioJuF & "', '" & horarioVi & "', '" & horarioViF & "', '" & horarioSa & "', '" & horarioSaF & "')"
+                                        comandoRemoto.ExecuteNonQuery()
+                                        If MessageBox.Show("¿Desea registrar el nuevo horario?", "Registro de horario", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                                            trans.Commit()
+                                            For i = dgHorario.Rows.Count To dgHorario.Rows.Count
+                                                dgHorario.Rows.Add(txtClave.Text, cboMaestros.Text, cboNivel.Text, txtMaxAlumnos.Text, horarioL, horarioLF, horarioMa, horarioMaF, horarioMi, horarioMiF, horarioJu, horarioJuF, horarioVi, horarioViF, horarioSa, horarioSaF)
+                                            Next
+                                            MessageBox.Show("Grupo registrado con éxito", "Registro de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                                            'Control de comandos
+                                            btnGuardar.Enabled = False
+                                            btnCancelar.Enabled = False
+
+                                            btnNuevo.Enabled = True
+                                            btnSalir.Enabled = True
+
+                                            cboMaestros.Enabled = False
+
+                                            txtMaxAlumnos.Enabled = False
+                                            cboNivel.Enabled = False
+
+                                            dtpLunesI.Enabled = False
+                                            dtpLunesF.Enabled = False
+
+                                            dtpMartesI.Enabled = False
+                                            dtpMartesF.Enabled = False
+
+                                            dtpMiercolesI.Enabled = False
+                                            dtpMiercolesF.Enabled = False
+
+                                            dtpJuevesI.Enabled = False
+                                            dtpJuevesF.Enabled = False
+
+                                            dtpViernesI.Enabled = False
+                                            dtpViernesF.Enabled = False
+
+                                            dtpSabadoI.Enabled = False
+                                            dtpSabadoF.Enabled = False
+                                            conexionRemota.Close()
+
+                                        Else
+                                            transaccion.Rollback()
+                                            MessageBox.Show("El registro de grupo ha sido cancelado", "Cancelación de grupo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                        End If
+
+                                    Catch ex As Exception
+                                        MessageBox.Show("Commit Exception Type: {0} No se pudo insertar por error")
+                                        MsgBox(ex.Message)
+                                        Try
+                                            transaccion.Rollback()
+                                        Catch ex2 As Exception
+                                            MessageBox.Show("Error de grupo")
+                                            MsgBox(ex2.Message)
+                                        End Try
+                                    End Try
+
+                                    conexionRemota.Close()
                                 End If
 
-                            Catch ex As Exception
-                                MessageBox.Show("Commit Exception Type: {0} No se pudo insertar por error")
-                                MsgBox(ex.Message)
-                                Try
-                                    transaccion.Rollback()
-                                Catch ex2 As Exception
-                                    MessageBox.Show("Error de grupo")
-                                    MsgBox(ex2.Message)
-                                End Try
-                            End Try
+                            End If
 
-                            conexionRemota.Close()
                         End Using
-
-
-
-                        'Control de comandos
-                        btnGuardar.Enabled = False
-                        btnCancelar.Enabled = False
-
-                        btnNuevo.Enabled = True
-                        btnSalir.Enabled = True
-
-                        cboMaestros.Enabled = False
-
-                        txtMaxAlumnos.Enabled = False
-                        cboNivel.Enabled = False
-
-                        dtpLunesI.Enabled = False
-                        dtpLunesF.Enabled = False
-
-                        dtpMartesI.Enabled = False
-                        dtpMartesF.Enabled = False
-
-                        dtpMiercolesI.Enabled = False
-                        dtpMiercolesF.Enabled = False
-
-                        dtpJuevesI.Enabled = False
-                        dtpJuevesF.Enabled = False
-
-                        dtpViernesI.Enabled = False
-                        dtpViernesF.Enabled = False
-
-                        dtpSabadoI.Enabled = False
-                        dtpSabadoF.Enabled = False
 
                     End If
                 Else
@@ -366,4 +426,5 @@ Public Class frmGruposRegistro
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
     End Sub
+
 End Class
