@@ -21,7 +21,8 @@ Public Class frmInscripciones
         lectorGeneral.Close()
 
         Name = CStr(idCiclo) + "-" + CStr(anioC)
-        Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
+        'Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
+        Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
         Dim comandoBD2 As SqlCommand = conexionBD2.CreateCommand
         Dim lectorBD2 As SqlDataReader
 
@@ -44,7 +45,8 @@ Public Class frmInscripciones
         gbDatosAlumno.Enabled = True
         gbDatosGrupo.Enabled = True
 
-        Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
+        'Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
+        Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
         Dim comandoBD2 As SqlCommand = conexionBD2.CreateCommand
         conexionBD2.Open()
 
@@ -93,7 +95,8 @@ Public Class frmInscripciones
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
+        'Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
+        Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
         Dim comandoBD2 As SqlCommand = conexionBD2.CreateCommand
         Dim lectorBD2 As SqlDataReader
         Dim nuevaSituacion As String = "ACTIVO"
@@ -205,22 +208,24 @@ Public Class frmInscripciones
     End Sub
 
     Private Sub cboIdGrupo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboIdGrupo.SelectedIndexChanged
-        Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
+        'Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
+        Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
         Dim comandoBD2 As SqlCommand = conexionBD2.CreateCommand
         Dim lectorBD2 As SqlDataReader
 
         conexionBD2.Open()
-        comandoBD2.CommandText = "Select idMaestro, nivel, hLuIni, hLuFin, hMaIni, hMaFin, hMiIni, hMiFin, hJuIni, hJuFin, hViIni, hViFin, hSaIni, hSaFin From grupo Where idGrupo=" & cboIdGrupo.Text & ""
+        comandoBD2.CommandText = "Select grupo.idMaestro, nivel, nombre, hLuIni, hLuFin, hMaIni, hMaFin, hMiIni, hMiFin, hJuIni, hJuFin, hViIni, hViFin, hSaIni, hSaFin From grupo inner join MasterEA.dbo.maestro on grupo.idMaestro = maestro.idMaestro Where grupo.idGrupo=" & cboIdGrupo.Text & ""
         lectorBD2 = comandoBD2.ExecuteReader
         lectorBD2.Read()
         txtIdMaestro.Text = lectorBD2(0)
         txtNivel.Text = lectorBD2(1)
-        txtHLunes.Text = lectorBD2(2).ToString + "-" + lectorBD2(3).ToString
-        txtHMartes.Text = lectorBD2(4).ToString + "-" + lectorBD2(5).ToString
-        txtHMiercoles.Text = lectorBD2(6).ToString + "-" + lectorBD2(7).ToString
-        txtHJueves.Text = lectorBD2(8).ToString + "-" + lectorBD2(9).ToString
-        txtHViernes.Text = lectorBD2(10).ToString + "-" + lectorBD2(11).ToString
-        txtHSabado.Text = lectorBD2(12).ToString + "-" + lectorBD2(13).ToString
+        txtNombreM.Text = lectorBD2(2)
+        txtHLunes.Text = lectorBD2(3).ToString + "-" + lectorBD2(4).ToString
+        txtHMartes.Text = lectorBD2(5).ToString + "-" + lectorBD2(6).ToString
+        txtHMiercoles.Text = lectorBD2(7).ToString + "-" + lectorBD2(8).ToString
+        txtHJueves.Text = lectorBD2(9).ToString + "-" + lectorBD2(10).ToString
+        txtHViernes.Text = lectorBD2(11).ToString + "-" + lectorBD2(12).ToString
+        txtHSabado.Text = lectorBD2(13).ToString + "-" + lectorBD2(14).ToString
 
         lectorBD2.Close()
         conexionBD2.Close()
@@ -238,4 +243,6 @@ Public Class frmInscripciones
         ptbFoto.Image = Image.FromFile(lectorGeneral(5))
         lectorGeneral.Close()
     End Sub
+
+
 End Class
