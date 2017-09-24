@@ -122,17 +122,13 @@ Public Class frmGruposRegistro
                         MsgBox(cboNivel.SelectedValue)
                     Else
 
-<<<<<<< HEAD
-                        Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
+                        Using conexionRemota As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; integrated security = true")
+                            'Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
                             Dim comandoRemoto As SqlCommand = conexionRemota.CreateCommand
                             Dim lectorRemoto As SqlDataReader
 
                             conexionRemota.Open()
 
-=======
-                        'Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
-                        Using conexionRemota As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; integrated security = true")
->>>>>>> origin/Diego
                             Dim horarioL As String = CStr(dtpLunesI.Value.ToShortTimeString)
                             Dim horarioLF As String = CStr(dtpLunesF.Value.ToShortTimeString)
                             Dim horarioMa As String = CStr(dtpMartesI.Value.ToShortTimeString)
@@ -280,7 +276,6 @@ Public Class frmGruposRegistro
                                             Next
                                             MessageBox.Show("Grupo registrado con éxito", "Registro de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-<<<<<<< HEAD
                                             'Control de comandos
                                             btnGuardar.Enabled = False
                                             btnCancelar.Enabled = False
@@ -289,11 +284,9 @@ Public Class frmGruposRegistro
                                             btnSalir.Enabled = True
 
                                             cboMaestros.Enabled = False
-=======
-                        'Control de comandos
-                        btnGuardar.Enabled = False
-                        btnCancelar.Enabled = False
->>>>>>> origin/Diego
+
+                                            btnGuardar.Enabled = False
+                                            btnCancelar.Enabled = False
 
                                             txtMaxAlumnos.Enabled = False
                                             cboNivel.Enabled = False
