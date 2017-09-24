@@ -165,7 +165,7 @@ Partial Class principal
         '
         Me.InscipciónToolStripMenuItem.Name = "InscipciónToolStripMenuItem"
         Me.InscipciónToolStripMenuItem.Size = New System.Drawing.Size(467, 44)
-        Me.InscipciónToolStripMenuItem.Text = "Inscipción"
+        Me.InscipciónToolStripMenuItem.Text = "Inscripción"
         '
         'ClasificarListasToolStripMenuItem
         '
