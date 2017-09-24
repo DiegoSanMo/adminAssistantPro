@@ -26,53 +26,58 @@ Partial Class frmInscripciones
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.gbDatosAlumno = New System.Windows.Forms.GroupBox()
+        Me.cboNoControl = New System.Windows.Forms.ComboBox()
+        Me.txtSituacion = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.txtTelefono = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.txtDomicilio = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.ptbFoto = New System.Windows.Forms.PictureBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.txtUNA = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.txtIdInscripcion = New System.Windows.Forms.TextBox()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
-        Me.TextBox12 = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
+        Me.gbDatosGrupo = New System.Windows.Forms.GroupBox()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.txtHSabado = New System.Windows.Forms.TextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.txtHJueves = New System.Windows.Forms.TextBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.txtHMartes = New System.Windows.Forms.TextBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.txtHViernes = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.txtHMiercoles = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.txtHLunes = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.txtIdMaestro = New System.Windows.Forms.TextBox()
+        Me.cboIdGrupo = New System.Windows.Forms.ComboBox()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.txtNivel = New System.Windows.Forms.TextBox()
+        Me.btnGuardar = New System.Windows.Forms.Button()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.txtFecha = New System.Windows.Forms.TextBox()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
+        Me.gbDatosAlumno.SuspendLayout()
         CType(Me.ptbFoto, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox2.SuspendLayout()
+        Me.gbDatosGrupo.SuspendLayout()
         Me.SuspendLayout()
         '
         'PictureBox2
         '
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(49, 12)
+        Me.PictureBox2.Location = New System.Drawing.Point(45, 68)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(82, 69)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -85,7 +90,7 @@ Partial Class frmInscripciones
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(122, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(500, 18)
+        Me.Label1.Location = New System.Drawing.Point(496, 74)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(227, 56)
         Me.Label1.TabIndex = 17
@@ -95,34 +100,26 @@ Partial Class frmInscripciones
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(146, 17)
+        Me.Label2.Location = New System.Drawing.Point(142, 73)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(348, 58)
         Me.Label2.TabIndex = 16
         Me.Label2.Text = "Inscripción de"
         '
-        'DateTimePicker1
+        'txtNombre
         '
-        Me.DateTimePicker1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(249, 91)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(113, 22)
-        Me.DateTimePicker1.TabIndex = 19
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(13, 108)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(545, 22)
-        Me.TextBox1.TabIndex = 20
+        Me.txtNombre.Enabled = False
+        Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNombre.Location = New System.Drawing.Point(13, 108)
+        Me.txtNombre.Name = "txtNombre"
+        Me.txtNombre.Size = New System.Drawing.Size(545, 22)
+        Me.txtNombre.TabIndex = 20
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(21, 90)
+        Me.Label3.Location = New System.Drawing.Point(17, 146)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(187, 24)
         Me.Label3.TabIndex = 21
@@ -148,44 +145,46 @@ Partial Class frmInscripciones
         Me.Label5.TabIndex = 24
         Me.Label5.Text = "No. control"
         '
-        'TextBox2
+        'gbDatosAlumno
         '
-        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(13, 56)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(268, 22)
-        Me.TextBox2.TabIndex = 23
+        Me.gbDatosAlumno.Controls.Add(Me.cboNoControl)
+        Me.gbDatosAlumno.Controls.Add(Me.txtSituacion)
+        Me.gbDatosAlumno.Controls.Add(Me.Label10)
+        Me.gbDatosAlumno.Controls.Add(Me.txtTelefono)
+        Me.gbDatosAlumno.Controls.Add(Me.Label8)
+        Me.gbDatosAlumno.Controls.Add(Me.txtDomicilio)
+        Me.gbDatosAlumno.Controls.Add(Me.Label7)
+        Me.gbDatosAlumno.Controls.Add(Me.ptbFoto)
+        Me.gbDatosAlumno.Controls.Add(Me.txtUNA)
+        Me.gbDatosAlumno.Controls.Add(Me.Label6)
+        Me.gbDatosAlumno.Controls.Add(Me.Label5)
+        Me.gbDatosAlumno.Controls.Add(Me.txtNombre)
+        Me.gbDatosAlumno.Controls.Add(Me.Label4)
+        Me.gbDatosAlumno.Enabled = False
+        Me.gbDatosAlumno.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbDatosAlumno.Location = New System.Drawing.Point(12, 174)
+        Me.gbDatosAlumno.Name = "gbDatosAlumno"
+        Me.gbDatosAlumno.Size = New System.Drawing.Size(804, 260)
+        Me.gbDatosAlumno.TabIndex = 25
+        Me.gbDatosAlumno.TabStop = False
+        Me.gbDatosAlumno.Text = "Datos del alumno"
         '
-        'GroupBox1
+        'cboNoControl
         '
-        Me.GroupBox1.Controls.Add(Me.TextBox7)
-        Me.GroupBox1.Controls.Add(Me.Label10)
-        Me.GroupBox1.Controls.Add(Me.TextBox5)
-        Me.GroupBox1.Controls.Add(Me.Label8)
-        Me.GroupBox1.Controls.Add(Me.TextBox4)
-        Me.GroupBox1.Controls.Add(Me.Label7)
-        Me.GroupBox1.Controls.Add(Me.ptbFoto)
-        Me.GroupBox1.Controls.Add(Me.TextBox3)
-        Me.GroupBox1.Controls.Add(Me.Label6)
-        Me.GroupBox1.Controls.Add(Me.Label5)
-        Me.GroupBox1.Controls.Add(Me.TextBox2)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
-        Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 121)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(804, 260)
-        Me.GroupBox1.TabIndex = 25
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Datos del alumno"
+        Me.cboNoControl.FormattingEnabled = True
+        Me.cboNoControl.Location = New System.Drawing.Point(16, 51)
+        Me.cboNoControl.Name = "cboNoControl"
+        Me.cboNoControl.Size = New System.Drawing.Size(177, 28)
+        Me.cboNoControl.TabIndex = 34
         '
-        'TextBox7
+        'txtSituacion
         '
-        Me.TextBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox7.Location = New System.Drawing.Point(547, 220)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(207, 22)
-        Me.TextBox7.TabIndex = 32
+        Me.txtSituacion.Enabled = False
+        Me.txtSituacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSituacion.Location = New System.Drawing.Point(547, 220)
+        Me.txtSituacion.Name = "txtSituacion"
+        Me.txtSituacion.Size = New System.Drawing.Size(207, 22)
+        Me.txtSituacion.TabIndex = 32
         '
         'Label10
         '
@@ -197,13 +196,14 @@ Partial Class frmInscripciones
         Me.Label10.TabIndex = 33
         Me.Label10.Text = "Situación"
         '
-        'TextBox5
+        'txtTelefono
         '
-        Me.TextBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox5.Location = New System.Drawing.Point(275, 220)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(207, 22)
-        Me.TextBox5.TabIndex = 30
+        Me.txtTelefono.Enabled = False
+        Me.txtTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTelefono.Location = New System.Drawing.Point(275, 220)
+        Me.txtTelefono.Name = "txtTelefono"
+        Me.txtTelefono.Size = New System.Drawing.Size(207, 22)
+        Me.txtTelefono.TabIndex = 30
         '
         'Label8
         '
@@ -215,13 +215,14 @@ Partial Class frmInscripciones
         Me.Label8.TabIndex = 31
         Me.Label8.Text = "Teléfono"
         '
-        'TextBox4
+        'txtDomicilio
         '
-        Me.TextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox4.Location = New System.Drawing.Point(13, 163)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(545, 22)
-        Me.TextBox4.TabIndex = 28
+        Me.txtDomicilio.Enabled = False
+        Me.txtDomicilio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDomicilio.Location = New System.Drawing.Point(13, 163)
+        Me.txtDomicilio.Name = "txtDomicilio"
+        Me.txtDomicilio.Size = New System.Drawing.Size(545, 22)
+        Me.txtDomicilio.TabIndex = 28
         '
         'Label7
         '
@@ -243,13 +244,14 @@ Partial Class frmInscripciones
         Me.ptbFoto.TabIndex = 27
         Me.ptbFoto.TabStop = False
         '
-        'TextBox3
+        'txtUNA
         '
-        Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(13, 220)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(222, 22)
-        Me.TextBox3.TabIndex = 25
+        Me.txtUNA.Enabled = False
+        Me.txtUNA.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtUNA.Location = New System.Drawing.Point(13, 220)
+        Me.txtUNA.Name = "txtUNA"
+        Me.txtUNA.Size = New System.Drawing.Size(222, 22)
+        Me.txtUNA.TabIndex = 25
         '
         'Label6
         '
@@ -265,19 +267,20 @@ Partial Class frmInscripciones
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(475, 90)
+        Me.Label9.Location = New System.Drawing.Point(471, 146)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(123, 24)
         Me.Label9.TabIndex = 33
         Me.Label9.Text = "ID Inscripción"
         '
-        'TextBox6
+        'txtIdInscripcion
         '
-        Me.TextBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.TextBox6.Location = New System.Drawing.Point(618, 89)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(198, 26)
-        Me.TextBox6.TabIndex = 32
+        Me.txtIdInscripcion.Enabled = False
+        Me.txtIdInscripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.txtIdInscripcion.Location = New System.Drawing.Point(614, 145)
+        Me.txtIdInscripcion.Name = "txtIdInscripcion"
+        Me.txtIdInscripcion.Size = New System.Drawing.Size(198, 26)
+        Me.txtIdInscripcion.TabIndex = 32
         '
         'btnNuevo
         '
@@ -289,7 +292,7 @@ Partial Class frmInscripciones
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevo.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnNuevo.Location = New System.Drawing.Point(12, 618)
+        Me.btnNuevo.Location = New System.Drawing.Point(12, 671)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(171, 50)
         Me.btnNuevo.TabIndex = 42
@@ -306,7 +309,7 @@ Partial Class frmInscripciones
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnSalir.Location = New System.Drawing.Point(645, 618)
+        Me.btnSalir.Location = New System.Drawing.Point(645, 671)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(171, 50)
         Me.btnSalir.TabIndex = 45
@@ -318,25 +321,18 @@ Partial Class frmInscripciones
         Me.btnCancelar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(122, Byte), Integer))
         Me.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnCancelar.Enabled = False
         Me.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
         Me.btnCancelar.FlatAppearance.BorderSize = 0
         Me.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnCancelar.Location = New System.Drawing.Point(427, 618)
+        Me.btnCancelar.Location = New System.Drawing.Point(427, 671)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(171, 50)
         Me.btnCancelar.TabIndex = 44
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = False
-        '
-        'TextBox12
-        '
-        Me.TextBox12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.TextBox12.Location = New System.Drawing.Point(6, 43)
-        Me.TextBox12.Name = "TextBox12"
-        Me.TextBox12.Size = New System.Drawing.Size(182, 26)
-        Me.TextBox12.TabIndex = 23
         '
         'Label15
         '
@@ -348,151 +344,249 @@ Partial Class frmInscripciones
         Me.Label15.TabIndex = 24
         Me.Label15.Text = "ID Grupo"
         '
+        'gbDatosGrupo
+        '
+        Me.gbDatosGrupo.Controls.Add(Me.Label19)
+        Me.gbDatosGrupo.Controls.Add(Me.txtHSabado)
+        Me.gbDatosGrupo.Controls.Add(Me.Label18)
+        Me.gbDatosGrupo.Controls.Add(Me.txtHJueves)
+        Me.gbDatosGrupo.Controls.Add(Me.Label17)
+        Me.gbDatosGrupo.Controls.Add(Me.txtHMartes)
+        Me.gbDatosGrupo.Controls.Add(Me.Label16)
+        Me.gbDatosGrupo.Controls.Add(Me.txtHViernes)
+        Me.gbDatosGrupo.Controls.Add(Me.Label14)
+        Me.gbDatosGrupo.Controls.Add(Me.txtHMiercoles)
+        Me.gbDatosGrupo.Controls.Add(Me.Label13)
+        Me.gbDatosGrupo.Controls.Add(Me.txtHLunes)
+        Me.gbDatosGrupo.Controls.Add(Me.Label11)
+        Me.gbDatosGrupo.Controls.Add(Me.txtIdMaestro)
+        Me.gbDatosGrupo.Controls.Add(Me.cboIdGrupo)
+        Me.gbDatosGrupo.Controls.Add(Me.Label12)
+        Me.gbDatosGrupo.Controls.Add(Me.txtNivel)
+        Me.gbDatosGrupo.Controls.Add(Me.Label15)
+        Me.gbDatosGrupo.Enabled = False
+        Me.gbDatosGrupo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbDatosGrupo.Location = New System.Drawing.Point(12, 440)
+        Me.gbDatosGrupo.Name = "gbDatosGrupo"
+        Me.gbDatosGrupo.Size = New System.Drawing.Size(804, 203)
+        Me.gbDatosGrupo.TabIndex = 46
+        Me.gbDatosGrupo.TabStop = False
+        Me.gbDatosGrupo.Text = "Datos del grupo"
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.Location = New System.Drawing.Point(585, 150)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(87, 18)
+        Me.Label19.TabIndex = 63
+        Me.Label19.Text = "H. Sábado"
+        '
+        'txtHSabado
+        '
+        Me.txtHSabado.Enabled = False
+        Me.txtHSabado.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.txtHSabado.Location = New System.Drawing.Point(585, 171)
+        Me.txtHSabado.Name = "txtHSabado"
+        Me.txtHSabado.Size = New System.Drawing.Size(182, 26)
+        Me.txtHSabado.TabIndex = 62
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Location = New System.Drawing.Point(310, 150)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(83, 18)
+        Me.Label18.TabIndex = 61
+        Me.Label18.Text = "H. Jueves"
+        '
+        'txtHJueves
+        '
+        Me.txtHJueves.Enabled = False
+        Me.txtHJueves.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.txtHJueves.Location = New System.Drawing.Point(310, 171)
+        Me.txtHJueves.Name = "txtHJueves"
+        Me.txtHJueves.Size = New System.Drawing.Size(182, 26)
+        Me.txtHJueves.TabIndex = 60
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Location = New System.Drawing.Point(6, 150)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(82, 18)
+        Me.Label17.TabIndex = 59
+        Me.Label17.Text = "H. Martes"
+        '
+        'txtHMartes
+        '
+        Me.txtHMartes.Enabled = False
+        Me.txtHMartes.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.txtHMartes.Location = New System.Drawing.Point(6, 171)
+        Me.txtHMartes.Name = "txtHMartes"
+        Me.txtHMartes.Size = New System.Drawing.Size(182, 26)
+        Me.txtHMartes.TabIndex = 58
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(585, 87)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(86, 18)
+        Me.Label16.TabIndex = 57
+        Me.Label16.Text = "H. Viernes"
+        '
+        'txtHViernes
+        '
+        Me.txtHViernes.Enabled = False
+        Me.txtHViernes.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.txtHViernes.Location = New System.Drawing.Point(585, 108)
+        Me.txtHViernes.Name = "txtHViernes"
+        Me.txtHViernes.Size = New System.Drawing.Size(182, 26)
+        Me.txtHViernes.TabIndex = 56
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(310, 87)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(104, 18)
+        Me.Label14.TabIndex = 55
+        Me.Label14.Text = "H. Miércoles"
+        '
+        'txtHMiercoles
+        '
+        Me.txtHMiercoles.Enabled = False
+        Me.txtHMiercoles.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.txtHMiercoles.Location = New System.Drawing.Point(310, 108)
+        Me.txtHMiercoles.Name = "txtHMiercoles"
+        Me.txtHMiercoles.Size = New System.Drawing.Size(182, 26)
+        Me.txtHMiercoles.TabIndex = 54
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(6, 87)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(75, 18)
+        Me.Label13.TabIndex = 53
+        Me.Label13.Text = "H. Lunes"
+        '
+        'txtHLunes
+        '
+        Me.txtHLunes.Enabled = False
+        Me.txtHLunes.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.txtHLunes.Location = New System.Drawing.Point(6, 108)
+        Me.txtHLunes.Name = "txtHLunes"
+        Me.txtHLunes.Size = New System.Drawing.Size(182, 26)
+        Me.txtHLunes.TabIndex = 52
+        '
         'Label11
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(6, 76)
+        Me.Label11.Location = New System.Drawing.Point(190, 25)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(65, 18)
-        Me.Label11.TabIndex = 25
-        Me.Label11.Text = "Horario"
+        Me.Label11.Size = New System.Drawing.Size(83, 18)
+        Me.Label11.TabIndex = 51
+        Me.Label11.Text = "IdMaestro"
         '
-        'DataGridView1
+        'txtIdMaestro
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6})
-        Me.DataGridView1.Location = New System.Drawing.Point(6, 97)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(765, 116)
-        Me.DataGridView1.TabIndex = 26
+        Me.txtIdMaestro.Enabled = False
+        Me.txtIdMaestro.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.txtIdMaestro.Location = New System.Drawing.Point(190, 46)
+        Me.txtIdMaestro.Name = "txtIdMaestro"
+        Me.txtIdMaestro.Size = New System.Drawing.Size(182, 26)
+        Me.txtIdMaestro.TabIndex = 50
         '
-        'GroupBox2
+        'cboIdGrupo
         '
-        Me.GroupBox2.Controls.Add(Me.Button2)
-        Me.GroupBox2.Controls.Add(Me.Label12)
-        Me.GroupBox2.Controls.Add(Me.TextBox8)
-        Me.GroupBox2.Controls.Add(Me.DataGridView1)
-        Me.GroupBox2.Controls.Add(Me.Label11)
-        Me.GroupBox2.Controls.Add(Me.Label15)
-        Me.GroupBox2.Controls.Add(Me.TextBox12)
-        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 387)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(804, 225)
-        Me.GroupBox2.TabIndex = 46
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Datos del grupo"
-        '
-        'Button2
-        '
-        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(122, Byte), Integer))
-        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Button2.Location = New System.Drawing.Point(424, 43)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(135, 26)
-        Me.Button2.TabIndex = 48
-        Me.Button2.Text = "Buscar"
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.cboIdGrupo.FormattingEnabled = True
+        Me.cboIdGrupo.Location = New System.Drawing.Point(9, 46)
+        Me.cboIdGrupo.Name = "cboIdGrupo"
+        Me.cboIdGrupo.Size = New System.Drawing.Size(121, 24)
+        Me.cboIdGrupo.TabIndex = 49
         '
         'Label12
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(216, 22)
+        Me.Label12.Location = New System.Drawing.Point(431, 25)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(45, 18)
         Me.Label12.TabIndex = 28
         Me.Label12.Text = "Nivel"
         '
-        'TextBox8
+        'txtNivel
         '
-        Me.TextBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.TextBox8.Location = New System.Drawing.Point(216, 43)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(182, 26)
-        Me.TextBox8.TabIndex = 27
+        Me.txtNivel.Enabled = False
+        Me.txtNivel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.txtNivel.Location = New System.Drawing.Point(431, 46)
+        Me.txtNivel.Name = "txtNivel"
+        Me.txtNivel.Size = New System.Drawing.Size(182, 26)
+        Me.txtNivel.TabIndex = 27
         '
-        'Button1
+        'btnGuardar
         '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(122, Byte), Integer))
-        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Button1.Location = New System.Drawing.Point(213, 618)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(171, 50)
-        Me.Button1.TabIndex = 47
-        Me.Button1.Text = "Guardar"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btnGuardar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnGuardar.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(122, Byte), Integer))
+        Me.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnGuardar.Enabled = False
+        Me.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.LightGray
+        Me.btnGuardar.FlatAppearance.BorderSize = 0
+        Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btnGuardar.Location = New System.Drawing.Point(213, 671)
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(171, 50)
+        Me.btnGuardar.TabIndex = 47
+        Me.btnGuardar.Text = "Guardar"
+        Me.btnGuardar.UseVisualStyleBackColor = False
         '
-        'Column1
+        'Label22
         '
-        Me.Column1.HeaderText = "Lunes"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Width = 120
+        Me.Label22.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(122, Byte), Integer))
+        Me.Label22.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label22.Location = New System.Drawing.Point(0, 0)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(837, 62)
+        Me.Label22.TabIndex = 65
+        Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Column2
+        'txtFecha
         '
-        Me.Column2.HeaderText = "Martes"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        Me.Column2.Width = 120
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Miércoles"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        Me.Column3.Width = 120
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "Jueves"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        Me.Column4.Width = 120
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "Viernes"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        Me.Column5.Width = 120
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "Sábado"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        Me.Column6.Width = 120
+        Me.txtFecha.Enabled = False
+        Me.txtFecha.Location = New System.Drawing.Point(211, 148)
+        Me.txtFecha.Name = "txtFecha"
+        Me.txtFecha.Size = New System.Drawing.Size(100, 20)
+        Me.txtFecha.TabIndex = 66
         '
         'frmInscripciones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(837, 674)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.GroupBox2)
+        Me.ClientSize = New System.Drawing.Size(837, 733)
+        Me.Controls.Add(Me.txtFecha)
+        Me.Controls.Add(Me.Label22)
+        Me.Controls.Add(Me.btnGuardar)
+        Me.Controls.Add(Me.gbDatosGrupo)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnCancelar)
         Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.TextBox6)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.txtIdInscripcion)
+        Me.Controls.Add(Me.gbDatosAlumno)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label2)
@@ -500,12 +594,11 @@ Partial Class frmInscripciones
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmInscripciones"
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        Me.gbDatosAlumno.ResumeLayout(False)
+        Me.gbDatosAlumno.PerformLayout()
         CType(Me.ptbFoto, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
+        Me.gbDatosGrupo.ResumeLayout(False)
+        Me.gbDatosGrupo.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -514,40 +607,46 @@ Partial Class frmInscripciones
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtNombre As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents gbDatosAlumno As GroupBox
+    Friend WithEvents txtUNA As TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents TextBox7 As TextBox
+    Friend WithEvents txtSituacion As TextBox
     Friend WithEvents Label10 As Label
-    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents txtTelefono As TextBox
     Friend WithEvents Label8 As Label
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents txtDomicilio As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents ptbFoto As PictureBox
     Friend WithEvents Label9 As Label
-    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents txtIdInscripcion As TextBox
     Friend WithEvents btnNuevo As Button
     Friend WithEvents btnSalir As Button
     Friend WithEvents btnCancelar As Button
-    Friend WithEvents TextBox12 As TextBox
     Friend WithEvents Label15 As Label
-    Friend WithEvents Label11 As Label
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents gbDatosGrupo As GroupBox
+    Friend WithEvents btnGuardar As Button
     Friend WithEvents Label12 As Label
-    Friend WithEvents TextBox8 As TextBox
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents txtNivel As TextBox
+    Friend WithEvents cboNoControl As ComboBox
+    Friend WithEvents Label22 As Label
+    Friend WithEvents txtFecha As TextBox
+    Friend WithEvents Label13 As Label
+    Friend WithEvents txtHLunes As TextBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents txtIdMaestro As TextBox
+    Friend WithEvents cboIdGrupo As ComboBox
+    Friend WithEvents Label17 As Label
+    Friend WithEvents txtHMartes As TextBox
+    Friend WithEvents Label16 As Label
+    Friend WithEvents txtHViernes As TextBox
+    Friend WithEvents Label14 As Label
+    Friend WithEvents txtHMiercoles As TextBox
+    Friend WithEvents Label19 As Label
+    Friend WithEvents txtHSabado As TextBox
+    Friend WithEvents Label18 As Label
+    Friend WithEvents txtHJueves As TextBox
 End Class

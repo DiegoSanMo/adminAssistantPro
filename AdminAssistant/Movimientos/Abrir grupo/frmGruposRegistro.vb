@@ -12,7 +12,6 @@ Public Class frmGruposRegistro
         End While
         lectorGeneral.Close()
 
-
         Dim idCiclo As Integer
         Dim anioC As String
 
@@ -26,15 +25,12 @@ Public Class frmGruposRegistro
         'asigna el nombre de la base de datos
         Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
 
-
-
-
         comandoGeneral.CommandText = "select idGrupo, nombre, nivel, maxAlumnos, hLuIni,  hLuFin, hMaIni, hMaFin, hMiIni, hMiFin, hJuIni, hJuFin, hViIni, hViFin, hSaIni, hSaFin from [" & Name & "].dbo.grupo c join MasterEA.dbo.maestro m on c.idMaestro = m.idMaestro"
         lectorGeneral = comandoGeneral.ExecuteReader
         dgHorario.Rows.Clear()
 
         While lectorGeneral.Read
-            dgHorario.Rows.Add(lectorGeneral(0), lectorGeneral(1), lectorGeneral(2), lectorGeneral(3), (lectorGeneral(4) + CStr("/") + lectorGeneral(5)), (lectorGeneral(6) + CStr("/") + lectorGeneral(7)), (lectorGeneral(8) + CStr("/") + lectorGeneral(9)), (lectorGeneral(10) + CStr("/") + lectorGeneral(11)), (lectorGeneral(12) + CStr("/") + lectorGeneral(13)), (lectorGeneral(14) + CStr("/") + lectorGeneral(15)))
+            dgHorario.Rows.Add(lectorGeneral(0), lectorGeneral(1), lectorGeneral(2), lectorGeneral(3), (lectorGeneral(4).ToString + CStr("/") + lectorGeneral(5).ToString), (lectorGeneral(6).ToString + CStr("/") + lectorGeneral(7).ToString), (lectorGeneral(8).ToString + CStr("/") + lectorGeneral(9).ToString), (lectorGeneral(10).ToString + CStr("/") + lectorGeneral(11).ToString), (lectorGeneral(12).ToString + CStr("/") + lectorGeneral(13).ToString), (lectorGeneral(14).ToString + CStr("/") + lectorGeneral(15).ToString))
         End While
         lectorGeneral.Close()
 
@@ -90,15 +86,11 @@ Public Class frmGruposRegistro
         dtpSabadoI.Text = "00:00 AM"
         dtpSabadoF.Text = "00:00 AM"
 
-
-
         Using conexionRemota As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; integrated security = true")
             Dim comandoRemoto As SqlCommand = conexionRemota.CreateCommand
             Dim lectorRemoto As SqlDataReader
 
             conexionRemota.Open()
-
-
             comandoRemoto.CommandText = "SELECT DB_NAME() AS [Current Database]"
             lectorRemoto = comandoRemoto.ExecuteReader
             lectorRemoto.Read()
@@ -111,10 +103,7 @@ Public Class frmGruposRegistro
             txtClave.Text = n
 
             conexionRemota.Close()
-
         End Using
-
-
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
@@ -176,12 +165,6 @@ Public Class frmGruposRegistro
                             conexionRemota.Close()
                         End Using
 
-
-
-
-
-
-
                         'Control de comandos
                         btnGuardar.Enabled = False
                         btnCancelar.Enabled = False
@@ -225,10 +208,7 @@ Public Class frmGruposRegistro
         Else
             MsgBox("No se ha asignado maestro, favor de ingresar maestro")
             cboMaestros.Focus()
-
         End If
-
-
     End Sub
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
@@ -257,31 +237,23 @@ Public Class frmGruposRegistro
 
         dtpSabadoI.Enabled = False
         dtpSabadoF.Enabled = False
-
-
-
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         Conexion.Close()
-
         Me.Close()
     End Sub
 
     Private Sub cboMaestros_TextChanged(sender As Object, e As EventArgs) Handles cboMaestros.TextChanged
-
         comandoGeneral.CommandText = "Select nombre from maestro where nombre like  '%" & cboMaestros.Text & "%'"
         lectorGeneral = comandoGeneral.ExecuteReader
         While lectorGeneral.Read
             cboMaestros.Items.Add(lectorGeneral(0))
         End While
         lectorGeneral.Close()
-
-
     End Sub
 
     Private Sub cboMaestros_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboMaestros.SelectedValueChanged
-
         comandoGeneral.CommandText = "Select idMaestro, correo, telefono from maestro where nombre = '" & cboMaestros.Text & "'"
         lectorGeneral = comandoGeneral.ExecuteReader
         lectorGeneral.Read()
@@ -289,14 +261,9 @@ Public Class frmGruposRegistro
         txtCorreo.Text = lectorGeneral(1)
         txtTel.Text = lectorGeneral(2)
         lectorGeneral.Close()
-
-
-
     End Sub
 
     Private Sub cboMaestros_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboMaestros.SelectedIndexChanged
 
     End Sub
-
-
 End Class
