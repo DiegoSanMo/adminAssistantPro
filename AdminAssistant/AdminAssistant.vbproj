@@ -121,6 +121,12 @@
       <DependentUpon>MasterEADataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Module1.vb" />
+    <Compile Include="Movimientos\Inscripción\frmConsultaInscripciones.Designer.vb">
+      <DependentUpon>frmConsultaInscripciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\Inscripción\frmConsultaInscripciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Movimientos\Inscripción\frmInscripciones.Designer.vb">
       <DependentUpon>frmInscripciones.vb</DependentUpon>
     </Compile>
@@ -164,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Movimientos\Abrir grupo\frmGruposRegistro.resx">
       <DependentUpon>frmGruposRegistro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Movimientos\Inscripción\frmConsultaInscripciones.resx">
+      <DependentUpon>frmConsultaInscripciones.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Movimientos\Inscripción\frmInscripciones.resx">
       <DependentUpon>frmInscripciones.vb</DependentUpon>

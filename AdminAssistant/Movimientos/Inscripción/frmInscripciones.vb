@@ -21,8 +21,8 @@ Public Class frmInscripciones
         lectorGeneral.Close()
 
         Name = CStr(idCiclo) + "-" + CStr(anioC)
-        'Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
-        Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
+        Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
+        'Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
         Dim comandoBD2 As SqlCommand = conexionBD2.CreateCommand
         Dim lectorBD2 As SqlDataReader
 
@@ -45,8 +45,8 @@ Public Class frmInscripciones
         gbDatosAlumno.Enabled = True
         gbDatosGrupo.Enabled = True
 
-        'Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
-        Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
+        Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
+        'Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
         Dim comandoBD2 As SqlCommand = conexionBD2.CreateCommand
         conexionBD2.Open()
 
@@ -95,8 +95,8 @@ Public Class frmInscripciones
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        'Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
-        Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
+        Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
+        'Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
         Dim comandoBD2 As SqlCommand = conexionBD2.CreateCommand
         Dim lectorBD2 As SqlDataReader
         Dim nuevaSituacion As String = "ACTIVO"
@@ -208,8 +208,8 @@ Public Class frmInscripciones
     End Sub
 
     Private Sub cboIdGrupo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboIdGrupo.SelectedIndexChanged
-        'Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
-        Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
+        Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
+        'Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
         Dim comandoBD2 As SqlCommand = conexionBD2.CreateCommand
         Dim lectorBD2 As SqlDataReader
 

@@ -24,27 +24,27 @@ Public Class principal
     End Sub
 
     Private Sub InscipciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InscipciónToolStripMenuItem.Click
-        Conexion.Open()
-        comandoGeneral.CommandText = "Select count(idCiclo) From ciclo"
-        Dim n As Integer = comandoGeneral.ExecuteScalar
+        'Conexion.Open()
+        'comandoGeneral.CommandText = "Select count(idCiclo) From ciclo"
+        'Dim n As Integer = comandoGeneral.ExecuteScalar
 
-        If n = 0 Then
-            MessageBox.Show("Error. No se ha registrado ningún ciclo", "Error de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Else
-            comandoGeneral.CommandText = "Select estado From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
-            lectorGeneral = comandoGeneral.ExecuteReader
-            lectorGeneral.Read()
+        'If n = 0 Then
+        '    MessageBox.Show("Error. No se ha registrado ningún ciclo", "Error de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        'Else
+        '    comandoGeneral.CommandText = "Select estado From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
+        '    lectorGeneral = comandoGeneral.ExecuteReader
+        '    lectorGeneral.Read()
 
-            If lectorGeneral(0) = "Cerrado" Then
-                lectorGeneral.Close()
-                Conexion.Close()
-                MessageBox.Show("ERROR, NO HAY NINGÚN CICLO ABIERTO", "CICLO CERRADO", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Else
-                lectorGeneral.Close()
-                Conexion.Close()
-                frmInscripciones.Show()
-            End If
-        End If
+        '    If lectorGeneral(0) = "Cerrado" Then
+        '        lectorGeneral.Close()
+        '        Conexion.Close()
+        '        MessageBox.Show("ERROR, NO HAY NINGÚN CICLO ABIERTO", "CICLO CERRADO", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        '    Else
+        '        lectorGeneral.Close()
+        '        Conexion.Close()
+        '        frmInscripciones.Show()
+        '    End If
+        'End If
     End Sub
 
     Private Sub AbrirCicloToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AbrirCicloToolStripMenuItem.Click
@@ -179,5 +179,33 @@ Public Class principal
                 frmGruposRegistro.Show()
             End If
         End If
+    End Sub
+
+    Private Sub RegistroToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles RegistroToolStripMenuItem2.Click
+        Conexion.Open()
+        comandoGeneral.CommandText = "Select count(idCiclo) From ciclo"
+        Dim n As Integer = comandoGeneral.ExecuteScalar
+
+        If n = 0 Then
+            MessageBox.Show("Error. No se ha registrado ningún ciclo", "Error de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            comandoGeneral.CommandText = "Select estado From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
+            lectorGeneral = comandoGeneral.ExecuteReader
+            lectorGeneral.Read()
+
+            If lectorGeneral(0) = "Cerrado" Then
+                lectorGeneral.Close()
+                Conexion.Close()
+                MessageBox.Show("ERROR, NO HAY NINGÚN CICLO ABIERTO", "CICLO CERRADO", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                lectorGeneral.Close()
+                Conexion.Close()
+                frmInscripciones.Show()
+            End If
+        End If
+    End Sub
+
+    Private Sub ConsultaToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ConsultaToolStripMenuItem2.Click
+        frmConsultaInscripciones.Show()
     End Sub
 End Class

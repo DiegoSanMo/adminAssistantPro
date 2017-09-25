@@ -87,8 +87,8 @@ Public Class frmGruposRegistro
         dtpSabadoF.Text = CDate("00:00")
 
 
-        'Using conexionRemota As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; integrated security = true")
-        Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
+        Using conexionRemota As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; integrated security = true")
+            'Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
             Dim comandoRemoto As SqlCommand = conexionRemota.CreateCommand
             Dim lectorRemoto As SqlDataReader
 
@@ -122,9 +122,9 @@ Public Class frmGruposRegistro
                         MsgBox(cboNivel.SelectedValue)
                     Else
 
-                        'Using conexionRemota As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; integrated security = true")
-                        Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
-                                Dim comandoRemoto As SqlCommand = conexionRemota.CreateCommand
+                        Using conexionRemota As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; integrated security = true")
+                            'Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
+                            Dim comandoRemoto As SqlCommand = conexionRemota.CreateCommand
                                 Dim lectorRemoto As SqlDataReader
 
                                 conexionRemota.Open()
@@ -251,13 +251,13 @@ Public Class frmGruposRegistro
 
                                     Dim ban As Boolean = False
 
-                                    For x = 0 To dgHorario.RowCount - 1
-                                        If dgHorario.Rows(x).Cells(4).Value = horarioL And dgHorario.Rows(x).Cells(5).Value = horarioLF And dgHorario.Rows(x).Cells(6).Value = horarioMa And dgHorario.Rows(x).Cells(7).Value = horarioMaF And dgHorario.Rows(x).Cells(8).Value = horarioMi And dgHorario.Rows(x).Cells(9).Value = horarioMiF And dgHorario.Rows(x).Cells(10).Value = horarioJu And dgHorario.Rows(x).Cells(11).Value = horarioJuF And dgHorario.Rows(x).Cells(12).Value = horarioVi And dgHorario.Rows(x).Cells(13).Value = horarioViF And dgHorario.Rows(x).Cells(14).Value = horarioSa And dgHorario.Rows(x).Cells(15).Value = horarioSaF Then
-                                            ban = True
-                                        End If
-                                    Next
+                                For x = 0 To dgHorario.RowCount
+                                    If dgHorario.Rows(x).Cells(4).Value = horarioL And dgHorario.Rows(x).Cells(5).Value = horarioLF And dgHorario.Rows(x).Cells(6).Value = horarioMa And dgHorario.Rows(x).Cells(7).Value = horarioMaF And dgHorario.Rows(x).Cells(8).Value = horarioMi And dgHorario.Rows(x).Cells(9).Value = horarioMiF And dgHorario.Rows(x).Cells(10).Value = horarioJu And dgHorario.Rows(x).Cells(11).Value = horarioJuF And dgHorario.Rows(x).Cells(12).Value = horarioVi And dgHorario.Rows(x).Cells(13).Value = horarioViF And dgHorario.Rows(x).Cells(14).Value = horarioSa And dgHorario.Rows(x).Cells(15).Value = horarioSaF Then
+                                        ban = True
+                                    End If
+                                Next
 
-                                    If ban Then
+                                If ban Then
                                         MsgBox("Horario ya ingresado, favor de ingresar otro horario")
                                     Else
 

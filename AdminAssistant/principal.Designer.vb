@@ -47,6 +47,8 @@ Partial Class principal
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.RegistroToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConsultaToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -163,6 +165,7 @@ Partial Class principal
         '
         'InscipciónToolStripMenuItem
         '
+        Me.InscipciónToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistroToolStripMenuItem2, Me.ConsultaToolStripMenuItem2})
         Me.InscipciónToolStripMenuItem.Name = "InscipciónToolStripMenuItem"
         Me.InscipciónToolStripMenuItem.Size = New System.Drawing.Size(467, 44)
         Me.InscipciónToolStripMenuItem.Text = "Inscripción"
@@ -201,6 +204,18 @@ Partial Class principal
         '
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
+        '
+        'RegistroToolStripMenuItem2
+        '
+        Me.RegistroToolStripMenuItem2.Name = "RegistroToolStripMenuItem2"
+        Me.RegistroToolStripMenuItem2.Size = New System.Drawing.Size(230, 44)
+        Me.RegistroToolStripMenuItem2.Text = "Registro"
+        '
+        'ConsultaToolStripMenuItem2
+        '
+        Me.ConsultaToolStripMenuItem2.Name = "ConsultaToolStripMenuItem2"
+        Me.ConsultaToolStripMenuItem2.Size = New System.Drawing.Size(230, 44)
+        Me.ConsultaToolStripMenuItem2.Text = "Consulta"
         '
         'principal
         '
@@ -244,4 +259,6 @@ Partial Class principal
     Friend WithEvents CerrarCicloToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CapturarCalificacionesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents RegistroToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents ConsultaToolStripMenuItem2 As ToolStripMenuItem
 End Class
