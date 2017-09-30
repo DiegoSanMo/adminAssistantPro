@@ -288,6 +288,12 @@
         AAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="AlumnoBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>645, 56</value>
+  </metadata>
+  <metadata name="MasterEADataSetDiego.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>466, 56</value>
+  </metadata>
   <metadata name="AlumnoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>723, 17</value>
   </metadata>
@@ -350,10 +356,66 @@ SELECT idAlumno, nombre, domicilio, ciudad, estado, telefono, telefonoEmergencia
   <metadata name="SqlDataAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>296, 17</value>
   </metadata>
+  <metadata name="SqlSelectCommand2.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="SqlSelectCommand2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 0</value>
+  </metadata>
+  <metadata name="SqlSelectCommand2.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="SqlConnection2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>329, 56</value>
+  </metadata>
+  <metadata name="SqlInsertCommand2.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="SqlInsertCommand2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 0</value>
+  </metadata>
+  <metadata name="SqlInsertCommand2.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="SqlInsertCommand2.CommandText" xml:space="preserve">
+    <value>INSERT INTO [alumno] ([idAlumno], [nombre], [domicilio], [ciudad], [estado], [telefono], [telefonoEmergencia], [situacion], [ultimoNivelAcreditado], [foto], [fechaDeNacimiento], [correo]) VALUES (@idAlumno, @nombre, @domicilio, @ciudad, @estado, @telefono, @telefonoEmergencia, @situacion, @ultimoNivelAcreditado, @foto, @fechaDeNacimiento, @correo);
+SELECT idAlumno, nombre, domicilio, ciudad, estado, telefono, telefonoEmergencia, situacion, ultimoNivelAcreditado, foto, fechaDeNacimiento, correo FROM alumno WHERE (idAlumno = @idAlumno)</value>
+  </data>
+  <metadata name="SqlUpdateCommand2.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="SqlUpdateCommand2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 0</value>
+  </metadata>
+  <metadata name="SqlUpdateCommand2.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="SqlUpdateCommand2.CommandText" xml:space="preserve">
+    <value>UPDATE [alumno] SET [idAlumno] = @idAlumno, [nombre] = @nombre, [domicilio] = @domicilio, [ciudad] = @ciudad, [estado] = @estado, [telefono] = @telefono, [telefonoEmergencia] = @telefonoEmergencia, [situacion] = @situacion, [ultimoNivelAcreditado] = @ultimoNivelAcreditado, [foto] = @foto, [fechaDeNacimiento] = @fechaDeNacimiento, [correo] = @correo WHERE (([idAlumno] = @Original_idAlumno) AND ((@IsNull_nombre = 1 AND [nombre] IS NULL) OR ([nombre] = @Original_nombre)) AND ((@IsNull_domicilio = 1 AND [domicilio] IS NULL) OR ([domicilio] = @Original_domicilio)) AND ((@IsNull_ciudad = 1 AND [ciudad] IS NULL) OR ([ciudad] = @Original_ciudad)) AND ((@IsNull_estado = 1 AND [estado] IS NULL) OR ([estado] = @Original_estado)) AND ((@IsNull_telefono = 1 AND [telefono] IS NULL) OR ([telefono] = @Original_telefono)) AND ((@IsNull_telefonoEmergencia = 1 AND [telefonoEmergencia] IS NULL) OR ([telefonoEmergencia] = @Original_telefonoEmergencia)) AND ((@IsNull_situacion = 1 AND [situacion] IS NULL) OR ([situacion] = @Original_situacion)) AND ((@IsNull_ultimoNivelAcreditado = 1 AND [ultimoNivelAcreditado] IS NULL) OR ([ultimoNivelAcreditado] = @Original_ultimoNivelAcreditado)) AND ((@IsNull_foto = 1 AND [foto] IS NULL) OR ([foto] = @Original_foto)) AND ((@IsNull_fechaDeNacimiento = 1 AND [fechaDeNacimiento] IS NULL) OR ([fechaDeNacimiento] = @Original_fechaDeNacimiento)) AND ((@IsNull_correo = 1 AND [correo] IS NULL) OR ([correo] = @Original_correo)));
+SELECT idAlumno, nombre, domicilio, ciudad, estado, telefono, telefonoEmergencia, situacion, ultimoNivelAcreditado, foto, fechaDeNacimiento, correo FROM alumno WHERE (idAlumno = @idAlumno)</value>
+  </data>
+  <metadata name="SqlDeleteCommand2.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="SqlDeleteCommand2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 0</value>
+  </metadata>
+  <metadata name="SqlDeleteCommand2.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="SqlDeleteCommand2.CommandText" xml:space="preserve">
+    <value>DELETE FROM [alumno] WHERE (([idAlumno] = @Original_idAlumno) AND ((@IsNull_nombre = 1 AND [nombre] IS NULL) OR ([nombre] = @Original_nombre)) AND ((@IsNull_domicilio = 1 AND [domicilio] IS NULL) OR ([domicilio] = @Original_domicilio)) AND ((@IsNull_ciudad = 1 AND [ciudad] IS NULL) OR ([ciudad] = @Original_ciudad)) AND ((@IsNull_estado = 1 AND [estado] IS NULL) OR ([estado] = @Original_estado)) AND ((@IsNull_telefono = 1 AND [telefono] IS NULL) OR ([telefono] = @Original_telefono)) AND ((@IsNull_telefonoEmergencia = 1 AND [telefonoEmergencia] IS NULL) OR ([telefonoEmergencia] = @Original_telefonoEmergencia)) AND ((@IsNull_situacion = 1 AND [situacion] IS NULL) OR ([situacion] = @Original_situacion)) AND ((@IsNull_ultimoNivelAcreditado = 1 AND [ultimoNivelAcreditado] IS NULL) OR ([ultimoNivelAcreditado] = @Original_ultimoNivelAcreditado)) AND ((@IsNull_foto = 1 AND [foto] IS NULL) OR ([foto] = @Original_foto)) AND ((@IsNull_fechaDeNacimiento = 1 AND [fechaDeNacimiento] IS NULL) OR ([fechaDeNacimiento] = @Original_fechaDeNacimiento)) AND ((@IsNull_correo = 1 AND [correo] IS NULL) OR ([correo] = @Original_correo)))</value>
+  </data>
+  <metadata name="SqlDataAdapter2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>185, 56</value>
+  </metadata>
   <metadata name="AlumnoTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 56</value>
   </metadata>
+  <metadata name="AlumnoTableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>825, 56</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>78</value>
+    <value>82</value>
   </metadata>
 </root>

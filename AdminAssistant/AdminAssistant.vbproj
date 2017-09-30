@@ -109,6 +109,11 @@
     <Compile Include="Catalogos\Maestros\frmRegistroMaestro.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MasterEADataSetDiego.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MasterEADataSetDiego.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Movimientos\Abrir grupo\frmGruposRegistro.Designer.vb">
       <DependentUpon>frmGruposRegistro.vb</DependentUpon>
     </Compile>
@@ -220,6 +225,17 @@
     </None>
     <None Include="MasterEADataSet.xss">
       <DependentUpon>MasterEADataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MasterEADataSetDiego.xsc">
+      <DependentUpon>MasterEADataSetDiego.xsd</DependentUpon>
+    </None>
+    <None Include="MasterEADataSetDiego.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MasterEADataSetDiego.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MasterEADataSetDiego.xss">
+      <DependentUpon>MasterEADataSetDiego.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
