@@ -95,221 +95,252 @@ Public Class frmInscripciones
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
-        'Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
-        Dim comandoBD2 As SqlCommand = conexionBD2.CreateCommand
-        Dim lectorBD2 As SqlDataReader
-        Dim nuevaSituacion As String = "ACTIVO"
-        conexionBD2.Open()
-        transaccion = Conexion.BeginTransaction("TransaccionInscripcion")
-        comandoGeneral.Connection = Conexion
-        comandoGeneral.Transaction = transaccion
 
-        transaccion2 = conexionBD2.BeginTransaction("TransaccionDeActualizacion")
-        comandoBD2.Connection = conexionBD2
-        comandoBD2.Transaction = transaccion2
-
-        Try
-            comandoBD2.CommandText = "Select cantInscritos From grupo Where idGrupo=" & cboIdGrupo.Text & ""
-            lectorBD2 = comandoBD2.ExecuteReader
-            lectorBD2.Read()
-            Dim cantInscritos As Integer = lectorBD2(0)
-            lectorBD2.Close()
-            If cantInscritos = 14 Then
-                MessageBox.Show("No se puede inscribir a este grupo. Escoja otro.", "Cantidad máxima de alumnos alcanzada", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        If txtNombre.Text = "" Then
+            MessageBox.Show("No se ha seleccionado alumno", "FALTA DE INFORMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        Else
+            If txtSituacion.Text = "ACTIVO" Then
+                MessageBox.Show("ALUMNO YA INSCRITO", "INSCRIPCIÓN YA REALIZADA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Else
-                comandoBD2.CommandText = "Insert into inscripcion values(" & CInt(txtIdInscripcion.Text) & "," & CInt(cboNoControl.Text) & "," & CInt(cboIdGrupo.Text) & ",'" & txtFecha.Text & "')"
-                comandoBD2.ExecuteNonQuery()
 
-                comandoGeneral.CommandText = "Update alumno Set situacion='" & nuevaSituacion & "' Where idAlumno=" & cboNoControl.Text & ""
-                comandoGeneral.ExecuteNonQuery()
+                Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
+                'Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
+                Dim comandoBD2 As SqlCommand = conexionBD2.CreateCommand
+                Dim lectorBD2 As SqlDataReader
+                Dim nuevaSituacion As String = "ACTIVO"
+                conexionBD2.Open()
+                transaccion = Conexion.BeginTransaction("TransaccionInscripcion")
+                comandoGeneral.Connection = Conexion
+                comandoGeneral.Transaction = transaccion
 
-                comandoBD2.CommandText = "Update grupo Set cantInscritos=" & cantInscritos + 1 & " Where idGrupo=" & cboIdGrupo.Text & ""
-                comandoBD2.ExecuteNonQuery()
-            End If
-            If MessageBox.Show("¿Desea registrar la inscripción?", "Registro de inscripción", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = DialogResult.Yes Then
-                transaccion.Commit()
-                transaccion2.Commit()
-                conexionBD2.Close()
+                transaccion2 = conexionBD2.BeginTransaction("TransaccionDeActualizacion")
+                comandoBD2.Connection = conexionBD2
+                comandoBD2.Transaction = transaccion2
 
-                MessageBox.Show("Registro de inscripción exitosa", "Inscripción exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                btnNuevo.Enabled = True
-                btnSalir.Enabled = True
-                btnGuardar.Enabled = False
-                btnCancelar.Enabled = False
+                Try
 
-                gbDatosAlumno.Enabled = False
-                gbDatosGrupo.Enabled = False
 
-                txtFecha.Text = ""
-                txtIdInscripcion.Text = ""
-                cboNoControl.Text = ""
-                txtNombre.Text = ""
-                txtDomicilio.Text = ""
-                txtUNA.Text = ""
-                txtTelefono.Text = ""
-                txtSituacion.Text = ""
-                cboIdGrupo.Text = ""
-                txtIdMaestro.Text = ""
-                txtNivel.Text = ""
-                txtHLunes.Text = ""
-                txtHMartes.Text = ""
-                txtHMiercoles.Text = ""
-                txtHJueves.Text = ""
-                txtHViernes.Text = ""
-                txtHSabado.Text = ""
-                ptbFoto.Image = Nothing
-            Else
-                transaccion.Rollback()
-                transaccion2.Rollback()
+                    comandoBD2.CommandText = "Select cantInscritos From grupo Where idGrupo=" & cboIdGrupo.Text & ""
+                    lectorBD2 = comandoBD2.ExecuteReader
+                    lectorBD2.Read()
+                    Dim cantInscritos As Integer = lectorBD2(0)
+                    lectorBD2.Close()
+                    If cantInscritos = 14 Then
+                        MessageBox.Show("No se puede inscribir a este grupo. Escoja otro.", "Cantidad máxima de alumnos alcanzada", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Else
+                        comandoBD2.CommandText = "Insert into inscripcion values(" & CInt(txtIdInscripcion.Text) & "," & CInt(cboNoControl.Text) & "," & CInt(cboIdGrupo.Text) & ",'" & txtFecha.Text & "')"
+                        comandoBD2.ExecuteNonQuery()
 
-                MessageBox.Show("Se ha cancelado la inscripción", "Cancelación de inscripción", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        comandoGeneral.CommandText = "Update alumno Set situacion='" & nuevaSituacion & "' Where idAlumno=" & cboNoControl.Text & ""
+                        comandoGeneral.ExecuteNonQuery()
 
-                If MessageBox.Show("¿Desea modificar algún campo?", "Modificación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = DialogResult.No Then
-                    btnNuevo.Enabled = True
-                    btnSalir.Enabled = True
-                    btnGuardar.Enabled = False
-                    btnCancelar.Enabled = False
-                    gbDatosAlumno.Enabled = False
-                    gbDatosGrupo.Enabled = False
+                        comandoBD2.CommandText = "Update grupo Set cantInscritos=" & cantInscritos + 1 & " Where idGrupo=" & cboIdGrupo.Text & ""
+                        comandoBD2.ExecuteNonQuery()
+                        If MessageBox.Show("¿Desea registrar la inscripción?", "Registro de inscripción", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = DialogResult.Yes Then
+                            transaccion.Commit()
+                            transaccion2.Commit()
+                            conexionBD2.Close()
 
-                    txtFecha.Text = ""
-                    txtIdInscripcion.Text = ""
-                    cboNoControl.Text = ""
-                    txtNombre.Text = ""
-                    txtDomicilio.Text = ""
-                    txtUNA.Text = ""
-                    txtTelefono.Text = ""
-                    txtSituacion.Text = ""
-                    cboIdGrupo.Text = ""
-                    txtIdMaestro.Text = ""
-                    txtNivel.Text = ""
-                    txtHLunes.Text = ""
-                    txtHMartes.Text = ""
-                    txtHMiercoles.Text = ""
-                    txtHJueves.Text = ""
-                    txtHViernes.Text = ""
-                    txtHSabado.Text = ""
-                    ptbFoto.Image = Nothing
-                End If
-                If txtNombre.Text = "" Then
-                    MessageBox.Show("No se ha seleccionado alumno", "FALTA DE INFORMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                Else
-                    If txtSituacion.Text = "ACTIVO" Then
-                        Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
-                        'Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
-                        Dim comandoBD2 As SqlCommand = conexionBD2.CreateCommand
-                        Dim lectorBD2 As SqlDataReader
-                        Dim nuevaSituacion As String = "ACTIVO"
-                        conexionBD2.Open()
-                        transaccion = Conexion.BeginTransaction("TransaccionInscripcion")
-                        comandoGeneral.Connection = Conexion
-                        comandoGeneral.Transaction = transaccion
+                            MessageBox.Show("Registro de inscripción exitosa", "Inscripción exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            btnNuevo.Enabled = True
+                            btnSalir.Enabled = True
+                            btnGuardar.Enabled = False
+                            btnCancelar.Enabled = False
 
-                        transaccion2 = conexionBD2.BeginTransaction("TransaccionDeActualizacion")
-                        comandoBD2.Connection = conexionBD2
-                        comandoBD2.Transaction = transaccion2
+                            gbDatosAlumno.Enabled = False
+                            gbDatosGrupo.Enabled = False
 
-                        Try
-                            comandoBD2.CommandText = "Select cantInscritos From grupo Where idGrupo=" & cboIdGrupo.Text & ""
-                            lectorBD2 = comandoBD2.ExecuteReader
-                            lectorBD2.Read()
-                            Dim cantInscritos As Integer = lectorBD2(0)
-                            lectorBD2.Close()
-                            If cantInscritos = 14 Then
-                                MessageBox.Show("No se puede inscribir a este grupo. Escoja otro.", "Cantidad máxima de alumnos alcanzada", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                            Else
-                                comandoBD2.CommandText = "Insert into inscripcion values(" & CInt(txtIdInscripcion.Text) & "," & CInt(cboNoControl.Text) & "," & CInt(cboIdGrupo.Text) & ",'" & txtFecha.Text & "')"
-                                comandoBD2.ExecuteNonQuery()
+                            txtFecha.Text = ""
+                            txtIdInscripcion.Text = ""
+                            cboNoControl.Text = ""
+                            txtNombre.Text = ""
+                            txtDomicilio.Text = ""
+                            txtUNA.Text = ""
+                            txtTelefono.Text = ""
+                            txtSituacion.Text = ""
+                            cboIdGrupo.Text = ""
+                            txtIdMaestro.Text = ""
+                            txtNivel.Text = ""
+                            txtHLunes.Text = ""
+                            txtHMartes.Text = ""
+                            txtHMiercoles.Text = ""
+                            txtHJueves.Text = ""
+                            txtHViernes.Text = ""
+                            txtHSabado.Text = ""
+                            ptbFoto.Image = Nothing
+                        Else
+                            transaccion.Rollback()
+                            transaccion2.Rollback()
+                            MessageBox.Show("Se ha cancelado la inscripción", "Cancelación de inscripción", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        End If
 
-                                comandoGeneral.CommandText = "Update alumno Set situacion='" & nuevaSituacion & "' Where idAlumno=" & cboNoControl.Text & ""
-                                comandoGeneral.ExecuteNonQuery()
 
-                                comandoBD2.CommandText = "Update grupo Set cantInscritos=" & cantInscritos + 1 & " Where idGrupo=" & cboIdGrupo.Text & ""
-                                comandoBD2.ExecuteNonQuery()
-                            End If
-                            If MessageBox.Show("¿Desea registrar la inscripción?", "Registro de inscripción", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = DialogResult.Yes Then
-                                transaccion.Commit()
-                                transaccion2.Commit()
-                                conexionBD2.Close()
 
-                                MessageBox.Show("Registro de inscripción exitosa", "Inscripción exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                                btnNuevo.Enabled = True
-                                btnSalir.Enabled = True
-                                btnGuardar.Enabled = False
-                                btnCancelar.Enabled = False
 
-                                gbDatosAlumno.Enabled = False
-                                gbDatosGrupo.Enabled = False
+                        'If MessageBox.Show("¿Desea modificar algún campo?", "Modificación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = DialogResult.No Then
+                        '    btnNuevo.Enabled = True
+                        '    btnSalir.Enabled = True
+                        '    btnGuardar.Enabled = False
+                        '    btnCancelar.Enabled = False
 
-                                txtFecha.Text = ""
-                                txtIdInscripcion.Text = ""
-                                cboNoControl.Text = ""
-                                txtNombre.Text = ""
-                                txtDomicilio.Text = ""
-                                txtUNA.Text = ""
-                                txtTelefono.Text = ""
-                                txtSituacion.Text = ""
-                                cboIdGrupo.Text = ""
-                                txtIdMaestro.Text = ""
-                                txtNivel.Text = ""
-                                txtHLunes.Text = ""
-                                txtHMartes.Text = ""
-                                txtHMiercoles.Text = ""
-                                txtHJueves.Text = ""
-                                txtHViernes.Text = ""
-                                txtHSabado.Text = ""
-                                ptbFoto.Image = Nothing
-                            Else
-                                transaccion.Rollback()
-                                transaccion2.Rollback()
+                        '    gbDatosAlumno.Enabled = False
+                        '    gbDatosGrupo.Enabled = False
 
-                                MessageBox.Show("Se ha cancelado la inscripción", "Cancelación de inscripción", MessageBoxButtons.OK, MessageBoxIcon.Error)
-
-                                If MessageBox.Show("¿Desea modificar algún campo?", "Modificación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = DialogResult.No Then
-                                    btnNuevo.Enabled = True
-                                    btnSalir.Enabled = True
-                                    btnGuardar.Enabled = False
-                                    btnCancelar.Enabled = False
-
-                                    gbDatosAlumno.Enabled = False
-                                    gbDatosGrupo.Enabled = False
-
-                                    txtFecha.Text = ""
-                                    txtIdInscripcion.Text = ""
-                                    cboNoControl.Text = ""
-                                    txtNombre.Text = ""
-                                    txtDomicilio.Text = ""
-                                    txtUNA.Text = ""
-                                    txtTelefono.Text = ""
-                                    txtSituacion.Text = ""
-                                    cboIdGrupo.Text = ""
-                                    txtIdMaestro.Text = ""
-                                    txtNivel.Text = ""
-                                    txtHLunes.Text = ""
-                                    txtHMartes.Text = ""
-                                    txtHMiercoles.Text = ""
-                                    txtHJueves.Text = ""
-                                    txtHViernes.Text = ""
-                                    txtHSabado.Text = ""
-                                    ptbFoto.Image = Nothing
-                                End If
-                            End If
-                        Catch ex As Exception
-                            MessageBox.Show("Commit Exception Type: {0} No se pudo insertar por error")
-
-                            Try
-                                transaccion.Rollback()
-                                transaccion2.Rollback()
-                            Catch ex2 As Exception
-                                MessageBox.Show("Error de inscripción")
-                            End Try
-                        End Try
+                        '    txtFecha.Text = ""
+                        '    txtIdInscripcion.Text = ""
+                        '    cboNoControl.Text = ""
+                        '    txtNombre.Text = ""
+                        '    txtDomicilio.Text = ""
+                        '    txtUNA.Text = ""
+                        '    txtTelefono.Text = ""
+                        '    txtSituacion.Text = ""
+                        '    cboIdGrupo.Text = ""
+                        '    txtIdMaestro.Text = ""
+                        '    txtNivel.Text = ""
+                        '    txtHLunes.Text = ""
+                        '    txtHMartes.Text = ""
+                        '    txtHMiercoles.Text = ""
+                        '    txtHJueves.Text = ""
+                        '    txtHViernes.Text = ""
+                        '    txtHSabado.Text = ""
+                        '    ptbFoto.Image = Nothing
+                        'End If
                     End If
-                End If
+                Catch ex As Exception
+                    MessageBox.Show("Commit Exception Type: {0} No se pudo insertar por error")
 
+                    Try
+                        transaccion.Rollback()
+                        transaccion2.Rollback()
+                    Catch ex2 As Exception
+                        MessageBox.Show("Error de inscripción")
+                    End Try
+                End Try
             End If
-        End Try
+        End If
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        'Try
+        '    'Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
+        '    Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
+        '    Dim comandoBD2 As SqlCommand = conexionBD2.CreateCommand
+        '    Dim lectorBD2 As SqlDataReader
+        '    Dim nuevaSituacion As String = "ACTIVO"
+        '    conexionBD2.Open()
+        '    transaccion = Conexion.BeginTransaction("TransaccionInscripcion")
+        '    comandoGeneral.Connection = Conexion
+        '    comandoGeneral.Transaction = transaccion
+
+        '    transaccion2 = conexionBD2.BeginTransaction("TransaccionDeActualizacion")
+        '    comandoBD2.Connection = conexionBD2
+        '    comandoBD2.Transaction = transaccion2
+
+
+        '    comandoBD2.CommandText = "Select cantInscritos From grupo Where idGrupo=" & cboIdGrupo.Text & ""
+        '    lectorBD2 = comandoBD2.ExecuteReader
+        '    lectorBD2.Read()
+        '    Dim cantInscritos As Integer = lectorBD2(0)
+        '    lectorBD2.Close()
+        '    If cantInscritos = 14 Then
+        '        MessageBox.Show("No se puede inscribir a este grupo. Escoja otro.", "Cantidad máxima de alumnos alcanzada", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        '    Else
+        '        If MessageBox.Show("¿Desea registrar la inscripción?", "Registro de inscripción", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = DialogResult.Yes Then
+        '            comandoBD2.CommandText = "Insert into inscripcion values(" & CInt(txtIdInscripcion.Text) & "," & CInt(cboNoControl.Text) & "," & CInt(cboIdGrupo.Text) & ",'" & txtFecha.Text & "')"
+        '            comandoBD2.ExecuteNonQuery()
+
+        '            comandoGeneral.CommandText = "Update alumno Set situacion='" & nuevaSituacion & "' Where idAlumno=" & cboNoControl.Text & ""
+        '            comandoGeneral.ExecuteNonQuery()
+
+        '            comandoBD2.CommandText = "Update grupo Set cantInscritos=" & cantInscritos + 1 & " Where idGrupo=" & cboIdGrupo.Text & ""
+        '            comandoBD2.ExecuteNonQuery()
+
+
+        '            transaccion.Commit()
+        '            transaccion2.Commit()
+        '            conexionBD2.Close()
+        '            MessageBox.Show("Registro de inscripción exitosa", "Inscripción exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        '            btnNuevo.Enabled = True
+        '            btnSalir.Enabled = True
+        '            btnGuardar.Enabled = False
+        '            btnCancelar.Enabled = False
+
+        '            gbDatosAlumno.Enabled = False
+        '            gbDatosGrupo.Enabled = False
+
+        '            txtFecha.Text = ""
+        '            txtIdInscripcion.Text = ""
+        '            cboNoControl.Text = ""
+        '            txtNombre.Text = ""
+        '            txtDomicilio.Text = ""
+        '            txtUNA.Text = ""
+        '            txtTelefono.Text = ""
+        '            txtSituacion.Text = ""
+        '            cboIdGrupo.Text = ""
+        '            txtIdMaestro.Text = ""
+        '            txtNivel.Text = ""
+        '            txtHLunes.Text = ""
+        '            txtHMartes.Text = ""
+        '            txtHMiercoles.Text = ""
+        '            txtHJueves.Text = ""
+        '            txtHViernes.Text = ""
+        '            txtHSabado.Text = ""
+        '            ptbFoto.Image = Nothing
+        '        Else
+        '            transaccion.Rollback()
+        '            transaccion2.Rollback()
+        '            MessageBox.Show("Se ha cancelado la inscripción", "Cancelación de inscripción", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        '        End If
+
+
+
+
+
+        '        If MessageBox.Show("¿Desea modificar algún campo?", "Modificación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = DialogResult.No Then
+        '            btnNuevo.Enabled = True
+        '            btnSalir.Enabled = True
+        '            btnGuardar.Enabled = False
+        '            btnCancelar.Enabled = False
+        '            gbDatosAlumno.Enabled = False
+        '            gbDatosGrupo.Enabled = False
+
+        '            txtFecha.Text = ""
+        '            txtIdInscripcion.Text = ""
+        '            cboNoControl.Text = ""
+        '            txtNombre.Text = ""
+        '            txtDomicilio.Text = ""
+        '            txtUNA.Text = ""
+        '            txtTelefono.Text = ""
+        '            txtSituacion.Text = ""
+        '            cboIdGrupo.Text = ""
+        '            txtIdMaestro.Text = ""
+        '            txtNivel.Text = ""
+        '            txtHLunes.Text = ""
+        '            txtHMartes.Text = ""
+        '            txtHMiercoles.Text = ""
+        '            txtHJueves.Text = ""
+        '            txtHViernes.Text = ""
+        '            txtHSabado.Text = ""
+        '            ptbFoto.Image = Nothing
+        '        End If
+
+
+        '    End If
+        'Catch ex As Exception
+
+        'End Try
     End Sub
 
     Private Sub cboIdGrupo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboIdGrupo.SelectedIndexChanged
