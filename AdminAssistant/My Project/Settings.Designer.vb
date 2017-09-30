@@ -85,6 +85,16 @@ Namespace My
                 Return CType(Me("MasterEAConnectionString"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=PRO;Initial Catalog=MasterEA;Integrated Security=True")>  _
+        Public ReadOnly Property MasterEAConnectionString1() As String
+            Get
+                Return CType(Me("MasterEAConnectionString1"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

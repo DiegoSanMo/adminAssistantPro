@@ -22,84 +22,28 @@ Partial Class frmConsultaAlumnos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.IdAlumnoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NombreDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DomicilioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TelefonoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SituacionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UltimoNivelAcreditadoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AlumnoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.EasyEnglishDataSetMani = New AdminAssistant.EasyEnglishDataSetMani()
+        Me.dgConsultaG = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnSalir = New System.Windows.Forms.Button()
-        Me.AlumnoTableAdapter = New AdminAssistant.EasyEnglishDataSetManiTableAdapters.alumnoTableAdapter()
         Me.Label3 = New System.Windows.Forms.Label()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.AlumnoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EasyEnglishDataSetMani, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        CType(Me.dgConsultaG, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'DataGridView1
+        'dgConsultaG
         '
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdAlumnoDataGridViewTextBoxColumn, Me.NombreDataGridViewTextBoxColumn, Me.DomicilioDataGridViewTextBoxColumn, Me.TelefonoDataGridViewTextBoxColumn, Me.SituacionDataGridViewTextBoxColumn, Me.UltimoNivelAcreditadoDataGridViewTextBoxColumn})
-        Me.DataGridView1.DataSource = Me.AlumnoBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 129)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(746, 150)
-        Me.DataGridView1.TabIndex = 0
-        '
-        'IdAlumnoDataGridViewTextBoxColumn
-        '
-        Me.IdAlumnoDataGridViewTextBoxColumn.DataPropertyName = "idAlumno"
-        Me.IdAlumnoDataGridViewTextBoxColumn.HeaderText = "Clave"
-        Me.IdAlumnoDataGridViewTextBoxColumn.Name = "IdAlumnoDataGridViewTextBoxColumn"
-        '
-        'NombreDataGridViewTextBoxColumn
-        '
-        Me.NombreDataGridViewTextBoxColumn.DataPropertyName = "nombre"
-        Me.NombreDataGridViewTextBoxColumn.HeaderText = "Nombre"
-        Me.NombreDataGridViewTextBoxColumn.Name = "NombreDataGridViewTextBoxColumn"
-        Me.NombreDataGridViewTextBoxColumn.Width = 150
-        '
-        'DomicilioDataGridViewTextBoxColumn
-        '
-        Me.DomicilioDataGridViewTextBoxColumn.DataPropertyName = "domicilio"
-        Me.DomicilioDataGridViewTextBoxColumn.HeaderText = "Domicilio"
-        Me.DomicilioDataGridViewTextBoxColumn.Name = "DomicilioDataGridViewTextBoxColumn"
-        Me.DomicilioDataGridViewTextBoxColumn.Width = 150
-        '
-        'TelefonoDataGridViewTextBoxColumn
-        '
-        Me.TelefonoDataGridViewTextBoxColumn.DataPropertyName = "telefono"
-        Me.TelefonoDataGridViewTextBoxColumn.HeaderText = "Telefono"
-        Me.TelefonoDataGridViewTextBoxColumn.Name = "TelefonoDataGridViewTextBoxColumn"
-        '
-        'SituacionDataGridViewTextBoxColumn
-        '
-        Me.SituacionDataGridViewTextBoxColumn.DataPropertyName = "situacion"
-        Me.SituacionDataGridViewTextBoxColumn.HeaderText = "Situacion"
-        Me.SituacionDataGridViewTextBoxColumn.Name = "SituacionDataGridViewTextBoxColumn"
-        '
-        'UltimoNivelAcreditadoDataGridViewTextBoxColumn
-        '
-        Me.UltimoNivelAcreditadoDataGridViewTextBoxColumn.DataPropertyName = "ultimoNivelAcreditado"
-        Me.UltimoNivelAcreditadoDataGridViewTextBoxColumn.HeaderText = "UltimoNivelAcreditado"
-        Me.UltimoNivelAcreditadoDataGridViewTextBoxColumn.Name = "UltimoNivelAcreditadoDataGridViewTextBoxColumn"
-        '
-        'AlumnoBindingSource
-        '
-        Me.AlumnoBindingSource.DataMember = "alumno"
-        Me.AlumnoBindingSource.DataSource = Me.EasyEnglishDataSetMani
-        '
-        'EasyEnglishDataSetMani
-        '
-        Me.EasyEnglishDataSetMani.DataSetName = "EasyEnglishDataSetMani"
-        Me.EasyEnglishDataSetMani.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.dgConsultaG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgConsultaG.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6})
+        Me.dgConsultaG.Location = New System.Drawing.Point(3, 62)
+        Me.dgConsultaG.Name = "dgConsultaG"
+        Me.dgConsultaG.Size = New System.Drawing.Size(917, 221)
+        Me.dgConsultaG.TabIndex = 0
         '
         'Label2
         '
@@ -108,16 +52,17 @@ Partial Class frmConsultaAlumnos
         Me.Label2.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label2.Location = New System.Drawing.Point(0, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(776, 45)
+        Me.Label2.Size = New System.Drawing.Size(932, 59)
         Me.Label2.TabIndex = 2
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(1, Byte), Integer), CType(CType(20, Byte), Integer))
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.Red
-        Me.Label1.Location = New System.Drawing.Point(124, 59)
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(167, 3)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(305, 56)
         Me.Label1.TabIndex = 3
@@ -132,60 +77,91 @@ Partial Class frmConsultaAlumnos
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnSalir.Location = New System.Drawing.Point(346, 293)
+        Me.btnSalir.Location = New System.Drawing.Point(3, 289)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(108, 50)
+        Me.btnSalir.Size = New System.Drawing.Size(917, 50)
         Me.btnSalir.TabIndex = 68
         Me.btnSalir.Text = "Aceptar"
         Me.btnSalir.UseVisualStyleBackColor = False
         '
-        'AlumnoTableAdapter
-        '
-        Me.AlumnoTableAdapter.ClearBeforeFill = True
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(1, Byte), Integer), CType(CType(20, Byte), Integer))
         Me.Label3.Font = New System.Drawing.Font("Century Gothic", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.Red
-        Me.Label3.Location = New System.Drawing.Point(425, 59)
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(462, 3)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(223, 56)
         Me.Label3.TabIndex = 69
         Me.Label3.Text = "alumnos"
         '
+        'Column1
+        '
+        Me.Column1.HeaderText = "IdAlumno"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Nombre"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 200
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Domicilio"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 200
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "Télefono"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        Me.Column4.Width = 150
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Situación"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "Último nivel acreditado"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        '
         'frmConsultaAlumnos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(776, 355)
+        Me.ClientSize = New System.Drawing.Size(932, 351)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.DataGridView1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Controls.Add(Me.dgConsultaG)
         Me.Name = "frmConsultaAlumnos"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmConsultaAlumnos"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.AlumnoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EasyEnglishDataSetMani, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgConsultaG, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dgConsultaG As DataGridView
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents btnSalir As Button
-    Friend WithEvents EasyEnglishDataSetMani As EasyEnglishDataSetMani
-    Friend WithEvents AlumnoBindingSource As BindingSource
-    Friend WithEvents AlumnoTableAdapter As EasyEnglishDataSetManiTableAdapters.alumnoTableAdapter
-    Friend WithEvents IdAlumnoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents NombreDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents DomicilioDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents TelefonoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents SituacionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents UltimoNivelAcreditadoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents Label3 As Label
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
 End Class

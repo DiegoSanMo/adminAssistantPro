@@ -81,9 +81,9 @@ Partial Class frmInscripciones
         'PictureBox2
         '
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(6, 98)
+        Me.PictureBox2.Location = New System.Drawing.Point(6, 85)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(167, 186)
+        Me.PictureBox2.Size = New System.Drawing.Size(167, 189)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 18
         Me.PictureBox2.TabStop = False
@@ -101,7 +101,7 @@ Partial Class frmInscripciones
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(2, 66)
+        Me.Label3.Location = New System.Drawing.Point(184, 69)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(187, 24)
         Me.Label3.TabIndex = 21
@@ -580,7 +580,7 @@ Partial Class frmInscripciones
         'txtFecha
         '
         Me.txtFecha.Enabled = False
-        Me.txtFecha.Location = New System.Drawing.Point(196, 68)
+        Me.txtFecha.Location = New System.Drawing.Point(378, 71)
         Me.txtFecha.Name = "txtFecha"
         Me.txtFecha.Size = New System.Drawing.Size(100, 20)
         Me.txtFecha.TabIndex = 66
