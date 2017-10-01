@@ -240,16 +240,14 @@ Public Class principal
 
                 idCiclo = lectorGeneral(0)
                 anioC = lectorGeneral(1)
-                'lectorGeneral.Close()
-                'asigna el nombre de la base de datos
+
                 Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
                 lectorGeneral.Close()
                 Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
                 'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
                 Dim comando2 As SqlCommand = conexionsql2.CreateCommand
                 Dim comando2Aux As SqlCommand = conexionsql2.CreateCommand
-                Dim lector2 As SqlDataReader
-                Dim transaccion3 As SqlTransaction
+
                 conexionsql2.Open()
                 Dim contGrupos As Integer
                 comando2.CommandText = "Select count(idGrupo) From grupo"
@@ -261,29 +259,13 @@ Public Class principal
 
                 Try
                     If MessageBox.Show("¿Desea crear y clasificar listas?", "Creación y clasificación de listas", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = DialogResult.Yes Then
-                        'For i = 1 To contGrupos
-                        '    comando2.CommandText = "Create table lista" & i & "(idAlumno int primary key, nombre nvarchar(50), calificacion decimal);"
-                        '    comando2.ExecuteNonQuery()
-                        'Next
                         For j = 1 To contGrupos
-                            'comando2.CommandText = "select c.idAlumno, nombre From [" & Name & "].dbo.inscripcion c join MasterEA.dbo.alumno m On c.idAlumno = m.idAlumno Where idGrupo =" & j & ""
-                            'lector2 = comando2.ExecuteReader
-                            'While lector2.Read()
-                            '    Dim id As Integer = lector2(0)
-                            '    Dim nom As String = lector2(1)
-                            '    comando2.CommandText = "Insert into lista" & j & "(idAlumno, nombre, calificacion) values(" & id & ",'" & nom & "'," & 0 & ")"
-                            '    comando2.ExecuteNonQuery()
-                            '    transaccion3.Commit()
-                            '    lector2.Close()
-                            'End While
-                            'lector2.Close()
                             comando2.CommandText = "Select c.idAlumno, nombre Into lista" & j & " From [" & Name & "].dbo.inscripcion c LEFT JOIN MasterEA.dbo.alumno m On c.idAlumno = m.idAlumno Where idGrupo =" & j & ""
                             comando2.ExecuteNonQuery()
-                            comando2.CommandText = "Alter Table lista" & j & " Add calificacion decimal;"
+                            comando2.CommandText = "alter table lista1 Add calificacion decimal Not Null Default 0 With values;"
                             comando2.ExecuteNonQuery()
                             transaccion2.Commit()
                         Next
-                        'transaccion2.Commit()
                         MessageBox.Show("Creación y clasificación de listas exitosa", "Creación y clasificación", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Else
                         transaccion2.Rollback()
