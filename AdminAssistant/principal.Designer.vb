@@ -41,14 +41,14 @@ Partial Class principal
         Me.AbrirCicloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AbrirGrupoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InscipciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RegistroToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConsultaToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClasificarListasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CapturarCalificacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CerrarCicloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.RegistroToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConsultaToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -170,17 +170,29 @@ Partial Class principal
         Me.InscipciónToolStripMenuItem.Size = New System.Drawing.Size(467, 44)
         Me.InscipciónToolStripMenuItem.Text = "Inscripción"
         '
+        'RegistroToolStripMenuItem2
+        '
+        Me.RegistroToolStripMenuItem2.Name = "RegistroToolStripMenuItem2"
+        Me.RegistroToolStripMenuItem2.Size = New System.Drawing.Size(230, 44)
+        Me.RegistroToolStripMenuItem2.Text = "Registro"
+        '
+        'ConsultaToolStripMenuItem2
+        '
+        Me.ConsultaToolStripMenuItem2.Name = "ConsultaToolStripMenuItem2"
+        Me.ConsultaToolStripMenuItem2.Size = New System.Drawing.Size(230, 44)
+        Me.ConsultaToolStripMenuItem2.Text = "Consulta"
+        '
         'ClasificarListasToolStripMenuItem
         '
         Me.ClasificarListasToolStripMenuItem.Name = "ClasificarListasToolStripMenuItem"
         Me.ClasificarListasToolStripMenuItem.Size = New System.Drawing.Size(467, 44)
-        Me.ClasificarListasToolStripMenuItem.Text = "Clasificar listas"
+        Me.ClasificarListasToolStripMenuItem.Text = "Clasificar por listas"
         '
         'CapturarCalificacionesToolStripMenuItem
         '
         Me.CapturarCalificacionesToolStripMenuItem.Name = "CapturarCalificacionesToolStripMenuItem"
-        Me.CapturarCalificacionesToolStripMenuItem.Size = New System.Drawing.Size(467, 44)
-        Me.CapturarCalificacionesToolStripMenuItem.Text = "Capturar Calificaciones"
+        Me.CapturarCalificacionesToolStripMenuItem.Size = New System.Drawing.Size(600, 44)
+        Me.CapturarCalificacionesToolStripMenuItem.Text = "Capturar Calificaciones En Listas"
         '
         'CerrarCicloToolStripMenuItem
         '
@@ -204,18 +216,6 @@ Partial Class principal
         '
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
-        '
-        'RegistroToolStripMenuItem2
-        '
-        Me.RegistroToolStripMenuItem2.Name = "RegistroToolStripMenuItem2"
-        Me.RegistroToolStripMenuItem2.Size = New System.Drawing.Size(230, 44)
-        Me.RegistroToolStripMenuItem2.Text = "Registro"
-        '
-        'ConsultaToolStripMenuItem2
-        '
-        Me.ConsultaToolStripMenuItem2.Name = "ConsultaToolStripMenuItem2"
-        Me.ConsultaToolStripMenuItem2.Size = New System.Drawing.Size(230, 44)
-        Me.ConsultaToolStripMenuItem2.Text = "Consulta"
         '
         'principal
         '

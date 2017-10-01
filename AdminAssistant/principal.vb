@@ -75,8 +75,8 @@ Public Class principal
                     comando.CommandText = "Create database""" & nombre & """;"
                     comando.ExecuteNonQuery()
 
-                    'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
-                    Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                    Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                    'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
                     Dim comando2 As SqlCommand = conexionsql2.CreateCommand
                     conexionsql2.Open()
                     comando2.CommandText = "Create table grupo(idGrupo int primary Key, idMaestro int, maxAlumnos int, cantInscritos int, nivel int, hLuIni varchar(20), hLuFin varchar(20),  hMaIni varchar(20), hMaFin varchar(20),  hMiIni varchar(20), hMiFin varchar(20),  hJuIni varchar(20), hJuFin varchar(20),  hViIni varchar(20), hViFin varchar(20),  hSaIni varchar(20), hSaFin varchar(20))"
@@ -119,8 +119,8 @@ Public Class principal
                         comando.ExecuteNonQuery()
 
 
-                        'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
-                        Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                        Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                        'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
                         Dim comando2 As SqlCommand = conexionsql2.CreateCommand
                         conexionsql2.Open()
                         comando2.CommandText = "Create table grupo(idGrupo int primary Key, idMaestro int, maxAlumnos int, cantInscritos int, nivel int, hLuIni varchar(20), hLuFin varchar(20),  hMaIni varchar(20), hMaFin varchar(20),  hMiIni varchar(20), hMiFin varchar(20),  hJuIni varchar(20), hJuFin varchar(20),  hViIni varchar(20), hViFin varchar(20),  hSaIni varchar(20), hSaFin varchar(20))"
@@ -207,5 +207,97 @@ Public Class principal
 
     Private Sub ConsultaToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ConsultaToolStripMenuItem2.Click
         frmConsultaInscripciones.Show()
+    End Sub
+
+    Private Sub ClasificarListasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClasificarListasToolStripMenuItem.Click
+        Conexion.Open()
+
+        Dim n As Integer
+
+        comandoGeneral.CommandText = "Select count(idCiclo) from ciclo"
+        n = comandoGeneral.ExecuteScalar
+
+        If n = 0 Then
+            Conexion.Close()
+            MessageBox.Show("ERROR, NO SE HA ABIERTO CICLO", "ERROR DE CICLO", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            comandoGeneral.CommandText = "Select estado From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
+            lectorGeneral = comandoGeneral.ExecuteReader
+            lectorGeneral.Read()
+
+            If lectorGeneral(0) = "Cerrado" Then
+                lectorGeneral.Close()
+                Conexion.Close()
+                MessageBox.Show("ERROR, CICLO CERRADO", "CICLO CERRADO", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                lectorGeneral.Close()
+                Dim idCiclo As Integer
+                Dim anioC As String
+
+                comandoGeneral.CommandText = "Select idCiclo, anio From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
+                lectorGeneral = comandoGeneral.ExecuteReader
+                lectorGeneral.Read()
+
+                idCiclo = lectorGeneral(0)
+                anioC = lectorGeneral(1)
+                'lectorGeneral.Close()
+                'asigna el nombre de la base de datos
+                Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
+                lectorGeneral.Close()
+                Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                Dim comando2 As SqlCommand = conexionsql2.CreateCommand
+                Dim comando2Aux As SqlCommand = conexionsql2.CreateCommand
+                Dim lector2 As SqlDataReader
+                Dim transaccion3 As SqlTransaction
+                conexionsql2.Open()
+                Dim contGrupos As Integer
+                comando2.CommandText = "Select count(idGrupo) From grupo"
+                contGrupos = comando2.ExecuteScalar
+
+                transaccion2 = conexionsql2.BeginTransaction("TransaccionClasificarPorListas")
+                comando2.Connection = conexionsql2
+                comando2.Transaction = transaccion2
+
+                Try
+                    If MessageBox.Show("¿Desea crear y clasificar listas?", "Creación y clasificación de listas", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = DialogResult.Yes Then
+                        For i = 1 To contGrupos
+                            comando2.CommandText = "Create table lista" & i & "(idAlumno int primary key, nombre nvarchar(50), calificacion decimal);"
+                            comando2.ExecuteNonQuery()
+                        Next
+                        For j = 1 To contGrupos
+                            comando2.CommandText = "Select * From [" & Name & "].dbo.inscripcion c join MasterEA.dbo.alumno m on c.idAlumno = m.idAlumno Where idGrupo=" & j & ""
+                            lector2 = comando2.ExecuteReader
+                            While lector2.Read()
+                                Dim id As Integer = lector2(1)
+                                Dim nom As String = lector2(5)
+                                comando2.CommandText = "Insert into lista" & j & "(idAlumno, nombre, calificacion) values(" & lector2(1) & ",'" & lector2(5) & "'," & 0 & ")"
+                                comando2.ExecuteNonQuery()
+                                'transaccion3.Commit()
+                                lector2.Close()
+
+                            End While
+                            'lector2.Close()
+                            comando2.CommandText = "Select inscripcion.idAlumno, "
+                        Next
+                        transaccion2.Commit()
+                        MessageBox.Show("Creación y clasificación de listas exitosa", "Creación y clasificación", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Else
+                        transaccion2.Rollback()
+                        MessageBox.Show("Creación y clasificación de listas cancelada", "Cancelación", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
+                Catch ex As Exception
+                    Dim mistake As String = ex.ToString
+                    MessageBox.Show(mistake)
+                    MessageBox.Show("Commit Exception Type: {0} No se pudo insertar por error")
+
+                    Try
+                        transaccion.Rollback()
+                    Catch ex2 As Exception
+                        MessageBox.Show("Error de listas")
+                    End Try
+                End Try
+            End If
+        End If
     End Sub
 End Class

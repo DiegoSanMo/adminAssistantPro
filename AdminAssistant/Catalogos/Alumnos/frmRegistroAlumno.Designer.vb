@@ -183,7 +183,7 @@ Partial Class frmRegistroAlumno
         '
         'txtNombre
         '
-        Me.txtNombre.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AlumnoBindingSource1, "nombre", True))
+        Me.txtNombre.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AlumnoBindingSource, "nombre", True))
         Me.txtNombre.Enabled = False
         Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNombre.Location = New System.Drawing.Point(32, 281)
@@ -214,7 +214,7 @@ Partial Class frmRegistroAlumno
         '
         'txtDomicilio
         '
-        Me.txtDomicilio.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AlumnoBindingSource1, "domicilio", True))
+        Me.txtDomicilio.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AlumnoBindingSource, "domicilio", True))
         Me.txtDomicilio.Enabled = False
         Me.txtDomicilio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDomicilio.Location = New System.Drawing.Point(32, 359)
@@ -235,7 +235,7 @@ Partial Class frmRegistroAlumno
         '
         'txtTelEmergencia
         '
-        Me.txtTelEmergencia.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AlumnoBindingSource1, "telefonoEmergencia", True))
+        Me.txtTelEmergencia.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AlumnoBindingSource, "telefonoEmergencia", True))
         Me.txtTelEmergencia.Enabled = False
         Me.txtTelEmergencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTelEmergencia.Location = New System.Drawing.Point(28, 510)
@@ -246,7 +246,7 @@ Partial Class frmRegistroAlumno
         '
         'txtCorreo
         '
-        Me.txtCorreo.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AlumnoBindingSource1, "domicilio", True))
+        Me.txtCorreo.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AlumnoBindingSource, "correo", True))
         Me.txtCorreo.Enabled = False
         Me.txtCorreo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCorreo.Location = New System.Drawing.Point(317, 510)
@@ -342,7 +342,7 @@ Partial Class frmRegistroAlumno
         'txtTel
         '
         Me.txtTel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtTel.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AlumnoBindingSource1, "telefono", True))
+        Me.txtTel.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AlumnoBindingSource, "telefono", True))
         Me.txtTel.Enabled = False
         Me.txtTel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTel.Location = New System.Drawing.Point(727, 359)
@@ -353,7 +353,7 @@ Partial Class frmRegistroAlumno
         '
         'txtCiudad
         '
-        Me.txtCiudad.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AlumnoBindingSource1, "ciudad", True))
+        Me.txtCiudad.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AlumnoBindingSource, "ciudad", True))
         Me.txtCiudad.Enabled = False
         Me.txtCiudad.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCiudad.Location = New System.Drawing.Point(32, 436)
@@ -374,7 +374,7 @@ Partial Class frmRegistroAlumno
         '
         'txtEstado
         '
-        Me.txtEstado.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AlumnoBindingSource1, "estado", True))
+        Me.txtEstado.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AlumnoBindingSource, "estado", True))
         Me.txtEstado.Enabled = False
         Me.txtEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEstado.Location = New System.Drawing.Point(375, 436)
@@ -396,7 +396,7 @@ Partial Class frmRegistroAlumno
         'txtUNA
         '
         Me.txtUNA.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtUNA.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AlumnoBindingSource1, "ultimoNivelAcreditado", True))
+        Me.txtUNA.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AlumnoBindingSource, "ultimoNivelAcreditado", True))
         Me.txtUNA.Enabled = False
         Me.txtUNA.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtUNA.Location = New System.Drawing.Point(727, 510)
@@ -428,8 +428,8 @@ Partial Class frmRegistroAlumno
         '
         'cboSituacion
         '
-        Me.cboSituacion.DataBindings.Add(New System.Windows.Forms.Binding("SelectedItem", Me.AlumnoBindingSource1, "situacion", True))
-        Me.cboSituacion.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.AlumnoBindingSource1, "situacion", True))
+        Me.cboSituacion.DataBindings.Add(New System.Windows.Forms.Binding("SelectedItem", Me.AlumnoBindingSource, "situacion", True))
+        Me.cboSituacion.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.AlumnoBindingSource, "situacion", True))
         Me.cboSituacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboSituacion.Enabled = False
         Me.cboSituacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
@@ -452,7 +452,7 @@ Partial Class frmRegistroAlumno
         '
         'txtNoControl
         '
-        Me.txtNoControl.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AlumnoBindingSource1, "idAlumno", True))
+        Me.txtNoControl.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AlumnoBindingSource, "idAlumno", True))
         Me.txtNoControl.Enabled = False
         Me.txtNoControl.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNoControl.Location = New System.Drawing.Point(32, 217)
@@ -606,7 +606,7 @@ Partial Class frmRegistroAlumno
         '
         'dtpFechaNa
         '
-        Me.dtpFechaNa.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.AlumnoBindingSource1, "fechaDeNacimiento", True))
+        Me.dtpFechaNa.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.AlumnoBindingSource, "fechaDeNacimiento", True))
         Me.dtpFechaNa.Enabled = False
         Me.dtpFechaNa.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpFechaNa.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
