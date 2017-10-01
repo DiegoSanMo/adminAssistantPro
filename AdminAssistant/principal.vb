@@ -260,35 +260,71 @@ Public Class principal
                     If contInscritos = 0 Then
                         MessageBox.Show("Error. No hay ningún alumno inscrito", "Error de listas", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Else
-                        transaccion2 = conexionsql2.BeginTransaction("TransaccionClasificarPorListas")
-                        comando2.Connection = conexionsql2
-                        comando2.Transaction = transaccion2
-
-                        Try
-                            If MessageBox.Show("¿Desea crear y clasificar listas?", "Creación y clasificación de listas", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = DialogResult.Yes Then
-                                For j = 1 To contGrupos
-                                    comando2.CommandText = "Select c.idAlumno, nombre Into lista" & j & " From [" & Name & "].dbo.inscripcion c LEFT JOIN MasterEA.dbo.alumno m On c.idAlumno = m.idAlumno Where idGrupo =" & j & ""
-                                    comando2.ExecuteNonQuery()
-                                    comando2.CommandText = "alter table lista" & j & " Add calificacion decimal Not Null Default 0 With values;"
-                                    comando2.ExecuteNonQuery()
-                                    transaccion2.Commit()
-                                Next
-                                MessageBox.Show("Creación y clasificación de listas exitosa", "Creación y clasificación", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            Else
-                                transaccion2.Rollback()
-                                MessageBox.Show("Creación y clasificación de listas cancelada", "Cancelación", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                            End If
-                        Catch ex As Exception
-                            Dim mistake As String = ex.ToString
-                            MessageBox.Show(mistake)
-                            MessageBox.Show("Commit Exception Type: {0} No se pudo insertar por error")
+                        Dim contListas As Integer
+                        For i = 1 To contGrupos
+                            comando2.CommandText = "Select count(*)from INFORMATION_SCHEMA.TABLES Where TABLE_NAME = 'lista" & i & "';"
+                            contListas = contListas + comando2.ExecuteScalar()
+                        Next
+                        MessageBox.Show(contListas)
+                        If contListas = 0 Then
+                            transaccion2 = conexionsql2.BeginTransaction("TransaccionClasificarPorListas")
+                            comando2.Connection = conexionsql2
+                            comando2.Transaction = transaccion2
 
                             Try
-                                transaccion.Rollback()
-                            Catch ex2 As Exception
-                                MessageBox.Show("Error de listas")
+                                If MessageBox.Show("¿Desea crear y clasificar listas?", "Creación y clasificación de listas", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = DialogResult.Yes Then
+                                    For j = 1 To contGrupos
+                                        comando2.CommandText = "Select c.idAlumno, nombre Into lista" & j & " From [" & Name & "].dbo.inscripcion c LEFT JOIN MasterEA.dbo.alumno m On c.idAlumno = m.idAlumno Where idGrupo =" & j & ""
+                                        comando2.ExecuteNonQuery()
+                                        comando2.CommandText = "alter table lista" & j & " Add calificacion decimal Not Null Default 0 With values;"
+                                        comando2.ExecuteNonQuery()
+                                    Next
+                                    transaccion2.Commit()
+                                    MessageBox.Show("Creación y clasificación de listas exitosa", "Creación y clasificación", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                Else
+                                    transaccion2.Rollback()
+                                    MessageBox.Show("Creación y clasificación de listas cancelada", "Cancelación", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                End If
+                            Catch ex As Exception
+                                Dim mistake As String = ex.ToString
+                                MessageBox.Show(mistake)
+                                MessageBox.Show("Commit Exception Type: {0} No se pudo insertar por error")
+                                Try
+                                    transaccion.Rollback()
+                                Catch ex2 As Exception
+                                    MessageBox.Show("Error de listas")
+                                End Try
                             End Try
-                        End Try
+                        ElseIf contListas < contGrupos Then
+                            transaccion2 = conexionsql2.BeginTransaction("TransaccionClasificarPorListas")
+                            comando2.Connection = conexionsql2
+                            comando2.Transaction = transaccion2
+
+                            Try
+                                If MessageBox.Show("¿Desea crear y clasificar listas?", "Creación y clasificación de listas", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = DialogResult.Yes Then
+                                    For j = contListas + 1 To contGrupos
+                                        comando2.CommandText = "Select c.idAlumno, nombre Into lista" & j & " From [" & Name & "].dbo.inscripcion c LEFT JOIN MasterEA.dbo.alumno m On c.idAlumno = m.idAlumno Where idGrupo =" & j & ""
+                                        comando2.ExecuteNonQuery()
+                                        comando2.CommandText = "alter table lista" & j & " Add calificacion decimal Not Null Default 0 With values;"
+                                        comando2.ExecuteNonQuery()
+                                    Next
+                                    transaccion2.Commit()
+                                    MessageBox.Show("Creación y clasificación de listas exitosa", "Creación y clasificación", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                Else
+                                    transaccion2.Rollback()
+                                    MessageBox.Show("Creación y clasificación de listas cancelada", "Cancelación", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                End If
+                            Catch ex As Exception
+                                Dim mistake As String = ex.ToString
+                                MessageBox.Show(mistake)
+                                MessageBox.Show("Commit Exception Type: {0} No se pudo insertar por error")
+                                Try
+                                    transaccion.Rollback()
+                                Catch ex2 As Exception
+                                    MessageBox.Show("Error de listas")
+                                End Try
+                            End Try
+                        End If
                     End If
                 End If
                 conexionsql2.Close()
