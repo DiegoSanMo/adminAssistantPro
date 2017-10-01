@@ -269,7 +269,7 @@ Public Class principal
                                 For j = 1 To contGrupos
                                     comando2.CommandText = "Select c.idAlumno, nombre Into lista" & j & " From [" & Name & "].dbo.inscripcion c LEFT JOIN MasterEA.dbo.alumno m On c.idAlumno = m.idAlumno Where idGrupo =" & j & ""
                                     comando2.ExecuteNonQuery()
-                                    comando2.CommandText = "alter table lista1 Add calificacion decimal Not Null Default 0 With values;"
+                                    comando2.CommandText = "alter table lista" & j & " Add calificacion decimal Not Null Default 0 With values;"
                                     comando2.ExecuteNonQuery()
                                     transaccion2.Commit()
                                 Next
