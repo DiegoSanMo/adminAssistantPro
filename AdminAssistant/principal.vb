@@ -550,4 +550,8 @@ Public Class principal
         End If
         Conexion.Close()
     End Sub
+
+    Private Sub CatálogosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CatálogosToolStripMenuItem.Click
+
+    End Sub
 End Class

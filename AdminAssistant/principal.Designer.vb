@@ -29,7 +29,7 @@ Partial Class principal
         Me.AlumnosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MaestrosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CiclosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.msPrincipal = New System.Windows.Forms.MenuStrip()
         Me.CatálogosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AlumnosToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistroToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -50,7 +50,7 @@ Partial Class principal
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.MenuStrip1.SuspendLayout()
+        Me.msPrincipal.SuspendLayout()
         Me.SuspendLayout()
         '
         'PictureBox1
@@ -87,17 +87,17 @@ Partial Class principal
         Me.CiclosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.CiclosToolStripMenuItem.Text = "Ciclos"
         '
-        'MenuStrip1
+        'msPrincipal
         '
-        Me.MenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(122, Byte), Integer))
-        Me.MenuStrip1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.MenuStrip1.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CatálogosToolStripMenuItem, Me.MovimientosToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.SalirToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(232, 627)
-        Me.MenuStrip1.TabIndex = 2
-        Me.MenuStrip1.Text = "MenuStrip1"
+        Me.msPrincipal.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(122, Byte), Integer))
+        Me.msPrincipal.Dock = System.Windows.Forms.DockStyle.Left
+        Me.msPrincipal.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.msPrincipal.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CatálogosToolStripMenuItem, Me.MovimientosToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.msPrincipal.Location = New System.Drawing.Point(0, 0)
+        Me.msPrincipal.Name = "msPrincipal"
+        Me.msPrincipal.Size = New System.Drawing.Size(232, 627)
+        Me.msPrincipal.TabIndex = 2
+        Me.msPrincipal.Text = "MenuStrip1"
         '
         'CatálogosToolStripMenuItem
         '
@@ -228,14 +228,14 @@ Partial Class principal
         Me.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.ClientSize = New System.Drawing.Size(1099, 627)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.MenuStrip1)
-        Me.MainMenuStrip = Me.MenuStrip1
+        Me.Controls.Add(Me.msPrincipal)
+        Me.MainMenuStrip = Me.msPrincipal
         Me.Name = "principal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "principal"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
+        Me.msPrincipal.ResumeLayout(False)
+        Me.msPrincipal.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -245,7 +245,7 @@ Partial Class principal
     Friend WithEvents AlumnosToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents MaestrosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CiclosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents msPrincipal As MenuStrip
     Friend WithEvents CatálogosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AlumnosToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents MaestrosToolStripMenuItem1 As ToolStripMenuItem
