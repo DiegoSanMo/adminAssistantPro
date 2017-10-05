@@ -185,6 +185,21 @@ Public Class principal
         Conexion.Open()
         comandoGeneral.CommandText = "Select count(idCiclo) From ciclo"
         Dim n As Integer = comandoGeneral.ExecuteScalar
+        Dim idCiclo As Integer
+        Dim anioC As String
+
+        comandoGeneral.CommandText = "Select idCiclo, anio From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
+        lectorGeneral = comandoGeneral.ExecuteReader
+        lectorGeneral.Read()
+
+        idCiclo = lectorGeneral(0)
+        anioC = lectorGeneral(1)
+
+        Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
+        lectorGeneral.Close()
+        Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+        'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+        Dim comando2 As SqlCommand = conexionsql2.CreateCommand
 
         If n = 0 Then
             MessageBox.Show("Error. No se ha registrado ningún ciclo", "Error de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -196,13 +211,34 @@ Public Class principal
             If lectorGeneral(0) = "Cerrado" Then
                 lectorGeneral.Close()
                 Conexion.Close()
-                MessageBox.Show("ERROR, NO HAY NINGÚN CICLO ABIERTO", "CICLO CERRADO", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("ERROR, CICLO CERRADO", "CICLO CERRADO", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
                 lectorGeneral.Close()
-                Conexion.Close()
-                frmInscripciones.Show()
+                Dim contGrupos As Integer
+                conexionsql2.Open()
+                comando2.CommandText = "Select count(idGrupo) From grupo"
+                contGrupos = comando2.ExecuteScalar
+
+                If contGrupos = 0 Then
+                    MessageBox.Show("Error, no hay ningún grupo registrado", "Error de inscripción", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Else
+                    comandoGeneral.CommandText = "Select estado From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
+                    lectorGeneral = comandoGeneral.ExecuteReader
+                    lectorGeneral.Read()
+
+                    If lectorGeneral(0) = "Cerrado" Then
+                        lectorGeneral.Close()
+                        Conexion.Close()
+                        MessageBox.Show("ERROR, NO HAY NINGÚN CICLO ABIERTO", "CICLO CERRADO", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Else
+                        lectorGeneral.Close()
+                        Conexion.Close()
+                        frmInscripciones.Show()
+                    End If
+                End If
             End If
         End If
+        conexionsql2.Close()
     End Sub
 
     Private Sub ConsultaToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ConsultaToolStripMenuItem2.Click
