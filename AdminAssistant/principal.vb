@@ -243,8 +243,8 @@ Public Class principal
 
                 Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
                 lectorGeneral.Close()
-                'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
-                Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
                 Dim comando2 As SqlCommand = conexionsql2.CreateCommand
 
                 conexionsql2.Open()
@@ -472,20 +472,19 @@ Public Class principal
                                 lector2.Close()
                                 comando2.CommandText = "Select idAlumno From lista" & i & ""
                                 lector2 = comando2.ExecuteReader
-                                Dim contAlumnos As Integer
+                                'Dim contAlumnos As Integer
 
                                 While lector2.Read
-                                    contAlumnos += 1
                                     Dim sit As String = "EN ESPERA"
-                                    comando3.CommandText = "Select calificacion From lista" & i & " Where idAlumno=" & contAlumnos & ""
+                                    comando3.CommandText = "Select calificacion From lista" & i & " Where idAlumno=" & lector2(0) & ""
                                     lector3 = comando3.ExecuteReader
                                     lector3.Read()
                                     Dim calif As Decimal = lector3(0)
                                     lector3.Close()
 
-                                    comandoGeneral.CommandText = "Update kardex Set n" & nivel & "=" & calif & " Where idAlumno=" & contAlumnos & ""
+                                    comandoGeneral.CommandText = "Update kardex Set n" & nivel & "=" & calif & " Where idAlumno=" & lector2(0) & ""
                                     comandoGeneral.ExecuteNonQuery()
-                                    comandoGeneral.CommandText = "Update alumno Set situacion='" & sit & "', ultimoNivelAcreditado=" & nivel & " Where idAlumno=" & contAlumnos & ""
+                                    comandoGeneral.CommandText = "Update alumno Set situacion='" & sit & "', ultimoNivelAcreditado=" & nivel & " Where idAlumno=" & lector2(0) & ""
                                     comandoGeneral.ExecuteNonQuery()
                                     Dim est As String = "Cerrado"
                                     comandoGeneral.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
