@@ -243,8 +243,8 @@ Public Class principal
 
                 Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
                 lectorGeneral.Close()
-                Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
-                'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
                 Dim comando2 As SqlCommand = conexionsql2.CreateCommand
 
                 conexionsql2.Open()
@@ -331,5 +331,78 @@ Public Class principal
                 Conexion.Close()
             End If
         End If
+    End Sub
+
+    Private Sub CapturarCalificacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CapturarCalificacionesToolStripMenuItem.Click
+        Conexion.Open()
+
+        Dim n As Integer
+
+        comandoGeneral.CommandText = "Select count(idCiclo) from ciclo"
+        n = comandoGeneral.ExecuteScalar
+
+        If n = 0 Then
+            Conexion.Close()
+            MessageBox.Show("ERROR, NO SE HA ABIERTO CICLO", "ERROR DE CICLO", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            comandoGeneral.CommandText = "Select estado From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
+            lectorGeneral = comandoGeneral.ExecuteReader
+            lectorGeneral.Read()
+
+            If lectorGeneral(0) = "Cerrado" Then
+                lectorGeneral.Close()
+                Conexion.Close()
+                MessageBox.Show("ERROR, CICLO CERRADO", "CICLO CERRADO", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                lectorGeneral.Close()
+                Dim idCiclo As Integer
+                Dim anioC As String
+
+                comandoGeneral.CommandText = "Select idCiclo, anio From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
+                lectorGeneral = comandoGeneral.ExecuteReader
+                lectorGeneral.Read()
+
+                idCiclo = lectorGeneral(0)
+                anioC = lectorGeneral(1)
+
+                Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
+                lectorGeneral.Close()
+                'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                Dim conexionCiclo As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                Dim comandoCiclo As SqlCommand = conexionCiclo.CreateCommand
+
+                conexionCiclo.Open()
+
+
+                comandoCiclo.CommandText = "Select count(idGrupo) From grupo"
+                Dim contGrupos As Integer = comandoCiclo.ExecuteScalar
+                comandoCiclo.CommandText = "Select count(idAlumno) From inscripcion"
+                Dim contInscritos As Integer = comandoCiclo.ExecuteScalar
+                If contGrupos = 0 Then
+                    MessageBox.Show("Error. No hay ningún grupo registrado", "Error de listas", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Else
+                    If contInscritos = 0 Then
+                        MessageBox.Show("Error. No hay ningún alumno inscrito", "Error de listas", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Else
+
+                        comandoCiclo.CommandText = "SELECT Count(*) FROM information_schema.tables"
+                        canListas = comandoCiclo.ExecuteScalar - 2
+                        If canListas = 0 Then
+                            MessageBox.Show("ERROR, NO SE HAN CLASIFICADO LISTAS", "FALTA DE LISTAS", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            conexionCiclo.Close()
+                        Else
+                            Conexion.Close()
+                            conexionCiclo.Close()
+                            nombreBDCilo = Name
+                            frmAsignarCalificacion.ShowDialog()
+                        End If
+
+                    End If
+                End If
+                conexionCiclo.Close()
+                Conexion.Close()
+            End If
+        End If
+
     End Sub
 End Class

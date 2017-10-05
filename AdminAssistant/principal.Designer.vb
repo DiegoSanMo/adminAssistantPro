@@ -102,6 +102,7 @@ Partial Class principal
         'CatálogosToolStripMenuItem
         '
         Me.CatálogosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AlumnosToolStripMenuItem2, Me.MaestrosToolStripMenuItem1})
+        Me.CatálogosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.CatálogosToolStripMenuItem.Name = "CatálogosToolStripMenuItem"
         Me.CatálogosToolStripMenuItem.Size = New System.Drawing.Size(219, 43)
         Me.CatálogosToolStripMenuItem.Text = "Catálogos"
@@ -147,6 +148,7 @@ Partial Class principal
         'MovimientosToolStripMenuItem
         '
         Me.MovimientosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AbrirCicloToolStripMenuItem, Me.AbrirGrupoToolStripMenuItem, Me.InscipciónToolStripMenuItem, Me.ClasificarListasToolStripMenuItem, Me.CapturarCalificacionesToolStripMenuItem, Me.CerrarCicloToolStripMenuItem})
+        Me.MovimientosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.MovimientosToolStripMenuItem.Name = "MovimientosToolStripMenuItem"
         Me.MovimientosToolStripMenuItem.Size = New System.Drawing.Size(219, 43)
         Me.MovimientosToolStripMenuItem.Text = "Movimientos"
@@ -154,20 +156,20 @@ Partial Class principal
         'AbrirCicloToolStripMenuItem
         '
         Me.AbrirCicloToolStripMenuItem.Name = "AbrirCicloToolStripMenuItem"
-        Me.AbrirCicloToolStripMenuItem.Size = New System.Drawing.Size(467, 44)
+        Me.AbrirCicloToolStripMenuItem.Size = New System.Drawing.Size(600, 44)
         Me.AbrirCicloToolStripMenuItem.Text = "Abrir ciclo"
         '
         'AbrirGrupoToolStripMenuItem
         '
         Me.AbrirGrupoToolStripMenuItem.Name = "AbrirGrupoToolStripMenuItem"
-        Me.AbrirGrupoToolStripMenuItem.Size = New System.Drawing.Size(467, 44)
+        Me.AbrirGrupoToolStripMenuItem.Size = New System.Drawing.Size(600, 44)
         Me.AbrirGrupoToolStripMenuItem.Text = "Abrir grupo"
         '
         'InscipciónToolStripMenuItem
         '
         Me.InscipciónToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistroToolStripMenuItem2, Me.ConsultaToolStripMenuItem2})
         Me.InscipciónToolStripMenuItem.Name = "InscipciónToolStripMenuItem"
-        Me.InscipciónToolStripMenuItem.Size = New System.Drawing.Size(467, 44)
+        Me.InscipciónToolStripMenuItem.Size = New System.Drawing.Size(600, 44)
         Me.InscipciónToolStripMenuItem.Text = "Inscripción"
         '
         'RegistroToolStripMenuItem2
@@ -185,7 +187,7 @@ Partial Class principal
         'ClasificarListasToolStripMenuItem
         '
         Me.ClasificarListasToolStripMenuItem.Name = "ClasificarListasToolStripMenuItem"
-        Me.ClasificarListasToolStripMenuItem.Size = New System.Drawing.Size(467, 44)
+        Me.ClasificarListasToolStripMenuItem.Size = New System.Drawing.Size(600, 44)
         Me.ClasificarListasToolStripMenuItem.Text = "Clasificar por listas"
         '
         'CapturarCalificacionesToolStripMenuItem
@@ -197,17 +199,19 @@ Partial Class principal
         'CerrarCicloToolStripMenuItem
         '
         Me.CerrarCicloToolStripMenuItem.Name = "CerrarCicloToolStripMenuItem"
-        Me.CerrarCicloToolStripMenuItem.Size = New System.Drawing.Size(467, 44)
+        Me.CerrarCicloToolStripMenuItem.Size = New System.Drawing.Size(600, 44)
         Me.CerrarCicloToolStripMenuItem.Text = "Cerrar ciclo"
         '
         'ReportesToolStripMenuItem
         '
+        Me.ReportesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(219, 43)
         Me.ReportesToolStripMenuItem.Text = "Reportes"
         '
         'SalirToolStripMenuItem
         '
+        Me.SalirToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(219, 43)
         Me.SalirToolStripMenuItem.Text = "Salir"

@@ -2,8 +2,8 @@
 Imports System.Configuration
 Module Module1
 
-    Public conexionsql As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; initial catalog = 'MasterEA'; integrated security = true")
-    'Public conexionsql As New SqlConnection("Data source = 'PRO'; initial catalog = 'MasterEA'; integrated security = true")
+    'Public conexionsql As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; initial catalog = 'MasterEA'; integrated security = true")
+    Public conexionsql As New SqlConnection("Data source = 'PRO'; initial catalog = 'MasterEA'; integrated security = true")
 
     Public comando As SqlCommand = conexionsql.CreateCommand
     Public lector As SqlDataReader
@@ -20,7 +20,8 @@ Module Module1
     Public lectorGeneral As SqlDataReader
 
     Public Name As String
+    Public canListas As Integer
 
-
+    Public nombreBDCilo As String
 
 End Module

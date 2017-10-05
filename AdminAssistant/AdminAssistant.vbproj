@@ -109,6 +109,12 @@
     <Compile Include="Catalogos\Maestros\frmRegistroMaestro.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmAsignarCalificacion.Designer.vb">
+      <DependentUpon>frmAsignarCalificacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAsignarCalificacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MasterEADataSetDiego.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\Maestros\frmRegistroMaestro.resx">
       <DependentUpon>frmRegistroMaestro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAsignarCalificacion.resx">
+      <DependentUpon>frmAsignarCalificacion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Movimientos\Abrir grupo\frmGruposRegistro.resx">
       <DependentUpon>frmGruposRegistro.vb</DependentUpon>
@@ -252,6 +261,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Reportes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
