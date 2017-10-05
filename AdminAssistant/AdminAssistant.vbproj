@@ -109,10 +109,10 @@
     <Compile Include="Catalogos\Maestros\frmRegistroMaestro.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAsignarCalificacion.Designer.vb">
+    <Compile Include="Movimientos\Asignar calificacion\frmAsignarCalificacion.Designer.vb">
       <DependentUpon>frmAsignarCalificacion.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmAsignarCalificacion.vb">
+    <Compile Include="Movimientos\Asignar calificacion\frmAsignarCalificacion.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MasterEADataSetDiego.Designer.vb">
@@ -179,7 +179,7 @@
     <EmbeddedResource Include="Catalogos\Maestros\frmRegistroMaestro.resx">
       <DependentUpon>frmRegistroMaestro.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAsignarCalificacion.resx">
+    <EmbeddedResource Include="Movimientos\Asignar calificacion\frmAsignarCalificacion.resx">
       <DependentUpon>frmAsignarCalificacion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Movimientos\Abrir grupo\frmGruposRegistro.resx">

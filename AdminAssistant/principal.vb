@@ -368,7 +368,8 @@ Public Class principal
                 Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
                 lectorGeneral.Close()
                 'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
-                Dim conexionCiclo As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                'Dim conexionCiclo As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                Dim conexionCiclo As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
                 Dim comandoCiclo As SqlCommand = conexionCiclo.CreateCommand
 
                 conexionCiclo.Open()
@@ -404,5 +405,114 @@ Public Class principal
             End If
         End If
 
+    End Sub
+
+    Private Sub CerrarCicloToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CerrarCicloToolStripMenuItem.Click
+        Conexion.Open()
+
+        Dim n As Integer
+        comandoGeneral.CommandText = "Select count(idCiclo) from ciclo"
+        n = comandoGeneral.ExecuteScalar
+        If n = 0 Then
+            MessageBox.Show("No hay ningún ciclo registrado", "Error de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            comandoGeneral.CommandText = "Select estado From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
+            lectorGeneral = comandoGeneral.ExecuteReader
+            lectorGeneral.Read()
+
+            If lectorGeneral(0) = "Cerrado" Then
+                lectorGeneral.Close()
+                Conexion.Close()
+                MessageBox.Show("ERROR, CICLO CERRADO", "CICLO CERRADO", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                lectorGeneral.Close()
+                Dim idCiclo As Integer
+                Dim anioC As String
+
+                comandoGeneral.CommandText = "Select idCiclo, anio From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
+                lectorGeneral = comandoGeneral.ExecuteReader
+                lectorGeneral.Read()
+
+                idCiclo = lectorGeneral(0)
+                anioC = lectorGeneral(1)
+
+                Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
+                lectorGeneral.Close()
+                Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=True")
+                'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                Dim comando2 As SqlCommand = conexionsql2.CreateCommand
+                Dim comando3 As SqlCommand = conexionsql2.CreateCommand
+                Dim lector2 As SqlDataReader
+                Dim lector3 As SqlDataReader
+
+                conexionsql2.Open()
+                Dim contGrupos As Integer
+                comando2.CommandText = "Select count(idGrupo) From grupo"
+                contGrupos = comando2.ExecuteScalar
+
+                Dim contListas As Integer
+                For i = 1 To contGrupos
+                    comando2.CommandText = "Select count(*)from INFORMATION_SCHEMA.TABLES Where TABLE_NAME = 'lista" & i & "';"
+                    contListas = contListas + comando2.ExecuteScalar()
+                Next
+
+                If contListas = 0 Then
+                    MessageBox.Show("Error. No hay ninguna lista creada", "Error de listas", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Else
+                    transaccion = Conexion.BeginTransaction("TransaccionCerrarCiclo")
+                    comandoGeneral.Connection = Conexion
+                    comandoGeneral.Transaction = transaccion
+                    Try
+                        If MessageBox.Show("¿Desea cerrar el ciclo?", "Cerrar ciclo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                            For i = 1 To contListas
+                                comando2.CommandText = "Select nivel From grupo Where idGrupo=" & i & ""
+                                lector2 = comando2.ExecuteReader
+                                lector2.Read()
+                                Dim nivel As Integer = lector2(0)
+                                lector2.Close()
+                                comando2.CommandText = "Select idAlumno From lista" & i & ""
+                                lector2 = comando2.ExecuteReader
+                                Dim contAlumnos As Integer
+
+                                While lector2.Read
+                                    contAlumnos += 1
+                                    Dim sit As String = "EN ESPERA"
+                                    comando3.CommandText = "Select calificacion From lista" & i & " Where idAlumno=" & contAlumnos & ""
+                                    lector3 = comando3.ExecuteReader
+                                    lector3.Read()
+                                    Dim calif As Decimal = lector3(0)
+                                    lector3.Close()
+
+                                    comandoGeneral.CommandText = "Update kardex Set n" & nivel & "=" & calif & " Where idAlumno=" & contAlumnos & ""
+                                    comandoGeneral.ExecuteNonQuery()
+                                    comandoGeneral.CommandText = "Update alumno Set situacion='" & sit & "', ultimoNivelAcreditado=" & nivel & " Where idAlumno=" & contAlumnos & ""
+                                    comandoGeneral.ExecuteNonQuery()
+                                    Dim est As String = "Cerrado"
+                                    comandoGeneral.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
+                                    comandoGeneral.ExecuteNonQuery()
+                                End While
+                                lector2.Close()
+                            Next
+                            transaccion.Commit()
+                            MessageBox.Show("El ciclo fue cerrado exitosamente", "Cerrar ciclo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Else
+                            transaccion.Rollback()
+                            MessageBox.Show("El cerrado del ciclo fue cancelado", "Cancelación de cerrado", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        End If
+                    Catch ex As Exception
+                        Dim mistake As String = ex.ToString
+                        MessageBox.Show(mistake)
+                        MessageBox.Show("Commit Exception Type: {0} No se pudo insertar por error")
+                        Try
+                            transaccion.Rollback()
+                        Catch ex2 As Exception
+                            MessageBox.Show("Error de listas")
+                        End Try
+                    End Try
+                End If
+                conexionsql2.Close()
+            End If
+        End If
+        Conexion.Close()
     End Sub
 End Class

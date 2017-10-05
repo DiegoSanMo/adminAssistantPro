@@ -1,30 +1,21 @@
 ﻿Imports System.Data.SqlClient
 Public Class frmAsignarCalificacion
 
-
-    Dim conexionCiclo As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombreBDCilo & "'; Integrated Security=true; MultipleActiveResultSets=true")
+    'Dim conexionCiclo As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombreBDCilo & "'; Integrated Security=true; MultipleActiveResultSets=true")
+    Dim conexionCiclo As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombreBDCilo & "'; Integrated Security=true; MultipleActiveResultSets=true")
     Dim comandoCiclo As SqlCommand = conexionCiclo.CreateCommand
     Dim lectorCiclo As SqlDataReader
 
-
-
     Private Sub cboLista_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboLista.SelectedValueChanged
         'comandoCiclo.CommandText = "Select idAlumno, nombre, calificacion from lista" & cboLista.Text & ""
-
-
     End Sub
 
     Private Sub frmAsignarCalificacion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         For x = 1 To canListas
             cboLista.Items.Add(x)
         Next
-
         'conexionCiclo.Open()
-
         MsgBox(nombreBDCilo)
-
-
     End Sub
 
     Private Sub cboLista_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboLista.SelectedIndexChanged
@@ -112,14 +103,12 @@ Public Class frmAsignarCalificacion
     'End Sub
 
     Private Sub dgLista_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgLista.CellValueChanged
-
-
         If e.ColumnIndex = 2 Then
             Dim val As String = dgLista.CurrentRow.Cells(2).Value.ToString
             If val = " " Then
             Else
                 If val > 100 Then
-                    MsgBox("Calificaciòn fuera de rango, rango permitido [1-100]")
+                    MsgBox("Calificación fuera de rango, rango permitido [1-100]")
                 Else
                     If IsNumeric(val) Then
                         MsgBox("Entra")
@@ -135,9 +124,6 @@ Public Class frmAsignarCalificacion
                         MsgBox("Favor de ingresar solo números")
                     End If
                 End If
-
-
-
             End If
         End If
     End Sub
