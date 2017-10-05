@@ -49,6 +49,8 @@ Partial Class principal
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RegistroToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.msPrincipal.SuspendLayout()
         Me.SuspendLayout()
@@ -101,7 +103,7 @@ Partial Class principal
         '
         'CatálogosToolStripMenuItem
         '
-        Me.CatálogosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AlumnosToolStripMenuItem2, Me.MaestrosToolStripMenuItem1})
+        Me.CatálogosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AlumnosToolStripMenuItem2, Me.MaestrosToolStripMenuItem1, Me.UsuariosToolStripMenuItem})
         Me.CatálogosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.CatálogosToolStripMenuItem.Name = "CatálogosToolStripMenuItem"
         Me.CatálogosToolStripMenuItem.Size = New System.Drawing.Size(219, 43)
@@ -221,6 +223,19 @@ Partial Class principal
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
         '
+        'UsuariosToolStripMenuItem
+        '
+        Me.UsuariosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistroToolStripMenuItem3})
+        Me.UsuariosToolStripMenuItem.Name = "UsuariosToolStripMenuItem"
+        Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(231, 44)
+        Me.UsuariosToolStripMenuItem.Text = "Usuarios"
+        '
+        'RegistroToolStripMenuItem3
+        '
+        Me.RegistroToolStripMenuItem3.Name = "RegistroToolStripMenuItem3"
+        Me.RegistroToolStripMenuItem3.Size = New System.Drawing.Size(216, 44)
+        Me.RegistroToolStripMenuItem3.Text = "Registro"
+        '
         'principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -265,4 +280,6 @@ Partial Class principal
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents RegistroToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents ConsultaToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents UsuariosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RegistroToolStripMenuItem3 As ToolStripMenuItem
 End Class

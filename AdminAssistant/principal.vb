@@ -554,4 +554,8 @@ Public Class principal
     Private Sub CatálogosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CatálogosToolStripMenuItem.Click
 
     End Sub
+
+    Private Sub RegistroToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles RegistroToolStripMenuItem3.Click
+        frmRegistroUsuarios.showDialog()
+    End Sub
 End Class

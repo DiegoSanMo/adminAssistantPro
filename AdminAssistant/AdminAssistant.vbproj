@@ -116,6 +116,12 @@
     <Compile Include="frmLogin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmRegistroUsuarios.Designer.vb">
+      <DependentUpon>frmRegistroUsuarios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistroUsuarios.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Movimientos\Asignar calificacion\frmAsignarCalificacion.Designer.vb">
       <DependentUpon>frmAsignarCalificacion.vb</DependentUpon>
     </Compile>
@@ -188,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistroUsuarios.resx">
+      <DependentUpon>frmRegistroUsuarios.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Movimientos\Asignar calificacion\frmAsignarCalificacion.resx">
       <DependentUpon>frmAsignarCalificacion.vb</DependentUpon>
@@ -274,6 +283,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
