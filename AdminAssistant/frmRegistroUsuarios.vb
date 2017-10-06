@@ -4,7 +4,6 @@
         txtIdUsuario.Text = ""
         txtNombre.Text = ""
 
-        txtContrasenia.UseSystemPasswordChar = True
         comandoGeneral.CommandText = "Select count(idUsuario) from usuarios"
         Dim n As Integer = comandoGeneral.ExecuteScalar
 
@@ -35,7 +34,6 @@
         Dim n As Integer = comandoGeneral.ExecuteScalar + 1
 
         txtIdUsuario.Text = n
-
 
 
     End Sub
@@ -73,18 +71,8 @@
         txtContrasenia.Enabled = False
     End Sub
 
-    Private Sub txtContraseña_Click(sender As Object, e As EventArgs) Handles txtContrasenia.Click
-
-    End Sub
-
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         Conexion.Close()
         Me.Dispose()
-
-    End Sub
-
-    Private Sub txtContrasenia_TextChanged(sender As Object, e As EventArgs) Handles txtContrasenia.TextChanged
-
-        txtContrasenia.UseSystemPasswordChar = True
     End Sub
 End Class

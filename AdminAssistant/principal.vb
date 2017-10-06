@@ -23,29 +23,7 @@ Public Class principal
         frmConsultaMaestros.Show()
     End Sub
 
-    Private Sub InscipciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InscipciónToolStripMenuItem.Click
-        'Conexion.Open()
-        'comandoGeneral.CommandText = "Select count(idCiclo) From ciclo"
-        'Dim n As Integer = comandoGeneral.ExecuteScalar
 
-        'If n = 0 Then
-        '    MessageBox.Show("Error. No se ha registrado ningún ciclo", "Error de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        'Else
-        '    comandoGeneral.CommandText = "Select estado From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
-        '    lectorGeneral = comandoGeneral.ExecuteReader
-        '    lectorGeneral.Read()
-
-        '    If lectorGeneral(0) = "Cerrado" Then
-        '        lectorGeneral.Close()
-        '        Conexion.Close()
-        '        MessageBox.Show("ERROR, NO HAY NINGÚN CICLO ABIERTO", "CICLO CERRADO", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        '    Else
-        '        lectorGeneral.Close()
-        '        Conexion.Close()
-        '        frmInscripciones.Show()
-        '    End If
-        'End If
-    End Sub
 
     Private Sub AbrirCicloToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AbrirCicloToolStripMenuItem.Click
         conexionsql.Open()
@@ -75,8 +53,8 @@ Public Class principal
                     comando.CommandText = "Create database""" & nombre & """;"
                     comando.ExecuteNonQuery()
 
-                    Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
-                    'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                    'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                    Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
                     Dim comando2 As SqlCommand = conexionsql2.CreateCommand
                     conexionsql2.Open()
                     comando2.CommandText = "Create table grupo(idGrupo int primary Key, idMaestro int, maxAlumnos int, cantInscritos int, nivel int, hLuIni varchar(20), hLuFin varchar(20),  hMaIni varchar(20), hMaFin varchar(20),  hMiIni varchar(20), hMiFin varchar(20),  hJuIni varchar(20), hJuFin varchar(20),  hViIni varchar(20), hViFin varchar(20),  hSaIni varchar(20), hSaFin varchar(20))"
@@ -119,8 +97,8 @@ Public Class principal
                         comando.ExecuteNonQuery()
 
 
-                        Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
-                        'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                        'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                        Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
                         Dim comando2 As SqlCommand = conexionsql2.CreateCommand
                         conexionsql2.Open()
                         comando2.CommandText = "Create table grupo(idGrupo int primary Key, idMaestro int, maxAlumnos int, cantInscritos int, nivel int, hLuIni varchar(20), hLuFin varchar(20),  hMaIni varchar(20), hMaFin varchar(20),  hMiIni varchar(20), hMiFin varchar(20),  hJuIni varchar(20), hJuFin varchar(20),  hViIni varchar(20), hViFin varchar(20),  hSaIni varchar(20), hSaFin varchar(20))"
@@ -197,8 +175,8 @@ Public Class principal
 
         Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
         lectorGeneral.Close()
-        Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
-        'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+        'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+        Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
         Dim comando2 As SqlCommand = conexionsql2.CreateCommand
 
         If n = 0 Then
@@ -279,8 +257,8 @@ Public Class principal
 
                 Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
                 lectorGeneral.Close()
-                Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
-                'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
                 Dim comando2 As SqlCommand = conexionsql2.CreateCommand
 
                 conexionsql2.Open()
@@ -403,9 +381,8 @@ Public Class principal
 
                 Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
                 lectorGeneral.Close()
-                'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
-                'Dim conexionCiclo As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
-                Dim conexionCiclo As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                Dim conexionCiclo As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                'Dim conexionCiclo As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
                 Dim comandoCiclo As SqlCommand = conexionCiclo.CreateCommand
 
                 conexionCiclo.Open()
@@ -474,8 +451,8 @@ Public Class principal
 
                 Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
                 lectorGeneral.Close()
-                Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=True")
-                'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=True")
+                Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=True")
                 Dim comando2 As SqlCommand = conexionsql2.CreateCommand
                 Dim comando3 As SqlCommand = conexionsql2.CreateCommand
                 Dim lector2 As SqlDataReader
@@ -551,11 +528,25 @@ Public Class principal
         Conexion.Close()
     End Sub
 
-    Private Sub CatálogosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CatálogosToolStripMenuItem.Click
-
-    End Sub
 
     Private Sub RegistroToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles RegistroToolStripMenuItem3.Click
         frmRegistroUsuarios.showDialog()
+    End Sub
+
+    Private Sub KardexToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles KardexToolStripMenuItem.Click
+        Conexion.Open()
+
+        comandoGeneral.CommandText = "Select count(idAlumno) from Kardex"
+        Dim n As Integer = comandoGeneral.ExecuteScalar
+
+        If n = 0 Then
+            MessageBox.Show("NO HAY ALUMNOS REGISTRADOS", "ERROR, FALTA DE INFORMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Conexion.Close()
+
+        Else
+            Conexion.Close()
+            frmKardexAlumno.ShowDialog()
+        End If
+
     End Sub
 End Class

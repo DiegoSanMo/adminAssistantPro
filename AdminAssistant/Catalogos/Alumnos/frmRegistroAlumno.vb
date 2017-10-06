@@ -18,9 +18,9 @@ Public Class frmRegistroAlumno
 
     Private Sub frmRegistroAlumno_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'MasterEADataSetDiego.alumno' Puede moverla o quitarla según sea necesario.
-        'Me.AlumnoTableAdapter1.Fill(Me.MasterEADataSetDiego.alumno)
+        Me.AlumnoTableAdapter1.Fill(Me.MasterEADataSetDiego.alumno)
         'TODO: esta línea de código carga datos en la tabla 'EasyEnglishDataSetMani.alumno' Puede moverla o quitarla según sea necesario.
-        Me.AlumnoTableAdapter.Fill(Me.MasterEADataSet.alumno)
+        'Me.AlumnoTableAdapter.Fill(Me.MasterEADataSet.alumno)
 
         btnPrimero.Enabled = True
         btnSiguiente.Enabled = True
@@ -33,14 +33,14 @@ Public Class frmRegistroAlumno
         comando.CommandText = "Insert into kardex(idAlumno, n1, n2, n3, n4, n5, n6, n7,	n8, n9, n10, n11, n12) values(" & CInt(txtNoControl.Text) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & ")"
         comando.ExecuteNonQuery()
         conexionsql.Close()
-        AlumnoBindingSource.EndEdit()
-        AlumnoBindingSource.Current(9) = ubicacion
-        SqlDataAdapter1.Update(MasterEADataSet.alumno)
+        AlumnoBindingSource1.EndEdit()
+        AlumnoBindingSource1.Current(9) = ubicacion
+        SqlDataAdapter2.Update(MasterEADataSetDiego.alumno)
 
-        MasterEADataSet.Clear()
-        AlumnoTableAdapter.Update(MasterEADataSet.alumno)
-        SqlDataAdapter1.Fill(MasterEADataSet.alumno)
-        AlumnoTableAdapter.Fill(MasterEADataSet.alumno)
+        MasterEADataSetDiego.Clear()
+        AlumnoTableAdapter1.Update(MasterEADataSetDiego.alumno)
+        SqlDataAdapter2.Fill(MasterEADataSetDiego.alumno)
+        AlumnoTableAdapter1.Fill(MasterEADataSetDiego.alumno)
 
         'Se bloquean los controles principales
         txtNombre.Enabled = False
@@ -64,8 +64,8 @@ Public Class frmRegistroAlumno
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
         Dim n As Integer
-        n = AlumnoBindingSource.Count + 1
-        AlumnoBindingSource.AddNew()
+        n = AlumnoBindingSource1.Count + 1
+        AlumnoBindingSource1.AddNew()
         txtNoControl.Text = n
 
         txtNombre.Enabled = True
@@ -107,19 +107,19 @@ Public Class frmRegistroAlumno
     End Sub
 
     Private Sub btnPrimero_Click(sender As Object, e As EventArgs) Handles btnPrimero.Click
-        AlumnoBindingSource.MoveFirst()
+        AlumnoBindingSource1.MoveFirst()
     End Sub
 
     Private Sub btnAnterior_Click(sender As Object, e As EventArgs) Handles btnAnterior.Click
-        AlumnoBindingSource.MovePrevious()
+        AlumnoBindingSource1.MovePrevious()
     End Sub
 
     Private Sub btnSiguiente_Click(sender As Object, e As EventArgs) Handles btnSiguiente.Click
-        AlumnoBindingSource.MoveNext()
+        AlumnoBindingSource1.MoveNext()
     End Sub
 
     Private Sub btnUltimo_Click(sender As Object, e As EventArgs) Handles btnUltimo.Click
-        AlumnoBindingSource.MoveLast()
+        AlumnoBindingSource1.MoveLast()
     End Sub
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
@@ -150,7 +150,7 @@ Public Class frmRegistroAlumno
         ubicacion = ruta
     End Sub
 
-    Private Sub SqlDataAdapter1_RowUpdated(sender As Object, e As SqlRowUpdatedEventArgs)
+    Private Sub SqlDataAdapter2_RowUpdated(sender As Object, e As SqlRowUpdatedEventArgs)
         If e.Status = UpdateStatus.ErrorsOccurred Then
             MessageBox.Show(e.Errors.Message & vbCrLf &
             e.Row.Item("nombre", DataRowVersion.Original) & vbCrLf &

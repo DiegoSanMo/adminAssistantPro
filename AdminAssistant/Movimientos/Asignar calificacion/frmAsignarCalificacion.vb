@@ -1,25 +1,23 @@
 ﻿Imports System.Data.SqlClient
 Public Class frmAsignarCalificacion
 
-    'Dim conexionCiclo As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombreBDCilo & "'; Integrated Security=true; MultipleActiveResultSets=true")
-    Dim conexionCiclo As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombreBDCilo & "'; Integrated Security=true; MultipleActiveResultSets=true")
+    Dim conexionCiclo As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombreBDCilo & "'; Integrated Security=true; MultipleActiveResultSets=true")
+    'Dim conexionCiclo As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombreBDCilo & "'; Integrated Security=true; MultipleActiveResultSets=true")
     Dim comandoCiclo As SqlCommand = conexionCiclo.CreateCommand
     Dim lectorCiclo As SqlDataReader
 
-    Private Sub cboLista_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboLista.SelectedValueChanged
-        'comandoCiclo.CommandText = "Select idAlumno, nombre, calificacion from lista" & cboLista.Text & ""
-    End Sub
+
 
     Private Sub frmAsignarCalificacion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         For x = 1 To canListas
             cboLista.Items.Add(x)
         Next
         'conexionCiclo.Open()
-        MsgBox(nombreBDCilo)
+
     End Sub
 
     Private Sub cboLista_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboLista.SelectedIndexChanged
-        MsgBox(nombreBDCilo)
+
         Dim nombreTabla As String = "lista" + CStr(cboLista.Text)
 
         conexionCiclo.Open()
@@ -62,45 +60,6 @@ Public Class frmAsignarCalificacion
 
     End Sub
 
-    Private Sub dgLista_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgLista.CellClick
-        'If e.ColumnIndex = 2 Then
-        '    Dim val As String = dgLista.CurrentRow.Cells(2).Value.ToString
-        '    If val = " " Then
-        '    Else
-        '        MsgBox("Entra")
-        '        MsgBox(dgLista.CurrentRow.Cells(0).Value)
-        '        conexionCiclo.Open()
-        '        Dim nombreTabla As String = "lista" + CStr(cboLista.Text)
-        '        comandoCiclo.CommandText = "UPDATE " & nombreTabla & " SET calificacion = '" & CDec(dgLista.CurrentRow.Cells(2).Value) & "' WHERE idAlumno = '" & CInt(dgLista.CurrentRow.Cells(0).Value) & "'"
-        '        comandoCiclo.ExecuteNonQuery()
-
-        '        conexionCiclo.Close()
-
-
-
-        '    End If
-        'End If
-    End Sub
-
-    'Private Sub dgLista_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgLista.CellEnter
-    '    If e.ColumnIndex = 2 Then
-    '        Dim val As String = dgLista.CurrentRow.Cells(2).Value.ToString
-    '        If val = " " Then
-    '        Else
-    '            MsgBox("Entra")
-    '            MsgBox(dgLista.CurrentRow.Cells(0).Value)
-    '            conexionCiclo.Open()
-    '            Dim nombreTabla As String = "lista" + CStr(cboLista.Text)
-    '            comandoCiclo.CommandText = "UPDATE " & nombreTabla & " SET calificacion = '" & CDec(dgLista.CurrentRow.Cells(2).Value) & "' WHERE idAlumno = '" & CInt(dgLista.CurrentRow.Cells(0).Value) & "'"
-    '            comandoCiclo.ExecuteNonQuery()
-
-    '            conexionCiclo.Close()
-    '            MsgBox("Se actualizo")
-
-
-    '        End If
-    '    End If
-    'End Sub
 
     Private Sub dgLista_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgLista.CellValueChanged
         If e.ColumnIndex = 2 Then
@@ -111,15 +70,13 @@ Public Class frmAsignarCalificacion
                     MsgBox("Calificación fuera de rango, rango permitido [1-100]")
                 Else
                     If IsNumeric(val) Then
-                        MsgBox("Entra")
-                        MsgBox(dgLista.CurrentRow.Cells(0).Value)
+
                         conexionCiclo.Open()
                         Dim nombreTabla As String = "lista" + CStr(cboLista.Text)
                         comandoCiclo.CommandText = "UPDATE " & nombreTabla & " SET calificacion = '" & CDec(dgLista.CurrentRow.Cells(2).Value) & "' WHERE idAlumno = '" & CInt(dgLista.CurrentRow.Cells(0).Value) & "'"
                         comandoCiclo.ExecuteNonQuery()
 
                         conexionCiclo.Close()
-                        MsgBox("Se actualizo")
                     Else
                         MsgBox("Favor de ingresar solo números")
                     End If

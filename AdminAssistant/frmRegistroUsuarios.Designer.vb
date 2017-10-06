@@ -125,7 +125,7 @@ Partial Class frmRegistroUsuarios
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(156, 201)
+        Me.Label5.Location = New System.Drawing.Point(156, 186)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(52, 24)
         Me.Label5.TabIndex = 53
@@ -285,11 +285,12 @@ Partial Class frmRegistroUsuarios
         Me.txtContrasenia.Enabled = False
         Me.txtContrasenia.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtContrasenia.Location = New System.Drawing.Point(278, 220)
+        Me.txtContrasenia.MaxLength = 10
         Me.txtContrasenia.Multiline = True
         Me.txtContrasenia.Name = "txtContrasenia"
         Me.txtContrasenia.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtContrasenia.Size = New System.Drawing.Size(322, 34)
-        Me.txtContrasenia.TabIndex = 62
+        Me.txtContrasenia.TabIndex = 64
         Me.txtContrasenia.UseSystemPasswordChar = True
         '
         'frmRegistroUsuarios
@@ -297,8 +298,8 @@ Partial Class frmRegistroUsuarios
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(605, 506)
-        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.txtContrasenia)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.dgUsuarios)

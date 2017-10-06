@@ -37,6 +37,8 @@ Partial Class principal
         Me.MaestrosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistroToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RegistroToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MovimientosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AbrirCicloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AbrirGrupoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -49,8 +51,7 @@ Partial Class principal
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RegistroToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.KardexToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.msPrincipal.SuspendLayout()
         Me.SuspendLayout()
@@ -124,6 +125,7 @@ Partial Class principal
         '
         'ConsultaToolStripMenuItem
         '
+        Me.ConsultaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.KardexToolStripMenuItem})
         Me.ConsultaToolStripMenuItem.Name = "ConsultaToolStripMenuItem"
         Me.ConsultaToolStripMenuItem.Size = New System.Drawing.Size(230, 44)
         Me.ConsultaToolStripMenuItem.Text = "Consulta"
@@ -146,6 +148,19 @@ Partial Class principal
         Me.ConsultaToolStripMenuItem1.Name = "ConsultaToolStripMenuItem1"
         Me.ConsultaToolStripMenuItem1.Size = New System.Drawing.Size(230, 44)
         Me.ConsultaToolStripMenuItem1.Text = "Consulta"
+        '
+        'UsuariosToolStripMenuItem
+        '
+        Me.UsuariosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistroToolStripMenuItem3})
+        Me.UsuariosToolStripMenuItem.Name = "UsuariosToolStripMenuItem"
+        Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(231, 44)
+        Me.UsuariosToolStripMenuItem.Text = "Usuarios"
+        '
+        'RegistroToolStripMenuItem3
+        '
+        Me.RegistroToolStripMenuItem3.Name = "RegistroToolStripMenuItem3"
+        Me.RegistroToolStripMenuItem3.Size = New System.Drawing.Size(216, 44)
+        Me.RegistroToolStripMenuItem3.Text = "Registro"
         '
         'MovimientosToolStripMenuItem
         '
@@ -223,18 +238,11 @@ Partial Class principal
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
         '
-        'UsuariosToolStripMenuItem
+        'KardexToolStripMenuItem
         '
-        Me.UsuariosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistroToolStripMenuItem3})
-        Me.UsuariosToolStripMenuItem.Name = "UsuariosToolStripMenuItem"
-        Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(231, 44)
-        Me.UsuariosToolStripMenuItem.Text = "Usuarios"
-        '
-        'RegistroToolStripMenuItem3
-        '
-        Me.RegistroToolStripMenuItem3.Name = "RegistroToolStripMenuItem3"
-        Me.RegistroToolStripMenuItem3.Size = New System.Drawing.Size(216, 44)
-        Me.RegistroToolStripMenuItem3.Text = "Registro"
+        Me.KardexToolStripMenuItem.Name = "KardexToolStripMenuItem"
+        Me.KardexToolStripMenuItem.Size = New System.Drawing.Size(203, 44)
+        Me.KardexToolStripMenuItem.Text = "Kardex"
         '
         'principal
         '
@@ -282,4 +290,5 @@ Partial Class principal
     Friend WithEvents ConsultaToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents UsuariosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RegistroToolStripMenuItem3 As ToolStripMenuItem
+    Friend WithEvents KardexToolStripMenuItem As ToolStripMenuItem
 End Class

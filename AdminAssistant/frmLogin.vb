@@ -26,41 +26,73 @@
         If IsNothing(txtUsuario.Text) Then
             MessageBox.Show("Error, no se ha ingresado nombre de usuario", "Falta de información", MessageBoxButtons.OK, MessageBoxIcon.Error)
             txtUsuario.Focus()
-
         Else
-
             If IsNothing(txtContraseña.Text) Then
                 MessageBox.Show("Error, no se ha ingresado contraseña", "Falta de información", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 txtContraseña.Focus()
-
             Else
                 comandoGeneral.CommandText = "Select tipo from usuarios where nombre = '" & txtUsuario.Text & "' and contrasenia = '" & txtContraseña.Text & "'"
                 lectorGeneral = comandoGeneral.ExecuteReader
-                lectorGeneral.Read()
-                tipoAcceso = lectorGeneral(0)
-                If IsNothing(tipoAcceso) Then
+
+
+                If lectorGeneral.Read() = False Then
                     lectorGeneral.Close()
                     MessageBox.Show("Error, usuario no registrado", "Usuario no registrado", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Else
 
-                    'MAESTRO
-                    'SECRETARIA
-
-
-
-
-
+                    tipoAcceso = lectorGeneral(0)
+                    'MsgBox(tipoAcceso)
                     If tipoAcceso = "DIRECTOR" Then
                         lectorGeneral.Close()
                         Conexion.Close()
                         txtContraseña.Text = ""
                         txtUsuario.Text = ""
+
                         principal.ShowDialog()
+
+                        Me.Close()
                     Else
                         If tipoAcceso = "MAESTRO" Then
+                            txtContraseña.Text = ""
+                            txtUsuario.Text = ""
+                            lectorGeneral.Close()
+                            Conexion.Close()
+
+                            principal.RegistroToolStripMenuItem.Enabled = False
+                            principal.RegistroToolStripMenuItem1.Enabled = False
+                            principal.RegistroToolStripMenuItem3.Enabled = False
+
+                            principal.AbrirCicloToolStripMenuItem.Enabled = False
+                            principal.AbrirGrupoToolStripMenuItem.Enabled = False
+                            principal.InscipciónToolStripMenuItem.Enabled = False
+                            principal.ClasificarListasToolStripMenuItem.Enabled = False
+                            principal.CerrarCicloToolStripMenuItem.Enabled = False
+                            principal.ReportesToolStripMenuItem.Enabled = False
+
+
+                            principal.ShowDialog()
+                            Me.Close()
+
 
                         Else
                             If tipoAcceso = "SECRETARIA" Then
+                                txtContraseña.Text = ""
+                                txtUsuario.Text = ""
+                                lectorGeneral.Close()
+                                Conexion.Close()
+
+
+
+                                principal.RegistroToolStripMenuItem.Enabled = False
+                                principal.RegistroToolStripMenuItem1.Enabled = False
+                                principal.RegistroToolStripMenuItem3.Enabled = False
+
+                                principal.MovimientosToolStripMenuItem.Enabled = False
+
+
+                                principal.ShowDialog()
+                                Me.Close()
+
 
                             End If
                         End If
@@ -74,4 +106,6 @@
 
 
     End Sub
+
+
 End Class

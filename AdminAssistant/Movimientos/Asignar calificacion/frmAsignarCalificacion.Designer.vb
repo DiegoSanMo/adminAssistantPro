@@ -61,10 +61,9 @@ Partial Class frmAsignarCalificacion
         Me.cboLista.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.cboLista.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cboLista.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboLista.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.cboLista.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboLista.FormattingEnabled = True
-        Me.cboLista.Location = New System.Drawing.Point(270, 79)
+        Me.cboLista.Location = New System.Drawing.Point(229, 83)
         Me.cboLista.Name = "cboLista"
         Me.cboLista.Size = New System.Drawing.Size(84, 28)
         Me.cboLista.TabIndex = 2
@@ -72,10 +71,10 @@ Partial Class frmAsignarCalificacion
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(141, 74)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
+        Me.Label1.Location = New System.Drawing.Point(147, 83)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(123, 33)
+        Me.Label1.Size = New System.Drawing.Size(76, 18)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "No. Lista"
         '
@@ -284,7 +283,7 @@ Partial Class frmAsignarCalificacion
         Me.GroupBox2.Controls.Add(Me.Label9)
         Me.GroupBox2.Controls.Add(Me.txtNivel)
         Me.GroupBox2.Controls.Add(Me.Label12)
-        Me.GroupBox2.Location = New System.Drawing.Point(138, 110)
+        Me.GroupBox2.Location = New System.Drawing.Point(138, 114)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(603, 78)
         Me.GroupBox2.TabIndex = 76
