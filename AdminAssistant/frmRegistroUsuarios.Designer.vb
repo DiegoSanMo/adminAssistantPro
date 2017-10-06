@@ -35,21 +35,23 @@ Partial Class frmRegistroUsuarios
         Me.btnAceptar = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.btnN = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.dgUsuarios = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtContrasenia = New System.Windows.Forms.TextBox()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label14
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(156, 122)
+        Me.Label14.Location = New System.Drawing.Point(156, 109)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(104, 24)
         Me.Label14.TabIndex = 42
@@ -59,10 +61,10 @@ Partial Class frmRegistroUsuarios
         '
         Me.txtIdUsuario.Enabled = False
         Me.txtIdUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtIdUsuario.Location = New System.Drawing.Point(266, 117)
+        Me.txtIdUsuario.Location = New System.Drawing.Point(278, 104)
         Me.txtIdUsuario.Multiline = True
         Me.txtIdUsuario.Name = "txtIdUsuario"
-        Me.txtIdUsuario.Size = New System.Drawing.Size(155, 34)
+        Me.txtIdUsuario.Size = New System.Drawing.Size(143, 34)
         Me.txtIdUsuario.TabIndex = 41
         '
         'Label4
@@ -91,7 +93,7 @@ Partial Class frmRegistroUsuarios
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(156, 164)
+        Me.Label3.Location = New System.Drawing.Point(156, 151)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(85, 24)
         Me.Label3.TabIndex = 51
@@ -101,10 +103,10 @@ Partial Class frmRegistroUsuarios
         '
         Me.txtNombre.Enabled = False
         Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNombre.Location = New System.Drawing.Point(266, 159)
+        Me.txtNombre.Location = New System.Drawing.Point(278, 146)
         Me.txtNombre.Multiline = True
         Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(334, 34)
+        Me.txtNombre.Size = New System.Drawing.Size(322, 34)
         Me.txtNombre.TabIndex = 50
         '
         'cboTipo
@@ -114,16 +116,16 @@ Partial Class frmRegistroUsuarios
         Me.cboTipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.cboTipo.FormattingEnabled = True
         Me.cboTipo.Items.AddRange(New Object() {"DIRECTOR", "MAESTRO", "SECRETARIA"})
-        Me.cboTipo.Location = New System.Drawing.Point(266, 199)
+        Me.cboTipo.Location = New System.Drawing.Point(278, 186)
         Me.cboTipo.Name = "cboTipo"
-        Me.cboTipo.Size = New System.Drawing.Size(334, 28)
+        Me.cboTipo.Size = New System.Drawing.Size(322, 28)
         Me.cboTipo.TabIndex = 52
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(171, 201)
+        Me.Label5.Location = New System.Drawing.Point(156, 201)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(52, 24)
         Me.Label5.TabIndex = 53
@@ -156,7 +158,7 @@ Partial Class frmRegistroUsuarios
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnSalir.Location = New System.Drawing.Point(456, 441)
+        Me.btnSalir.Location = New System.Drawing.Point(456, 458)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(144, 39)
         Me.btnSalir.TabIndex = 57
@@ -174,7 +176,7 @@ Partial Class frmRegistroUsuarios
         Me.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAceptar.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAceptar.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnAceptar.Location = New System.Drawing.Point(156, 441)
+        Me.btnAceptar.Location = New System.Drawing.Point(156, 458)
         Me.btnAceptar.Name = "btnAceptar"
         Me.btnAceptar.Size = New System.Drawing.Size(144, 39)
         Me.btnAceptar.TabIndex = 55
@@ -192,7 +194,7 @@ Partial Class frmRegistroUsuarios
         Me.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnCancelar.Location = New System.Drawing.Point(306, 441)
+        Me.btnCancelar.Location = New System.Drawing.Point(306, 458)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(144, 39)
         Me.btnCancelar.TabIndex = 56
@@ -209,21 +211,42 @@ Partial Class frmRegistroUsuarios
         Me.btnN.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnN.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnN.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnN.Location = New System.Drawing.Point(6, 441)
+        Me.btnN.Location = New System.Drawing.Point(6, 458)
         Me.btnN.Name = "btnN"
         Me.btnN.Size = New System.Drawing.Size(144, 39)
         Me.btnN.TabIndex = 58
         Me.btnN.Text = "Nuevo"
         Me.btnN.UseVisualStyleBackColor = False
         '
-        'DataGridView1
+        'dgUsuarios
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3})
-        Me.DataGridView1.Location = New System.Drawing.Point(6, 245)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(594, 190)
-        Me.DataGridView1.TabIndex = 59
+        Me.dgUsuarios.AllowUserToAddRows = False
+        Me.dgUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgUsuarios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3})
+        Me.dgUsuarios.Location = New System.Drawing.Point(7, 260)
+        Me.dgUsuarios.Name = "dgUsuarios"
+        Me.dgUsuarios.Size = New System.Drawing.Size(594, 190)
+        Me.dgUsuarios.TabIndex = 59
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "ID USUARIO"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "NOMBRE"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 220
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "TIPO"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 220
         '
         'Label2
         '
@@ -247,34 +270,38 @@ Partial Class frmRegistroUsuarios
         Me.Label1.TabIndex = 61
         Me.Label1.Text = "usuarios"
         '
-        'Column1
+        'Label6
         '
-        Me.Column1.HeaderText = "ID USUARIO"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(156, 225)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(116, 24)
+        Me.Label6.TabIndex = 63
+        Me.Label6.Text = "Contraseña"
         '
-        'Column2
+        'txtContrasenia
         '
-        Me.Column2.HeaderText = "NOMBRE"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        Me.Column2.Width = 220
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "TIPO"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        Me.Column3.Width = 220
+        Me.txtContrasenia.Enabled = False
+        Me.txtContrasenia.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtContrasenia.Location = New System.Drawing.Point(278, 220)
+        Me.txtContrasenia.Multiline = True
+        Me.txtContrasenia.Name = "txtContrasenia"
+        Me.txtContrasenia.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.txtContrasenia.Size = New System.Drawing.Size(322, 34)
+        Me.txtContrasenia.TabIndex = 62
+        Me.txtContrasenia.UseSystemPasswordChar = True
         '
         'frmRegistroUsuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(605, 487)
+        Me.ClientSize = New System.Drawing.Size(605, 506)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.txtContrasenia)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.dgUsuarios)
         Me.Controls.Add(Me.btnN)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.btnSalir)
@@ -293,7 +320,7 @@ Partial Class frmRegistroUsuarios
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmRegistroUsuarios"
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -312,10 +339,12 @@ Partial Class frmRegistroUsuarios
     Friend WithEvents btnAceptar As Button
     Friend WithEvents btnCancelar As Button
     Friend WithEvents btnN As Button
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dgUsuarios As DataGridView
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Label6 As Label
+    Friend WithEvents txtContrasenia As TextBox
 End Class

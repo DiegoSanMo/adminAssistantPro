@@ -43,32 +43,35 @@
                     MessageBox.Show("Error, usuario no registrado", "Usuario no registrado", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Else
 
-                    If tipoAcceso = "ADMINISTRADOR" Then
+                    'MAESTRO
+                    'SECRETARIA
 
-                        MsgBox("sdfsdf")
+
+
+
+
+                    If tipoAcceso = "DIRECTOR" Then
                         lectorGeneral.Close()
                         Conexion.Close()
-
                         txtContraseña.Text = ""
                         txtUsuario.Text = ""
-
-
-                        principal.MovimientosToolStripMenuItem.Enabled = False
-
                         principal.ShowDialog()
+                    Else
+                        If tipoAcceso = "MAESTRO" Then
 
-                        Me.Dispose()
-                        'If tipoAcceso = "USUARIO" Then
+                        Else
+                            If tipoAcceso = "SECRETARIA" Then
+
+                            End If
+                        End If
 
 
-                        'End If
                     End If
-
-
                 End If
-            End If
 
+            End If
         End If
+
 
     End Sub
 End Class
