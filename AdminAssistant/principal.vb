@@ -23,8 +23,6 @@ Public Class principal
         frmConsultaMaestros.Show()
     End Sub
 
-
-
     Private Sub AbrirCicloToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AbrirCicloToolStripMenuItem.Click
         conexionsql.Open()
         'Obtiene la fecha actual del sistema
@@ -53,8 +51,8 @@ Public Class principal
                     comando.CommandText = "Create database""" & nombre & """;"
                     comando.ExecuteNonQuery()
 
-                    'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
-                    Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                    Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                    'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
                     Dim comando2 As SqlCommand = conexionsql2.CreateCommand
                     conexionsql2.Open()
                     comando2.CommandText = "Create table grupo(idGrupo int primary Key, idMaestro int, maxAlumnos int, cantInscritos int, nivel int, hLuIni varchar(20), hLuFin varchar(20),  hMaIni varchar(20), hMaFin varchar(20),  hMiIni varchar(20), hMiFin varchar(20),  hJuIni varchar(20), hJuFin varchar(20),  hViIni varchar(20), hViFin varchar(20),  hSaIni varchar(20), hSaFin varchar(20))"
@@ -96,9 +94,8 @@ Public Class principal
                         comando.CommandText = "Create database""" & nombre & """;"
                         comando.ExecuteNonQuery()
 
-
-                        'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
-                        Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                        Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                        'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
                         Dim comando2 As SqlCommand = conexionsql2.CreateCommand
                         conexionsql2.Open()
                         comando2.CommandText = "Create table grupo(idGrupo int primary Key, idMaestro int, maxAlumnos int, cantInscritos int, nivel int, hLuIni varchar(20), hLuFin varchar(20),  hMaIni varchar(20), hMaFin varchar(20),  hMiIni varchar(20), hMiFin varchar(20),  hJuIni varchar(20), hJuFin varchar(20),  hViIni varchar(20), hViFin varchar(20),  hSaIni varchar(20), hSaFin varchar(20))"
@@ -175,8 +172,8 @@ Public Class principal
 
         Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
         lectorGeneral.Close()
-        'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
-        Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+        Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+        'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
         Dim comando2 As SqlCommand = conexionsql2.CreateCommand
 
         If n = 0 Then
@@ -257,8 +254,8 @@ Public Class principal
 
                 Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
                 lectorGeneral.Close()
-                'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
-                Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
                 Dim comando2 As SqlCommand = conexionsql2.CreateCommand
 
                 conexionsql2.Open()
@@ -381,8 +378,8 @@ Public Class principal
 
                 Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
                 lectorGeneral.Close()
-                Dim conexionCiclo As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
-                'Dim conexionCiclo As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                'Dim conexionCiclo As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                Dim conexionCiclo As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
                 Dim comandoCiclo As SqlCommand = conexionCiclo.CreateCommand
 
                 conexionCiclo.Open()
@@ -451,8 +448,8 @@ Public Class principal
 
                 Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
                 lectorGeneral.Close()
-                'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=True")
-                Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=True")
+                Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=True")
+                'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=True")
                 Dim comando2 As SqlCommand = conexionsql2.CreateCommand
                 Dim comando3 As SqlCommand = conexionsql2.CreateCommand
                 Dim lector2 As SqlDataReader
@@ -476,35 +473,74 @@ Public Class principal
                     comandoGeneral.Connection = Conexion
                     comandoGeneral.Transaction = transaccion
                     Try
-                        If MessageBox.Show("¿Desea cerrar el ciclo?", "Cerrar ciclo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-                            For i = 1 To contListas
-                                comando2.CommandText = "Select nivel From grupo Where idGrupo=" & i & ""
-                                lector2 = comando2.ExecuteReader
-                                lector2.Read()
-                                Dim nivel As Integer = lector2(0)
-                                lector2.Close()
-                                comando2.CommandText = "Select idAlumno From lista" & i & ""
-                                lector2 = comando2.ExecuteReader
-                                'Dim contAlumnos As Integer
+                        For i = 1 To contListas
+                            comando2.CommandText = "Select nivel From grupo Where idGrupo=" & i & ""
+                            lector2 = comando2.ExecuteReader
+                            lector2.Read()
+                            Dim nivel As Integer = lector2(0)
+                            lector2.Close()
+                            comando2.CommandText = "Select idAlumno From lista" & i & ""
+                            lector2 = comando2.ExecuteReader
 
-                                While lector2.Read
-                                    Dim sit As String = "EN ESPERA"
-                                    comando3.CommandText = "Select calificacion From lista" & i & " Where idAlumno=" & lector2(0) & ""
-                                    lector3 = comando3.ExecuteReader
-                                    lector3.Read()
-                                    Dim calif As Decimal = lector3(0)
-                                    lector3.Close()
-
+                            While lector2.Read
+                                Dim sit As String = "EN ESPERA"
+                                comando3.CommandText = "Select calificacion From lista" & i & " Where idAlumno=" & lector2(0) & ""
+                                lector3 = comando3.ExecuteReader
+                                lector3.Read()
+                                Dim calif As Decimal = lector3(0)
+                                lector3.Close()
+                                Dim est As String = "Cerrado"
+                                If calif >= 80 Then
                                     comandoGeneral.CommandText = "Update kardex Set n" & nivel & "=" & calif & " Where idAlumno=" & lector2(0) & ""
                                     comandoGeneral.ExecuteNonQuery()
                                     comandoGeneral.CommandText = "Update alumno Set situacion='" & sit & "', ultimoNivelAcreditado=" & nivel & " Where idAlumno=" & lector2(0) & ""
                                     comandoGeneral.ExecuteNonQuery()
-                                    Dim est As String = "Cerrado"
                                     comandoGeneral.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
                                     comandoGeneral.ExecuteNonQuery()
-                                End While
-                                lector2.Close()
-                            Next
+                                Else
+                                    comandoGeneral.CommandText = "Update alumno Set situacion='" & sit & "' Where idAlumno=" & lector2(0) & ""
+                                    comandoGeneral.ExecuteNonQuery()
+                                    comandoGeneral.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
+                                    comandoGeneral.ExecuteNonQuery()
+                                End If
+                            End While
+                            lector2.Close()
+                        Next
+                        If MessageBox.Show("¿Desea cerrar el ciclo?", "Cerrar ciclo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                            'For i = 1 To contListas
+                            '    comando2.CommandText = "Select nivel From grupo Where idGrupo=" & i & ""
+                            '    lector2 = comando2.ExecuteReader
+                            '    lector2.Read()
+                            '    Dim nivel As Integer = lector2(0)
+                            '    lector2.Close()
+                            '    comando2.CommandText = "Select idAlumno From lista" & i & ""
+                            '    lector2 = comando2.ExecuteReader
+                            '    'Dim contAlumnos As Integer
+
+                            '    While lector2.Read
+                            '        Dim sit As String = "EN ESPERA"
+                            '        comando3.CommandText = "Select calificacion From lista" & i & " Where idAlumno=" & lector2(0) & ""
+                            '        lector3 = comando3.ExecuteReader
+                            '        lector3.Read()
+                            '        Dim calif As Decimal = lector3(0)
+                            '        lector3.Close()
+                            '        Dim est As String = "Cerrado"
+                            '        If calif >= 80 Then
+                            '            comandoGeneral.CommandText = "Update kardex Set n" & nivel & "=" & calif & " Where idAlumno=" & lector2(0) & ""
+                            '            comandoGeneral.ExecuteNonQuery()
+                            '            comandoGeneral.CommandText = "Update alumno Set situacion='" & sit & "', ultimoNivelAcreditado=" & nivel & " Where idAlumno=" & lector2(0) & ""
+                            '            comandoGeneral.ExecuteNonQuery()
+                            '            comandoGeneral.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
+                            '            comandoGeneral.ExecuteNonQuery()
+                            '        Else
+                            '            comandoGeneral.CommandText = "Update alumno Set situacion='" & sit & "' Where idAlumno=" & lector2(0) & ""
+                            '            comandoGeneral.ExecuteNonQuery()
+                            '            comandoGeneral.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
+                            '            comandoGeneral.ExecuteNonQuery()
+                            '        End If
+                            '    End While
+                            '    lector2.Close()
+                            'Next
                             transaccion.Commit()
                             MessageBox.Show("El ciclo fue cerrado exitosamente", "Cerrar ciclo", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         Else

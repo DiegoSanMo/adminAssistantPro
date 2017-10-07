@@ -8,13 +8,6 @@
             cboIdAlumno.Items.Add(lectorGeneral(0))
         End While
         lectorGeneral.Close()
-
-
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
-
     End Sub
 
     Private Sub rbId_CheckedChanged(sender As Object, e As EventArgs) Handles rbId.CheckedChanged
@@ -22,8 +15,6 @@
         txtNombreId.Visible = True
         lblNombreID.Visible = True
         txtNombre.Visible = False
-
-
     End Sub
 
     Private Sub rbNombre_CheckedChanged(sender As Object, e As EventArgs) Handles rbNombre.CheckedChanged
@@ -53,9 +44,5 @@
             txtNivel12.Text = lectorGeneral(12)
         End While
         lectorGeneral.Close()
-    End Sub
-
-    Private Sub txtNombre_TextChanged(sender As Object, e As EventArgs) Handles txtNombre.TextChanged
-
     End Sub
 End Class

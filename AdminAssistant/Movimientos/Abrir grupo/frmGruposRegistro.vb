@@ -89,8 +89,8 @@ Public Class frmGruposRegistro
         dtpSabadoF.Text = CDate("00:00")
 
 
-        'Using conexionRemota As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; integrated security = true")
-        Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
+        Using conexionRemota As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; integrated security = true")
+            'Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
             Dim comandoRemoto As SqlCommand = conexionRemota.CreateCommand
             Dim lectorRemoto As SqlDataReader
 
@@ -124,8 +124,8 @@ Public Class frmGruposRegistro
                         MsgBox(cboNivel.SelectedValue)
                     Else
 
-                        'Using conexionRemota As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; integrated security = true")
-                        Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
+                        Using conexionRemota As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; integrated security = true")
+                            'Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
                             Dim comandoRemoto As SqlCommand = conexionRemota.CreateCommand
                             Dim lectorRemoto As SqlDataReader
 
@@ -231,7 +231,6 @@ Public Class frmGruposRegistro
 
                                         dtpSabadoI.Enabled = False
                                         dtpSabadoF.Enabled = False
-
 
 
                                         txtMaxAlumnos.Text = ""
@@ -462,10 +461,6 @@ Public Class frmGruposRegistro
         lectorGeneral.Close()
     End Sub
 
-    Private Sub cboMaestros_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboMaestros.SelectedIndexChanged
-
-    End Sub
-
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
         If dgHorario.RowCount > 0 Then
 
@@ -500,20 +495,8 @@ Public Class frmGruposRegistro
             dtpSabadoI.Enabled = True
             dtpSabadoF.Enabled = True
 
-            Else
-                MessageBox.Show("No se pueden realizar modificaciones por falta de informacion", "Error de modificaicon", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            MessageBox.Show("No se pueden realizar modificaciones por falta de informacion", "Error de modificaicon", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
-    End Sub
-
-    Private Sub dgHorario_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgHorario.CellClick
-        'Dim i As Integer = dgHorario.CurrentRow.Index
-        'txtClave.Text = dgHorario.Item(0, i).Value
-        'cboMaestros.Text = dgHorario.Item(1, i).Value
-        'cboMaestros.Text = dgHorario.Item(2, i).Value
-        'txtMaxAlumnos.Text = dgHorario.Item(3, i).Value
-        'dtpLunesI.Text = CDate(dgHorario.Item(4, i).Value)
-        'dtpLunesF.Text = CDate(dgHorario.Item(5, i).Value)
-        'dtpMartesI.Text = CDate(dgHorario.Item(6, i).Value)
-
     End Sub
 End Class

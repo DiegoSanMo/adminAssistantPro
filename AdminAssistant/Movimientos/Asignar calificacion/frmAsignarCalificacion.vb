@@ -1,19 +1,16 @@
 ﻿Imports System.Data.SqlClient
 Public Class frmAsignarCalificacion
 
-    Dim conexionCiclo As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombreBDCilo & "'; Integrated Security=true; MultipleActiveResultSets=true")
-    'Dim conexionCiclo As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombreBDCilo & "'; Integrated Security=true; MultipleActiveResultSets=true")
+    'Dim conexionCiclo As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombreBDCilo & "'; Integrated Security=true; MultipleActiveResultSets=true")
+    Dim conexionCiclo As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombreBDCilo & "'; Integrated Security=true; MultipleActiveResultSets=true")
     Dim comandoCiclo As SqlCommand = conexionCiclo.CreateCommand
     Dim lectorCiclo As SqlDataReader
-
-
 
     Private Sub frmAsignarCalificacion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         For x = 1 To canListas
             cboLista.Items.Add(x)
         Next
         'conexionCiclo.Open()
-
     End Sub
 
     Private Sub cboLista_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboLista.SelectedIndexChanged
@@ -38,14 +35,11 @@ Public Class frmAsignarCalificacion
 
         lectorCiclo.Close()
 
-
-
         Dim query As String = "Select idAlumno, nombre, calificacion from " & nombreTabla & ""
         Dim selectCMD As SqlCommand = New SqlCommand(query, conexionCiclo)
         Dim custDA As SqlDataAdapter = New SqlDataAdapter
         Dim custDS As DataSet = New DataSet()
         custDA.SelectCommand = selectCMD
-
 
         custDA.Fill(custDS, nombreTabla)
         dgLista.DataSource = custDS.Tables(0)
@@ -56,10 +50,7 @@ Public Class frmAsignarCalificacion
         dgLista.Columns(0).ReadOnly = True
         dgLista.Columns(1).ReadOnly = True
         conexionCiclo.Close()
-
-
     End Sub
-
 
     Private Sub dgLista_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgLista.CellValueChanged
         If e.ColumnIndex = 2 Then

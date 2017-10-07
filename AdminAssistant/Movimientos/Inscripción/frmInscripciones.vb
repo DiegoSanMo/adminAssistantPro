@@ -9,31 +9,31 @@ Public Class frmInscripciones
         End While
         lectorGeneral.Close()
 
-        Dim idCiclo As Integer
-        Dim anioC As Integer
+        'Dim idCiclo As Integer
+        'Dim anioC As Integer
 
-        comandoGeneral.CommandText = "Select idCiclo, anio From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
-        lectorGeneral = comandoGeneral.ExecuteReader
-        lectorGeneral.Read()
+        'comandoGeneral.CommandText = "Select idCiclo, anio From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
+        'lectorGeneral = comandoGeneral.ExecuteReader
+        'lectorGeneral.Read()
 
-        idCiclo = lectorGeneral(0)
-        anioC = lectorGeneral(1)
-        lectorGeneral.Close()
+        'idCiclo = lectorGeneral(0)
+        'anioC = lectorGeneral(1)
+        'lectorGeneral.Close()
 
-        Name = CStr(idCiclo) + "-" + CStr(anioC)
+        'Name = CStr(idCiclo) + "-" + CStr(anioC)
         'Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
-        Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
-        Dim comandoBD2 As SqlCommand = conexionBD2.CreateCommand
-        Dim lectorBD2 As SqlDataReader
+        ''Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
+        'Dim comandoBD2 As SqlCommand = conexionBD2.CreateCommand
+        'Dim lectorBD2 As SqlDataReader
 
-        conexionBD2.Open()
-        comandoBD2.CommandText = "Select idGrupo From grupo"
-        lectorBD2 = comandoBD2.ExecuteReader
-        While lectorBD2.Read
-            cboIdGrupo.Items.Add(lectorBD2(0))
-        End While
-        lectorBD2.Close()
-        conexionBD2.Close()
+        'conexionBD2.Open()
+        'comandoBD2.CommandText = "Select idGrupo From grupo "
+        'lectorBD2 = comandoBD2.ExecuteReader
+        'While lectorBD2.Read
+        '    cboIdGrupo.Items.Add(lectorBD2(0))
+        'End While
+        'lectorBD2.Close()
+        'conexionBD2.Close()
     End Sub
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
@@ -45,8 +45,8 @@ Public Class frmInscripciones
         gbDatosAlumno.Enabled = True
         gbDatosGrupo.Enabled = True
 
-        'Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
-        Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
+        Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
+        'Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
         Dim comandoBD2 As SqlCommand = conexionBD2.CreateCommand
         conexionBD2.Open()
 
@@ -103,8 +103,8 @@ Public Class frmInscripciones
                 MessageBox.Show("ALUMNO YA INSCRITO", "INSCRIPCIÓN YA REALIZADA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Else
 
-                'Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
-                Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
+                Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
+                'Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
                 Dim comandoBD2 As SqlCommand = conexionBD2.CreateCommand
                 Dim lectorBD2 As SqlDataReader
                 Dim nuevaSituacion As String = "ACTIVO"
@@ -118,8 +118,6 @@ Public Class frmInscripciones
                 comandoBD2.Transaction = transaccion2
 
                 Try
-
-
                     comandoBD2.CommandText = "Select cantInscritos From grupo Where idGrupo=" & cboIdGrupo.Text & ""
                     lectorBD2 = comandoBD2.ExecuteReader
                     lectorBD2.Read()
@@ -173,38 +171,6 @@ Public Class frmInscripciones
                             transaccion2.Rollback()
                             MessageBox.Show("Se ha cancelado la inscripción", "Cancelación de inscripción", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         End If
-
-
-
-
-                        'If MessageBox.Show("¿Desea modificar algún campo?", "Modificación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = DialogResult.No Then
-                        '    btnNuevo.Enabled = True
-                        '    btnSalir.Enabled = True
-                        '    btnGuardar.Enabled = False
-                        '    btnCancelar.Enabled = False
-
-                        '    gbDatosAlumno.Enabled = False
-                        '    gbDatosGrupo.Enabled = False
-
-                        '    txtFecha.Text = ""
-                        '    txtIdInscripcion.Text = ""
-                        '    cboNoControl.Text = ""
-                        '    txtNombre.Text = ""
-                        '    txtDomicilio.Text = ""
-                        '    txtUNA.Text = ""
-                        '    txtTelefono.Text = ""
-                        '    txtSituacion.Text = ""
-                        '    cboIdGrupo.Text = ""
-                        '    txtIdMaestro.Text = ""
-                        '    txtNivel.Text = ""
-                        '    txtHLunes.Text = ""
-                        '    txtHMartes.Text = ""
-                        '    txtHMiercoles.Text = ""
-                        '    txtHJueves.Text = ""
-                        '    txtHViernes.Text = ""
-                        '    txtHSabado.Text = ""
-                        '    ptbFoto.Image = Nothing
-                        'End If
                     End If
                 Catch ex As Exception
                     MessageBox.Show("Commit Exception Type: {0} No se pudo insertar por error")
@@ -218,134 +184,11 @@ Public Class frmInscripciones
                 End Try
             End If
         End If
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        'Try
-        '    'Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
-        '    Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
-        '    Dim comandoBD2 As SqlCommand = conexionBD2.CreateCommand
-        '    Dim lectorBD2 As SqlDataReader
-        '    Dim nuevaSituacion As String = "ACTIVO"
-        '    conexionBD2.Open()
-        '    transaccion = Conexion.BeginTransaction("TransaccionInscripcion")
-        '    comandoGeneral.Connection = Conexion
-        '    comandoGeneral.Transaction = transaccion
-
-        '    transaccion2 = conexionBD2.BeginTransaction("TransaccionDeActualizacion")
-        '    comandoBD2.Connection = conexionBD2
-        '    comandoBD2.Transaction = transaccion2
-
-
-        '    comandoBD2.CommandText = "Select cantInscritos From grupo Where idGrupo=" & cboIdGrupo.Text & ""
-        '    lectorBD2 = comandoBD2.ExecuteReader
-        '    lectorBD2.Read()
-        '    Dim cantInscritos As Integer = lectorBD2(0)
-        '    lectorBD2.Close()
-        '    If cantInscritos = 14 Then
-        '        MessageBox.Show("No se puede inscribir a este grupo. Escoja otro.", "Cantidad máxima de alumnos alcanzada", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        '    Else
-        '        If MessageBox.Show("¿Desea registrar la inscripción?", "Registro de inscripción", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = DialogResult.Yes Then
-        '            comandoBD2.CommandText = "Insert into inscripcion values(" & CInt(txtIdInscripcion.Text) & "," & CInt(cboNoControl.Text) & "," & CInt(cboIdGrupo.Text) & ",'" & txtFecha.Text & "')"
-        '            comandoBD2.ExecuteNonQuery()
-
-        '            comandoGeneral.CommandText = "Update alumno Set situacion='" & nuevaSituacion & "' Where idAlumno=" & cboNoControl.Text & ""
-        '            comandoGeneral.ExecuteNonQuery()
-
-        '            comandoBD2.CommandText = "Update grupo Set cantInscritos=" & cantInscritos + 1 & " Where idGrupo=" & cboIdGrupo.Text & ""
-        '            comandoBD2.ExecuteNonQuery()
-
-
-        '            transaccion.Commit()
-        '            transaccion2.Commit()
-        '            conexionBD2.Close()
-        '            MessageBox.Show("Registro de inscripción exitosa", "Inscripción exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        '            btnNuevo.Enabled = True
-        '            btnSalir.Enabled = True
-        '            btnGuardar.Enabled = False
-        '            btnCancelar.Enabled = False
-
-        '            gbDatosAlumno.Enabled = False
-        '            gbDatosGrupo.Enabled = False
-
-        '            txtFecha.Text = ""
-        '            txtIdInscripcion.Text = ""
-        '            cboNoControl.Text = ""
-        '            txtNombre.Text = ""
-        '            txtDomicilio.Text = ""
-        '            txtUNA.Text = ""
-        '            txtTelefono.Text = ""
-        '            txtSituacion.Text = ""
-        '            cboIdGrupo.Text = ""
-        '            txtIdMaestro.Text = ""
-        '            txtNivel.Text = ""
-        '            txtHLunes.Text = ""
-        '            txtHMartes.Text = ""
-        '            txtHMiercoles.Text = ""
-        '            txtHJueves.Text = ""
-        '            txtHViernes.Text = ""
-        '            txtHSabado.Text = ""
-        '            ptbFoto.Image = Nothing
-        '        Else
-        '            transaccion.Rollback()
-        '            transaccion2.Rollback()
-        '            MessageBox.Show("Se ha cancelado la inscripción", "Cancelación de inscripción", MessageBoxButtons.OK, MessageBoxIcon.Error)
-
-        '        End If
-
-
-
-
-
-        '        If MessageBox.Show("¿Desea modificar algún campo?", "Modificación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = DialogResult.No Then
-        '            btnNuevo.Enabled = True
-        '            btnSalir.Enabled = True
-        '            btnGuardar.Enabled = False
-        '            btnCancelar.Enabled = False
-        '            gbDatosAlumno.Enabled = False
-        '            gbDatosGrupo.Enabled = False
-
-        '            txtFecha.Text = ""
-        '            txtIdInscripcion.Text = ""
-        '            cboNoControl.Text = ""
-        '            txtNombre.Text = ""
-        '            txtDomicilio.Text = ""
-        '            txtUNA.Text = ""
-        '            txtTelefono.Text = ""
-        '            txtSituacion.Text = ""
-        '            cboIdGrupo.Text = ""
-        '            txtIdMaestro.Text = ""
-        '            txtNivel.Text = ""
-        '            txtHLunes.Text = ""
-        '            txtHMartes.Text = ""
-        '            txtHMiercoles.Text = ""
-        '            txtHJueves.Text = ""
-        '            txtHViernes.Text = ""
-        '            txtHSabado.Text = ""
-        '            ptbFoto.Image = Nothing
-        '        End If
-
-
-        '    End If
-        'Catch ex As Exception
-
-        'End Try
     End Sub
 
     Private Sub cboIdGrupo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboIdGrupo.SelectedIndexChanged
-        'Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
-        Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
+        Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
+        'Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
         Dim comandoBD2 As SqlCommand = conexionBD2.CreateCommand
         Dim lectorBD2 As SqlDataReader
 
@@ -375,23 +218,39 @@ Public Class frmInscripciones
             MessageBox.Show("El alumno ya está inscrito", "Error de inscripción", MessageBoxButtons.OK, MessageBoxIcon.Error)
             lectorGeneral.Close()
         Else
-
             txtNombre.Text = lectorGeneral(0)
             txtDomicilio.Text = lectorGeneral(1)
             txtUNA.Text = lectorGeneral(2)
             txtTelefono.Text = lectorGeneral(3)
             txtSituacion.Text = lectorGeneral(4)
             ptbFoto.Image = Image.FromFile(lectorGeneral(5))
+
+            Dim idCiclo As Integer
+            Dim anioC As Integer
+
+            comandoGeneral.CommandText = "Select idCiclo, anio From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
+            lectorGeneral = comandoGeneral.ExecuteReader
+            lectorGeneral.Read()
+
+            idCiclo = lectorGeneral(0)
+            anioC = lectorGeneral(1)
+            lectorGeneral.Close()
+
+            Name = CStr(idCiclo) + "-" + CStr(anioC)
+            Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
+            'Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
+            Dim comandoBD2 As SqlCommand = conexionBD2.CreateCommand
+            Dim lectorBD2 As SqlDataReader
+
+            conexionBD2.Open()
+            comandoBD2.CommandText = "Select idGrupo From grupo Where nivel=" & lectorGeneral(2) + 1 & ""
+            lectorBD2 = comandoBD2.ExecuteReader
+            While lectorBD2.Read
+                cboIdGrupo.Items.Add(lectorBD2(0))
+            End While
+            lectorBD2.Close()
+            conexionBD2.Close()
             lectorGeneral.Close()
         End If
-        'txtNombre.Text = lectorGeneral(0)
-        'txtDomicilio.Text = lectorGeneral(1)
-        'txtUNA.Text = lectorGeneral(2)
-        'txtTelefono.Text = lectorGeneral(3)
-        'txtSituacion.Text = lectorGeneral(4)
-        'ptbFoto.Image = Image.FromFile(lectorGeneral(5))
-        'lectorGeneral.Close()
     End Sub
-
-
 End Class

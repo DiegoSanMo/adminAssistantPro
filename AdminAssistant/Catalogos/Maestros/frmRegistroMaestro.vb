@@ -3,17 +3,15 @@
 Public Class frmRegistroMaestro
     Private Sub frmRegistroMaestro_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'MasterEADataSetDiego.maestro' Puede moverla o quitarla según sea necesario.
-        Me.MaestroTableAdapter1.Fill(Me.MasterEADataSetDiego.maestro)
+        'Me.MaestroTableAdapter1.Fill(Me.MasterEADataSetDiego.maestro)
         'TODO: esta línea de código carga datos en la tabla 'MasterEADataSet.maestro' Puede moverla o quitarla según sea necesario.
-        'Me.MaestroTableAdapter.Fill(Me.MasterEADataSet.maestro)
-        'TODO: esta línea de código carga datos en la tabla 'EasyEnglishDataSet1.maestro' Puede moverla o quitarla según sea necesario.
-        'Me.MaestroTableAdapter.Fill(Me.EasyEnglishDataSetMani.maestro)
+        Me.MaestroTableAdapter.Fill(Me.MasterEADataSet.maestro)
     End Sub
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
         Dim n As Integer
-        n = MaestroBindingSource1.Count + 1
-        MaestroBindingSource1.AddNew()
+        n = MaestroBindingSource.Count + 1
+        MaestroBindingSource.AddNew()
         txtClave.Text = n
 
         'activar textbox y botones
@@ -34,12 +32,12 @@ Public Class frmRegistroMaestro
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        MaestroBindingSource1.EndEdit()
-        SqlDataAdapter2.Update(MasterEADataSetDiego.maestro)
-        MasterEADataSetDiego.Clear()
-        MaestroTableAdapter1.Update(MasterEADataSetDiego.maestro)
-        SqlDataAdapter2.Fill(MasterEADataSetDiego.maestro)
-        MaestroTableAdapter1.Fill(MasterEADataSetDiego.maestro)
+        MaestroBindingSource.EndEdit()
+        SqlDataAdapter1.Update(MasterEADataSet.maestro)
+        MasterEADataSet.Clear()
+        MaestroTableAdapter.Update(MasterEADataSet.maestro)
+        SqlDataAdapter1.Fill(MasterEADataSet.maestro)
+        MaestroTableAdapter.Fill(MasterEADataSet.maestro)
 
         'activar textbox y botones
         txtNombre.Enabled = False
@@ -56,12 +54,9 @@ Public Class frmRegistroMaestro
         btnNuevo.Enabled = True
         btnModificar.Enabled = True
         btnSalir.Enabled = True
-
-
     End Sub
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
-
         'activar textbox y botones
         txtNombre.Enabled = True
         txtDomicilio.Enabled = True
@@ -80,7 +75,6 @@ Public Class frmRegistroMaestro
     End Sub
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
-
         'activar textbox y botones
         txtNombre.Enabled = False
         txtDomicilio.Enabled = False
@@ -99,7 +93,6 @@ Public Class frmRegistroMaestro
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-
         'activar textbox y botones
         txtNombre.Enabled = False
         txtDomicilio.Enabled = False
@@ -117,28 +110,25 @@ Public Class frmRegistroMaestro
         btnSalir.Enabled = True
 
         Me.Dispose()
-
     End Sub
 
-
-
     Private Sub btnPrimero_Click(sender As Object, e As EventArgs) Handles btnPrimero.Click
-        MaestroBindingSource1.MoveFirst()
+        MaestroBindingSource.MoveFirst()
     End Sub
 
     Private Sub btnAnterior_Click(sender As Object, e As EventArgs) Handles btnAnterior.Click
-        MaestroBindingSource1.MovePrevious()
+        MaestroBindingSource.MovePrevious()
     End Sub
 
     Private Sub btnSiguiente_Click(sender As Object, e As EventArgs) Handles btnSiguiente.Click
-        MaestroBindingSource1.MoveNext()
+        MaestroBindingSource.MoveNext()
     End Sub
 
     Private Sub btnUltimo_Click(sender As Object, e As EventArgs) Handles btnUltimo.Click
-        MaestroBindingSource1.MoveLast()
+        MaestroBindingSource.MoveLast()
     End Sub
 
-    Private Sub SqlDataAdapter2_RowUpdated(sender As Object, e As SqlRowUpdatedEventArgs)
+    Private Sub SqlDataAdapter1_RowUpdated(sender As Object, e As SqlRowUpdatedEventArgs)
         If e.Status = UpdateStatus.ErrorsOccurred Then
             MessageBox.Show(e.Errors.Message & vbCrLf &
             e.Row.Item("nombre", DataRowVersion.Original) & vbCrLf &
