@@ -1,6 +1,5 @@
 ﻿Imports System.Data.SqlClient
 Public Class frmAsignarCalificacion
-
     'Dim conexionCiclo As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombreBDCilo & "'; Integrated Security=true; MultipleActiveResultSets=true")
     Dim conexionCiclo As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombreBDCilo & "'; Integrated Security=true; MultipleActiveResultSets=true")
     Dim comandoCiclo As SqlCommand = conexionCiclo.CreateCommand
@@ -19,7 +18,6 @@ Public Class frmAsignarCalificacion
 
         conexionCiclo.Open()
         comandoCiclo.CommandText = "Select m.nivel, m.cantInscritos, t.nombre, m.hLuIni, m.hLuFin, m.hMaIni, m.hMaFin, m.hMiIni, m.hMiFin, m.hJuIni, m.hJuFin, m.hViIni, m.hViFin, m.hSaIni, m.hSaFin  From  [" & nombreBDCilo & "].dbo.inscripcion c JOIN  [" & nombreBDCilo & "].dbo.grupo m  On c.idGrupo = m.idGrupo join [" & nombreBDCilo & "].dbo." & nombreTabla & " l on l.idAlumno = c.idAlumno join MasterEA.dbo.maestro t on m.idMaestro = t.idMaestro where m.idGrupo = c.idGrupo"
-        'comandoCiclo.CommandText = "Select m.nivel, m.cantInscritos, c.nombre, m.hLuIni, hLuFin, hMaIni, hMaFin, hMiIni, hMiFin, hJuIni, hJuFin, hViIni, hViFin, hSaIni, hSaFin from '" & Name & "'.dbo.grupo m join MasterEA.dbo.maestro c on c.idMaestro = m.idMaestro where "
         lectorCiclo = comandoCiclo.ExecuteReader
         lectorCiclo.Read()
 

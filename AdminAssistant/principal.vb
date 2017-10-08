@@ -507,40 +507,6 @@ Public Class principal
                             lector2.Close()
                         Next
                         If MessageBox.Show("¿Desea cerrar el ciclo?", "Cerrar ciclo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-                            'For i = 1 To contListas
-                            '    comando2.CommandText = "Select nivel From grupo Where idGrupo=" & i & ""
-                            '    lector2 = comando2.ExecuteReader
-                            '    lector2.Read()
-                            '    Dim nivel As Integer = lector2(0)
-                            '    lector2.Close()
-                            '    comando2.CommandText = "Select idAlumno From lista" & i & ""
-                            '    lector2 = comando2.ExecuteReader
-                            '    'Dim contAlumnos As Integer
-
-                            '    While lector2.Read
-                            '        Dim sit As String = "EN ESPERA"
-                            '        comando3.CommandText = "Select calificacion From lista" & i & " Where idAlumno=" & lector2(0) & ""
-                            '        lector3 = comando3.ExecuteReader
-                            '        lector3.Read()
-                            '        Dim calif As Decimal = lector3(0)
-                            '        lector3.Close()
-                            '        Dim est As String = "Cerrado"
-                            '        If calif >= 80 Then
-                            '            comandoGeneral.CommandText = "Update kardex Set n" & nivel & "=" & calif & " Where idAlumno=" & lector2(0) & ""
-                            '            comandoGeneral.ExecuteNonQuery()
-                            '            comandoGeneral.CommandText = "Update alumno Set situacion='" & sit & "', ultimoNivelAcreditado=" & nivel & " Where idAlumno=" & lector2(0) & ""
-                            '            comandoGeneral.ExecuteNonQuery()
-                            '            comandoGeneral.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
-                            '            comandoGeneral.ExecuteNonQuery()
-                            '        Else
-                            '            comandoGeneral.CommandText = "Update alumno Set situacion='" & sit & "' Where idAlumno=" & lector2(0) & ""
-                            '            comandoGeneral.ExecuteNonQuery()
-                            '            comandoGeneral.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
-                            '            comandoGeneral.ExecuteNonQuery()
-                            '        End If
-                            '    End While
-                            '    lector2.Close()
-                            'Next
                             transaccion.Commit()
                             MessageBox.Show("El ciclo fue cerrado exitosamente", "Cerrar ciclo", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         Else
@@ -578,7 +544,6 @@ Public Class principal
         If n = 0 Then
             MessageBox.Show("NO HAY ALUMNOS REGISTRADOS", "ERROR, FALTA DE INFORMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Conexion.Close()
-
         Else
             Conexion.Close()
             frmKardexAlumno.ShowDialog()

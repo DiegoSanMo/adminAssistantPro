@@ -9,7 +9,6 @@
         Conexion.Open()
         txtContraseña.UseSystemPasswordChar = True
         tipoAcceso = ""
-
     End Sub
 
     Private Sub txtUsuario_Click(sender As Object, e As EventArgs) Handles txtUsuario.Click
@@ -19,7 +18,6 @@
     Private Sub txtContraseña_Click(sender As Object, e As EventArgs) Handles txtContraseña.Click
         txtContraseña.Text = ""
         txtContraseña.UseSystemPasswordChar = True
-
     End Sub
 
     Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
@@ -34,12 +32,10 @@
                 comandoGeneral.CommandText = "Select tipo from usuarios where nombre = '" & txtUsuario.Text & "' and contrasenia = '" & txtContraseña.Text & "'"
                 lectorGeneral = comandoGeneral.ExecuteReader
 
-
                 If lectorGeneral.Read() = False Then
                     lectorGeneral.Close()
                     MessageBox.Show("Error, usuario no registrado", "Usuario no registrado", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Else
-
                     tipoAcceso = lectorGeneral(0)
                     'MsgBox(tipoAcceso)
                     If tipoAcceso = "DIRECTOR" Then
@@ -69,11 +65,8 @@
                             principal.CerrarCicloToolStripMenuItem.Enabled = False
                             principal.ReportesToolStripMenuItem.Enabled = False
 
-
                             principal.ShowDialog()
                             Me.Close()
-
-
                         Else
                             If tipoAcceso = "SECRETARIA" Then
                                 txtContraseña.Text = ""
@@ -81,31 +74,19 @@
                                 lectorGeneral.Close()
                                 Conexion.Close()
 
-
-
                                 principal.RegistroToolStripMenuItem.Enabled = False
                                 principal.RegistroToolStripMenuItem1.Enabled = False
                                 principal.RegistroToolStripMenuItem3.Enabled = False
 
                                 principal.MovimientosToolStripMenuItem.Enabled = False
 
-
                                 principal.ShowDialog()
                                 Me.Close()
-
-
                             End If
                         End If
-
-
                     End If
                 End If
-
             End If
         End If
-
-
     End Sub
-
-
 End Class

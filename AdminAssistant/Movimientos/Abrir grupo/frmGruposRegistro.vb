@@ -30,7 +30,6 @@ Public Class frmGruposRegistro
         lectorGeneral = comandoGeneral.ExecuteReader
         dgHorario.Rows.Clear()
         While lectorGeneral.Read
-            'dgHorario.Rows.Add(lectorGeneral(0), lectorGeneral(1), lectorGeneral(2), lectorGeneral(3), (lectorGeneral(4).ToString + CStr("/") + lectorGeneral(5).ToString), (lectorGeneral(6).ToString + CStr("/") + lectorGeneral(7).ToString), (lectorGeneral(8).ToString + CStr("/") + lectorGeneral(9).ToString), (lectorGeneral(10).ToString + CStr("/") + lectorGeneral(11).ToString), (lectorGeneral(12).ToString + CStr("/") + lectorGeneral(13).ToString), (lectorGeneral(14).ToString + CStr("/") + lectorGeneral(15).ToString))
             dgHorario.Rows.Add(lectorGeneral(0), lectorGeneral(1), lectorGeneral(2), lectorGeneral(3), lectorGeneral(4), lectorGeneral(5), lectorGeneral(6), lectorGeneral(7), lectorGeneral(8), lectorGeneral(9), lectorGeneral(10), lectorGeneral(11), lectorGeneral(12), lectorGeneral(13), lectorGeneral(14), lectorGeneral(15))
         End While
         lectorGeneral.Close()
@@ -46,7 +45,6 @@ Public Class frmGruposRegistro
         btnSalir.Enabled = False
 
         cboMaestros.Enabled = True
-
 
         txtMaxAlumnos.Enabled = True
         cboNivel.Enabled = True
@@ -69,7 +67,6 @@ Public Class frmGruposRegistro
         dtpSabadoI.Enabled = True
         dtpSabadoF.Enabled = True
 
-
         dtpLunesI.Text = CDate("00:00")
         dtpLunesF.Text = CDate("00:00")
 
@@ -87,7 +84,6 @@ Public Class frmGruposRegistro
 
         dtpSabadoI.Text = CDate("00:00")
         dtpSabadoF.Text = CDate("00:00")
-
 
         Using conexionRemota As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; integrated security = true")
             'Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
@@ -181,8 +177,6 @@ Public Class frmGruposRegistro
                                 horarioSaF = "-"
                             End If
 
-
-
                             MsgBox(dgHorario.RowCount)
 
                             If dgHorario.RowCount = 0 Then
@@ -259,8 +253,6 @@ Public Class frmGruposRegistro
                                         dtpSabadoI.Text = CDate("00:00")
                                         dtpSabadoF.Text = CDate("00:00")
 
-
-
                                         conexionRemota.Close()
 
                                     Else
@@ -313,7 +305,6 @@ Public Class frmGruposRegistro
                                             btnGuardar.Enabled = False
                                             btnCancelar.Enabled = False
 
-
                                             btnNuevo.Enabled = True
                                             btnModificar.Enabled = True
                                             btnSalir.Enabled = True
@@ -340,7 +331,6 @@ Public Class frmGruposRegistro
 
                                             dtpSabadoI.Enabled = False
                                             dtpSabadoF.Enabled = False
-
 
                                             txtMaxAlumnos.Text = ""
                                             txtIdMaestro.Text = ""
@@ -373,7 +363,6 @@ Public Class frmGruposRegistro
                                             transaccion.Rollback()
                                             MessageBox.Show("El registro de grupo ha sido cancelado", "Cancelación de grupo", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                         End If
-
                                     Catch ex As Exception
                                         MessageBox.Show("Commit Exception Type: {0} No se pudo insertar por error")
                                         MsgBox(ex.Message)
@@ -384,14 +373,10 @@ Public Class frmGruposRegistro
                                             MsgBox(ex2.Message)
                                         End Try
                                     End Try
-
                                     conexionRemota.Close()
                                 End If
-
                             End If
-
                         End Using
-
                     End If
                 Else
                     MsgBox("La cantidad de alumnos no es permitida, ingresar un valor entre [1-12]")
@@ -401,7 +386,6 @@ Public Class frmGruposRegistro
                 MsgBox("Tipo de dato no valido, valores permitidos del [1-12]")
                 txtMaxAlumnos.Focus()
             End If
-
         Else
             MsgBox("No se ha asignado maestro, favor de ingresar maestro")
             cboMaestros.Focus()
@@ -472,7 +456,6 @@ Public Class frmGruposRegistro
             btnSalir.Enabled = False
 
             cboMaestros.Enabled = True
-
 
             txtMaxAlumnos.Enabled = True
             cboNivel.Enabled = True
