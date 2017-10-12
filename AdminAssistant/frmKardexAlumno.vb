@@ -33,9 +33,6 @@
         lblSit.Visible = False
         txtSitN.Visible = False
 
-
-
-
         txtNivel1.Text = ""
         txtNivel2.Text = ""
         txtNivel3.Text = ""
@@ -48,13 +45,6 @@
         txtNivel10.Text = ""
         txtNivel11.Text = ""
         txtNivel12.Text = ""
-
-
-
-
-
-
-
     End Sub
 
     Private Sub rbNombre_CheckedChanged(sender As Object, e As EventArgs) Handles rbNombre.CheckedChanged

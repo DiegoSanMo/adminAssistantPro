@@ -24,7 +24,6 @@ Partial Class principal
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(principal))
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.AlumnosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AlumnosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MaestrosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -34,6 +33,7 @@ Partial Class principal
         Me.AlumnosToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistroToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.KardexToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MaestrosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistroToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -49,22 +49,14 @@ Partial Class principal
         Me.CapturarCalificacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CerrarCicloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReporteDeAlumnosInscritosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.KardexToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ReporteDeMaestrosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.msPrincipal.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(404, 127)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(572, 454)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
         '
         'AlumnosToolStripMenuItem
         '
@@ -129,6 +121,12 @@ Partial Class principal
         Me.ConsultaToolStripMenuItem.Name = "ConsultaToolStripMenuItem"
         Me.ConsultaToolStripMenuItem.Size = New System.Drawing.Size(230, 44)
         Me.ConsultaToolStripMenuItem.Text = "Consulta"
+        '
+        'KardexToolStripMenuItem
+        '
+        Me.KardexToolStripMenuItem.Name = "KardexToolStripMenuItem"
+        Me.KardexToolStripMenuItem.Size = New System.Drawing.Size(203, 44)
+        Me.KardexToolStripMenuItem.Text = "Kardex"
         '
         'MaestrosToolStripMenuItem1
         '
@@ -221,10 +219,17 @@ Partial Class principal
         '
         'ReportesToolStripMenuItem
         '
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReporteDeMaestrosToolStripMenuItem, Me.ReporteDeAlumnosInscritosToolStripMenuItem})
         Me.ReportesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(219, 43)
         Me.ReportesToolStripMenuItem.Text = "Reportes"
+        '
+        'ReporteDeAlumnosInscritosToolStripMenuItem
+        '
+        Me.ReporteDeAlumnosInscritosToolStripMenuItem.Name = "ReporteDeAlumnosInscritosToolStripMenuItem"
+        Me.ReporteDeAlumnosInscritosToolStripMenuItem.Size = New System.Drawing.Size(538, 44)
+        Me.ReporteDeAlumnosInscritosToolStripMenuItem.Text = "Reporte de alumnos inscritos"
         '
         'SalirToolStripMenuItem
         '
@@ -238,11 +243,21 @@ Partial Class principal
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
         '
-        'KardexToolStripMenuItem
+        'PictureBox1
         '
-        Me.KardexToolStripMenuItem.Name = "KardexToolStripMenuItem"
-        Me.KardexToolStripMenuItem.Size = New System.Drawing.Size(203, 44)
-        Me.KardexToolStripMenuItem.Text = "Kardex"
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(404, 127)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(572, 454)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
+        '
+        'ReporteDeMaestrosToolStripMenuItem
+        '
+        Me.ReporteDeMaestrosToolStripMenuItem.Name = "ReporteDeMaestrosToolStripMenuItem"
+        Me.ReporteDeMaestrosToolStripMenuItem.Size = New System.Drawing.Size(538, 44)
+        Me.ReporteDeMaestrosToolStripMenuItem.Text = "Reporte de Maestros"
         '
         'principal
         '
@@ -256,9 +271,9 @@ Partial Class principal
         Me.Name = "principal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "principal"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.msPrincipal.ResumeLayout(False)
         Me.msPrincipal.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -291,4 +306,6 @@ Partial Class principal
     Friend WithEvents UsuariosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RegistroToolStripMenuItem3 As ToolStripMenuItem
     Friend WithEvents KardexToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReporteDeAlumnosInscritosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReporteDeMaestrosToolStripMenuItem As ToolStripMenuItem
 End Class

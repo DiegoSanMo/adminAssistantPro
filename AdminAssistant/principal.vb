@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports Microsoft.Reporting.WinForms
 Public Class principal
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Me.Close()
@@ -549,5 +550,25 @@ Public Class principal
             frmKardexAlumno.ShowDialog()
         End If
 
+    End Sub
+
+    Private Sub ReporteDeAlumnosInscritosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeAlumnosInscritosToolStripMenuItem.Click
+        frmReportes.ShowDialog()
+    End Sub
+
+    Private Sub ReporteDeMaestrosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeMaestrosToolStripMenuItem.Click
+        Dim cmd As New SqlCommand("REPORTEMAESTROS", Conexion)
+        cmd.CommandType = CommandType.StoredProcedure
+        Dim adaptador As New SqlDataAdapter(cmd)
+        Dim data As New DataSet
+        adaptador.Fill(data)
+        data.DataSetName = "DataSet1"
+        Dim reportes As New ReportDataSource("DataSet1", data.Tables(0))
+        frmReportes.ReportViewer1.LocalReport.DataSources.Clear()
+        frmReportes.ReportViewer1.LocalReport.DataSources.Add(reportes)
+        frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\AdminAssistant\Reportes\ReporteMaestros.rdlc"
+        frmReportes.ReportViewer1.RefreshReport()
+        frmReportes.ShowDialog()
+        Conexion.Close()
     End Sub
 End Class
