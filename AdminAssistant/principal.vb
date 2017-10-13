@@ -589,7 +589,7 @@ Public Class principal
         Dim reportes As New ReportDataSource("DataSet1", data.Tables(0))
         frmReportes.ReportViewer1.LocalReport.DataSources.Clear()
         frmReportes.ReportViewer1.LocalReport.DataSources.Add(reportes)
-        frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\AdminAssistant\Reportes\ReporteMaestros.rdlc"
+        frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteMaestros.rdlc"
         frmReportes.ReportViewer1.RefreshReport()
         frmReportes.ShowDialog()
         Conexion.Close()
