@@ -49,11 +49,11 @@ Partial Class principal
         Me.CapturarCalificacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CerrarCicloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReporteDeMaestrosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeAlumnosInscritosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ReporteDeMaestrosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.msPrincipal.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -225,6 +225,12 @@ Partial Class principal
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(219, 43)
         Me.ReportesToolStripMenuItem.Text = "Reportes"
         '
+        'ReporteDeMaestrosToolStripMenuItem
+        '
+        Me.ReporteDeMaestrosToolStripMenuItem.Name = "ReporteDeMaestrosToolStripMenuItem"
+        Me.ReporteDeMaestrosToolStripMenuItem.Size = New System.Drawing.Size(538, 44)
+        Me.ReporteDeMaestrosToolStripMenuItem.Text = "Reporte de Maestros"
+        '
         'ReporteDeAlumnosInscritosToolStripMenuItem
         '
         Me.ReporteDeAlumnosInscritosToolStripMenuItem.Name = "ReporteDeAlumnosInscritosToolStripMenuItem"
@@ -252,12 +258,6 @@ Partial Class principal
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
-        '
-        'ReporteDeMaestrosToolStripMenuItem
-        '
-        Me.ReporteDeMaestrosToolStripMenuItem.Name = "ReporteDeMaestrosToolStripMenuItem"
-        Me.ReporteDeMaestrosToolStripMenuItem.Size = New System.Drawing.Size(538, 44)
-        Me.ReporteDeMaestrosToolStripMenuItem.Text = "Reporte de Maestros"
         '
         'principal
         '

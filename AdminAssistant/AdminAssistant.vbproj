@@ -244,6 +244,7 @@
     <EmbeddedResource Include="principal.resx">
       <DependentUpon>principal.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteAlumnosInscritos.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteMaestros.rdlc" />
   </ItemGroup>
   <ItemGroup>

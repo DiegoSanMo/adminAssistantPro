@@ -27,9 +27,10 @@ Partial Class frmReportes
         '
         'ReportViewer1
         '
-        Me.ReportViewer1.Location = New System.Drawing.Point(13, 13)
+        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(959, 458)
+        Me.ReportViewer1.Size = New System.Drawing.Size(984, 483)
         Me.ReportViewer1.TabIndex = 0
         '
         'frmReportes

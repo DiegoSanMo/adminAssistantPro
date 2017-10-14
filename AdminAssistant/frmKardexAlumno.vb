@@ -9,7 +9,6 @@
         End While
         lectorGeneral.Close()
 
-
         cboNombre.Items.Clear()
         comandoGeneral.CommandText = "Select nombre from alumno where  nombre like '%" & cboNombre.Text & "%' "
         lectorGeneral = comandoGeneral.ExecuteReader
@@ -60,7 +59,6 @@
 
         lblSit.Visible = True
         txtSitN.Visible = True
-
 
         txtNivel1.Text = ""
         txtNivel2.Text = ""
@@ -119,5 +117,4 @@
         End While
         lectorGeneral.Close()
     End Sub
-
 End Class
