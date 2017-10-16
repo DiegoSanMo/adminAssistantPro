@@ -562,19 +562,20 @@ Public Class principal
             lectorGeneral.Close()
             Conexion.Close()
         Else
+            lectorGeneral.Close()
             Dim cmd As New SqlCommand("REPORTEALUMNOSINSCRITOS", Conexion)
             cmd.CommandType = CommandType.StoredProcedure
-            Dim adaptador As New SqlDataAdapter(cmd)
-            Dim data As New DataSet
-            adaptador.Fill(data)
-            data.DataSetName = "DataSet1"
-            Dim reportes As New ReportDataSource("DataSet1", data.Tables(0))
+            Dim adaptador1 As New SqlDataAdapter(cmd)
+            Dim data1 As New DataSet
+            adaptador1.Fill(data1)
+            data1.DataSetName = "DataSet1"
+            Dim reportes As New ReportDataSource("DataSet1", data1.Tables(0))
             frmReportes.ReportViewer1.LocalReport.DataSources.Clear()
             frmReportes.ReportViewer1.LocalReport.DataSources.Add(reportes)
-            frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\AdminAssistant\Reportes\ReporteAlumnosInscritos.rdlc"
+            frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteAlumnosInscritos.rdlc"
             frmReportes.ReportViewer1.RefreshReport()
             frmReportes.ShowDialog()
-            lectorGeneral.Close()
+            'lectorGeneral.Close()
             Conexion.Close()
         End If
     End Sub
@@ -593,5 +594,138 @@ Public Class principal
         frmReportes.ReportViewer1.RefreshReport()
         frmReportes.ShowDialog()
         Conexion.Close()
+    End Sub
+
+    Private Sub ReporteDeGruposPorCicloToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeGruposPorCicloToolStripMenuItem.Click
+
+        Conexion.Open()
+
+        comandoGeneral.CommandText = "Select count(idCiclo) from ciclo"
+        Dim n As Integer = comandoGeneral.ExecuteScalar()
+
+        If n > 0 Then
+            comandoGeneral.CommandText = "DELETE FROM auxHorario"
+            comandoGeneral.ExecuteNonQuery()
+
+            comandoGeneral.CommandText = "Select idCiclo, anio from ciclo"
+            lectorGeneral = comandoGeneral.ExecuteReader
+
+
+            While lectorGeneral.Read
+
+                Dim id As Integer = lectorGeneral(0)
+                Dim anio As Integer = lectorGeneral(1)
+                Dim nomBD As String = CStr(id) + "-" + CStr(anio)
+
+
+                Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+
+                    Dim comandoBDRemota As SqlCommand = conexioBDRemota.CreateCommand
+                    Dim comando2 As SqlCommand = conexioBDRemota.CreateCommand
+                    Dim lector2 As SqlDataReader
+                    Dim lectorBDRemota As SqlDataReader
+
+                    conexioBDRemota.Open()
+
+                    comandoBDRemota.CommandText = "SELECT  G.idGrupo, M.nombre, M.correo, M.telefono, G.nivel, G.cantInscritos, G.maxAlumnos, 
+		G.hLuIni, G.hLuFin, G.hMaIni, G.hMaFin, G.hMiIni, G.hMiFin, G.hJuIni, G.hJuFin, G.hViIni, G.hViFin, G.hSaIni, G.hSaFin  FROM MasterEA.dbo.maestro M LEFT JOIN  [" & nomBD & "].dbo.grupo G ON m.idMaestro = G.idMaestro where G.idGrupo <> 0"
+                    lectorBDRemota = comandoBDRemota.ExecuteReader
+
+                    While lectorBDRemota.Read
+                        comando2.CommandText = "Insert into MasterEA.dbo.auxHorario values('" & nomBD & "'," & lectorBDRemota(0) & ",'" & lectorBDRemota(1) & "','" & lectorBDRemota(2) & "','" & lectorBDRemota(3) & "', " & lectorBDRemota(4) & ", " & lectorBDRemota(5) & "," & lectorBDRemota(6) & ",'" & lectorBDRemota(7) & "','" & lectorBDRemota(8) & "','" & lectorBDRemota(9) & "','" & lectorBDRemota(10) & "','" & lectorBDRemota(11) & "','" & lectorBDRemota(12) & "','" & lectorBDRemota(13) & "','" & lectorBDRemota(14) & "','" & lectorBDRemota(15) & "','" & lectorBDRemota(16) & "','" & lectorBDRemota(17) & "','" & lectorBDRemota(18) & "')"
+                        comando2.ExecuteNonQuery()
+                    End While
+                    lectorBDRemota.Close()
+                    conexioBDRemota.Close()
+                End Using
+
+
+            End While
+            lectorGeneral.Close()
+        End If
+
+
+        Dim cmd As New SqlCommand("REPORTEGRUPOSGENERAL", Conexion)
+        cmd.CommandType = CommandType.StoredProcedure
+        Dim adaptador As New SqlDataAdapter(cmd)
+        Dim data As New DataSet
+        adaptador.Fill(data)
+        data.DataSetName = "DataSet1"
+        Dim reportes As New ReportDataSource("DataSet1", data.Tables(0))
+        frmReportes.ReportViewer1.LocalReport.DataSources.Clear()
+        frmReportes.ReportViewer1.LocalReport.DataSources.Add(reportes)
+        frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteGruposGeneral.rdlc"
+        frmReportes.ReportViewer1.RefreshReport()
+        frmReportes.ShowDialog()
+        Conexion.Close()
+    End Sub
+
+    Private Sub ReporteDeGruposPorCicloToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ReporteDeGruposPorCicloToolStripMenuItem1.Click
+
+        Conexion.Open()
+
+        comandoGeneral.CommandText = "Select count(idCiclo) from ciclo"
+        Dim n As Integer = comandoGeneral.ExecuteScalar()
+
+        If n > 0 Then
+            comandoGeneral.CommandText = "DELETE FROM auxHorario"
+            comandoGeneral.ExecuteNonQuery()
+            'Select estado From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)
+            comandoGeneral.CommandText = "Select idCiclo, anio, estado From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
+            lectorGeneral = comandoGeneral.ExecuteReader
+            lectorGeneral.Read()
+
+
+            Dim id As Integer = lectorGeneral(0)
+            Dim anio As Integer = lectorGeneral(1)
+            Dim nomBD As String = CStr(id) + "-" + CStr(anio)
+
+
+            If lectorGeneral(2) = "Abierto" Then
+                lectorGeneral.Close()
+
+
+                Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+
+                    Dim comandoBDRemota As SqlCommand = conexioBDRemota.CreateCommand
+                    Dim comando2 As SqlCommand = conexioBDRemota.CreateCommand
+                    Dim lector2 As SqlDataReader
+                    Dim lectorBDRemota As SqlDataReader
+
+                    conexioBDRemota.Open()
+
+                    comandoBDRemota.CommandText = "SELECT  G.idGrupo, M.nombre, M.correo, M.telefono, G.nivel, G.cantInscritos, G.maxAlumnos, 
+		G.hLuIni, G.hLuFin, G.hMaIni, G.hMaFin, G.hMiIni, G.hMiFin, G.hJuIni, G.hJuFin, G.hViIni, G.hViFin, G.hSaIni, G.hSaFin  FROM MasterEA.dbo.maestro M LEFT JOIN  [" & nomBD & "].dbo.grupo G ON m.idMaestro = G.idMaestro where G.idGrupo <> 0"
+                    lectorBDRemota = comandoBDRemota.ExecuteReader
+
+                    While lectorBDRemota.Read
+                        comando2.CommandText = "Insert into MasterEA.dbo.auxHorario values('" & nomBD & "'," & lectorBDRemota(0) & ",'" & lectorBDRemota(1) & "','" & lectorBDRemota(2) & "','" & lectorBDRemota(3) & "', " & lectorBDRemota(4) & ", " & lectorBDRemota(5) & "," & lectorBDRemota(6) & ",'" & lectorBDRemota(7) & "','" & lectorBDRemota(8) & "','" & lectorBDRemota(9) & "','" & lectorBDRemota(10) & "','" & lectorBDRemota(11) & "','" & lectorBDRemota(12) & "','" & lectorBDRemota(13) & "','" & lectorBDRemota(14) & "','" & lectorBDRemota(15) & "','" & lectorBDRemota(16) & "','" & lectorBDRemota(17) & "','" & lectorBDRemota(18) & "')"
+                        comando2.ExecuteNonQuery()
+                    End While
+                    lectorBDRemota.Close()
+                    conexioBDRemota.Close()
+                End Using
+
+
+                Dim cmd As New SqlCommand("REPORTEGRUPOSGENERAL", Conexion)
+                cmd.CommandType = CommandType.StoredProcedure
+                Dim adaptador As New SqlDataAdapter(cmd)
+                Dim data As New DataSet
+                adaptador.Fill(data)
+                data.DataSetName = "DataSet1"
+                Dim reportes As New ReportDataSource("DataSet1", data.Tables(0))
+                frmReportes.ReportViewer1.LocalReport.DataSources.Clear()
+                frmReportes.ReportViewer1.LocalReport.DataSources.Add(reportes)
+                frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteGrupoCicloAbierto.rdlc"
+                frmReportes.ReportViewer1.RefreshReport()
+                frmReportes.ShowDialog()
+                Conexion.Close()
+            Else
+                Conexion.Close()
+                MessageBox.Show("ERROR, NO HAY CICLO ABIERTO PARA REALIZAR EL REPORTE", "CICLO CERRADO", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+
+        End If
+
     End Sub
 End Class
