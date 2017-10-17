@@ -52,6 +52,7 @@
     <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Basic 2005 Power Packs\3.0\Microsoft.VisualBasic.PowerPacks.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -132,6 +133,12 @@
       <DependentUpon>frmRegistroUsuarios.vb</DependentUpon>
     </Compile>
     <Compile Include="frmRegistroUsuarios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteKardex.Designer.vb">
+      <DependentUpon>frmReporteKardex.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteKardex.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmReportes.Designer.vb">
@@ -219,6 +226,9 @@
     <EmbeddedResource Include="frmRegistroUsuarios.resx">
       <DependentUpon>frmRegistroUsuarios.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteKardex.resx">
+      <DependentUpon>frmReporteKardex.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmReportes.resx">
       <DependentUpon>frmReportes.vb</DependentUpon>
     </EmbeddedResource>
@@ -243,6 +253,7 @@
     <EmbeddedResource Include="principal.resx">
       <DependentUpon>principal.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteKardexPorAlumno.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteGrupoCicloAbierto.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteGruposGeneral.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteAlumnosInscritos.rdlc" />

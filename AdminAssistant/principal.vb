@@ -379,8 +379,8 @@ Public Class principal
 
                 Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
                 lectorGeneral.Close()
-                Dim conexionCiclo As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
-                'Dim conexionCiclo As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                'Dim conexionCiclo As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                Dim conexionCiclo As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
                 Dim comandoCiclo As SqlCommand = conexionCiclo.CreateCommand
 
                 conexionCiclo.Open()
@@ -597,7 +597,6 @@ Public Class principal
     End Sub
 
     Private Sub ReporteDeGruposPorCicloToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeGruposPorCicloToolStripMenuItem.Click
-
         Conexion.Open()
 
         comandoGeneral.CommandText = "Select count(idCiclo) from ciclo"
@@ -727,5 +726,9 @@ Public Class principal
 
         End If
 
+    End Sub
+
+    Private Sub ReporteDeKardexPorAlumnoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeKardexPorAlumnoToolStripMenuItem.Click
+        frmReporteKardex.ShowDialog()
     End Sub
 End Class

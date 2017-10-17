@@ -56,6 +56,7 @@ Partial Class principal
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ReporteDeKardexPorAlumnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.msPrincipal.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -221,7 +222,7 @@ Partial Class principal
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReporteDeMaestrosToolStripMenuItem, Me.ReporteDeAlumnosInscritosToolStripMenuItem, Me.ReporteDeGruposPorCicloToolStripMenuItem, Me.ReporteDeGruposPorCicloToolStripMenuItem1})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReporteDeMaestrosToolStripMenuItem, Me.ReporteDeAlumnosInscritosToolStripMenuItem, Me.ReporteDeGruposPorCicloToolStripMenuItem, Me.ReporteDeGruposPorCicloToolStripMenuItem1, Me.ReporteDeKardexPorAlumnoToolStripMenuItem})
         Me.ReportesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(219, 43)
@@ -272,6 +273,12 @@ Partial Class principal
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
+        '
+        'ReporteDeKardexPorAlumnoToolStripMenuItem
+        '
+        Me.ReporteDeKardexPorAlumnoToolStripMenuItem.Name = "ReporteDeKardexPorAlumnoToolStripMenuItem"
+        Me.ReporteDeKardexPorAlumnoToolStripMenuItem.Size = New System.Drawing.Size(642, 44)
+        Me.ReporteDeKardexPorAlumnoToolStripMenuItem.Text = "Reporte de kardex por alumno"
         '
         'principal
         '
@@ -324,4 +331,5 @@ Partial Class principal
     Friend WithEvents ReporteDeMaestrosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReporteDeGruposPorCicloToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReporteDeGruposPorCicloToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ReporteDeKardexPorAlumnoToolStripMenuItem As ToolStripMenuItem
 End Class
