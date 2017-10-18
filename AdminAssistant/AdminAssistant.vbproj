@@ -141,6 +141,12 @@
     <Compile Include="frmReporteKardex.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmReporteListas.Designer.vb">
+      <DependentUpon>frmReporteListas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteListas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmReportes.Designer.vb">
       <DependentUpon>frmReportes.vb</DependentUpon>
     </Compile>
@@ -229,6 +235,9 @@
     <EmbeddedResource Include="frmReporteKardex.resx">
       <DependentUpon>frmReporteKardex.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteListas.resx">
+      <DependentUpon>frmReporteListas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmReportes.resx">
       <DependentUpon>frmReportes.vb</DependentUpon>
     </EmbeddedResource>
@@ -253,6 +262,7 @@
     <EmbeddedResource Include="principal.resx">
       <DependentUpon>principal.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteListasPorCiclo.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteKardexPorAlumno.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteGrupoCicloAbierto.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteGruposGeneral.rdlc" />

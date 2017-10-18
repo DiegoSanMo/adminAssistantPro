@@ -53,10 +53,11 @@ Partial Class principal
         Me.ReporteDeAlumnosInscritosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeGruposPorCicloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeGruposPorCicloToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReporteDeKardexPorAlumnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ReporteDeKardexPorAlumnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReporteDeListasPorCicloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.msPrincipal.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -222,7 +223,7 @@ Partial Class principal
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReporteDeMaestrosToolStripMenuItem, Me.ReporteDeAlumnosInscritosToolStripMenuItem, Me.ReporteDeGruposPorCicloToolStripMenuItem, Me.ReporteDeGruposPorCicloToolStripMenuItem1, Me.ReporteDeKardexPorAlumnoToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReporteDeMaestrosToolStripMenuItem, Me.ReporteDeAlumnosInscritosToolStripMenuItem, Me.ReporteDeGruposPorCicloToolStripMenuItem, Me.ReporteDeGruposPorCicloToolStripMenuItem1, Me.ReporteDeKardexPorAlumnoToolStripMenuItem, Me.ReporteDeListasPorCicloToolStripMenuItem})
         Me.ReportesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(219, 43)
@@ -252,6 +253,12 @@ Partial Class principal
         Me.ReporteDeGruposPorCicloToolStripMenuItem1.Size = New System.Drawing.Size(642, 44)
         Me.ReporteDeGruposPorCicloToolStripMenuItem1.Text = "Reporte de grupo por ciclo abierto"
         '
+        'ReporteDeKardexPorAlumnoToolStripMenuItem
+        '
+        Me.ReporteDeKardexPorAlumnoToolStripMenuItem.Name = "ReporteDeKardexPorAlumnoToolStripMenuItem"
+        Me.ReporteDeKardexPorAlumnoToolStripMenuItem.Size = New System.Drawing.Size(642, 44)
+        Me.ReporteDeKardexPorAlumnoToolStripMenuItem.Text = "Reporte de kardex por alumno"
+        '
         'SalirToolStripMenuItem
         '
         Me.SalirToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace
@@ -274,11 +281,11 @@ Partial Class principal
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
-        'ReporteDeKardexPorAlumnoToolStripMenuItem
+        'ReporteDeListasPorCicloToolStripMenuItem
         '
-        Me.ReporteDeKardexPorAlumnoToolStripMenuItem.Name = "ReporteDeKardexPorAlumnoToolStripMenuItem"
-        Me.ReporteDeKardexPorAlumnoToolStripMenuItem.Size = New System.Drawing.Size(642, 44)
-        Me.ReporteDeKardexPorAlumnoToolStripMenuItem.Text = "Reporte de kardex por alumno"
+        Me.ReporteDeListasPorCicloToolStripMenuItem.Name = "ReporteDeListasPorCicloToolStripMenuItem"
+        Me.ReporteDeListasPorCicloToolStripMenuItem.Size = New System.Drawing.Size(642, 44)
+        Me.ReporteDeListasPorCicloToolStripMenuItem.Text = "Reporte de listas por ciclo"
         '
         'principal
         '
@@ -332,4 +339,5 @@ Partial Class principal
     Friend WithEvents ReporteDeGruposPorCicloToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReporteDeGruposPorCicloToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ReporteDeKardexPorAlumnoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReporteDeListasPorCicloToolStripMenuItem As ToolStripMenuItem
 End Class
