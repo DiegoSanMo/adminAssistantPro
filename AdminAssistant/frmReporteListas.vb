@@ -24,8 +24,8 @@ Public Class frmReporteListas
             If lectorGeneral(2) = "Abierto" Then
                 lectorGeneral.Close()
 
-                'Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
-                Using conexioBDRemota As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+                Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+                    'Using conexioBDRemota As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
                     Dim comandoBDRemota As SqlCommand = conexioBDRemota.CreateCommand
                     Dim comando2 As SqlCommand = conexioBDRemota.CreateCommand
                     Dim lectorBDRemota As SqlDataReader
@@ -53,7 +53,8 @@ Public Class frmReporteListas
                 Dim reportes As New ReportDataSource("DataSet1", data.Tables(0))
                 frmReportes.ReportViewer1.LocalReport.DataSources.Clear()
                 frmReportes.ReportViewer1.LocalReport.DataSources.Add(reportes)
-                frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\AdminAssistant\Reportes\ReporteListasPorCiclo.rdlc"
+                'frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\AdminAssistant\Reportes\ReporteListasPorCiclo.rdlc"
+                frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteListasPorCiclo.rdlc"
                 frmReportes.ReportViewer1.RefreshReport()
                 frmReportes.ShowDialog()
                 Conexion.Close()
@@ -78,7 +79,8 @@ Public Class frmReporteListas
         If lectorGeneral(2) = "Abierto" Then
             lectorGeneral.Close()
             Dim contListas As Integer
-            Using conexioBDRemota As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+            Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+                'Using conexioBDRemota As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
                 Dim comandoBDRemota As SqlCommand = conexioBDRemota.CreateCommand
                 Dim comando2 As SqlCommand = conexioBDRemota.CreateCommand
                 Dim lectorBDRemota As SqlDataReader

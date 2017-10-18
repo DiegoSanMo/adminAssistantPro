@@ -52,7 +52,6 @@
     <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Basic 2005 Power Packs\3.0\Microsoft.VisualBasic.PowerPacks.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -209,6 +208,12 @@
     <Compile Include="principal.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ReporteSituacion.Designer.vb">
+      <DependentUpon>ReporteSituacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReporteSituacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Catalogos\Alumnos\frmConsultaAlumnos.resx">
@@ -261,6 +266,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="principal.resx">
       <DependentUpon>principal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteSituacionAlumnos.rdlc" />
+    <EmbeddedResource Include="ReporteSituacion.resx">
+      <DependentUpon>ReporteSituacion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ReporteListasPorCiclo.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteKardexPorAlumno.rdlc" />

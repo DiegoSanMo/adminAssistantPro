@@ -43,7 +43,8 @@ Public Class frmReporteKardex
                 Dim p1 As New ReportParameter("P1", idAlumno)
                 frmReportes.ReportViewer1.LocalReport.DataSources.Clear()
                 frmReportes.ReportViewer1.LocalReport.DataSources.Add(datasource)
-                frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\AdminAssistant\Reportes\ReporteKardexPorAlumno.rdlc"
+                'frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\AdminAssistant\Reportes\ReporteKardexPorAlumno.rdlc"
+                frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteKardexPorAlumno.rdlc"
                 frmReportes.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {p1})
                 frmReportes.ReportViewer1.RefreshReport()
                 frmReportes.ShowDialog()

@@ -667,7 +667,7 @@ Public Class principal
         Dim n As Integer = comandoGeneral.ExecuteScalar()
 
         If n > 0 Then
-            comandoGeneral.CommandText = "DELETE FROM auxListas"
+            comandoGeneral.CommandText = "DELETE FROM auxHorario"
             comandoGeneral.ExecuteNonQuery()
             'Select estado From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)
             comandoGeneral.CommandText = "Select idCiclo, anio, estado From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
@@ -683,9 +683,9 @@ Public Class principal
             If lectorGeneral(2) = "Abierto" Then
                 lectorGeneral.Close()
 
-                'Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
-                Using conexioBDRemota As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
-                    Dim comandoBDRemota As SqlCommand = conexioBDRemota.CreateCommand
+                Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+                'Using conexioBDRemota As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+                Dim comandoBDRemota As SqlCommand = conexioBDRemota.CreateCommand
                     Dim comando2 As SqlCommand = conexioBDRemota.CreateCommand
                     Dim lectorBDRemota As SqlDataReader
 
@@ -732,5 +732,9 @@ Public Class principal
 
     Private Sub ReporteDeListasPorCicloToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeListasPorCicloToolStripMenuItem.Click
         frmReporteListas.ShowDialog()
+    End Sub
+
+    Private Sub ReporteDeAlumnosPorSituaciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeAlumnosPorSituaciónToolStripMenuItem.Click
+        ReporteSituacion.ShowDialog()
     End Sub
 End Class

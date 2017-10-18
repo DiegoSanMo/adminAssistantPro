@@ -6,12 +6,12 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>3.32021cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.97042cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -22,25 +22,24 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>h Sa Fin</Value>
+                              <Value>Situacion</Value>
                               <Style>
-                                <FontFamily>Tahoma</FontFamily>
-                                <FontSize>11pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>White</Color>
+                                <FontStyle>Normal</FontStyle>
+                                <FontWeight>ExtraBold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox2</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>#7292cc</Color>
+                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>#4c68a2</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -56,27 +55,26 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="hSaFin">
+                    <Textbox Name="situacion">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!hSaFin.Value</Value>
-                              <Style>
-                                <FontFamily>Tahoma</FontFamily>
-                                <Color>#4d4d4d</Color>
-                              </Style>
+                              <Value>=Fields!situacion.Value</Value>
+                              <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>hSaFin</rd:DefaultName>
+                      <rd:DefaultName>situacion</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>#e5e5e5</Color>
+                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -93,41 +91,44 @@
         </TablixBody>
         <TablixColumnHierarchy>
           <TablixMembers>
-            <TablixMember />
+            <TablixMember>
+              <Visibility>
+                <Hidden>true</Hidden>
+              </Visibility>
+            </TablixMember>
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>3.53188cm</Size>
+                <Size>2.5cm</Size>
                 <CellContents>
-                  <Textbox Name="Textbox39">
+                  <Textbox Name="Textbox13">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>nombre DB</Value>
+                            <Value>id Alumno</Value>
                             <Style>
-                              <FontFamily>Tahoma</FontFamily>
-                              <FontSize>11pt</FontSize>
-                              <FontWeight>Bold</FontWeight>
-                              <Color>White</Color>
+                              <FontStyle>Normal</FontStyle>
+                              <FontWeight>ExtraBold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>Textbox39</rd:DefaultName>
+                    <rd:DefaultName>Textbox13</rd:DefaultName>
                     <Style>
                       <Border>
-                        <Color>#7292cc</Color>
+                        <Color>LightGrey</Color>
                         <Style>Solid</Style>
                       </Border>
-                      <BackgroundColor>#4c68a2</BackgroundColor>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -139,34 +140,33 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>2.5cm</Size>
+                    <Size>6.12479cm</Size>
                     <CellContents>
-                      <Textbox Name="Textbox37">
+                      <Textbox Name="Textbox11">
                         <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
                         <Paragraphs>
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>id Grupo</Value>
+                                <Value>Nombre</Value>
                                 <Style>
-                                  <FontFamily>Tahoma</FontFamily>
-                                  <FontSize>11pt</FontSize>
-                                  <FontWeight>Bold</FontWeight>
-                                  <Color>White</Color>
+                                  <FontStyle>Normal</FontStyle>
+                                  <FontWeight>ExtraBold</FontWeight>
                                 </Style>
                               </TextRun>
                             </TextRuns>
-                            <Style />
+                            <Style>
+                              <TextAlign>Center</TextAlign>
+                            </Style>
                           </Paragraph>
                         </Paragraphs>
-                        <rd:DefaultName>Textbox37</rd:DefaultName>
+                        <rd:DefaultName>Textbox11</rd:DefaultName>
                         <Style>
                           <Border>
-                            <Color>#7292cc</Color>
+                            <Color>LightGrey</Color>
                             <Style>Solid</Style>
                           </Border>
-                          <BackgroundColor>#4c68a2</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -178,34 +178,33 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>8.58542cm</Size>
+                        <Size>5.14583cm</Size>
                         <CellContents>
-                          <Textbox Name="Textbox35">
+                          <Textbox Name="Textbox9">
                             <CanGrow>true</CanGrow>
                             <KeepTogether>true</KeepTogether>
                             <Paragraphs>
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>Maestro</Value>
+                                    <Value>Domicilio</Value>
                                     <Style>
-                                      <FontFamily>Tahoma</FontFamily>
-                                      <FontSize>11pt</FontSize>
-                                      <FontWeight>Bold</FontWeight>
-                                      <Color>White</Color>
+                                      <FontStyle>Normal</FontStyle>
+                                      <FontWeight>ExtraBold</FontWeight>
                                     </Style>
                                   </TextRun>
                                 </TextRuns>
-                                <Style />
+                                <Style>
+                                  <TextAlign>Center</TextAlign>
+                                </Style>
                               </Paragraph>
                             </Paragraphs>
-                            <rd:DefaultName>Textbox35</rd:DefaultName>
+                            <rd:DefaultName>Textbox9</rd:DefaultName>
                             <Style>
                               <Border>
-                                <Color>#7292cc</Color>
+                                <Color>LightGrey</Color>
                                 <Style>Solid</Style>
                               </Border>
-                              <BackgroundColor>#4c68a2</BackgroundColor>
                               <PaddingLeft>2pt</PaddingLeft>
                               <PaddingRight>2pt</PaddingRight>
                               <PaddingTop>2pt</PaddingTop>
@@ -217,34 +216,33 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>6.33646cm</Size>
+                            <Size>4.405cm</Size>
                             <CellContents>
-                              <Textbox Name="Textbox33">
+                              <Textbox Name="Textbox7">
                                 <CanGrow>true</CanGrow>
                                 <KeepTogether>true</KeepTogether>
                                 <Paragraphs>
                                   <Paragraph>
                                     <TextRuns>
                                       <TextRun>
-                                        <Value>correo</Value>
+                                        <Value>Correo</Value>
                                         <Style>
-                                          <FontFamily>Tahoma</FontFamily>
-                                          <FontSize>11pt</FontSize>
-                                          <FontWeight>Bold</FontWeight>
-                                          <Color>White</Color>
+                                          <FontStyle>Normal</FontStyle>
+                                          <FontWeight>ExtraBold</FontWeight>
                                         </Style>
                                       </TextRun>
                                     </TextRuns>
-                                    <Style />
+                                    <Style>
+                                      <TextAlign>Center</TextAlign>
+                                    </Style>
                                   </Paragraph>
                                 </Paragraphs>
-                                <rd:DefaultName>Textbox33</rd:DefaultName>
+                                <rd:DefaultName>Textbox7</rd:DefaultName>
                                 <Style>
                                   <Border>
-                                    <Color>#7292cc</Color>
+                                    <Color>LightGrey</Color>
                                     <Style>Solid</Style>
                                   </Border>
-                                  <BackgroundColor>#4c68a2</BackgroundColor>
                                   <PaddingLeft>2pt</PaddingLeft>
                                   <PaddingRight>2pt</PaddingRight>
                                   <PaddingTop>2pt</PaddingTop>
@@ -256,34 +254,33 @@
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>5.17229cm</Size>
+                                <Size>2.5cm</Size>
                                 <CellContents>
-                                  <Textbox Name="Textbox31">
+                                  <Textbox Name="Textbox5">
                                     <CanGrow>true</CanGrow>
                                     <KeepTogether>true</KeepTogether>
                                     <Paragraphs>
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>telefono</Value>
+                                            <Value>Teléfono</Value>
                                             <Style>
-                                              <FontFamily>Tahoma</FontFamily>
-                                              <FontSize>11pt</FontSize>
-                                              <FontWeight>Bold</FontWeight>
-                                              <Color>White</Color>
+                                              <FontStyle>Normal</FontStyle>
+                                              <FontWeight>ExtraBold</FontWeight>
                                             </Style>
                                           </TextRun>
                                         </TextRuns>
-                                        <Style />
+                                        <Style>
+                                          <TextAlign>Center</TextAlign>
+                                        </Style>
                                       </Paragraph>
                                     </Paragraphs>
-                                    <rd:DefaultName>Textbox31</rd:DefaultName>
+                                    <rd:DefaultName>Textbox5</rd:DefaultName>
                                     <Style>
                                       <Border>
-                                        <Color>#7292cc</Color>
+                                        <Color>LightGrey</Color>
                                         <Style>Solid</Style>
                                       </Border>
-                                      <BackgroundColor>#4c68a2</BackgroundColor>
                                       <PaddingLeft>2pt</PaddingLeft>
                                       <PaddingRight>2pt</PaddingRight>
                                       <PaddingTop>2pt</PaddingTop>
@@ -295,34 +292,34 @@
                               <TablixMembers>
                                 <TablixMember>
                                   <TablixHeader>
-                                    <Size>2.5cm</Size>
+                                    <Size>3.87583cm</Size>
                                     <CellContents>
-                                      <Textbox Name="Textbox29">
+                                      <Textbox Name="Textbox3">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>nivel</Value>
+                                                <Value>Último Nivel 
+Acreditado</Value>
                                                 <Style>
-                                                  <FontFamily>Tahoma</FontFamily>
-                                                  <FontSize>11pt</FontSize>
-                                                  <FontWeight>Bold</FontWeight>
-                                                  <Color>White</Color>
+                                                  <FontStyle>Normal</FontStyle>
+                                                  <FontWeight>ExtraBold</FontWeight>
                                                 </Style>
                                               </TextRun>
                                             </TextRuns>
-                                            <Style />
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>Textbox29</rd:DefaultName>
+                                        <rd:DefaultName>Textbox3</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>#7292cc</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
-                                          <BackgroundColor>#4c68a2</BackgroundColor>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
                                           <PaddingTop>2pt</PaddingTop>
@@ -332,540 +329,7 @@
                                     </CellContents>
                                   </TablixHeader>
                                   <TablixMembers>
-                                    <TablixMember>
-                                      <TablixHeader>
-                                        <Size>2.5cm</Size>
-                                        <CellContents>
-                                          <Textbox Name="Textbox27">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value>cant Inscritos</Value>
-                                                    <Style>
-                                                      <FontFamily>Tahoma</FontFamily>
-                                                      <FontSize>11pt</FontSize>
-                                                      <FontWeight>Bold</FontWeight>
-                                                      <Color>White</Color>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox27</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Color>#7292cc</Color>
-                                                <Style>Solid</Style>
-                                              </Border>
-                                              <BackgroundColor>#4c68a2</BackgroundColor>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixHeader>
-                                      <TablixMembers>
-                                        <TablixMember>
-                                          <TablixHeader>
-                                            <Size>2.5cm</Size>
-                                            <CellContents>
-                                              <Textbox Name="Textbox25">
-                                                <CanGrow>true</CanGrow>
-                                                <KeepTogether>true</KeepTogether>
-                                                <Paragraphs>
-                                                  <Paragraph>
-                                                    <TextRuns>
-                                                      <TextRun>
-                                                        <Value>max Alumnos</Value>
-                                                        <Style>
-                                                          <FontFamily>Tahoma</FontFamily>
-                                                          <FontSize>11pt</FontSize>
-                                                          <FontWeight>Bold</FontWeight>
-                                                          <Color>White</Color>
-                                                        </Style>
-                                                      </TextRun>
-                                                    </TextRuns>
-                                                    <Style />
-                                                  </Paragraph>
-                                                </Paragraphs>
-                                                <rd:DefaultName>Textbox25</rd:DefaultName>
-                                                <Style>
-                                                  <Border>
-                                                    <Color>#7292cc</Color>
-                                                    <Style>Solid</Style>
-                                                  </Border>
-                                                  <BackgroundColor>#4c68a2</BackgroundColor>
-                                                  <PaddingLeft>2pt</PaddingLeft>
-                                                  <PaddingRight>2pt</PaddingRight>
-                                                  <PaddingTop>2pt</PaddingTop>
-                                                  <PaddingBottom>2pt</PaddingBottom>
-                                                </Style>
-                                              </Textbox>
-                                            </CellContents>
-                                          </TablixHeader>
-                                          <TablixMembers>
-                                            <TablixMember>
-                                              <TablixHeader>
-                                                <Size>2.5cm</Size>
-                                                <CellContents>
-                                                  <Textbox Name="Textbox23">
-                                                    <CanGrow>true</CanGrow>
-                                                    <KeepTogether>true</KeepTogether>
-                                                    <Paragraphs>
-                                                      <Paragraph>
-                                                        <TextRuns>
-                                                          <TextRun>
-                                                            <Value>h Lu Ini</Value>
-                                                            <Style>
-                                                              <FontFamily>Tahoma</FontFamily>
-                                                              <FontSize>11pt</FontSize>
-                                                              <FontWeight>Bold</FontWeight>
-                                                              <Color>White</Color>
-                                                            </Style>
-                                                          </TextRun>
-                                                        </TextRuns>
-                                                        <Style />
-                                                      </Paragraph>
-                                                    </Paragraphs>
-                                                    <rd:DefaultName>Textbox23</rd:DefaultName>
-                                                    <Style>
-                                                      <Border>
-                                                        <Color>#7292cc</Color>
-                                                        <Style>Solid</Style>
-                                                      </Border>
-                                                      <BackgroundColor>#4c68a2</BackgroundColor>
-                                                      <PaddingLeft>2pt</PaddingLeft>
-                                                      <PaddingRight>2pt</PaddingRight>
-                                                      <PaddingTop>2pt</PaddingTop>
-                                                      <PaddingBottom>2pt</PaddingBottom>
-                                                    </Style>
-                                                  </Textbox>
-                                                </CellContents>
-                                              </TablixHeader>
-                                              <TablixMembers>
-                                                <TablixMember>
-                                                  <TablixHeader>
-                                                    <Size>2.5cm</Size>
-                                                    <CellContents>
-                                                      <Textbox Name="Textbox21">
-                                                        <CanGrow>true</CanGrow>
-                                                        <KeepTogether>true</KeepTogether>
-                                                        <Paragraphs>
-                                                          <Paragraph>
-                                                            <TextRuns>
-                                                              <TextRun>
-                                                                <Value>h Lu Fin</Value>
-                                                                <Style>
-                                                                  <FontFamily>Tahoma</FontFamily>
-                                                                  <FontSize>11pt</FontSize>
-                                                                  <FontWeight>Bold</FontWeight>
-                                                                  <Color>White</Color>
-                                                                </Style>
-                                                              </TextRun>
-                                                            </TextRuns>
-                                                            <Style />
-                                                          </Paragraph>
-                                                        </Paragraphs>
-                                                        <rd:DefaultName>Textbox21</rd:DefaultName>
-                                                        <Style>
-                                                          <Border>
-                                                            <Color>#7292cc</Color>
-                                                            <Style>Solid</Style>
-                                                          </Border>
-                                                          <BackgroundColor>#4c68a2</BackgroundColor>
-                                                          <PaddingLeft>2pt</PaddingLeft>
-                                                          <PaddingRight>2pt</PaddingRight>
-                                                          <PaddingTop>2pt</PaddingTop>
-                                                          <PaddingBottom>2pt</PaddingBottom>
-                                                        </Style>
-                                                      </Textbox>
-                                                    </CellContents>
-                                                  </TablixHeader>
-                                                  <TablixMembers>
-                                                    <TablixMember>
-                                                      <TablixHeader>
-                                                        <Size>2.5cm</Size>
-                                                        <CellContents>
-                                                          <Textbox Name="Textbox19">
-                                                            <CanGrow>true</CanGrow>
-                                                            <KeepTogether>true</KeepTogether>
-                                                            <Paragraphs>
-                                                              <Paragraph>
-                                                                <TextRuns>
-                                                                  <TextRun>
-                                                                    <Value>h Ma Ini</Value>
-                                                                    <Style>
-                                                                      <FontFamily>Tahoma</FontFamily>
-                                                                      <FontSize>11pt</FontSize>
-                                                                      <FontWeight>Bold</FontWeight>
-                                                                      <Color>White</Color>
-                                                                    </Style>
-                                                                  </TextRun>
-                                                                </TextRuns>
-                                                                <Style />
-                                                              </Paragraph>
-                                                            </Paragraphs>
-                                                            <rd:DefaultName>Textbox19</rd:DefaultName>
-                                                            <Style>
-                                                              <Border>
-                                                                <Color>#7292cc</Color>
-                                                                <Style>Solid</Style>
-                                                              </Border>
-                                                              <BackgroundColor>#4c68a2</BackgroundColor>
-                                                              <PaddingLeft>2pt</PaddingLeft>
-                                                              <PaddingRight>2pt</PaddingRight>
-                                                              <PaddingTop>2pt</PaddingTop>
-                                                              <PaddingBottom>2pt</PaddingBottom>
-                                                            </Style>
-                                                          </Textbox>
-                                                        </CellContents>
-                                                      </TablixHeader>
-                                                      <TablixMembers>
-                                                        <TablixMember>
-                                                          <TablixHeader>
-                                                            <Size>2.5cm</Size>
-                                                            <CellContents>
-                                                              <Textbox Name="Textbox17">
-                                                                <CanGrow>true</CanGrow>
-                                                                <KeepTogether>true</KeepTogether>
-                                                                <Paragraphs>
-                                                                  <Paragraph>
-                                                                    <TextRuns>
-                                                                      <TextRun>
-                                                                        <Value>h Ma Fin</Value>
-                                                                        <Style>
-                                                                          <FontFamily>Tahoma</FontFamily>
-                                                                          <FontSize>11pt</FontSize>
-                                                                          <FontWeight>Bold</FontWeight>
-                                                                          <Color>White</Color>
-                                                                        </Style>
-                                                                      </TextRun>
-                                                                    </TextRuns>
-                                                                    <Style />
-                                                                  </Paragraph>
-                                                                </Paragraphs>
-                                                                <rd:DefaultName>Textbox17</rd:DefaultName>
-                                                                <Style>
-                                                                  <Border>
-                                                                    <Color>#7292cc</Color>
-                                                                    <Style>Solid</Style>
-                                                                  </Border>
-                                                                  <BackgroundColor>#4c68a2</BackgroundColor>
-                                                                  <PaddingLeft>2pt</PaddingLeft>
-                                                                  <PaddingRight>2pt</PaddingRight>
-                                                                  <PaddingTop>2pt</PaddingTop>
-                                                                  <PaddingBottom>2pt</PaddingBottom>
-                                                                </Style>
-                                                              </Textbox>
-                                                            </CellContents>
-                                                          </TablixHeader>
-                                                          <TablixMembers>
-                                                            <TablixMember>
-                                                              <TablixHeader>
-                                                                <Size>2.5cm</Size>
-                                                                <CellContents>
-                                                                  <Textbox Name="Textbox15">
-                                                                    <CanGrow>true</CanGrow>
-                                                                    <KeepTogether>true</KeepTogether>
-                                                                    <Paragraphs>
-                                                                      <Paragraph>
-                                                                        <TextRuns>
-                                                                          <TextRun>
-                                                                            <Value>h Mi Ini</Value>
-                                                                            <Style>
-                                                                              <FontFamily>Tahoma</FontFamily>
-                                                                              <FontSize>11pt</FontSize>
-                                                                              <FontWeight>Bold</FontWeight>
-                                                                              <Color>White</Color>
-                                                                            </Style>
-                                                                          </TextRun>
-                                                                        </TextRuns>
-                                                                        <Style />
-                                                                      </Paragraph>
-                                                                    </Paragraphs>
-                                                                    <rd:DefaultName>Textbox15</rd:DefaultName>
-                                                                    <Style>
-                                                                      <Border>
-                                                                        <Color>#7292cc</Color>
-                                                                        <Style>Solid</Style>
-                                                                      </Border>
-                                                                      <BackgroundColor>#4c68a2</BackgroundColor>
-                                                                      <PaddingLeft>2pt</PaddingLeft>
-                                                                      <PaddingRight>2pt</PaddingRight>
-                                                                      <PaddingTop>2pt</PaddingTop>
-                                                                      <PaddingBottom>2pt</PaddingBottom>
-                                                                    </Style>
-                                                                  </Textbox>
-                                                                </CellContents>
-                                                              </TablixHeader>
-                                                              <TablixMembers>
-                                                                <TablixMember>
-                                                                  <TablixHeader>
-                                                                    <Size>2.5cm</Size>
-                                                                    <CellContents>
-                                                                      <Textbox Name="Textbox13">
-                                                                        <CanGrow>true</CanGrow>
-                                                                        <KeepTogether>true</KeepTogether>
-                                                                        <Paragraphs>
-                                                                          <Paragraph>
-                                                                            <TextRuns>
-                                                                              <TextRun>
-                                                                                <Value>h Mi Fin</Value>
-                                                                                <Style>
-                                                                                  <FontFamily>Tahoma</FontFamily>
-                                                                                  <FontSize>11pt</FontSize>
-                                                                                  <FontWeight>Bold</FontWeight>
-                                                                                  <Color>White</Color>
-                                                                                </Style>
-                                                                              </TextRun>
-                                                                            </TextRuns>
-                                                                            <Style />
-                                                                          </Paragraph>
-                                                                        </Paragraphs>
-                                                                        <rd:DefaultName>Textbox13</rd:DefaultName>
-                                                                        <Style>
-                                                                          <Border>
-                                                                            <Color>#7292cc</Color>
-                                                                            <Style>Solid</Style>
-                                                                          </Border>
-                                                                          <BackgroundColor>#4c68a2</BackgroundColor>
-                                                                          <PaddingLeft>2pt</PaddingLeft>
-                                                                          <PaddingRight>2pt</PaddingRight>
-                                                                          <PaddingTop>2pt</PaddingTop>
-                                                                          <PaddingBottom>2pt</PaddingBottom>
-                                                                        </Style>
-                                                                      </Textbox>
-                                                                    </CellContents>
-                                                                  </TablixHeader>
-                                                                  <TablixMembers>
-                                                                    <TablixMember>
-                                                                      <TablixHeader>
-                                                                        <Size>2.5cm</Size>
-                                                                        <CellContents>
-                                                                          <Textbox Name="Textbox11">
-                                                                            <CanGrow>true</CanGrow>
-                                                                            <KeepTogether>true</KeepTogether>
-                                                                            <Paragraphs>
-                                                                              <Paragraph>
-                                                                                <TextRuns>
-                                                                                  <TextRun>
-                                                                                    <Value>h Ju Ini</Value>
-                                                                                    <Style>
-                                                                                      <FontFamily>Tahoma</FontFamily>
-                                                                                      <FontSize>11pt</FontSize>
-                                                                                      <FontWeight>Bold</FontWeight>
-                                                                                      <Color>White</Color>
-                                                                                    </Style>
-                                                                                  </TextRun>
-                                                                                </TextRuns>
-                                                                                <Style />
-                                                                              </Paragraph>
-                                                                            </Paragraphs>
-                                                                            <rd:DefaultName>Textbox11</rd:DefaultName>
-                                                                            <Style>
-                                                                              <Border>
-                                                                                <Color>#7292cc</Color>
-                                                                                <Style>Solid</Style>
-                                                                              </Border>
-                                                                              <BackgroundColor>#4c68a2</BackgroundColor>
-                                                                              <PaddingLeft>2pt</PaddingLeft>
-                                                                              <PaddingRight>2pt</PaddingRight>
-                                                                              <PaddingTop>2pt</PaddingTop>
-                                                                              <PaddingBottom>2pt</PaddingBottom>
-                                                                            </Style>
-                                                                          </Textbox>
-                                                                        </CellContents>
-                                                                      </TablixHeader>
-                                                                      <TablixMembers>
-                                                                        <TablixMember>
-                                                                          <TablixHeader>
-                                                                            <Size>2.5cm</Size>
-                                                                            <CellContents>
-                                                                              <Textbox Name="Textbox9">
-                                                                                <CanGrow>true</CanGrow>
-                                                                                <KeepTogether>true</KeepTogether>
-                                                                                <Paragraphs>
-                                                                                  <Paragraph>
-                                                                                    <TextRuns>
-                                                                                      <TextRun>
-                                                                                        <Value>h Ju Fin</Value>
-                                                                                        <Style>
-                                                                                          <FontFamily>Tahoma</FontFamily>
-                                                                                          <FontSize>11pt</FontSize>
-                                                                                          <FontWeight>Bold</FontWeight>
-                                                                                          <Color>White</Color>
-                                                                                        </Style>
-                                                                                      </TextRun>
-                                                                                    </TextRuns>
-                                                                                    <Style />
-                                                                                  </Paragraph>
-                                                                                </Paragraphs>
-                                                                                <rd:DefaultName>Textbox9</rd:DefaultName>
-                                                                                <Style>
-                                                                                  <Border>
-                                                                                    <Color>#7292cc</Color>
-                                                                                    <Style>Solid</Style>
-                                                                                  </Border>
-                                                                                  <BackgroundColor>#4c68a2</BackgroundColor>
-                                                                                  <PaddingLeft>2pt</PaddingLeft>
-                                                                                  <PaddingRight>2pt</PaddingRight>
-                                                                                  <PaddingTop>2pt</PaddingTop>
-                                                                                  <PaddingBottom>2pt</PaddingBottom>
-                                                                                </Style>
-                                                                              </Textbox>
-                                                                            </CellContents>
-                                                                          </TablixHeader>
-                                                                          <TablixMembers>
-                                                                            <TablixMember>
-                                                                              <TablixHeader>
-                                                                                <Size>2.5cm</Size>
-                                                                                <CellContents>
-                                                                                  <Textbox Name="Textbox7">
-                                                                                    <CanGrow>true</CanGrow>
-                                                                                    <KeepTogether>true</KeepTogether>
-                                                                                    <Paragraphs>
-                                                                                      <Paragraph>
-                                                                                        <TextRuns>
-                                                                                          <TextRun>
-                                                                                            <Value>h Vi Ini</Value>
-                                                                                            <Style>
-                                                                                              <FontFamily>Tahoma</FontFamily>
-                                                                                              <FontSize>11pt</FontSize>
-                                                                                              <FontWeight>Bold</FontWeight>
-                                                                                              <Color>White</Color>
-                                                                                            </Style>
-                                                                                          </TextRun>
-                                                                                        </TextRuns>
-                                                                                        <Style />
-                                                                                      </Paragraph>
-                                                                                    </Paragraphs>
-                                                                                    <rd:DefaultName>Textbox7</rd:DefaultName>
-                                                                                    <Style>
-                                                                                      <Border>
-                                                                                        <Color>#7292cc</Color>
-                                                                                        <Style>Solid</Style>
-                                                                                      </Border>
-                                                                                      <BackgroundColor>#4c68a2</BackgroundColor>
-                                                                                      <PaddingLeft>2pt</PaddingLeft>
-                                                                                      <PaddingRight>2pt</PaddingRight>
-                                                                                      <PaddingTop>2pt</PaddingTop>
-                                                                                      <PaddingBottom>2pt</PaddingBottom>
-                                                                                    </Style>
-                                                                                  </Textbox>
-                                                                                </CellContents>
-                                                                              </TablixHeader>
-                                                                              <TablixMembers>
-                                                                                <TablixMember>
-                                                                                  <TablixHeader>
-                                                                                    <Size>2.5cm</Size>
-                                                                                    <CellContents>
-                                                                                      <Textbox Name="Textbox5">
-                                                                                        <CanGrow>true</CanGrow>
-                                                                                        <KeepTogether>true</KeepTogether>
-                                                                                        <Paragraphs>
-                                                                                          <Paragraph>
-                                                                                            <TextRuns>
-                                                                                              <TextRun>
-                                                                                                <Value>h Vi Fin</Value>
-                                                                                                <Style>
-                                                                                                  <FontFamily>Tahoma</FontFamily>
-                                                                                                  <FontSize>11pt</FontSize>
-                                                                                                  <FontWeight>Bold</FontWeight>
-                                                                                                  <Color>White</Color>
-                                                                                                </Style>
-                                                                                              </TextRun>
-                                                                                            </TextRuns>
-                                                                                            <Style />
-                                                                                          </Paragraph>
-                                                                                        </Paragraphs>
-                                                                                        <rd:DefaultName>Textbox5</rd:DefaultName>
-                                                                                        <Style>
-                                                                                          <Border>
-                                                                                            <Color>#7292cc</Color>
-                                                                                            <Style>Solid</Style>
-                                                                                          </Border>
-                                                                                          <BackgroundColor>#4c68a2</BackgroundColor>
-                                                                                          <PaddingLeft>2pt</PaddingLeft>
-                                                                                          <PaddingRight>2pt</PaddingRight>
-                                                                                          <PaddingTop>2pt</PaddingTop>
-                                                                                          <PaddingBottom>2pt</PaddingBottom>
-                                                                                        </Style>
-                                                                                      </Textbox>
-                                                                                    </CellContents>
-                                                                                  </TablixHeader>
-                                                                                  <TablixMembers>
-                                                                                    <TablixMember>
-                                                                                      <TablixHeader>
-                                                                                        <Size>2.5cm</Size>
-                                                                                        <CellContents>
-                                                                                          <Textbox Name="Textbox3">
-                                                                                            <CanGrow>true</CanGrow>
-                                                                                            <KeepTogether>true</KeepTogether>
-                                                                                            <Paragraphs>
-                                                                                              <Paragraph>
-                                                                                                <TextRuns>
-                                                                                                  <TextRun>
-                                                                                                    <Value>h Sa Ini</Value>
-                                                                                                    <Style>
-                                                                                                      <FontFamily>Tahoma</FontFamily>
-                                                                                                      <FontSize>11pt</FontSize>
-                                                                                                      <FontWeight>Bold</FontWeight>
-                                                                                                      <Color>White</Color>
-                                                                                                    </Style>
-                                                                                                  </TextRun>
-                                                                                                </TextRuns>
-                                                                                                <Style />
-                                                                                              </Paragraph>
-                                                                                            </Paragraphs>
-                                                                                            <rd:DefaultName>Textbox3</rd:DefaultName>
-                                                                                            <Style>
-                                                                                              <Border>
-                                                                                                <Color>#7292cc</Color>
-                                                                                                <Style>Solid</Style>
-                                                                                              </Border>
-                                                                                              <BackgroundColor>#4c68a2</BackgroundColor>
-                                                                                              <PaddingLeft>2pt</PaddingLeft>
-                                                                                              <PaddingRight>2pt</PaddingRight>
-                                                                                              <PaddingTop>2pt</PaddingTop>
-                                                                                              <PaddingBottom>2pt</PaddingBottom>
-                                                                                            </Style>
-                                                                                          </Textbox>
-                                                                                        </CellContents>
-                                                                                      </TablixHeader>
-                                                                                      <TablixMembers>
-                                                                                        <TablixMember />
-                                                                                      </TablixMembers>
-                                                                                    </TablixMember>
-                                                                                  </TablixMembers>
-                                                                                </TablixMember>
-                                                                              </TablixMembers>
-                                                                            </TablixMember>
-                                                                          </TablixMembers>
-                                                                        </TablixMember>
-                                                                      </TablixMembers>
-                                                                    </TablixMember>
-                                                                  </TablixMembers>
-                                                                </TablixMember>
-                                                              </TablixMembers>
-                                                            </TablixMember>
-                                                          </TablixMembers>
-                                                        </TablixMember>
-                                                      </TablixMembers>
-                                                    </TablixMember>
-                                                  </TablixMembers>
-                                                </TablixMember>
-                                              </TablixMembers>
-                                            </TablixMember>
-                                          </TablixMembers>
-                                        </TablixMember>
-                                      </TablixMembers>
-                                    </TablixMember>
+                                    <TablixMember />
                                   </TablixMembers>
                                 </TablixMember>
                               </TablixMembers>
@@ -880,44 +344,41 @@
               <KeepWithGroup>After</KeepWithGroup>
             </TablixMember>
             <TablixMember>
-              <Group Name="nombreDB">
+              <Group Name="idAlumno">
                 <GroupExpressions>
-                  <GroupExpression>=Fields!nombreDB.Value</GroupExpression>
+                  <GroupExpression>=Fields!idAlumno.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
               <SortExpressions>
                 <SortExpression>
-                  <Value>=Fields!nombreDB.Value</Value>
+                  <Value>=Fields!idAlumno.Value</Value>
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>3.53188cm</Size>
+                <Size>2.5cm</Size>
                 <CellContents>
-                  <Textbox Name="nombreDB">
+                  <Textbox Name="idAlumno">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>=Fields!nombreDB.Value</Value>
-                            <Style>
-                              <FontFamily>Tahoma</FontFamily>
-                              <FontWeight>Bold</FontWeight>
-                              <Color>#465678</Color>
-                            </Style>
+                            <Value>=Fields!idAlumno.Value</Value>
+                            <Style />
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>nombreDB</rd:DefaultName>
+                    <rd:DefaultName>idAlumno</rd:DefaultName>
                     <Style>
                       <Border>
-                        <Color>#c6daf8</Color>
+                        <Color>LightGrey</Color>
                         <Style>Solid</Style>
                       </Border>
-                      <BackgroundColor>#9eb6e4</BackgroundColor>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -928,44 +389,41 @@
               </TablixHeader>
               <TablixMembers>
                 <TablixMember>
-                  <Group Name="idGrupo">
+                  <Group Name="nombre">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!idGrupo.Value</GroupExpression>
+                      <GroupExpression>=Fields!nombre.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!idGrupo.Value</Value>
+                      <Value>=Fields!nombre.Value</Value>
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>2.5cm</Size>
+                    <Size>6.12479cm</Size>
                     <CellContents>
-                      <Textbox Name="idGrupo">
+                      <Textbox Name="nombre">
                         <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
                         <Paragraphs>
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>=Fields!idGrupo.Value</Value>
-                                <Style>
-                                  <FontFamily>Tahoma</FontFamily>
-                                  <FontWeight>Bold</FontWeight>
-                                  <Color>#4c68a2</Color>
-                                </Style>
+                                <Value>=Fields!nombre.Value</Value>
+                                <Style />
                               </TextRun>
                             </TextRuns>
-                            <Style />
+                            <Style>
+                              <TextAlign>Center</TextAlign>
+                            </Style>
                           </Paragraph>
                         </Paragraphs>
-                        <rd:DefaultName>idGrupo</rd:DefaultName>
+                        <rd:DefaultName>nombre</rd:DefaultName>
                         <Style>
                           <Border>
-                            <Color>#e6eefc</Color>
+                            <Color>LightGrey</Color>
                             <Style>Solid</Style>
                           </Border>
-                          <BackgroundColor>#c6daf8</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -976,44 +434,41 @@
                   </TablixHeader>
                   <TablixMembers>
                     <TablixMember>
-                      <Group Name="nombre">
+                      <Group Name="domicilio">
                         <GroupExpressions>
-                          <GroupExpression>=Fields!nombre.Value</GroupExpression>
+                          <GroupExpression>=Fields!domicilio.Value</GroupExpression>
                         </GroupExpressions>
                       </Group>
                       <SortExpressions>
                         <SortExpression>
-                          <Value>=Fields!nombre.Value</Value>
+                          <Value>=Fields!domicilio.Value</Value>
                         </SortExpression>
                       </SortExpressions>
                       <TablixHeader>
-                        <Size>8.58542cm</Size>
+                        <Size>5.14583cm</Size>
                         <CellContents>
-                          <Textbox Name="nombre">
+                          <Textbox Name="domicilio">
                             <CanGrow>true</CanGrow>
                             <KeepTogether>true</KeepTogether>
                             <Paragraphs>
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>=Fields!nombre.Value</Value>
-                                    <Style>
-                                      <FontFamily>Tahoma</FontFamily>
-                                      <FontWeight>Bold</FontWeight>
-                                      <Color>#4c68a2</Color>
-                                    </Style>
+                                    <Value>=Fields!domicilio.Value</Value>
+                                    <Style />
                                   </TextRun>
                                 </TextRuns>
-                                <Style />
+                                <Style>
+                                  <TextAlign>Center</TextAlign>
+                                </Style>
                               </Paragraph>
                             </Paragraphs>
-                            <rd:DefaultName>nombre</rd:DefaultName>
+                            <rd:DefaultName>domicilio</rd:DefaultName>
                             <Style>
                               <Border>
-                                <Color>White</Color>
+                                <Color>LightGrey</Color>
                                 <Style>Solid</Style>
                               </Border>
-                              <BackgroundColor>#e6eefc</BackgroundColor>
                               <PaddingLeft>2pt</PaddingLeft>
                               <PaddingRight>2pt</PaddingRight>
                               <PaddingTop>2pt</PaddingTop>
@@ -1035,7 +490,7 @@
                             </SortExpression>
                           </SortExpressions>
                           <TablixHeader>
-                            <Size>6.33646cm</Size>
+                            <Size>4.405cm</Size>
                             <CellContents>
                               <Textbox Name="correo">
                                 <CanGrow>true</CanGrow>
@@ -1045,23 +500,20 @@
                                     <TextRuns>
                                       <TextRun>
                                         <Value>=Fields!correo.Value</Value>
-                                        <Style>
-                                          <FontFamily>Tahoma</FontFamily>
-                                          <FontWeight>Bold</FontWeight>
-                                          <Color>#4c68a2</Color>
-                                        </Style>
+                                        <Style />
                                       </TextRun>
                                     </TextRuns>
-                                    <Style />
+                                    <Style>
+                                      <TextAlign>Center</TextAlign>
+                                    </Style>
                                   </Paragraph>
                                 </Paragraphs>
                                 <rd:DefaultName>correo</rd:DefaultName>
                                 <Style>
                                   <Border>
-                                    <Color>White</Color>
+                                    <Color>LightGrey</Color>
                                     <Style>Solid</Style>
                                   </Border>
-                                  <BackgroundColor>#e6eefc</BackgroundColor>
                                   <PaddingLeft>2pt</PaddingLeft>
                                   <PaddingRight>2pt</PaddingRight>
                                   <PaddingTop>2pt</PaddingTop>
@@ -1083,7 +535,7 @@
                                 </SortExpression>
                               </SortExpressions>
                               <TablixHeader>
-                                <Size>5.17229cm</Size>
+                                <Size>2.5cm</Size>
                                 <CellContents>
                                   <Textbox Name="telefono">
                                     <CanGrow>true</CanGrow>
@@ -1093,23 +545,20 @@
                                         <TextRuns>
                                           <TextRun>
                                             <Value>=Fields!telefono.Value</Value>
-                                            <Style>
-                                              <FontFamily>Tahoma</FontFamily>
-                                              <FontWeight>Bold</FontWeight>
-                                              <Color>#4c68a2</Color>
-                                            </Style>
+                                            <Style />
                                           </TextRun>
                                         </TextRuns>
-                                        <Style />
+                                        <Style>
+                                          <TextAlign>Center</TextAlign>
+                                        </Style>
                                       </Paragraph>
                                     </Paragraphs>
                                     <rd:DefaultName>telefono</rd:DefaultName>
                                     <Style>
                                       <Border>
-                                        <Color>White</Color>
+                                        <Color>LightGrey</Color>
                                         <Style>Solid</Style>
                                       </Border>
-                                      <BackgroundColor>#e6eefc</BackgroundColor>
                                       <PaddingLeft>2pt</PaddingLeft>
                                       <PaddingRight>2pt</PaddingRight>
                                       <PaddingTop>2pt</PaddingTop>
@@ -1120,44 +569,41 @@
                               </TablixHeader>
                               <TablixMembers>
                                 <TablixMember>
-                                  <Group Name="nivel">
+                                  <Group Name="ultimoNivelAcreditado">
                                     <GroupExpressions>
-                                      <GroupExpression>=Fields!nivel.Value</GroupExpression>
+                                      <GroupExpression>=Fields!ultimoNivelAcreditado.Value</GroupExpression>
                                     </GroupExpressions>
                                   </Group>
                                   <SortExpressions>
                                     <SortExpression>
-                                      <Value>=Fields!nivel.Value</Value>
+                                      <Value>=Fields!ultimoNivelAcreditado.Value</Value>
                                     </SortExpression>
                                   </SortExpressions>
                                   <TablixHeader>
-                                    <Size>2.5cm</Size>
+                                    <Size>3.87583cm</Size>
                                     <CellContents>
-                                      <Textbox Name="nivel">
+                                      <Textbox Name="ultimoNivelAcreditado">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=Fields!nivel.Value</Value>
-                                                <Style>
-                                                  <FontFamily>Tahoma</FontFamily>
-                                                  <FontWeight>Bold</FontWeight>
-                                                  <Color>#4c68a2</Color>
-                                                </Style>
+                                                <Value>=Fields!ultimoNivelAcreditado.Value</Value>
+                                                <Style />
                                               </TextRun>
                                             </TextRuns>
-                                            <Style />
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>nivel</rd:DefaultName>
+                                        <rd:DefaultName>ultimoNivelAcreditado</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>White</Color>
+                                            <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
-                                          <BackgroundColor>#e6eefc</BackgroundColor>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
                                           <PaddingTop>2pt</PaddingTop>
@@ -1168,657 +614,7 @@
                                   </TablixHeader>
                                   <TablixMembers>
                                     <TablixMember>
-                                      <Group Name="cantInscritos">
-                                        <GroupExpressions>
-                                          <GroupExpression>=Fields!cantInscritos.Value</GroupExpression>
-                                        </GroupExpressions>
-                                      </Group>
-                                      <SortExpressions>
-                                        <SortExpression>
-                                          <Value>=Fields!cantInscritos.Value</Value>
-                                        </SortExpression>
-                                      </SortExpressions>
-                                      <TablixHeader>
-                                        <Size>2.5cm</Size>
-                                        <CellContents>
-                                          <Textbox Name="cantInscritos">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value>=Fields!cantInscritos.Value</Value>
-                                                    <Style>
-                                                      <FontFamily>Tahoma</FontFamily>
-                                                      <FontWeight>Bold</FontWeight>
-                                                      <Color>#4c68a2</Color>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>cantInscritos</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Color>White</Color>
-                                                <Style>Solid</Style>
-                                              </Border>
-                                              <BackgroundColor>#e6eefc</BackgroundColor>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixHeader>
-                                      <TablixMembers>
-                                        <TablixMember>
-                                          <Group Name="maxAlumnos">
-                                            <GroupExpressions>
-                                              <GroupExpression>=Fields!maxAlumnos.Value</GroupExpression>
-                                            </GroupExpressions>
-                                          </Group>
-                                          <SortExpressions>
-                                            <SortExpression>
-                                              <Value>=Fields!maxAlumnos.Value</Value>
-                                            </SortExpression>
-                                          </SortExpressions>
-                                          <TablixHeader>
-                                            <Size>2.5cm</Size>
-                                            <CellContents>
-                                              <Textbox Name="maxAlumnos">
-                                                <CanGrow>true</CanGrow>
-                                                <KeepTogether>true</KeepTogether>
-                                                <Paragraphs>
-                                                  <Paragraph>
-                                                    <TextRuns>
-                                                      <TextRun>
-                                                        <Value>=Fields!maxAlumnos.Value</Value>
-                                                        <Style>
-                                                          <FontFamily>Tahoma</FontFamily>
-                                                          <FontWeight>Bold</FontWeight>
-                                                          <Color>#4c68a2</Color>
-                                                        </Style>
-                                                      </TextRun>
-                                                    </TextRuns>
-                                                    <Style />
-                                                  </Paragraph>
-                                                </Paragraphs>
-                                                <rd:DefaultName>maxAlumnos</rd:DefaultName>
-                                                <Style>
-                                                  <Border>
-                                                    <Color>White</Color>
-                                                    <Style>Solid</Style>
-                                                  </Border>
-                                                  <BackgroundColor>#e6eefc</BackgroundColor>
-                                                  <PaddingLeft>2pt</PaddingLeft>
-                                                  <PaddingRight>2pt</PaddingRight>
-                                                  <PaddingTop>2pt</PaddingTop>
-                                                  <PaddingBottom>2pt</PaddingBottom>
-                                                </Style>
-                                              </Textbox>
-                                            </CellContents>
-                                          </TablixHeader>
-                                          <TablixMembers>
-                                            <TablixMember>
-                                              <Group Name="hLuIni">
-                                                <GroupExpressions>
-                                                  <GroupExpression>=Fields!hLuIni.Value</GroupExpression>
-                                                </GroupExpressions>
-                                              </Group>
-                                              <SortExpressions>
-                                                <SortExpression>
-                                                  <Value>=Fields!hLuIni.Value</Value>
-                                                </SortExpression>
-                                              </SortExpressions>
-                                              <TablixHeader>
-                                                <Size>2.5cm</Size>
-                                                <CellContents>
-                                                  <Textbox Name="hLuIni">
-                                                    <CanGrow>true</CanGrow>
-                                                    <KeepTogether>true</KeepTogether>
-                                                    <Paragraphs>
-                                                      <Paragraph>
-                                                        <TextRuns>
-                                                          <TextRun>
-                                                            <Value>=Fields!hLuIni.Value</Value>
-                                                            <Style>
-                                                              <FontFamily>Tahoma</FontFamily>
-                                                              <FontWeight>Bold</FontWeight>
-                                                              <Color>#4c68a2</Color>
-                                                            </Style>
-                                                          </TextRun>
-                                                        </TextRuns>
-                                                        <Style />
-                                                      </Paragraph>
-                                                    </Paragraphs>
-                                                    <rd:DefaultName>hLuIni</rd:DefaultName>
-                                                    <Style>
-                                                      <Border>
-                                                        <Color>White</Color>
-                                                        <Style>Solid</Style>
-                                                      </Border>
-                                                      <BackgroundColor>#e6eefc</BackgroundColor>
-                                                      <PaddingLeft>2pt</PaddingLeft>
-                                                      <PaddingRight>2pt</PaddingRight>
-                                                      <PaddingTop>2pt</PaddingTop>
-                                                      <PaddingBottom>2pt</PaddingBottom>
-                                                    </Style>
-                                                  </Textbox>
-                                                </CellContents>
-                                              </TablixHeader>
-                                              <TablixMembers>
-                                                <TablixMember>
-                                                  <Group Name="hLuFin">
-                                                    <GroupExpressions>
-                                                      <GroupExpression>=Fields!hLuFin.Value</GroupExpression>
-                                                    </GroupExpressions>
-                                                  </Group>
-                                                  <SortExpressions>
-                                                    <SortExpression>
-                                                      <Value>=Fields!hLuFin.Value</Value>
-                                                    </SortExpression>
-                                                  </SortExpressions>
-                                                  <TablixHeader>
-                                                    <Size>2.5cm</Size>
-                                                    <CellContents>
-                                                      <Textbox Name="hLuFin">
-                                                        <CanGrow>true</CanGrow>
-                                                        <KeepTogether>true</KeepTogether>
-                                                        <Paragraphs>
-                                                          <Paragraph>
-                                                            <TextRuns>
-                                                              <TextRun>
-                                                                <Value>=Fields!hLuFin.Value</Value>
-                                                                <Style>
-                                                                  <FontFamily>Tahoma</FontFamily>
-                                                                  <FontWeight>Bold</FontWeight>
-                                                                  <Color>#4c68a2</Color>
-                                                                </Style>
-                                                              </TextRun>
-                                                            </TextRuns>
-                                                            <Style />
-                                                          </Paragraph>
-                                                        </Paragraphs>
-                                                        <rd:DefaultName>hLuFin</rd:DefaultName>
-                                                        <Style>
-                                                          <Border>
-                                                            <Color>White</Color>
-                                                            <Style>Solid</Style>
-                                                          </Border>
-                                                          <BackgroundColor>#e6eefc</BackgroundColor>
-                                                          <PaddingLeft>2pt</PaddingLeft>
-                                                          <PaddingRight>2pt</PaddingRight>
-                                                          <PaddingTop>2pt</PaddingTop>
-                                                          <PaddingBottom>2pt</PaddingBottom>
-                                                        </Style>
-                                                      </Textbox>
-                                                    </CellContents>
-                                                  </TablixHeader>
-                                                  <TablixMembers>
-                                                    <TablixMember>
-                                                      <Group Name="hMaIni">
-                                                        <GroupExpressions>
-                                                          <GroupExpression>=Fields!hMaIni.Value</GroupExpression>
-                                                        </GroupExpressions>
-                                                      </Group>
-                                                      <SortExpressions>
-                                                        <SortExpression>
-                                                          <Value>=Fields!hMaIni.Value</Value>
-                                                        </SortExpression>
-                                                      </SortExpressions>
-                                                      <TablixHeader>
-                                                        <Size>2.5cm</Size>
-                                                        <CellContents>
-                                                          <Textbox Name="hMaIni">
-                                                            <CanGrow>true</CanGrow>
-                                                            <KeepTogether>true</KeepTogether>
-                                                            <Paragraphs>
-                                                              <Paragraph>
-                                                                <TextRuns>
-                                                                  <TextRun>
-                                                                    <Value>=Fields!hMaIni.Value</Value>
-                                                                    <Style>
-                                                                      <FontFamily>Tahoma</FontFamily>
-                                                                      <FontWeight>Bold</FontWeight>
-                                                                      <Color>#4c68a2</Color>
-                                                                    </Style>
-                                                                  </TextRun>
-                                                                </TextRuns>
-                                                                <Style />
-                                                              </Paragraph>
-                                                            </Paragraphs>
-                                                            <rd:DefaultName>hMaIni</rd:DefaultName>
-                                                            <Style>
-                                                              <Border>
-                                                                <Color>White</Color>
-                                                                <Style>Solid</Style>
-                                                              </Border>
-                                                              <BackgroundColor>#e6eefc</BackgroundColor>
-                                                              <PaddingLeft>2pt</PaddingLeft>
-                                                              <PaddingRight>2pt</PaddingRight>
-                                                              <PaddingTop>2pt</PaddingTop>
-                                                              <PaddingBottom>2pt</PaddingBottom>
-                                                            </Style>
-                                                          </Textbox>
-                                                        </CellContents>
-                                                      </TablixHeader>
-                                                      <TablixMembers>
-                                                        <TablixMember>
-                                                          <Group Name="hMaFin">
-                                                            <GroupExpressions>
-                                                              <GroupExpression>=Fields!hMaFin.Value</GroupExpression>
-                                                            </GroupExpressions>
-                                                          </Group>
-                                                          <SortExpressions>
-                                                            <SortExpression>
-                                                              <Value>=Fields!hMaFin.Value</Value>
-                                                            </SortExpression>
-                                                          </SortExpressions>
-                                                          <TablixHeader>
-                                                            <Size>2.5cm</Size>
-                                                            <CellContents>
-                                                              <Textbox Name="hMaFin">
-                                                                <CanGrow>true</CanGrow>
-                                                                <KeepTogether>true</KeepTogether>
-                                                                <Paragraphs>
-                                                                  <Paragraph>
-                                                                    <TextRuns>
-                                                                      <TextRun>
-                                                                        <Value>=Fields!hMaFin.Value</Value>
-                                                                        <Style>
-                                                                          <FontFamily>Tahoma</FontFamily>
-                                                                          <FontWeight>Bold</FontWeight>
-                                                                          <Color>#4c68a2</Color>
-                                                                        </Style>
-                                                                      </TextRun>
-                                                                    </TextRuns>
-                                                                    <Style />
-                                                                  </Paragraph>
-                                                                </Paragraphs>
-                                                                <rd:DefaultName>hMaFin</rd:DefaultName>
-                                                                <Style>
-                                                                  <Border>
-                                                                    <Color>White</Color>
-                                                                    <Style>Solid</Style>
-                                                                  </Border>
-                                                                  <BackgroundColor>#e6eefc</BackgroundColor>
-                                                                  <PaddingLeft>2pt</PaddingLeft>
-                                                                  <PaddingRight>2pt</PaddingRight>
-                                                                  <PaddingTop>2pt</PaddingTop>
-                                                                  <PaddingBottom>2pt</PaddingBottom>
-                                                                </Style>
-                                                              </Textbox>
-                                                            </CellContents>
-                                                          </TablixHeader>
-                                                          <TablixMembers>
-                                                            <TablixMember>
-                                                              <Group Name="hMiIni">
-                                                                <GroupExpressions>
-                                                                  <GroupExpression>=Fields!hMiIni.Value</GroupExpression>
-                                                                </GroupExpressions>
-                                                              </Group>
-                                                              <SortExpressions>
-                                                                <SortExpression>
-                                                                  <Value>=Fields!hMiIni.Value</Value>
-                                                                </SortExpression>
-                                                              </SortExpressions>
-                                                              <TablixHeader>
-                                                                <Size>2.5cm</Size>
-                                                                <CellContents>
-                                                                  <Textbox Name="hMiIni">
-                                                                    <CanGrow>true</CanGrow>
-                                                                    <KeepTogether>true</KeepTogether>
-                                                                    <Paragraphs>
-                                                                      <Paragraph>
-                                                                        <TextRuns>
-                                                                          <TextRun>
-                                                                            <Value>=Fields!hMiIni.Value</Value>
-                                                                            <Style>
-                                                                              <FontFamily>Tahoma</FontFamily>
-                                                                              <FontWeight>Bold</FontWeight>
-                                                                              <Color>#4c68a2</Color>
-                                                                            </Style>
-                                                                          </TextRun>
-                                                                        </TextRuns>
-                                                                        <Style />
-                                                                      </Paragraph>
-                                                                    </Paragraphs>
-                                                                    <rd:DefaultName>hMiIni</rd:DefaultName>
-                                                                    <Style>
-                                                                      <Border>
-                                                                        <Color>White</Color>
-                                                                        <Style>Solid</Style>
-                                                                      </Border>
-                                                                      <BackgroundColor>#e6eefc</BackgroundColor>
-                                                                      <PaddingLeft>2pt</PaddingLeft>
-                                                                      <PaddingRight>2pt</PaddingRight>
-                                                                      <PaddingTop>2pt</PaddingTop>
-                                                                      <PaddingBottom>2pt</PaddingBottom>
-                                                                    </Style>
-                                                                  </Textbox>
-                                                                </CellContents>
-                                                              </TablixHeader>
-                                                              <TablixMembers>
-                                                                <TablixMember>
-                                                                  <Group Name="hMiFin">
-                                                                    <GroupExpressions>
-                                                                      <GroupExpression>=Fields!hMiFin.Value</GroupExpression>
-                                                                    </GroupExpressions>
-                                                                  </Group>
-                                                                  <SortExpressions>
-                                                                    <SortExpression>
-                                                                      <Value>=Fields!hMiFin.Value</Value>
-                                                                    </SortExpression>
-                                                                  </SortExpressions>
-                                                                  <TablixHeader>
-                                                                    <Size>2.5cm</Size>
-                                                                    <CellContents>
-                                                                      <Textbox Name="hMiFin">
-                                                                        <CanGrow>true</CanGrow>
-                                                                        <KeepTogether>true</KeepTogether>
-                                                                        <Paragraphs>
-                                                                          <Paragraph>
-                                                                            <TextRuns>
-                                                                              <TextRun>
-                                                                                <Value>=Fields!hMiFin.Value</Value>
-                                                                                <Style>
-                                                                                  <FontFamily>Tahoma</FontFamily>
-                                                                                  <FontWeight>Bold</FontWeight>
-                                                                                  <Color>#4c68a2</Color>
-                                                                                </Style>
-                                                                              </TextRun>
-                                                                            </TextRuns>
-                                                                            <Style />
-                                                                          </Paragraph>
-                                                                        </Paragraphs>
-                                                                        <rd:DefaultName>hMiFin</rd:DefaultName>
-                                                                        <Style>
-                                                                          <Border>
-                                                                            <Color>White</Color>
-                                                                            <Style>Solid</Style>
-                                                                          </Border>
-                                                                          <BackgroundColor>#e6eefc</BackgroundColor>
-                                                                          <PaddingLeft>2pt</PaddingLeft>
-                                                                          <PaddingRight>2pt</PaddingRight>
-                                                                          <PaddingTop>2pt</PaddingTop>
-                                                                          <PaddingBottom>2pt</PaddingBottom>
-                                                                        </Style>
-                                                                      </Textbox>
-                                                                    </CellContents>
-                                                                  </TablixHeader>
-                                                                  <TablixMembers>
-                                                                    <TablixMember>
-                                                                      <Group Name="hJuIni">
-                                                                        <GroupExpressions>
-                                                                          <GroupExpression>=Fields!hJuIni.Value</GroupExpression>
-                                                                        </GroupExpressions>
-                                                                      </Group>
-                                                                      <SortExpressions>
-                                                                        <SortExpression>
-                                                                          <Value>=Fields!hJuIni.Value</Value>
-                                                                        </SortExpression>
-                                                                      </SortExpressions>
-                                                                      <TablixHeader>
-                                                                        <Size>2.5cm</Size>
-                                                                        <CellContents>
-                                                                          <Textbox Name="hJuIni">
-                                                                            <CanGrow>true</CanGrow>
-                                                                            <KeepTogether>true</KeepTogether>
-                                                                            <Paragraphs>
-                                                                              <Paragraph>
-                                                                                <TextRuns>
-                                                                                  <TextRun>
-                                                                                    <Value>=Fields!hJuIni.Value</Value>
-                                                                                    <Style>
-                                                                                      <FontFamily>Tahoma</FontFamily>
-                                                                                      <FontWeight>Bold</FontWeight>
-                                                                                      <Color>#4c68a2</Color>
-                                                                                    </Style>
-                                                                                  </TextRun>
-                                                                                </TextRuns>
-                                                                                <Style />
-                                                                              </Paragraph>
-                                                                            </Paragraphs>
-                                                                            <rd:DefaultName>hJuIni</rd:DefaultName>
-                                                                            <Style>
-                                                                              <Border>
-                                                                                <Color>White</Color>
-                                                                                <Style>Solid</Style>
-                                                                              </Border>
-                                                                              <BackgroundColor>#e6eefc</BackgroundColor>
-                                                                              <PaddingLeft>2pt</PaddingLeft>
-                                                                              <PaddingRight>2pt</PaddingRight>
-                                                                              <PaddingTop>2pt</PaddingTop>
-                                                                              <PaddingBottom>2pt</PaddingBottom>
-                                                                            </Style>
-                                                                          </Textbox>
-                                                                        </CellContents>
-                                                                      </TablixHeader>
-                                                                      <TablixMembers>
-                                                                        <TablixMember>
-                                                                          <Group Name="hJuFin">
-                                                                            <GroupExpressions>
-                                                                              <GroupExpression>=Fields!hJuFin.Value</GroupExpression>
-                                                                            </GroupExpressions>
-                                                                          </Group>
-                                                                          <SortExpressions>
-                                                                            <SortExpression>
-                                                                              <Value>=Fields!hJuFin.Value</Value>
-                                                                            </SortExpression>
-                                                                          </SortExpressions>
-                                                                          <TablixHeader>
-                                                                            <Size>2.5cm</Size>
-                                                                            <CellContents>
-                                                                              <Textbox Name="hJuFin">
-                                                                                <CanGrow>true</CanGrow>
-                                                                                <KeepTogether>true</KeepTogether>
-                                                                                <Paragraphs>
-                                                                                  <Paragraph>
-                                                                                    <TextRuns>
-                                                                                      <TextRun>
-                                                                                        <Value>=Fields!hJuFin.Value</Value>
-                                                                                        <Style>
-                                                                                          <FontFamily>Tahoma</FontFamily>
-                                                                                          <FontWeight>Bold</FontWeight>
-                                                                                          <Color>#4c68a2</Color>
-                                                                                        </Style>
-                                                                                      </TextRun>
-                                                                                    </TextRuns>
-                                                                                    <Style />
-                                                                                  </Paragraph>
-                                                                                </Paragraphs>
-                                                                                <rd:DefaultName>hJuFin</rd:DefaultName>
-                                                                                <Style>
-                                                                                  <Border>
-                                                                                    <Color>White</Color>
-                                                                                    <Style>Solid</Style>
-                                                                                  </Border>
-                                                                                  <BackgroundColor>#e6eefc</BackgroundColor>
-                                                                                  <PaddingLeft>2pt</PaddingLeft>
-                                                                                  <PaddingRight>2pt</PaddingRight>
-                                                                                  <PaddingTop>2pt</PaddingTop>
-                                                                                  <PaddingBottom>2pt</PaddingBottom>
-                                                                                </Style>
-                                                                              </Textbox>
-                                                                            </CellContents>
-                                                                          </TablixHeader>
-                                                                          <TablixMembers>
-                                                                            <TablixMember>
-                                                                              <Group Name="hViIni">
-                                                                                <GroupExpressions>
-                                                                                  <GroupExpression>=Fields!hViIni.Value</GroupExpression>
-                                                                                </GroupExpressions>
-                                                                              </Group>
-                                                                              <SortExpressions>
-                                                                                <SortExpression>
-                                                                                  <Value>=Fields!hViIni.Value</Value>
-                                                                                </SortExpression>
-                                                                              </SortExpressions>
-                                                                              <TablixHeader>
-                                                                                <Size>2.5cm</Size>
-                                                                                <CellContents>
-                                                                                  <Textbox Name="hViIni">
-                                                                                    <CanGrow>true</CanGrow>
-                                                                                    <KeepTogether>true</KeepTogether>
-                                                                                    <Paragraphs>
-                                                                                      <Paragraph>
-                                                                                        <TextRuns>
-                                                                                          <TextRun>
-                                                                                            <Value>=Fields!hViIni.Value</Value>
-                                                                                            <Style>
-                                                                                              <FontFamily>Tahoma</FontFamily>
-                                                                                              <FontWeight>Bold</FontWeight>
-                                                                                              <Color>#4c68a2</Color>
-                                                                                            </Style>
-                                                                                          </TextRun>
-                                                                                        </TextRuns>
-                                                                                        <Style />
-                                                                                      </Paragraph>
-                                                                                    </Paragraphs>
-                                                                                    <rd:DefaultName>hViIni</rd:DefaultName>
-                                                                                    <Style>
-                                                                                      <Border>
-                                                                                        <Color>White</Color>
-                                                                                        <Style>Solid</Style>
-                                                                                      </Border>
-                                                                                      <BackgroundColor>#e6eefc</BackgroundColor>
-                                                                                      <PaddingLeft>2pt</PaddingLeft>
-                                                                                      <PaddingRight>2pt</PaddingRight>
-                                                                                      <PaddingTop>2pt</PaddingTop>
-                                                                                      <PaddingBottom>2pt</PaddingBottom>
-                                                                                    </Style>
-                                                                                  </Textbox>
-                                                                                </CellContents>
-                                                                              </TablixHeader>
-                                                                              <TablixMembers>
-                                                                                <TablixMember>
-                                                                                  <Group Name="hViFin">
-                                                                                    <GroupExpressions>
-                                                                                      <GroupExpression>=Fields!hViFin.Value</GroupExpression>
-                                                                                    </GroupExpressions>
-                                                                                  </Group>
-                                                                                  <SortExpressions>
-                                                                                    <SortExpression>
-                                                                                      <Value>=Fields!hViFin.Value</Value>
-                                                                                    </SortExpression>
-                                                                                  </SortExpressions>
-                                                                                  <TablixHeader>
-                                                                                    <Size>2.5cm</Size>
-                                                                                    <CellContents>
-                                                                                      <Textbox Name="hViFin">
-                                                                                        <CanGrow>true</CanGrow>
-                                                                                        <KeepTogether>true</KeepTogether>
-                                                                                        <Paragraphs>
-                                                                                          <Paragraph>
-                                                                                            <TextRuns>
-                                                                                              <TextRun>
-                                                                                                <Value>=Fields!hViFin.Value</Value>
-                                                                                                <Style>
-                                                                                                  <FontFamily>Tahoma</FontFamily>
-                                                                                                  <FontWeight>Bold</FontWeight>
-                                                                                                  <Color>#4c68a2</Color>
-                                                                                                </Style>
-                                                                                              </TextRun>
-                                                                                            </TextRuns>
-                                                                                            <Style />
-                                                                                          </Paragraph>
-                                                                                        </Paragraphs>
-                                                                                        <rd:DefaultName>hViFin</rd:DefaultName>
-                                                                                        <Style>
-                                                                                          <Border>
-                                                                                            <Color>White</Color>
-                                                                                            <Style>Solid</Style>
-                                                                                          </Border>
-                                                                                          <BackgroundColor>#e6eefc</BackgroundColor>
-                                                                                          <PaddingLeft>2pt</PaddingLeft>
-                                                                                          <PaddingRight>2pt</PaddingRight>
-                                                                                          <PaddingTop>2pt</PaddingTop>
-                                                                                          <PaddingBottom>2pt</PaddingBottom>
-                                                                                        </Style>
-                                                                                      </Textbox>
-                                                                                    </CellContents>
-                                                                                  </TablixHeader>
-                                                                                  <TablixMembers>
-                                                                                    <TablixMember>
-                                                                                      <Group Name="hSaIni">
-                                                                                        <GroupExpressions>
-                                                                                          <GroupExpression>=Fields!hSaIni.Value</GroupExpression>
-                                                                                        </GroupExpressions>
-                                                                                      </Group>
-                                                                                      <SortExpressions>
-                                                                                        <SortExpression>
-                                                                                          <Value>=Fields!hSaIni.Value</Value>
-                                                                                        </SortExpression>
-                                                                                      </SortExpressions>
-                                                                                      <TablixHeader>
-                                                                                        <Size>2.5cm</Size>
-                                                                                        <CellContents>
-                                                                                          <Textbox Name="hSaIni">
-                                                                                            <CanGrow>true</CanGrow>
-                                                                                            <KeepTogether>true</KeepTogether>
-                                                                                            <Paragraphs>
-                                                                                              <Paragraph>
-                                                                                                <TextRuns>
-                                                                                                  <TextRun>
-                                                                                                    <Value>=Fields!hSaIni.Value</Value>
-                                                                                                    <Style>
-                                                                                                      <FontFamily>Tahoma</FontFamily>
-                                                                                                      <FontWeight>Bold</FontWeight>
-                                                                                                      <Color>#4c68a2</Color>
-                                                                                                    </Style>
-                                                                                                  </TextRun>
-                                                                                                </TextRuns>
-                                                                                                <Style />
-                                                                                              </Paragraph>
-                                                                                            </Paragraphs>
-                                                                                            <rd:DefaultName>hSaIni</rd:DefaultName>
-                                                                                            <Style>
-                                                                                              <Border>
-                                                                                                <Color>White</Color>
-                                                                                                <Style>Solid</Style>
-                                                                                              </Border>
-                                                                                              <BackgroundColor>#e6eefc</BackgroundColor>
-                                                                                              <PaddingLeft>2pt</PaddingLeft>
-                                                                                              <PaddingRight>2pt</PaddingRight>
-                                                                                              <PaddingTop>2pt</PaddingTop>
-                                                                                              <PaddingBottom>2pt</PaddingBottom>
-                                                                                            </Style>
-                                                                                          </Textbox>
-                                                                                        </CellContents>
-                                                                                      </TablixHeader>
-                                                                                      <TablixMembers>
-                                                                                        <TablixMember>
-                                                                                          <Group Name="Detalles" />
-                                                                                        </TablixMember>
-                                                                                      </TablixMembers>
-                                                                                    </TablixMember>
-                                                                                  </TablixMembers>
-                                                                                </TablixMember>
-                                                                              </TablixMembers>
-                                                                            </TablixMember>
-                                                                          </TablixMembers>
-                                                                        </TablixMember>
-                                                                      </TablixMembers>
-                                                                    </TablixMember>
-                                                                  </TablixMembers>
-                                                                </TablixMember>
-                                                              </TablixMembers>
-                                                            </TablixMember>
-                                                          </TablixMembers>
-                                                        </TablixMember>
-                                                      </TablixMembers>
-                                                    </TablixMember>
-                                                  </TablixMembers>
-                                                </TablixMember>
-                                              </TablixMembers>
-                                            </TablixMember>
-                                          </TablixMembers>
-                                        </TablixMember>
-                                      </TablixMembers>
+                                      <Group Name="Detalles" />
                                     </TablixMember>
                                   </TablixMembers>
                                 </TablixMember>
@@ -1835,56 +631,81 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>5.80389cm</Top>
-        <Left>2.14313cm</Left>
-        <Height>1.2cm</Height>
-        <Width>63.62605cm</Width>
+        <Top>5.68854cm</Top>
+        <Left>1.98668cm</Left>
+        <Height>1.57042cm</Height>
+        <Width>27.87167cm</Width>
         <Style>
           <Border>
-            <Style>None</Style>
+            <Style>Double</Style>
           </Border>
-          <FontFamily>Century Gothic</FontFamily>
-          <FontSize>50pt</FontSize>
+          <TopBorder>
+            <Style>Double</Style>
+          </TopBorder>
+          <LeftBorder>
+            <Style>Double</Style>
+          </LeftBorder>
+          <RightBorder>
+            <Style>Double</Style>
+          </RightBorder>
         </Style>
       </Tablix>
-      <Image Name="Image1">
-        <Source>Embedded</Source>
-        <Value>clipboard</Value>
-        <Sizing>FitProportional</Sizing>
-        <Left>22.03572cm</Left>
-        <Height>4.33104cm</Height>
-        <Width>4.33104cm</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
-      <Textbox Name="Textbox49">
+      <Textbox Name="P1">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Reporte de grupo por ciclo abierto</Value>
+                <Value>=Parameters!P1.Value</Value>
                 <Style>
                   <FontFamily>Century Gothic</FontFamily>
-                  <FontSize>40pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
+                  <FontSize>12pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
+            <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox49</rd:DefaultName>
-        <Left>28.26917cm</Left>
-        <Height>4.33104cm</Height>
-        <Width>12.5cm</Width>
+        <rd:DefaultName>P1</rd:DefaultName>
+        <Top>4.2037cm</Top>
+        <Left>4.31029cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox19">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Situación:</Value>
+                <Style>
+                  <FontFamily>Century Gothic</FontFamily>
+                  <FontSize>12pt</FontSize>
+                  <FontWeight>ExtraBold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox19</rd:DefaultName>
+        <Top>4.2037cm</Top>
+        <Left>1.98668cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.1825cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -1896,15 +717,132 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox20">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Reporte de alumnos por situación</Value>
+                <Style>
+                  <FontFamily>Century Gothic</FontFamily>
+                  <FontSize>25pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox19</rd:DefaultName>
+        <Top>0.89062cm</Top>
+        <Left>8.97392cm</Left>
+        <Height>2.26674cm</Height>
+        <Width>11.0451cm</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox21">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Fecha de emición</Value>
+                <Style>
+                  <FontFamily>Century Gothic</FontFamily>
+                  <FontSize>12pt</FontSize>
+                  <FontWeight>ExtraBold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox19</rd:DefaultName>
+        <Top>4.2037cm</Top>
+        <Left>19.79189cm</Left>
+        <Height>0.6cm</Height>
+        <Width>4.14042cm</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="P2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Parameters!P2.Value</Value>
+                <Style>
+                  <FontFamily>Century Gothic</FontFamily>
+                  <FontSize>12pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>P1</rd:DefaultName>
+        <Top>4.2037cm</Top>
+        <Left>24.03814cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>5</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Image Name="Image1">
+        <Source>Embedded</Source>
+        <Value>clipboard</Value>
+        <Sizing>FitProportional</Sizing>
+        <Top>0.89062cm</Top>
+        <Left>6.05578cm</Left>
+        <Height>2.26674cm</Height>
+        <Width>2.32021cm</Width>
+        <ZIndex>6</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
       <Image Name="Image2">
         <Source>Embedded</Source>
         <Value>logo</Value>
         <Sizing>FitProportional</Sizing>
-        <Top>0.03528cm</Top>
-        <Left>42.18447cm</Left>
-        <Height>4.33104cm</Height>
-        <Width>7.13169cm</Width>
-        <ZIndex>3</ZIndex>
+        <Top>0.89062cm</Top>
+        <Left>20.50478cm</Left>
+        <Height>2.26674cm</Height>
+        <Width>3.79794cm</Width>
+        <ZIndex>7</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1912,15 +850,10 @@
         </Style>
       </Image>
     </ReportItems>
-    <Height>5.95166in</Height>
-    <Style>
-      <Border>
-        <Style>None</Style>
-      </Border>
-      <BackgroundColor>Lavender</BackgroundColor>
-    </Style>
+    <Height>4.88542in</Height>
+    <Style />
   </Body>
-  <Width>25.95587in</Width>
+  <Width>13.25435in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
@@ -1938,7 +871,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>d619688d-3941-4f0a-a150-1b1e2d56970c</rd:DataSourceID>
+      <rd:DataSourceID>295dfd1d-2408-4c1e-b8bf-dfd10b890f94</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -1948,16 +881,16 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="nombreDB">
-          <DataField>nombreDB</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="idGrupo">
-          <DataField>idGrupo</DataField>
+        <Field Name="idAlumno">
+          <DataField>idAlumno</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="nombre">
           <DataField>nombre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="domicilio">
+          <DataField>domicilio</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="correo">
@@ -1968,81 +901,35 @@
           <DataField>telefono</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="idGrupo1">
-          <DataField>idGrupo1</DataField>
+        <Field Name="ultimoNivelAcreditado">
+          <DataField>ultimoNivelAcreditado</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="nivel">
-          <DataField>nivel</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="cantInscritos">
-          <DataField>cantInscritos</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="maxAlumnos">
-          <DataField>maxAlumnos</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="hLuIni">
-          <DataField>hLuIni</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="hLuFin">
-          <DataField>hLuFin</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="hMaIni">
-          <DataField>hMaIni</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="hMaFin">
-          <DataField>hMaFin</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="hMiIni">
-          <DataField>hMiIni</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="hMiFin">
-          <DataField>hMiFin</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="hJuIni">
-          <DataField>hJuIni</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="hJuFin">
-          <DataField>hJuFin</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="hViIni">
-          <DataField>hViIni</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="hViFin">
-          <DataField>hViFin</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="hSaIni">
-          <DataField>hSaIni</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="hSaFin">
-          <DataField>hSaFin</DataField>
+        <Field Name="situacion">
+          <DataField>situacion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>MasterEADataSetDiego</rd:DataSetName>
         <rd:SchemaPath>C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\MasterEADataSetDiego.xsd</rd:SchemaPath>
-        <rd:TableName>REPORTEGRUPOSCICLOABIERTO</rd:TableName>
+        <rd:TableName>REPORTEALUMNOSPORSITUACION</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>REPORTEGRUPOSCICLOABIERTOTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>REPORTEALUMNOSPORSITUACIONTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="P1">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="P2">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <EmbeddedImages>
     <EmbeddedImage Name="clipboard">
       <MIMEType>image/png</MIMEType>
@@ -2653,5 +1540,5 @@ BwAAAAAAAADUHgQHAAAAAAAAANQeBAcAAAAAAAAA1B4EBwAAAAAAAADUHgQHAAAAAAAAANQeBAcAAAAA
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>52bd6ea5-df33-46d3-94c3-5e99dd711725</rd:ReportID>
+  <rd:ReportID>b0e2bc01-eb14-4c6d-a15a-51e2d3f2d3cc</rd:ReportID>
 </Report>
