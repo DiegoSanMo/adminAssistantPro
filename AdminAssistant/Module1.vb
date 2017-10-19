@@ -26,4 +26,7 @@ Module Module1
 
     Public tipoAcceso As String
 
+
+    Public kardexDetallado As Boolean = False
+
 End Module

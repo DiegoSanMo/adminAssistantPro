@@ -737,4 +737,9 @@ Public Class principal
     Private Sub ReporteDeAlumnosPorSituaciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeAlumnosPorSituaciónToolStripMenuItem.Click
         ReporteSituacion.ShowDialog()
     End Sub
+
+    Private Sub ReporteDetalladoDeCalificacionesPorAlumnoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDetalladoDeCalificacionesPorAlumnoToolStripMenuItem.Click
+        kardexDetallado = True
+        frmReporteKardex.ShowDialog()
+    End Sub
 End Class
