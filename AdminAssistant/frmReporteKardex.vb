@@ -26,8 +26,8 @@ Public Class frmReporteKardex
                 Dim nomBD As String = CStr(id) + "-" + CStr(anio)
 
 
-                Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
-
+                'Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+                Using conexioBDRemota As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
                     Dim comandoBDRemota As SqlCommand = conexioBDRemota.CreateCommand
                     Dim comando2 As SqlCommand = conexioBDRemota.CreateCommand
                     Dim lector2 As SqlDataReader
@@ -113,8 +113,8 @@ Public Class frmReporteKardex
                     Dim p1 As New ReportParameter("P1", idAlumno)
                     frmReportes.ReportViewer1.LocalReport.DataSources.Clear()
                     frmReportes.ReportViewer1.LocalReport.DataSources.Add(datasource)
-                    'frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\AdminAssistant\Reportes\ReporteKardexPorAlumno.rdlc"
-                    frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteKardexPorAlumno.rdlc"
+                    frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\AdminAssistant\Reportes\ReporteKardexPorAlumno.rdlc"
+                    'frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteKardexPorAlumno.rdlc"
                     frmReportes.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {p1})
                     frmReportes.ReportViewer1.RefreshReport()
                     frmReportes.ShowDialog()
