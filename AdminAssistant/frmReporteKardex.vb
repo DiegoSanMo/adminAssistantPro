@@ -38,27 +38,38 @@ Public Class frmReporteKardex
 
                     comandoBDRemota.CommandText = "SELECT idGrupo, fecha from [" & nomBD & "].dbo.inscripcion where idAlumno = " & idAlumno & ""
                     lectorBDRemota = comandoBDRemota.ExecuteReader
-                    lectorBDRemota.Read()
-                    Dim idGrupo As Integer = lectorBDRemota(0)
-                    Dim fechaInscripcion As Date = lectorBDRemota(1)
-                    lectorBDRemota.Close()
 
-                    comandoBDRemota.CommandText = "select c.nombre, grupo.nivel, grupo.hLuIni, grupo.hLuFin, grupo.hMaIni, grupo.hMaFin, grupo.hMiIni, grupo.hMiFin, grupo.hJuIni, grupo.hJuFin, grupo.hViIni, grupo.hViFin, grupo.hSaIni, grupo.hSaFin from grupo inner join MasterEA.dbo.maestro c on grupo.idMaestro = c.idMaestro WHERE grupo.idGrupo = " & idGrupo & ""
-                    lectorBDRemota = comandoBDRemota.ExecuteReader
-                    While lectorBDRemota.Read
-                        MsgBox(lectorBDRemota(0))
-                        MsgBox(lectorBDRemota(1))
-                        MsgBox(lectorBDRemota(2))
-                        MsgBox(lectorBDRemota(3))
-                        For p = 1 To 12
+                    If lectorBDRemota.Read() = False Then
+                        lectorBDRemota.Close()
 
-                            'comandoGeneral.CommandText = "Select  n" & p & " From kardex Where idAlumno=" & idAlumno & " and n" & p & " = " & lectorBDRemota(1) & ""
-                        Next
-                    End While
-                    lectorBDRemota.Close()
+                    Else
+                        Dim idGrupo As Integer = lectorBDRemota(0)
+                        Dim fechaInscripcion As Date = lectorBDRemota(1)
+                        lectorBDRemota.Close()
 
+                        comandoBDRemota.CommandText = "select c.nombre, grupo.nivel, grupo.hLuIni, grupo.hLuFin, grupo.hMaIni, grupo.hMaFin, grupo.hMiIni, grupo.hMiFin, grupo.hJuIni, grupo.hJuFin, grupo.hViIni, grupo.hViFin, grupo.hSaIni, grupo.hSaFin from grupo inner join MasterEA.dbo.maestro c on grupo.idMaestro = c.idMaestro WHERE grupo.idGrupo = " & idGrupo & ""
+                        lectorBDRemota = comandoBDRemota.ExecuteReader
+                        While lectorBDRemota.Read
+                            Dim nivel As Integer = lectorBDRemota(1)
+                            MsgBox(nivel)
+                            comando2.CommandText = "SELECT COLUMN_NAME FROM MasterEa.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME =  'kardex' and  MasterEa.INFORMATION_SCHEMA.COLUMNS.COLUMN_NAME = 'n" & nivel & "';"
+                            lector2 = comando2.ExecuteReader
+                            lector2.Read()
+                            Dim nomColumna As String = lector2(0)
+                            lector2.Close()
+                            MsgBox(nomColumna)
+                            comando2.CommandText = "SELECT '" & nomColumna & "' from MasterEA.dbo.kardex where idAlumno = " & idAlumno & ""
+                            lector2 = comando2.ExecuteReader
+                            lector2.Read()
+                            Dim calNivel As Decimal = lector2(0)
+                            lector2.Close()
+                            MsgBox(calNivel)
 
-                    conexioBDRemota.Close()
+                        End While
+                        lectorBDRemota.Close()
+                        conexioBDRemota.Close()
+                    End If
+
                 End Using
             End While
             lectorGeneral.Close()
