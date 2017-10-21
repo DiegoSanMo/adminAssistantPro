@@ -141,6 +141,12 @@
     <Compile Include="frmRegistroUsuarios.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmReporteCalifFinales.Designer.vb">
+      <DependentUpon>frmReporteCalifFinales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteCalifFinales.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmReporteKardex.Designer.vb">
       <DependentUpon>frmReporteKardex.vb</DependentUpon>
     </Compile>
@@ -247,6 +253,9 @@
     <EmbeddedResource Include="frmRegistroUsuarios.resx">
       <DependentUpon>frmRegistroUsuarios.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteCalifFinales.resx">
+      <DependentUpon>frmReporteCalifFinales.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmReporteKardex.resx">
       <DependentUpon>frmReporteKardex.vb</DependentUpon>
     </EmbeddedResource>
@@ -277,6 +286,7 @@
     <EmbeddedResource Include="principal.resx">
       <DependentUpon>principal.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteCalifFinales.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteKardexPorAlumnoPorNivel.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteNivelesCursados.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteSituacionAlumnos.rdlc" />

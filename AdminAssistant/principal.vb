@@ -755,4 +755,8 @@ Public Class principal
     Private Sub ReporteDetalladoDeCalificacionesPorAlumnoPorNivelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDetalladoDeCalificacionesPorAlumnoPorNivelToolStripMenuItem.Click
         frmCalificacionesDet.ShowDialog()
     End Sub
+
+    Private Sub ReporteDeCalificacionesFinalesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeCalificacionesFinalesToolStripMenuItem.Click
+        frmReporteCalifFinales.ShowDialog()
+    End Sub
 End Class

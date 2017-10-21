@@ -61,6 +61,7 @@ Partial Class principal
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ReporteDeCalificacionesFinalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.msPrincipal.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -226,7 +227,7 @@ Partial Class principal
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReporteDeMaestrosToolStripMenuItem, Me.ReporteDeAlumnosInscritosToolStripMenuItem, Me.ReporteDeGruposPorCicloToolStripMenuItem, Me.ReporteDeGruposPorCicloToolStripMenuItem1, Me.ReporteDeKardexPorAlumnoToolStripMenuItem, Me.ReporteDeListasPorCicloToolStripMenuItem, Me.ReporteDeAlumnosPorSituaciónToolStripMenuItem, Me.ReporteDetalladoDeCalificacionesPorAlumnoToolStripMenuItem, Me.ReporteDetalladoDeCalificacionesPorAlumnoPorNivelToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReporteDeMaestrosToolStripMenuItem, Me.ReporteDeAlumnosInscritosToolStripMenuItem, Me.ReporteDeGruposPorCicloToolStripMenuItem, Me.ReporteDeGruposPorCicloToolStripMenuItem1, Me.ReporteDeKardexPorAlumnoToolStripMenuItem, Me.ReporteDeListasPorCicloToolStripMenuItem, Me.ReporteDeAlumnosPorSituaciónToolStripMenuItem, Me.ReporteDetalladoDeCalificacionesPorAlumnoToolStripMenuItem, Me.ReporteDetalladoDeCalificacionesPorAlumnoPorNivelToolStripMenuItem, Me.ReporteDeCalificacionesFinalesToolStripMenuItem})
         Me.ReportesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(219, 43)
@@ -308,6 +309,12 @@ Partial Class principal
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
+        'ReporteDeCalificacionesFinalesToolStripMenuItem
+        '
+        Me.ReporteDeCalificacionesFinalesToolStripMenuItem.Name = "ReporteDeCalificacionesFinalesToolStripMenuItem"
+        Me.ReporteDeCalificacionesFinalesToolStripMenuItem.Size = New System.Drawing.Size(991, 44)
+        Me.ReporteDeCalificacionesFinalesToolStripMenuItem.Text = "Reporte de calificaciones finales"
+        '
         'principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -364,4 +371,5 @@ Partial Class principal
     Friend WithEvents ReporteDeAlumnosPorSituaciónToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReporteDetalladoDeCalificacionesPorAlumnoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReporteDetalladoDeCalificacionesPorAlumnoPorNivelToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReporteDeCalificacionesFinalesToolStripMenuItem As ToolStripMenuItem
 End Class
