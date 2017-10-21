@@ -743,5 +743,7 @@ Public Class principal
         frmReporteKardex.ShowDialog()
     End Sub
 
-
+    Private Sub ReporteDetalladoDeCalificacionesPorAlumnoPorNivelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDetalladoDeCalificacionesPorAlumnoPorNivelToolStripMenuItem.Click
+        frmCalificacionesDet.ShowDialog()
+    End Sub
 End Class

@@ -4,22 +4,14 @@ Imports Microsoft.Reporting.WinForms
 Public Class frmReporteKardex
     Dim idAlumno As Integer
     Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
-
         Conexion.Open()
 
-
-
-
         If kardexDetallado Then
-
-
-            MsgBox(idAlumno)
             comandoGeneral.CommandText = "DELETE FROM detalleKardexAlumno"
             comandoGeneral.ExecuteNonQuery()
 
             comandoGeneral.CommandText = "Select idCiclo, anio from ciclo"
             lectorGeneral = comandoGeneral.ExecuteReader
-
 
             While lectorGeneral.Read
 
@@ -27,9 +19,8 @@ Public Class frmReporteKardex
                 Dim anio As Integer = lectorGeneral(1)
                 Dim nomBD As String = CStr(id) + "-" + CStr(anio)
 
-
-                Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
-                    'Using conexioBDRemota As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+                'Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+                Using conexioBDRemota As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
                     Dim comandoBDRemota As SqlCommand = conexioBDRemota.CreateCommand
                     Dim comando2 As SqlCommand = conexioBDRemota.CreateCommand
                     Dim lector2 As SqlDataReader
@@ -37,13 +28,11 @@ Public Class frmReporteKardex
 
                     conexioBDRemota.Open()
 
-
                     comandoBDRemota.CommandText = "SELECT idGrupo, fecha from [" & nomBD & "].dbo.inscripcion where idAlumno = " & idAlumno & ""
                     lectorBDRemota = comandoBDRemota.ExecuteReader
 
                     If lectorBDRemota.Read() = False Then
                         lectorBDRemota.Close()
-
                     Else
                         Dim idGrupo As Integer = lectorBDRemota(0)
                         Dim fechaInscripcion As Date = lectorBDRemota(1)
@@ -75,13 +64,11 @@ Public Class frmReporteKardex
                         Dim hSaf As String = lectorBDRemota(13)
                         lectorBDRemota.Close()
 
-
                         comando2.CommandText = "SELECT COLUMN_NAME FROM MasterEa.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME =  'kardex' and  MasterEa.INFORMATION_SCHEMA.COLUMNS.COLUMN_NAME = 'n" & nivel & "';"
                         lector2 = comando2.ExecuteReader
                         lector2.Read()
                         Dim nomColumna As String = lector2(0)
                         lector2.Close()
-
 
                         'comando para obtener la calificacion dl nivel correspondiente
                         comando2.CommandText = "SELECT " & nomColumna & " from MasterEA.dbo.kardex where idAlumno = " & idAlumno & ""
@@ -94,10 +81,7 @@ Public Class frmReporteKardex
                         comando2.CommandText = "INSERT INTO MasterEA.dbo.detalleKardexAlumno VALUES(" & idAlumno & " ,'" & nomBD & "', " & idGrupo & ", '" & nombM & "', " & nivel & ", " & calNivel & ", '" & fechaInscripcion & "', '" & hLunI & "', '" & hLunF & "', '" & hMaI & "', '" & hMaF & "', '" & hMiI & "', '" & hMiF & "', '" & hJuI & "', '" & hJuF & "', '" & hViI & "', '" & hViF & "', '" & hSaI & "', '" & hSaf & "')"
                         comando2.ExecuteNonQuery()
 
-
                         conexioBDRemota.Close()
-
-
                     End If
 
                 End Using
@@ -125,8 +109,8 @@ Public Class frmReporteKardex
             Dim p1 As New ReportParameter("P1", idAlumno)
             frmReportes.ReportViewer1.LocalReport.DataSources.Clear()
             frmReportes.ReportViewer1.LocalReport.DataSources.Add(datasource)
-            'frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\AdminAssistant\Reportes\ReporteKardexPorAlumno.rdlc"
-            frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteNivelesCursados.rdlc"
+            frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\AdminAssistant\Reportes\ReporteNivelesCursados.rdlc"
+            'frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteNivelesCursados.rdlc"
             frmReportes.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {p1})
             frmReportes.ReportViewer1.RefreshReport()
             frmReportes.ShowDialog()
@@ -189,6 +173,7 @@ Public Class frmReporteKardex
     End Sub
 
     Private Sub frmReporteKardex_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cboNombreAlumno.Items.Clear()
         Conexion.Open()
 
         comandoGeneral.CommandText = "SELECT nombre FROM alumno"
