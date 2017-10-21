@@ -38,7 +38,7 @@ Public Class frmCalificacionesDet
             Dim lector2 As SqlDataReader
             Dim lectorBDRemota As SqlDataReader
             conexioBDRemota.Open()
-            comandoBDRemota.CommandText = "SELECT nivel FROM grupo INNER JOIN inscripcion ON grupo.idGrupo = inscripcion.idGrupo INNER JOIN MasterEA.dbo.alumno ON "2-2017".dbo.inscripcion.idAlumno = MasterEA.dbo.alumno.idAlumno WHERE MasterEA.dbo.alumno.idAlumno = 1;"
+            'comandoBDRemota.CommandText = "SELECT nivel FROM grupo INNER JOIN inscripcion ON grupo.idGrupo = inscripcion.idGrupo INNER JOIN MasterEA.dbo.alumno ON "2-2017".dbo.inscripcion.idAlumno = MasterEA.dbo.alumno.idAlumno WHERE MasterEA.dbo.alumno.idAlumno = 1;"
         End While
         Conexion.Close()
     End Sub

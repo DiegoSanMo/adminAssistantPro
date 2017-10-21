@@ -742,4 +742,6 @@ Public Class principal
         kardexDetallado = True
         frmReporteKardex.ShowDialog()
     End Sub
+
+
 End Class

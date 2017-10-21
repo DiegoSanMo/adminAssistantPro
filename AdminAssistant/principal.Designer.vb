@@ -57,10 +57,10 @@ Partial Class principal
         Me.ReporteDeListasPorCicloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeAlumnosPorSituaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDetalladoDeCalificacionesPorAlumnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReporteDetalladoDeCalificacionesPorAlumnoPorNivelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ReporteDetalladoDeCalificacionesPorAlumnoPorNivelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.msPrincipal.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -280,6 +280,12 @@ Partial Class principal
         Me.ReporteDetalladoDeCalificacionesPorAlumnoToolStripMenuItem.Size = New System.Drawing.Size(991, 44)
         Me.ReporteDetalladoDeCalificacionesPorAlumnoToolStripMenuItem.Text = "Reporte detallado de calificaciones por alumno"
         '
+        'ReporteDetalladoDeCalificacionesPorAlumnoPorNivelToolStripMenuItem
+        '
+        Me.ReporteDetalladoDeCalificacionesPorAlumnoPorNivelToolStripMenuItem.Name = "ReporteDetalladoDeCalificacionesPorAlumnoPorNivelToolStripMenuItem"
+        Me.ReporteDetalladoDeCalificacionesPorAlumnoPorNivelToolStripMenuItem.Size = New System.Drawing.Size(991, 44)
+        Me.ReporteDetalladoDeCalificacionesPorAlumnoPorNivelToolStripMenuItem.Text = "Reporte detallado de calificaciones por alumno por nivel"
+        '
         'SalirToolStripMenuItem
         '
         Me.SalirToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace
@@ -301,12 +307,6 @@ Partial Class principal
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
-        '
-        'ReporteDetalladoDeCalificacionesPorAlumnoPorNivelToolStripMenuItem
-        '
-        Me.ReporteDetalladoDeCalificacionesPorAlumnoPorNivelToolStripMenuItem.Name = "ReporteDetalladoDeCalificacionesPorAlumnoPorNivelToolStripMenuItem"
-        Me.ReporteDetalladoDeCalificacionesPorAlumnoPorNivelToolStripMenuItem.Size = New System.Drawing.Size(991, 44)
-        Me.ReporteDetalladoDeCalificacionesPorAlumnoPorNivelToolStripMenuItem.Text = "Reporte detallado de calificaciones por alumno por nivel"
         '
         'principal
         '

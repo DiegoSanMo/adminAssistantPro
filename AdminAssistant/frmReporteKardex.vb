@@ -28,8 +28,8 @@ Public Class frmReporteKardex
                 Dim nomBD As String = CStr(id) + "-" + CStr(anio)
 
 
-                'Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
-                Using conexioBDRemota As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+                Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+                    'Using conexioBDRemota As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
                     Dim comandoBDRemota As SqlCommand = conexioBDRemota.CreateCommand
                     Dim comando2 As SqlCommand = conexioBDRemota.CreateCommand
                     Dim lector2 As SqlDataReader
