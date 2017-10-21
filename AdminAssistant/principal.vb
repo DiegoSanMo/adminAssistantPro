@@ -485,6 +485,7 @@ Public Class principal
 
                             While lector2.Read
                                 Dim sit As String = "EN ESPERA"
+                                Dim sitFin As String = "FINALIZADO"
                                 comando3.CommandText = "Select calificacion From lista" & i & " Where idAlumno=" & lector2(0) & ""
                                 lector3 = comando3.ExecuteReader
                                 lector3.Read()
@@ -492,12 +493,21 @@ Public Class principal
                                 lector3.Close()
                                 Dim est As String = "Cerrado"
                                 If calif >= 80 Then
-                                    comandoGeneral.CommandText = "Update kardex Set n" & nivel & "=" & calif & " Where idAlumno=" & lector2(0) & ""
-                                    comandoGeneral.ExecuteNonQuery()
-                                    comandoGeneral.CommandText = "Update alumno Set situacion='" & sit & "', ultimoNivelAcreditado=" & nivel & " Where idAlumno=" & lector2(0) & ""
-                                    comandoGeneral.ExecuteNonQuery()
-                                    comandoGeneral.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
-                                    comandoGeneral.ExecuteNonQuery()
+                                    If nivel = 12 Then
+                                        comandoGeneral.CommandText = "Update kardex Set n" & nivel & "=" & calif & " Where idAlumno=" & lector2(0) & ""
+                                        comandoGeneral.ExecuteNonQuery()
+                                        comandoGeneral.CommandText = "Update alumno Set situacion='" & sitFin & "', ultimoNivelAcreditado=" & nivel & " Where idAlumno=" & lector2(0) & ""
+                                        comandoGeneral.ExecuteNonQuery()
+                                        comandoGeneral.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
+                                        comandoGeneral.ExecuteNonQuery()
+                                    Else
+                                        comandoGeneral.CommandText = "Update kardex Set n" & nivel & "=" & calif & " Where idAlumno=" & lector2(0) & ""
+                                        comandoGeneral.ExecuteNonQuery()
+                                        comandoGeneral.CommandText = "Update alumno Set situacion='" & sit & "', ultimoNivelAcreditado=" & nivel & " Where idAlumno=" & lector2(0) & ""
+                                        comandoGeneral.ExecuteNonQuery()
+                                        comandoGeneral.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
+                                        comandoGeneral.ExecuteNonQuery()
+                                    End If
                                 Else
                                     comandoGeneral.CommandText = "Update alumno Set situacion='" & sit & "' Where idAlumno=" & lector2(0) & ""
                                     comandoGeneral.ExecuteNonQuery()
@@ -530,7 +540,6 @@ Public Class principal
         End If
         Conexion.Close()
     End Sub
-
 
     Private Sub RegistroToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles RegistroToolStripMenuItem3.Click
         frmRegistroUsuarios.showDialog()
