@@ -8,6 +8,8 @@ Public Class frmReporteKardex
         Conexion.Open()
 
 
+
+
         If kardexDetallado Then
 
 
@@ -49,30 +51,85 @@ Public Class frmReporteKardex
 
                         comandoBDRemota.CommandText = "select c.nombre, grupo.nivel, grupo.hLuIni, grupo.hLuFin, grupo.hMaIni, grupo.hMaFin, grupo.hMiIni, grupo.hMiFin, grupo.hJuIni, grupo.hJuFin, grupo.hViIni, grupo.hViFin, grupo.hSaIni, grupo.hSaFin from grupo inner join MasterEA.dbo.maestro c on grupo.idMaestro = c.idMaestro WHERE grupo.idGrupo = " & idGrupo & ""
                         lectorBDRemota = comandoBDRemota.ExecuteReader
-                        While lectorBDRemota.Read
-                            Dim nivel As Integer = lectorBDRemota(1)
-                            MsgBox(nivel)
-                            comando2.CommandText = "SELECT COLUMN_NAME FROM MasterEa.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME =  'kardex' and  MasterEa.INFORMATION_SCHEMA.COLUMNS.COLUMN_NAME = 'n" & nivel & "';"
-                            lector2 = comando2.ExecuteReader
-                            lector2.Read()
-                            Dim nomColumna As String = lector2(0)
-                            lector2.Close()
-                            MsgBox(nomColumna)
-                            comando2.CommandText = "SELECT '" & nomColumna & "' from MasterEA.dbo.kardex where idAlumno = " & idAlumno & ""
-                            lector2 = comando2.ExecuteReader
-                            lector2.Read()
-                            Dim calNivel As Decimal = lector2(0)
-                            lector2.Close()
-                            MsgBox(calNivel)
+                        lectorBDRemota.Read()
 
-                        End While
+                        Dim nombM As String = lectorBDRemota(0)
+                        Dim nivel As Integer = lectorBDRemota(1)
+                        'horario del lunes
+                        Dim hLunI As String = lectorBDRemota(2)
+                        Dim hLunF As String = lectorBDRemota(3)
+                        'horario del martes
+                        Dim hMaI As String = lectorBDRemota(4)
+                        Dim hMaF As String = lectorBDRemota(5)
+                        'horario del miercoles
+                        Dim hMiI As String = lectorBDRemota(6)
+                        Dim hMiF As String = lectorBDRemota(7)
+                        'horario del jueves
+                        Dim hJuI As String = lectorBDRemota(8)
+                        Dim hJuF As String = lectorBDRemota(9)
+                        'horario del viernes
+                        Dim hViI As String = lectorBDRemota(10)
+                        Dim hViF As String = lectorBDRemota(11)
+                        'Horario del sabado
+                        Dim hSaI As String = lectorBDRemota(12)
+                        Dim hSaf As String = lectorBDRemota(13)
                         lectorBDRemota.Close()
+
+
+                        comando2.CommandText = "SELECT COLUMN_NAME FROM MasterEa.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME =  'kardex' and  MasterEa.INFORMATION_SCHEMA.COLUMNS.COLUMN_NAME = 'n" & nivel & "';"
+                        lector2 = comando2.ExecuteReader
+                        lector2.Read()
+                        Dim nomColumna As String = lector2(0)
+                        lector2.Close()
+
+
+                        'comando para obtener la calificacion dl nivel correspondiente
+                        comando2.CommandText = "SELECT " & nomColumna & " from MasterEA.dbo.kardex where idAlumno = " & idAlumno & ""
+                        lector2 = comando2.ExecuteReader
+                        lector2.Read()
+                        Dim calNivel As Decimal = lector2(0)
+                        lector2.Close()
+
+                        'comando para insertar en la tabla auxiliar
+                        comando2.CommandText = "INSERT INTO MasterEA.dbo.detalleKardexAlumno VALUES(" & idAlumno & " ,'" & nomBD & "', " & idGrupo & ", '" & nombM & "', " & nivel & ", " & calNivel & ", '" & fechaInscripcion & "', '" & hLunI & "', '" & hLunF & "', '" & hMaI & "', '" & hMaF & "', '" & hMiI & "', '" & hMiF & "', '" & hJuI & "', '" & hJuF & "', '" & hViI & "', '" & hViF & "', '" & hSaI & "', '" & hSaf & "')"
+                        comando2.ExecuteNonQuery()
+
+
                         conexioBDRemota.Close()
+
+
                     End If
 
                 End Using
             End While
             lectorGeneral.Close()
+
+            'Comienza area de Reporte
+            Dim cmd As New SqlCommand("REPORTENIVELESCURSADOSPORALUMNO", Conexion)
+            cmd.CommandType = CommandType.StoredProcedure
+            Dim adaptador As New SqlDataAdapter
+            adaptador.SelectCommand = New SqlCommand
+            adaptador.SelectCommand.Connection = Conexion
+            adaptador.SelectCommand.CommandText = "REPORTENIVELESCURSADOSPORALUMNO"
+            adaptador.SelectCommand.CommandType = CommandType.StoredProcedure
+            Dim param1 = New SqlParameter("@IDALUMNO", SqlDbType.NVarChar)
+            param1.Direction = ParameterDirection.Input
+            param1.Value = idAlumno
+            adaptador.SelectCommand.Parameters.Add(param1)
+            Dim dataset As New DataSet
+            adaptador.Fill(dataset)
+            dataset.DataSetName = "DataSet1"
+            Dim datasource As New ReportDataSource("DataSet1", dataset.Tables(0))
+            datasource.Name = "DataSet1"
+            datasource.Value = dataset.Tables(0)
+            Dim p1 As New ReportParameter("P1", idAlumno)
+            frmReportes.ReportViewer1.LocalReport.DataSources.Clear()
+            frmReportes.ReportViewer1.LocalReport.DataSources.Add(datasource)
+            'frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\AdminAssistant\Reportes\ReporteKardexPorAlumno.rdlc"
+            frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteNivelesCursados.rdlc"
+            frmReportes.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {p1})
+            frmReportes.ReportViewer1.RefreshReport()
+            frmReportes.ShowDialog()
 
             Conexion.Close()
         Else

@@ -277,6 +277,7 @@
     <EmbeddedResource Include="principal.resx">
       <DependentUpon>principal.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteNivelesCursados.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteSituacionAlumnos.rdlc" />
     <EmbeddedResource Include="ReporteSituacion.resx">
       <DependentUpon>ReporteSituacion.vb</DependentUpon>
