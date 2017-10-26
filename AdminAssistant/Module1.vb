@@ -28,5 +28,6 @@ Module Module1
 
 
     Public kardexDetallado As Boolean = False
+    Public constancia As Boolean = False
 
 End Module

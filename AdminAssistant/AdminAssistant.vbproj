@@ -286,6 +286,8 @@
     <EmbeddedResource Include="principal.resx">
       <DependentUpon>principal.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteConstanciaNivel.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteConstanciaFinal.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteCalifFinales.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteKardexPorAlumnoPorNivel.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteNivelesCursados.rdlc" />

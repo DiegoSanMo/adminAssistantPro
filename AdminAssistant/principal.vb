@@ -759,4 +759,39 @@ Public Class principal
     Private Sub ReporteDeCalificacionesFinalesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeCalificacionesFinalesToolStripMenuItem.Click
         frmReporteCalifFinales.ShowDialog()
     End Sub
+
+    Private Sub ConstanciaDeNivelActualToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConstanciaDeNivelActualToolStripMenuItem.Click
+        Conexion.Open()
+        comandoGeneral.CommandText = "Select count(idCiclo) from ciclo"
+        Dim n As Integer = comandoGeneral.ExecuteScalar()
+
+        If n > 0 Then
+            comandoGeneral.CommandText = "DELETE FROM auxConstancia"
+            comandoGeneral.ExecuteNonQuery()
+            comandoGeneral.CommandText = "Select idCiclo, anio, estado From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
+            lectorGeneral = comandoGeneral.ExecuteReader
+            lectorGeneral.Read()
+
+
+            Dim id As Integer = lectorGeneral(0)
+            Dim anio As Integer = lectorGeneral(1)
+            Dim nomBD As String = CStr(id) + "-" + CStr(anio)
+
+            If lectorGeneral(2) = "Abierto" Then
+                constancia = True
+                lectorGeneral.Close()
+                Conexion.Close()
+                frmReporteCalifFinales.ShowDialog()
+            Else
+                constancia = False
+                MessageBox.Show("ERROR. No hay ningún ciclo registrado", "Error de constancia", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                lectorGeneral.Close()
+                Conexion.Close()
+            End If
+        Else
+            constancia = False
+            MessageBox.Show("ERROR. No hay ningún ciclo registrado", "Error de constancia", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Conexion.Close()
+        End If
+    End Sub
 End Class
