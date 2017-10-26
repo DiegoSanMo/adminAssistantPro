@@ -70,7 +70,7 @@ Public Class frmReporteKardex
                         Dim nomColumna As String = lector2(0)
                         lector2.Close()
 
-                        'comando para obtener la calificacion dl nivel correspondiente
+                        'comando para obtener la calificacion del nivel correspondiente
                         comando2.CommandText = "SELECT " & nomColumna & " from MasterEA.dbo.kardex where idAlumno = " & idAlumno & ""
                         lector2 = comando2.ExecuteReader
                         lector2.Read()

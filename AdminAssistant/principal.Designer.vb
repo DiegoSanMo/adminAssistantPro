@@ -59,10 +59,11 @@ Partial Class principal
         Me.ReporteDetalladoDeCalificacionesPorAlumnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDetalladoDeCalificacionesPorAlumnoPorNivelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeCalificacionesFinalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConstanciaDeNivelActualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ConstanciaDeNivelActualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConstanciaDeCalificacionesActualesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.msPrincipal.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -228,7 +229,7 @@ Partial Class principal
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReporteDeMaestrosToolStripMenuItem, Me.ReporteDeAlumnosInscritosToolStripMenuItem, Me.ReporteDeGruposPorCicloToolStripMenuItem, Me.ReporteDeGruposPorCicloToolStripMenuItem1, Me.ReporteDeKardexPorAlumnoToolStripMenuItem, Me.ReporteDeListasPorCicloToolStripMenuItem, Me.ReporteDeAlumnosPorSituaciónToolStripMenuItem, Me.ReporteDetalladoDeCalificacionesPorAlumnoToolStripMenuItem, Me.ReporteDetalladoDeCalificacionesPorAlumnoPorNivelToolStripMenuItem, Me.ReporteDeCalificacionesFinalesToolStripMenuItem, Me.ConstanciaDeNivelActualToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReporteDeMaestrosToolStripMenuItem, Me.ReporteDeAlumnosInscritosToolStripMenuItem, Me.ReporteDeGruposPorCicloToolStripMenuItem, Me.ReporteDeGruposPorCicloToolStripMenuItem1, Me.ReporteDeKardexPorAlumnoToolStripMenuItem, Me.ReporteDeListasPorCicloToolStripMenuItem, Me.ReporteDeAlumnosPorSituaciónToolStripMenuItem, Me.ReporteDetalladoDeCalificacionesPorAlumnoToolStripMenuItem, Me.ReporteDetalladoDeCalificacionesPorAlumnoPorNivelToolStripMenuItem, Me.ReporteDeCalificacionesFinalesToolStripMenuItem, Me.ConstanciaDeNivelActualToolStripMenuItem, Me.ConstanciaDeCalificacionesActualesToolStripMenuItem})
         Me.ReportesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(219, 43)
@@ -294,6 +295,12 @@ Partial Class principal
         Me.ReporteDeCalificacionesFinalesToolStripMenuItem.Size = New System.Drawing.Size(991, 44)
         Me.ReporteDeCalificacionesFinalesToolStripMenuItem.Text = "Constacia de finalización de curso"
         '
+        'ConstanciaDeNivelActualToolStripMenuItem
+        '
+        Me.ConstanciaDeNivelActualToolStripMenuItem.Name = "ConstanciaDeNivelActualToolStripMenuItem"
+        Me.ConstanciaDeNivelActualToolStripMenuItem.Size = New System.Drawing.Size(991, 44)
+        Me.ConstanciaDeNivelActualToolStripMenuItem.Text = "Constancia de nivel actual"
+        '
         'SalirToolStripMenuItem
         '
         Me.SalirToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace
@@ -316,11 +323,11 @@ Partial Class principal
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
-        'ConstanciaDeNivelActualToolStripMenuItem
+        'ConstanciaDeCalificacionesActualesToolStripMenuItem
         '
-        Me.ConstanciaDeNivelActualToolStripMenuItem.Name = "ConstanciaDeNivelActualToolStripMenuItem"
-        Me.ConstanciaDeNivelActualToolStripMenuItem.Size = New System.Drawing.Size(991, 44)
-        Me.ConstanciaDeNivelActualToolStripMenuItem.Text = "Constancia de nivel actual"
+        Me.ConstanciaDeCalificacionesActualesToolStripMenuItem.Name = "ConstanciaDeCalificacionesActualesToolStripMenuItem"
+        Me.ConstanciaDeCalificacionesActualesToolStripMenuItem.Size = New System.Drawing.Size(991, 44)
+        Me.ConstanciaDeCalificacionesActualesToolStripMenuItem.Text = "Constancia de calificaciones actuales"
         '
         'principal
         '
@@ -380,4 +387,5 @@ Partial Class principal
     Friend WithEvents ReporteDetalladoDeCalificacionesPorAlumnoPorNivelToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReporteDeCalificacionesFinalesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ConstanciaDeNivelActualToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ConstanciaDeCalificacionesActualesToolStripMenuItem As ToolStripMenuItem
 End Class

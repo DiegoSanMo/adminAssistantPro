@@ -581,7 +581,8 @@ Public Class principal
             Dim reportes As New ReportDataSource("DataSet1", data1.Tables(0))
             frmReportes.ReportViewer1.LocalReport.DataSources.Clear()
             frmReportes.ReportViewer1.LocalReport.DataSources.Add(reportes)
-            frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteAlumnosInscritos.rdlc"
+            'frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteAlumnosInscritos.rdlc"
+            frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\AdminAssistant\Reportes\ReporteAlumnosInscritos.rdlc"
             frmReportes.ReportViewer1.RefreshReport()
             frmReportes.ShowDialog()
             'lectorGeneral.Close()
@@ -626,26 +627,26 @@ Public Class principal
                 Dim nomBD As String = CStr(id) + "-" + CStr(anio)
 
 
-                Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+                'Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+                Using conexioBDRemota As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+                        Dim comandoBDRemota As SqlCommand = conexioBDRemota.CreateCommand
+                        Dim comando2 As SqlCommand = conexioBDRemota.CreateCommand
+                        Dim lector2 As SqlDataReader
+                        Dim lectorBDRemota As SqlDataReader
 
-                    Dim comandoBDRemota As SqlCommand = conexioBDRemota.CreateCommand
-                    Dim comando2 As SqlCommand = conexioBDRemota.CreateCommand
-                    Dim lector2 As SqlDataReader
-                    Dim lectorBDRemota As SqlDataReader
+                        conexioBDRemota.Open()
 
-                    conexioBDRemota.Open()
-
-                    comandoBDRemota.CommandText = "SELECT  G.idGrupo, M.nombre, M.correo, M.telefono, G.nivel, G.cantInscritos, G.maxAlumnos, 
+                        comandoBDRemota.CommandText = "SELECT  G.idGrupo, M.nombre, M.correo, M.telefono, G.nivel, G.cantInscritos, G.maxAlumnos, 
 		G.hLuIni, G.hLuFin, G.hMaIni, G.hMaFin, G.hMiIni, G.hMiFin, G.hJuIni, G.hJuFin, G.hViIni, G.hViFin, G.hSaIni, G.hSaFin  FROM MasterEA.dbo.maestro M LEFT JOIN  [" & nomBD & "].dbo.grupo G ON m.idMaestro = G.idMaestro where G.idGrupo <> 0"
-                    lectorBDRemota = comandoBDRemota.ExecuteReader
+                        lectorBDRemota = comandoBDRemota.ExecuteReader
 
-                    While lectorBDRemota.Read
-                        comando2.CommandText = "Insert into MasterEA.dbo.auxHorario values('" & nomBD & "'," & lectorBDRemota(0) & ",'" & lectorBDRemota(1) & "','" & lectorBDRemota(2) & "','" & lectorBDRemota(3) & "', " & lectorBDRemota(4) & ", " & lectorBDRemota(5) & "," & lectorBDRemota(6) & ",'" & lectorBDRemota(7) & "','" & lectorBDRemota(8) & "','" & lectorBDRemota(9) & "','" & lectorBDRemota(10) & "','" & lectorBDRemota(11) & "','" & lectorBDRemota(12) & "','" & lectorBDRemota(13) & "','" & lectorBDRemota(14) & "','" & lectorBDRemota(15) & "','" & lectorBDRemota(16) & "','" & lectorBDRemota(17) & "','" & lectorBDRemota(18) & "')"
-                        comando2.ExecuteNonQuery()
-                    End While
-                    lectorBDRemota.Close()
-                    conexioBDRemota.Close()
-                End Using
+                        While lectorBDRemota.Read
+                            comando2.CommandText = "Insert into MasterEA.dbo.auxHorario values('" & nomBD & "'," & lectorBDRemota(0) & ",'" & lectorBDRemota(1) & "','" & lectorBDRemota(2) & "','" & lectorBDRemota(3) & "', " & lectorBDRemota(4) & ", " & lectorBDRemota(5) & "," & lectorBDRemota(6) & ",'" & lectorBDRemota(7) & "','" & lectorBDRemota(8) & "','" & lectorBDRemota(9) & "','" & lectorBDRemota(10) & "','" & lectorBDRemota(11) & "','" & lectorBDRemota(12) & "','" & lectorBDRemota(13) & "','" & lectorBDRemota(14) & "','" & lectorBDRemota(15) & "','" & lectorBDRemota(16) & "','" & lectorBDRemota(17) & "','" & lectorBDRemota(18) & "')"
+                            comando2.ExecuteNonQuery()
+                        End While
+                        lectorBDRemota.Close()
+                        conexioBDRemota.Close()
+                    End Using
 
 
             End While
@@ -662,7 +663,8 @@ Public Class principal
         Dim reportes As New ReportDataSource("DataSet1", data.Tables(0))
         frmReportes.ReportViewer1.LocalReport.DataSources.Clear()
         frmReportes.ReportViewer1.LocalReport.DataSources.Add(reportes)
-        frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteGruposGeneral.rdlc"
+        'frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteGruposGeneral.rdlc"
+        frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\AdminAssistant\Reportes\ReporteGruposGeneral.rdlc"
         frmReportes.ReportViewer1.RefreshReport()
         frmReportes.ShowDialog()
         Conexion.Close()
@@ -692,28 +694,28 @@ Public Class principal
             If lectorGeneral(2) = "Abierto" Then
                 lectorGeneral.Close()
 
-                Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
-                'Using conexioBDRemota As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
-                Dim comandoBDRemota As SqlCommand = conexioBDRemota.CreateCommand
-                    Dim comando2 As SqlCommand = conexioBDRemota.CreateCommand
-                    Dim lectorBDRemota As SqlDataReader
+                'Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+                Using conexioBDRemota As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+                        Dim comandoBDRemota As SqlCommand = conexioBDRemota.CreateCommand
+                        Dim comando2 As SqlCommand = conexioBDRemota.CreateCommand
+                        Dim lectorBDRemota As SqlDataReader
 
-                    conexioBDRemota.Open()
+                        conexioBDRemota.Open()
 
-                    comandoBDRemota.CommandText = "SELECT  G.idGrupo, M.nombre, M.correo, M.telefono, G.nivel, G.cantInscritos, G.maxAlumnos, 
+                        comandoBDRemota.CommandText = "SELECT  G.idGrupo, M.nombre, M.correo, M.telefono, G.nivel, G.cantInscritos, G.maxAlumnos, 
 		G.hLuIni, G.hLuFin, G.hMaIni, G.hMaFin, G.hMiIni, G.hMiFin, G.hJuIni, G.hJuFin, G.hViIni, G.hViFin, G.hSaIni, G.hSaFin  FROM MasterEA.dbo.maestro M LEFT JOIN  [" & nomBD & "].dbo.grupo G ON m.idMaestro = G.idMaestro where G.idGrupo <> 0"
-                    lectorBDRemota = comandoBDRemota.ExecuteReader
+                        lectorBDRemota = comandoBDRemota.ExecuteReader
 
-                    While lectorBDRemota.Read
-                        comando2.CommandText = "Insert into MasterEA.dbo.auxHorario values('" & nomBD & "'," & lectorBDRemota(0) & ",'" & lectorBDRemota(1) & "','" & lectorBDRemota(2) & "','" & lectorBDRemota(3) & "', " & lectorBDRemota(4) & ", " & lectorBDRemota(5) & "," & lectorBDRemota(6) & ",'" & lectorBDRemota(7) & "','" & lectorBDRemota(8) & "','" & lectorBDRemota(9) & "','" & lectorBDRemota(10) & "','" & lectorBDRemota(11) & "','" & lectorBDRemota(12) & "','" & lectorBDRemota(13) & "','" & lectorBDRemota(14) & "','" & lectorBDRemota(15) & "','" & lectorBDRemota(16) & "','" & lectorBDRemota(17) & "','" & lectorBDRemota(18) & "')"
-                        comando2.ExecuteNonQuery()
-                    End While
-                    lectorBDRemota.Close()
-                    conexioBDRemota.Close()
-                End Using
+                        While lectorBDRemota.Read
+                            comando2.CommandText = "Insert into MasterEA.dbo.auxHorario values('" & nomBD & "'," & lectorBDRemota(0) & ",'" & lectorBDRemota(1) & "','" & lectorBDRemota(2) & "','" & lectorBDRemota(3) & "', " & lectorBDRemota(4) & ", " & lectorBDRemota(5) & "," & lectorBDRemota(6) & ",'" & lectorBDRemota(7) & "','" & lectorBDRemota(8) & "','" & lectorBDRemota(9) & "','" & lectorBDRemota(10) & "','" & lectorBDRemota(11) & "','" & lectorBDRemota(12) & "','" & lectorBDRemota(13) & "','" & lectorBDRemota(14) & "','" & lectorBDRemota(15) & "','" & lectorBDRemota(16) & "','" & lectorBDRemota(17) & "','" & lectorBDRemota(18) & "')"
+                            comando2.ExecuteNonQuery()
+                        End While
+                        lectorBDRemota.Close()
+                        conexioBDRemota.Close()
+                    End Using
 
 
-                Dim cmd As New SqlCommand("REPORTEGRUPOSGENERAL", Conexion)
+                    Dim cmd As New SqlCommand("REPORTEGRUPOSGENERAL", Conexion)
                 cmd.CommandType = CommandType.StoredProcedure
                 Dim adaptador As New SqlDataAdapter(cmd)
                 Dim data As New DataSet
@@ -722,7 +724,8 @@ Public Class principal
                 Dim reportes As New ReportDataSource("DataSet1", data.Tables(0))
                 frmReportes.ReportViewer1.LocalReport.DataSources.Clear()
                 frmReportes.ReportViewer1.LocalReport.DataSources.Add(reportes)
-                frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteGrupoCicloAbierto.rdlc"
+                'frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteGrupoCicloAbierto.rdlc"
+                frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\AdminAssistant\Reportes\ReporteGrupoCicloAbierto.rdlc"
                 frmReportes.ReportViewer1.RefreshReport()
                 frmReportes.ShowDialog()
                 Conexion.Close()
@@ -793,5 +796,10 @@ Public Class principal
             MessageBox.Show("ERROR. No hay ningún ciclo registrado", "Error de constancia", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Conexion.Close()
         End If
+    End Sub
+
+    Private Sub ConstanciaDeCalificacionesActualesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConstanciaDeCalificacionesActualesToolStripMenuItem.Click
+        constanciaNivAct = True
+        frmReporteCalifFinales.ShowDialog()
     End Sub
 End Class

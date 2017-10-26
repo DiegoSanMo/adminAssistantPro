@@ -59,6 +59,63 @@ Public Class frmReporteCalifFinales
                 frmReportes.ShowDialog()
                 Conexion.Close()
             End Using
+            constancia = False
+        ElseIf constanciaNivAct = True Then
+            Conexion.Open()
+            Dim comandoAux As SqlCommand = Conexion.CreateCommand
+            Dim comandoAux2 As SqlCommand = Conexion.CreateCommand
+            Dim lectorAux As SqlDataReader
+            comandoGeneral.CommandText = "DELETE FROM constanciaCalifActuales"
+            comandoGeneral.ExecuteNonQuery()
+            For x = 1 To 12
+                comandoGeneral.CommandText = "SELECT COLUMN_NAME FROM MasterEA.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'kardex' and  MasterEA.INFORMATION_SCHEMA.COLUMNS.COLUMN_NAME = 'n" & x & "'"
+                lectorGeneral = comandoGeneral.ExecuteReader
+                lectorGeneral.Read()
+                Dim nomColumna As String = lectorGeneral(0)
+                MsgBox(nomColumna)
+                comandoAux.CommandText = "SELECT " & nomColumna & " FROM kardex WHERE " & nomColumna & " != 0 AND idAlumno=" & idAlumno & ";"
+                lectorAux = comandoAux.ExecuteReader
+                lectorAux.Read()
+                MsgBox(lectorAux(0))
+                If lectorAux(0) <> 0 Then
+                    MsgBox("Mensaje Culiao")
+                    comandoAux2.CommandText = "INSERT INTO constanciaCalifActuales(nivel" & x & ") values(" & lectorAux(0) & ")"
+                    comandoAux2.ExecuteNonQuery()
+                    lectorAux.Close()
+                Else
+                    lectorGeneral.Close()
+                    lectorAux.Close()
+                End If
+                lectorGeneral.Close()
+            Next
+            Dim cmd As New SqlCommand("CONSTANCIACALIFACTUAL", Conexion)
+            cmd.CommandType = CommandType.StoredProcedure
+            Dim adaptador As New SqlDataAdapter
+            adaptador.SelectCommand = New SqlCommand
+            adaptador.SelectCommand.Connection = Conexion
+            adaptador.SelectCommand.CommandText = "CONSTANCIACALIFACTUAL"
+            adaptador.SelectCommand.CommandType = CommandType.StoredProcedure
+            Dim param1 = New SqlParameter("@IDALUMNO", SqlDbType.Int)
+            param1.Direction = ParameterDirection.Input
+            param1.Value = idAlumno
+            adaptador.SelectCommand.Parameters.Add(param1)
+            Dim dataset As New DataSet
+            adaptador.Fill(dataset)
+            dataset.DataSetName = "DataSet1"
+            Dim datasource As New ReportDataSource("DataSet1", dataset.Tables(0))
+            datasource.Name = "DataSet1"
+            datasource.Value = dataset.Tables(0)
+            Dim p1 As New ReportParameter("P1", idAlumno)
+            Dim p2 As New ReportParameter("P2", fechaR)
+            frmReportes.ReportViewer1.LocalReport.DataSources.Clear()
+            frmReportes.ReportViewer1.LocalReport.DataSources.Add(datasource)
+            frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\AdminAssistant\Reportes\ReporteCalifActuales.rdlc"
+            'frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteKardexPorAlumno.rdlc"
+            frmReportes.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {p1, p2})
+            frmReportes.ReportViewer1.RefreshReport()
+            frmReportes.ShowDialog()
+            constanciaNivAct = False
+            Conexion.Close()
         Else
             Conexion.Open()
             Dim cmd As New SqlCommand("REPORTECALIFFINALES", Conexion)
@@ -109,6 +166,14 @@ Public Class frmReporteCalifFinales
     Private Sub frmReporteCalifFinales_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Conexion.Open()
         If constancia = True Then
+            comandoGeneral.CommandText = "SELECT nombre FROM alumno"
+            lectorGeneral = comandoGeneral.ExecuteReader
+            While lectorGeneral.Read
+                cboNombreAlumno.Items.Add(lectorGeneral(0))
+            End While
+            lectorGeneral.Close()
+            Conexion.Close()
+        ElseIf constanciaNivAct = True Then
             comandoGeneral.CommandText = "SELECT nombre FROM alumno"
             lectorGeneral = comandoGeneral.ExecuteReader
             While lectorGeneral.Read

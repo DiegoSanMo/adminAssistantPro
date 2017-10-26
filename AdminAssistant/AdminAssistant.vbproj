@@ -286,6 +286,7 @@
     <EmbeddedResource Include="principal.resx">
       <DependentUpon>principal.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteCalifActuales.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteConstanciaNivel.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteConstanciaFinal.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteCalifFinales.rdlc" />

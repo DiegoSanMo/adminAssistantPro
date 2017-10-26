@@ -420,7 +420,9 @@
             <TextRuns>
               <TextRun>
                 <Value>=Fields!nivel.Value</Value>
-                <Style />
+                <Style>
+                  <FontSize>12pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
@@ -429,7 +431,7 @@
         <rd:DefaultName>Textbox13</rd:DefaultName>
         <Top>7.06974cm</Top>
         <Left>10.81148cm</Left>
-        <Height>0.6cm</Height>
+        <Height>0.62908cm</Height>
         <Width>1.19728cm</Width>
         <ZIndex>10</ZIndex>
         <Style>
