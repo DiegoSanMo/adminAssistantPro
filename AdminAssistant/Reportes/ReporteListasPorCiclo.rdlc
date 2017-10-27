@@ -380,7 +380,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>3.67771cm</Top>
+        <Top>3.91233cm</Top>
         <Left>1.51432cm</Left>
         <Height>1.2cm</Height>
         <Width>18.445cm</Width>
@@ -427,8 +427,8 @@
         <Value>clipboard</Value>
         <Sizing>FitProportional</Sizing>
         <Left>0.8107cm</Left>
-        <Height>1.94531cm</Height>
-        <Width>2.135cm</Width>
+        <Height>2.8099cm</Height>
+        <Width>2.47896cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -713,7 +713,7 @@
           </Style>
         </ChartNoDataMessage>
         <DataSetName>DataSet1</DataSetName>
-        <Top>3.36077cm</Top>
+        <Top>6.0066cm</Top>
         <Left>1.74308cm</Left>
         <Height>10.05354cm</Height>
         <Width>19.75021cm</Width>
@@ -728,8 +728,8 @@
         </Style>
       </Chart>
     </ReportItems>
-    <Height>2.58333in</Height>
-    <Style/>
+    <Height>6.32289in</Height>
+    <Style />
   </Body>
   <Width>9.0625in</Width>
   <Page>
