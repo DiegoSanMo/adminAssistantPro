@@ -24,27 +24,27 @@ Public Class frmReporteListas
             If lectorGeneral(2) = "Abierto" Then
                 lectorGeneral.Close()
 
-                Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
-                    'Using conexioBDRemota As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
-                    Dim comandoBDRemota As SqlCommand = conexioBDRemota.CreateCommand
-                    Dim comando2 As SqlCommand = conexioBDRemota.CreateCommand
-                    Dim lectorBDRemota As SqlDataReader
+                'Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+                Using conexioBDRemota As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+                        Dim comandoBDRemota As SqlCommand = conexioBDRemota.CreateCommand
+                        Dim comando2 As SqlCommand = conexioBDRemota.CreateCommand
+                        Dim lectorBDRemota As SqlDataReader
 
-                    conexioBDRemota.Open()
+                        conexioBDRemota.Open()
 
-                    comandoBDRemota.CommandText = "SELECT * FROM lista" & CInt(cboNumLista.Text) & ""
-                    lectorBDRemota = comandoBDRemota.ExecuteReader
+                        comandoBDRemota.CommandText = "SELECT * FROM lista" & CInt(cboNumLista.Text) & ""
+                        lectorBDRemota = comandoBDRemota.ExecuteReader
 
-                    While lectorBDRemota.Read
-                        comando2.CommandText = "Insert into MasterEA.dbo.auxListas values(" & lectorBDRemota(0) & ",'" & lectorBDRemota(1) & "'," & CDec(lectorBDRemota(2)) & ")"
-                        comando2.ExecuteNonQuery()
-                    End While
-                    lectorBDRemota.Close()
-                    conexioBDRemota.Close()
-                End Using
+                        While lectorBDRemota.Read
+                            comando2.CommandText = "Insert into MasterEA.dbo.auxListas values(" & lectorBDRemota(0) & ",'" & lectorBDRemota(1) & "'," & CDec(lectorBDRemota(2)) & ")"
+                            comando2.ExecuteNonQuery()
+                        End While
+                        lectorBDRemota.Close()
+                        conexioBDRemota.Close()
+                    End Using
 
 
-                Dim cmd As New SqlCommand("REPORTELISTASPORCICLO", Conexion)
+                    Dim cmd As New SqlCommand("REPORTELISTASPORCICLO", Conexion)
                 cmd.CommandType = CommandType.StoredProcedure
                 Dim adaptador As New SqlDataAdapter(cmd)
                 Dim data As New DataSet
@@ -53,8 +53,8 @@ Public Class frmReporteListas
                 Dim reportes As New ReportDataSource("DataSet1", data.Tables(0))
                 frmReportes.ReportViewer1.LocalReport.DataSources.Clear()
                 frmReportes.ReportViewer1.LocalReport.DataSources.Add(reportes)
-                'frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\AdminAssistant\Reportes\ReporteListasPorCiclo.rdlc"
-                frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteListasPorCiclo.rdlc"
+                frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\AdminAssistant\Reportes\ReporteListasPorCiclo.rdlc"
+                'frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteListasPorCiclo.rdlc"
                 frmReportes.ReportViewer1.RefreshReport()
                 frmReportes.ShowDialog()
                 Conexion.Close()
@@ -79,22 +79,22 @@ Public Class frmReporteListas
         If lectorGeneral(2) = "Abierto" Then
             lectorGeneral.Close()
             Dim contListas As Integer
-            Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
-                'Using conexioBDRemota As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
-                Dim comandoBDRemota As SqlCommand = conexioBDRemota.CreateCommand
-                Dim comando2 As SqlCommand = conexioBDRemota.CreateCommand
-                Dim lectorBDRemota As SqlDataReader
+            'Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+            Using conexioBDRemota As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+                    Dim comandoBDRemota As SqlCommand = conexioBDRemota.CreateCommand
+                    Dim comando2 As SqlCommand = conexioBDRemota.CreateCommand
+                    Dim lectorBDRemota As SqlDataReader
 
-                conexioBDRemota.Open()
+                    conexioBDRemota.Open()
 
-                comandoBDRemota.CommandText = "SELECT count(*) - 2 FROM INFORMATION_SCHEMA.TABLES"
-                contListas = comandoBDRemota.ExecuteScalar()
+                    comandoBDRemota.CommandText = "SELECT count(*) - 2 FROM INFORMATION_SCHEMA.TABLES"
+                    contListas = comandoBDRemota.ExecuteScalar()
 
-                For i = 1 To contListas
-                    cboNumLista.Items.Add(i)
-                Next
-                conexioBDRemota.Close()
-            End Using
+                    For i = 1 To contListas
+                        cboNumLista.Items.Add(i)
+                    Next
+                    conexioBDRemota.Close()
+                End Using
         End If
         Conexion.Close()
     End Sub

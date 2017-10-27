@@ -634,7 +634,7 @@ Acreditado</Value>
         <Top>5.68854cm</Top>
         <Left>1.98668cm</Left>
         <Height>1.57042cm</Height>
-        <Width>27.87167cm</Width>
+        <Width>27.87166cm</Width>
         <Style>
           <Border>
             <Style>Double</Style>
@@ -759,7 +759,7 @@ Acreditado</Value>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Fecha de emición</Value>
+                <Value>Fecha de emisión</Value>
                 <Style>
                   <FontFamily>Century Gothic</FontFamily>
                   <FontSize>12pt</FontSize>
