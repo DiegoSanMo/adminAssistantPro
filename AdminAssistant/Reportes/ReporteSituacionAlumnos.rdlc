@@ -40,6 +40,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>SteelBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -129,6 +130,7 @@
                         <Color>LightGrey</Color>
                         <Style>Solid</Style>
                       </Border>
+                      <BackgroundColor>SteelBlue</BackgroundColor>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -167,6 +169,7 @@
                             <Color>LightGrey</Color>
                             <Style>Solid</Style>
                           </Border>
+                          <BackgroundColor>SteelBlue</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -205,6 +208,7 @@
                                 <Color>LightGrey</Color>
                                 <Style>Solid</Style>
                               </Border>
+                              <BackgroundColor>SteelBlue</BackgroundColor>
                               <PaddingLeft>2pt</PaddingLeft>
                               <PaddingRight>2pt</PaddingRight>
                               <PaddingTop>2pt</PaddingTop>
@@ -243,6 +247,7 @@
                                     <Color>LightGrey</Color>
                                     <Style>Solid</Style>
                                   </Border>
+                                  <BackgroundColor>SteelBlue</BackgroundColor>
                                   <PaddingLeft>2pt</PaddingLeft>
                                   <PaddingRight>2pt</PaddingRight>
                                   <PaddingTop>2pt</PaddingTop>
@@ -281,6 +286,7 @@
                                         <Color>LightGrey</Color>
                                         <Style>Solid</Style>
                                       </Border>
+                                      <BackgroundColor>SteelBlue</BackgroundColor>
                                       <PaddingLeft>2pt</PaddingLeft>
                                       <PaddingRight>2pt</PaddingRight>
                                       <PaddingTop>2pt</PaddingTop>
@@ -320,6 +326,7 @@ Acreditado</Value>
                                             <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
+                                          <BackgroundColor>SteelBlue</BackgroundColor>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
                                           <PaddingTop>2pt</PaddingTop>
@@ -634,7 +641,7 @@ Acreditado</Value>
         <Top>5.68854cm</Top>
         <Left>1.98668cm</Left>
         <Height>1.57042cm</Height>
-        <Width>27.87167cm</Width>
+        <Width>27.87166cm</Width>
         <Style>
           <Border>
             <Style>Double</Style>

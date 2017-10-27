@@ -79,6 +79,7 @@
                           <Color>#e5e5e5</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>White</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -428,7 +429,7 @@
                         <Color>#c6daf8</Color>
                         <Style>Solid</Style>
                       </Border>
-                      <BackgroundColor>#9eb6e4</BackgroundColor>
+                      <BackgroundColor>White</BackgroundColor>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -476,7 +477,7 @@
                             <Color>#e6eefc</Color>
                             <Style>Solid</Style>
                           </Border>
-                          <BackgroundColor>#c6daf8</BackgroundColor>
+                          <BackgroundColor>White</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -524,7 +525,7 @@
                                 <Color>White</Color>
                                 <Style>Solid</Style>
                               </Border>
-                              <BackgroundColor>#e6eefc</BackgroundColor>
+                              <BackgroundColor>White</BackgroundColor>
                               <PaddingLeft>2pt</PaddingLeft>
                               <PaddingRight>2pt</PaddingRight>
                               <PaddingTop>2pt</PaddingTop>
@@ -572,7 +573,7 @@
                                     <Color>White</Color>
                                     <Style>Solid</Style>
                                   </Border>
-                                  <BackgroundColor>#e6eefc</BackgroundColor>
+                                  <BackgroundColor>White</BackgroundColor>
                                   <PaddingLeft>2pt</PaddingLeft>
                                   <PaddingRight>2pt</PaddingRight>
                                   <PaddingTop>2pt</PaddingTop>
@@ -620,7 +621,7 @@
                                         <Color>White</Color>
                                         <Style>Solid</Style>
                                       </Border>
-                                      <BackgroundColor>#e6eefc</BackgroundColor>
+                                      <BackgroundColor>White</BackgroundColor>
                                       <PaddingLeft>2pt</PaddingLeft>
                                       <PaddingRight>2pt</PaddingRight>
                                       <PaddingTop>2pt</PaddingTop>
@@ -668,7 +669,7 @@
                                             <Color>White</Color>
                                             <Style>Solid</Style>
                                           </Border>
-                                          <BackgroundColor>#e6eefc</BackgroundColor>
+                                          <BackgroundColor>White</BackgroundColor>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
                                           <PaddingTop>2pt</PaddingTop>
@@ -716,7 +717,7 @@
                                                 <Color>White</Color>
                                                 <Style>Solid</Style>
                                               </Border>
-                                              <BackgroundColor>#e6eefc</BackgroundColor>
+                                              <BackgroundColor>White</BackgroundColor>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
                                               <PaddingTop>2pt</PaddingTop>

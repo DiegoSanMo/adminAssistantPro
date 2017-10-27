@@ -6,7 +6,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>7.2058cm</Width>
+              <Width>9.66642cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -22,7 +22,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>correo</Value>
+                              <Value>Correo</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -82,7 +82,7 @@
                           <Color>#e5e5e5</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>AntiqueWhite</BackgroundColor>
+                        <BackgroundColor>White</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -113,7 +113,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>id Maestro</Value>
+                            <Value>ID Maestro</Value>
                             <Style>
                               <FontFamily>Tahoma</FontFamily>
                               <FontSize>11pt</FontSize>
@@ -152,7 +152,7 @@
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>nombre</Value>
+                                <Value>Nombre</Value>
                                 <Style>
                                   <FontFamily>Tahoma</FontFamily>
                                   <FontSize>11pt</FontSize>
@@ -193,7 +193,7 @@
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>domicilio</Value>
+                                    <Value>Domicilio</Value>
                                     <Style>
                                       <FontFamily>Tahoma</FontFamily>
                                       <FontSize>11pt</FontSize>
@@ -234,7 +234,7 @@
                                   <Paragraph>
                                     <TextRuns>
                                       <TextRun>
-                                        <Value>telefono</Value>
+                                        <Value>Teléfono</Value>
                                         <Style>
                                           <FontFamily>Tahoma</FontFamily>
                                           <FontSize>11pt</FontSize>
@@ -275,7 +275,7 @@
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>certificado</Value>
+                                            <Value>Certificado</Value>
                                             <Style>
                                               <FontFamily>Tahoma</FontFamily>
                                               <FontSize>11pt</FontSize>
@@ -316,7 +316,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>nivel Ingles</Value>
+                                                <Value>Nivel Inglés</Value>
                                                 <Style>
                                                   <FontFamily>Tahoma</FontFamily>
                                                   <FontSize>11pt</FontSize>
@@ -397,7 +397,7 @@
                         <Color>#c6daf8</Color>
                         <Style>Solid</Style>
                       </Border>
-                      <BackgroundColor>AntiqueWhite</BackgroundColor>
+                      <BackgroundColor>White</BackgroundColor>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -446,7 +446,7 @@
                             <Color>#e6eefc</Color>
                             <Style>Solid</Style>
                           </Border>
-                          <BackgroundColor>AntiqueWhite</BackgroundColor>
+                          <BackgroundColor>White</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -495,7 +495,7 @@
                                 <Color>White</Color>
                                 <Style>Solid</Style>
                               </Border>
-                              <BackgroundColor>AntiqueWhite</BackgroundColor>
+                              <BackgroundColor>White</BackgroundColor>
                               <PaddingLeft>2pt</PaddingLeft>
                               <PaddingRight>2pt</PaddingRight>
                               <PaddingTop>2pt</PaddingTop>
@@ -544,7 +544,7 @@
                                     <Color>White</Color>
                                     <Style>Solid</Style>
                                   </Border>
-                                  <BackgroundColor>AntiqueWhite</BackgroundColor>
+                                  <BackgroundColor>White</BackgroundColor>
                                   <PaddingLeft>2pt</PaddingLeft>
                                   <PaddingRight>2pt</PaddingRight>
                                   <PaddingTop>2pt</PaddingTop>
@@ -593,7 +593,7 @@
                                         <Color>White</Color>
                                         <Style>Solid</Style>
                                       </Border>
-                                      <BackgroundColor>AntiqueWhite</BackgroundColor>
+                                      <BackgroundColor>White</BackgroundColor>
                                       <PaddingLeft>2pt</PaddingLeft>
                                       <PaddingRight>2pt</PaddingRight>
                                       <PaddingTop>2pt</PaddingTop>
@@ -642,7 +642,7 @@
                                             <Color>White</Color>
                                             <Style>Solid</Style>
                                           </Border>
-                                          <BackgroundColor>AntiqueWhite</BackgroundColor>
+                                          <BackgroundColor>White</BackgroundColor>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
                                           <PaddingTop>2pt</PaddingTop>
@@ -673,7 +673,7 @@
         <Top>6.08542cm</Top>
         <Left>1.56599cm</Left>
         <Height>1.24116cm</Height>
-        <Width>37.07916cm</Width>
+        <Width>39.53978cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -754,10 +754,9 @@ maestros</Value>
       <Border>
         <Style>Solid</Style>
       </Border>
-      <BackgroundColor>LightSteelBlue</BackgroundColor>
     </Style>
   </Body>
-  <Width>16.06685in</Width>
+  <Width>16.68338in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>

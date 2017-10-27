@@ -104,7 +104,7 @@
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>2.5cm</Size>
+                <Size>3.74354cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox7">
                     <CanGrow>true</CanGrow>
@@ -143,7 +143,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>6.5cm</Size>
+                    <Size>9.70146cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox5">
                         <CanGrow>true</CanGrow>
@@ -152,7 +152,7 @@
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>nombre</Value>
+                                <Value>Alumno</Value>
                                 <Style>
                                   <FontFamily>Tahoma</FontFamily>
                                   <FontSize>11pt</FontSize>
@@ -238,7 +238,7 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>2.5cm</Size>
+                <Size>3.74354cm</Size>
                 <CellContents>
                   <Textbox Name="idAlumno1">
                     <CanGrow>true</CanGrow>
@@ -286,7 +286,7 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>6.5cm</Size>
+                    <Size>9.70146cm</Size>
                     <CellContents>
                       <Textbox Name="nombre">
                         <CanGrow>true</CanGrow>
@@ -380,10 +380,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>1.98438cm</Top>
-        <Left>3.59516cm</Left>
+        <Top>3.67771cm</Top>
+        <Left>1.51432cm</Left>
         <Height>1.2cm</Height>
-        <Width>14cm</Width>
+        <Width>18.445cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -451,7 +451,7 @@
         </Style>
       </Image>
     </ReportItems>
-    <Height>1.42708in</Height>
+    <Height>2.58333in</Height>
     <Style />
   </Body>
   <Width>9.0625in</Width>
