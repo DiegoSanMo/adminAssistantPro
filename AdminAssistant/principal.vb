@@ -798,7 +798,7 @@ Public Class principal
         End If
     End Sub
 
-    Private Sub ConstanciaDeCalificacionesActualesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConstanciaDeCalificacionesActualesToolStripMenuItem.Click
+    Private Sub ConstanciaDeCalificacionesActualesToolStripMenuItem_Click(sender As Object, e As EventArgs)
         constanciaNivAct = True
         frmReporteCalifFinales.ShowDialog()
     End Sub

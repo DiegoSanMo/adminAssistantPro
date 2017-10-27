@@ -807,11 +807,11 @@ alumnos inscritos</Value>
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Chart Name="Chart2">
+      <Chart Name="Chart1">
         <ChartCategoryHierarchy>
           <ChartMembers>
             <ChartMember>
-              <Group Name="Chart2_CategoryGroup">
+              <Group Name="Chart1_CategoryGroup">
                 <GroupExpressions>
                   <GroupExpression>=Fields!Column1.Value</GroupExpression>
                 </GroupExpressions>
@@ -828,17 +828,17 @@ alumnos inscritos</Value>
         <ChartSeriesHierarchy>
           <ChartMembers>
             <ChartMember>
-              <Label>Column1</Label>
+              <Label>id Alumno</Label>
             </ChartMember>
           </ChartMembers>
         </ChartSeriesHierarchy>
         <ChartData>
           <ChartSeriesCollection>
-            <ChartSeries Name="Column1">
+            <ChartSeries Name="idAlumno">
               <ChartDataPoints>
                 <ChartDataPoint>
                   <ChartDataPointValues>
-                    <Y>=Count(Fields!Column1.Value)</Y>
+                    <Y>=Count(Fields!idAlumno.Value)</Y>
                   </ChartDataPointValues>
                   <ChartDataLabel>
                     <Style />
@@ -850,7 +850,6 @@ alumnos inscritos</Value>
                   <DataElementOutput>Output</DataElementOutput>
                 </ChartDataPoint>
               </ChartDataPoints>
-              <Type>Shape</Type>
               <Style />
               <ChartEmptyPoints>
                 <Style />
@@ -878,7 +877,7 @@ alumnos inscritos</Value>
                   <FontSize>8pt</FontSize>
                 </Style>
                 <ChartAxisTitle>
-                  <Caption>Título del eje</Caption>
+                  <Caption>Nivel</Caption>
                   <Style>
                     <FontSize>8pt</FontSize>
                   </Style>
@@ -953,7 +952,7 @@ alumnos inscritos</Value>
                   <FontSize>8pt</FontSize>
                 </Style>
                 <ChartAxisTitle>
-                  <Caption>Título del eje</Caption>
+                  <Caption>Cantidad de  Alumnos</Caption>
                   <Style>
                     <FontSize>8pt</FontSize>
                   </Style>
@@ -1045,7 +1044,7 @@ alumnos inscritos</Value>
         </ChartLegends>
         <ChartTitles>
           <ChartTitle Name="Default">
-            <Caption>Gráfica de alumnos inscritos</Caption>
+            <Caption>Título del gráfico</Caption>
             <Style>
               <BackgroundGradientType>None</BackgroundGradientType>
               <FontWeight>Bold</FontWeight>
@@ -1071,10 +1070,10 @@ alumnos inscritos</Value>
           </Style>
         </ChartNoDataMessage>
         <DataSetName>DataSet1</DataSetName>
-        <Top>7.88141cm</Top>
-        <Left>14.03744cm</Left>
-        <Height>8.25818cm</Height>
-        <Width>17.51417cm</Width>
+        <Top>7.56391cm</Top>
+        <Left>7.72266cm</Left>
+        <Height>6.24354cm</Height>
+        <Width>22.55479cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -1086,7 +1085,7 @@ alumnos inscritos</Value>
         </Style>
       </Chart>
     </ReportItems>
-    <Height>6.35417in</Height>
+    <Height>6.936in</Height>
     <Style>
       <Border>
         <Style>None</Style>
