@@ -766,7 +766,7 @@ Acreditado</Value>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Fecha de emición</Value>
+                <Value>Fecha de emisión</Value>
                 <Style>
                   <FontFamily>Century Gothic</FontFamily>
                   <FontSize>12pt</FontSize>

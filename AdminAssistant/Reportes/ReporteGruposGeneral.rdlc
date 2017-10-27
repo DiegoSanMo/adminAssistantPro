@@ -2043,7 +2043,7 @@ general de grupos</Value>
                   <FontSize>8pt</FontSize>
                 </Style>
                 <ChartAxisTitle>
-                  <Caption>Núm.Grupos</Caption>
+                  <Caption>Num. Grupos</Caption>
                   <Style>
                     <FontSize>8pt</FontSize>
                   </Style>

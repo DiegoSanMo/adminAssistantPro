@@ -1382,7 +1382,6 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>5.07118cm</Top>
-        <Left>0cm</Left>
         <Height>1.2cm</Height>
         <Width>41.5cm</Width>
         <Style>
@@ -1441,7 +1440,6 @@
         <Source>Embedded</Source>
         <Value>logo</Value>
         <Sizing>FitProportional</Sizing>
-        <Top>0cm</Top>
         <Left>28.73082cm</Left>
         <Height>4.33104cm</Height>
         <Width>7.13169cm</Width>
@@ -1453,7 +1451,7 @@
         </Style>
       </Image>
     </ReportItems>
-    <Height>2.56944in</Height>
+    <Height>4.63392in</Height>
     <Style />
   </Body>
   <Width>16.33858in</Width>
