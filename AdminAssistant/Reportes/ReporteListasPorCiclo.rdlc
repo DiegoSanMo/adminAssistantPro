@@ -728,12 +728,8 @@
         </Style>
       </Chart>
     </ReportItems>
-<<<<<<< HEAD
     <Height>2.58333in</Height>
-=======
-    <Height>5.38392in</Height>
->>>>>>> origin/Diego
-    <Style />
+    <Style/>
   </Body>
   <Width>9.0625in</Width>
   <Page>
