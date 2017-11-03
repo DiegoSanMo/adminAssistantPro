@@ -806,4 +806,8 @@ Public Class principal
     Private Sub RespaldarBaseDeDatosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RespaldarBaseDeDatosToolStripMenuItem.Click
         frmRespaldarBD.ShowDialog()
     End Sub
+
+    Private Sub RestaurarBDToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RestaurarBDToolStripMenuItem.Click
+        frmRestaurarBD.ShowDialog()
+    End Sub
 End Class
