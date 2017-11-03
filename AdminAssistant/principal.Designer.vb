@@ -60,6 +60,8 @@ Partial Class principal
         Me.ReporteDetalladoDeCalificacionesPorAlumnoPorNivelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeCalificacionesFinalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConstanciaDeNivelActualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RespaldarBaseDeDatosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RestaurarBDToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -96,10 +98,10 @@ Partial Class principal
         Me.msPrincipal.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(122, Byte), Integer))
         Me.msPrincipal.Dock = System.Windows.Forms.DockStyle.Left
         Me.msPrincipal.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.msPrincipal.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CatálogosToolStripMenuItem, Me.MovimientosToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.msPrincipal.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CatálogosToolStripMenuItem, Me.MovimientosToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.RespaldarBaseDeDatosToolStripMenuItem, Me.RestaurarBDToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.msPrincipal.Location = New System.Drawing.Point(0, 0)
         Me.msPrincipal.Name = "msPrincipal"
-        Me.msPrincipal.Size = New System.Drawing.Size(232, 627)
+        Me.msPrincipal.Size = New System.Drawing.Size(242, 627)
         Me.msPrincipal.TabIndex = 2
         Me.msPrincipal.Text = "MenuStrip1"
         '
@@ -108,7 +110,7 @@ Partial Class principal
         Me.CatálogosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AlumnosToolStripMenuItem2, Me.MaestrosToolStripMenuItem1, Me.UsuariosToolStripMenuItem})
         Me.CatálogosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.CatálogosToolStripMenuItem.Name = "CatálogosToolStripMenuItem"
-        Me.CatálogosToolStripMenuItem.Size = New System.Drawing.Size(219, 43)
+        Me.CatálogosToolStripMenuItem.Size = New System.Drawing.Size(229, 43)
         Me.CatálogosToolStripMenuItem.Text = "Catálogos"
         '
         'AlumnosToolStripMenuItem2
@@ -174,7 +176,7 @@ Partial Class principal
         Me.MovimientosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AbrirCicloToolStripMenuItem, Me.AbrirGrupoToolStripMenuItem, Me.InscipciónToolStripMenuItem, Me.ClasificarListasToolStripMenuItem, Me.CapturarCalificacionesToolStripMenuItem, Me.CerrarCicloToolStripMenuItem})
         Me.MovimientosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.MovimientosToolStripMenuItem.Name = "MovimientosToolStripMenuItem"
-        Me.MovimientosToolStripMenuItem.Size = New System.Drawing.Size(219, 43)
+        Me.MovimientosToolStripMenuItem.Size = New System.Drawing.Size(229, 43)
         Me.MovimientosToolStripMenuItem.Text = "Movimientos"
         '
         'AbrirCicloToolStripMenuItem
@@ -231,7 +233,7 @@ Partial Class principal
         Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReporteDeMaestrosToolStripMenuItem, Me.ReporteDeAlumnosInscritosToolStripMenuItem, Me.ReporteDeGruposPorCicloToolStripMenuItem, Me.ReporteDeGruposPorCicloToolStripMenuItem1, Me.ReporteDeKardexPorAlumnoToolStripMenuItem, Me.ReporteDeListasPorCicloToolStripMenuItem, Me.ReporteDeAlumnosPorSituaciónToolStripMenuItem, Me.ReporteDetalladoDeCalificacionesPorAlumnoToolStripMenuItem, Me.ReporteDetalladoDeCalificacionesPorAlumnoPorNivelToolStripMenuItem, Me.ReporteDeCalificacionesFinalesToolStripMenuItem, Me.ConstanciaDeNivelActualToolStripMenuItem})
         Me.ReportesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
-        Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(219, 43)
+        Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(229, 43)
         Me.ReportesToolStripMenuItem.Text = "Reportes"
         '
         'ReporteDeMaestrosToolStripMenuItem
@@ -300,11 +302,25 @@ Partial Class principal
         Me.ConstanciaDeNivelActualToolStripMenuItem.Size = New System.Drawing.Size(991, 44)
         Me.ConstanciaDeNivelActualToolStripMenuItem.Text = "Constancia de nivel actual"
         '
+        'RespaldarBaseDeDatosToolStripMenuItem
+        '
+        Me.RespaldarBaseDeDatosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window
+        Me.RespaldarBaseDeDatosToolStripMenuItem.Name = "RespaldarBaseDeDatosToolStripMenuItem"
+        Me.RespaldarBaseDeDatosToolStripMenuItem.Size = New System.Drawing.Size(229, 43)
+        Me.RespaldarBaseDeDatosToolStripMenuItem.Text = "Respaldar BD"
+        '
+        'RestaurarBDToolStripMenuItem
+        '
+        Me.RestaurarBDToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window
+        Me.RestaurarBDToolStripMenuItem.Name = "RestaurarBDToolStripMenuItem"
+        Me.RestaurarBDToolStripMenuItem.Size = New System.Drawing.Size(229, 43)
+        Me.RestaurarBDToolStripMenuItem.Text = "Restaurar BD"
+        '
         'SalirToolStripMenuItem
         '
         Me.SalirToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(219, 43)
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(229, 43)
         Me.SalirToolStripMenuItem.Text = "Salir"
         '
         'ContextMenuStrip1
@@ -380,4 +396,6 @@ Partial Class principal
     Friend WithEvents ReporteDetalladoDeCalificacionesPorAlumnoPorNivelToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReporteDeCalificacionesFinalesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ConstanciaDeNivelActualToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RespaldarBaseDeDatosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RestaurarBDToolStripMenuItem As ToolStripMenuItem
 End Class

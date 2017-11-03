@@ -165,6 +165,12 @@
     <Compile Include="frmReportes.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmRespaldarBD.Designer.vb">
+      <DependentUpon>frmRespaldarBD.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRespaldarBD.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Movimientos\Asignar calificacion\frmAsignarCalificacion.Designer.vb">
       <DependentUpon>frmAsignarCalificacion.vb</DependentUpon>
     </Compile>
@@ -264,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReportes.resx">
       <DependentUpon>frmReportes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRespaldarBD.resx">
+      <DependentUpon>frmRespaldarBD.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Movimientos\Asignar calificacion\frmAsignarCalificacion.resx">
       <DependentUpon>frmAsignarCalificacion.vb</DependentUpon>

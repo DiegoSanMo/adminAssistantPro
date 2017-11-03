@@ -802,4 +802,8 @@ Public Class principal
         constanciaNivAct = True
         frmReporteCalifFinales.ShowDialog()
     End Sub
+
+    Private Sub RespaldarBaseDeDatosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RespaldarBaseDeDatosToolStripMenuItem.Click
+        frmRespaldarBD.ShowDialog()
+    End Sub
 End Class
