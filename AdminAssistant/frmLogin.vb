@@ -6,7 +6,7 @@
 
     Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtNada.Select()
-        Conexion.Open()
+        conexionMasterServidor.Open()
         txtContraseña.UseSystemPasswordChar = True
         tipoAcceso = ""
     End Sub
@@ -29,18 +29,18 @@
                 MessageBox.Show("Error, no se ha ingresado contraseña", "Falta de información", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 txtContraseña.Focus()
             Else
-                comandoGeneral.CommandText = "Select tipo from usuarios where nombre = '" & txtUsuario.Text & "' and contrasenia = '" & txtContraseña.Text & "'"
-                lectorGeneral = comandoGeneral.ExecuteReader
+                comandoMasterServidor.CommandText = "Select tipo from usuarios where nombre = '" & txtUsuario.Text & "' and contrasenia = '" & txtContraseña.Text & "'"
+                lectorMasterServidor = comandoMasterServidor.ExecuteReader
 
-                If lectorGeneral.Read() = False Then
-                    lectorGeneral.Close()
+                If lectorMasterServidor.Read() = False Then
+                    lectorMasterServidor.Close()
                     MessageBox.Show("Error, usuario no registrado", "Usuario no registrado", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Else
-                    tipoAcceso = lectorGeneral(0)
+                    tipoAcceso = lectorMasterServidor(0)
                     'MsgBox(tipoAcceso)
                     If tipoAcceso = "DIRECTOR" Then
-                        lectorGeneral.Close()
-                        Conexion.Close()
+                        lectorMasterServidor.Close()
+                        conexionMasterServidor.Close()
                         txtContraseña.Text = ""
                         txtUsuario.Text = ""
 
@@ -51,8 +51,8 @@
                         If tipoAcceso = "MAESTRO" Then
                             txtContraseña.Text = ""
                             txtUsuario.Text = ""
-                            lectorGeneral.Close()
-                            Conexion.Close()
+                            lectorMasterServidor.Close()
+                            conexionMasterServidor.Close()
 
                             principal.RegistroToolStripMenuItem.Enabled = False
                             principal.RegistroToolStripMenuItem1.Enabled = False
@@ -71,8 +71,8 @@
                             If tipoAcceso = "SECRETARIA" Then
                                 txtContraseña.Text = ""
                                 txtUsuario.Text = ""
-                                lectorGeneral.Close()
-                                Conexion.Close()
+                                lectorMasterServidor.Close()
+                                conexionMasterServidor.Close()
 
                                 principal.RegistroToolStripMenuItem.Enabled = False
                                 principal.RegistroToolStripMenuItem1.Enabled = False

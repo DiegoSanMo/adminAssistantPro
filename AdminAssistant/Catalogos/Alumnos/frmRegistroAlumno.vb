@@ -1,6 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Public Class frmRegistroAlumno
     Dim ubicacion As String
+    Dim contFallas As Integer
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         Me.Close()
         txtNombre.Enabled = False
@@ -26,40 +27,68 @@ Public Class frmRegistroAlumno
         btnSiguiente.Enabled = True
         btnAnterior.Enabled = True
         btnUltimo.Enabled = True
+
     End Sub
 
     Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
-        conexionsql.Open()
-        comando.CommandText = "Insert into kardex(idAlumno, n1, n2, n3, n4, n5, n6, n7,	n8, n9, n10, n11, n12) values(" & CInt(txtNoControl.Text) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & ")"
-        comando.ExecuteNonQuery()
-        conexionsql.Close()
-        AlumnoBindingSource.EndEdit()
-        AlumnoBindingSource.Current(9) = ubicacion
-        SqlDataAdapter1.Update(MasterEADataSet.alumno)
+        Try
+            conexionsql.Open()
+            Try
+                comando.CommandText = "Insert into kardex(idAlumno, n1, n2, n3, n4, n5, n6, n7,	n8, n9, n10, n11, n12) values(" & CInt(txtNoControl.Text) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & "," & CDec(0) & ")"
+                comando.ExecuteNonQuery()
+                conexionsql.Close()
+                AlumnoBindingSource.EndEdit()
+                AlumnoBindingSource.Current(9) = ubicacion
+                SqlDataAdapter1.Update(MasterEADataSet.alumno)
 
-        MasterEADataSet.Clear()
-        AlumnoTableAdapter.Update(MasterEADataSet.alumno)
-        SqlDataAdapter1.Fill(MasterEADataSet.alumno)
-        AlumnoTableAdapter.Fill(MasterEADataSet.alumno)
+                MasterEADataSet.Clear()
+                AlumnoTableAdapter.Update(MasterEADataSet.alumno)
+                SqlDataAdapter1.Fill(MasterEADataSet.alumno)
+                AlumnoTableAdapter.Fill(MasterEADataSet.alumno)
+            Catch ex2 As Exception
+                MessageBox.Show("Error al momento de insertar", "Error de inserción", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                conexionMasterServidor.Open()
+                Dim st2 As New StackTrace(True)
+                st2 = New StackTrace(ex2, True)
+                frame = Me.Name
+                descripcion = "Falla de registro de alumno"
+                comandoMasterServidor.CommandText = "SELECT COUNT(noFalla) FROM bitacora"
+                contFalla = comandoMasterServidor.ExecuteScalar + 1
+                comandoMasterServidor.CommandText = "INSERT INTO bitacora values(" & contFalla & ",'" & ex2.Message & "','" & descripcion & "','" & frame & "','" & st2.GetFrame(5).GetFileLineNumber.ToString & "','" & Now.Date & "','" & Now.TimeOfDay.ToString & "')"
+                comandoMasterServidor.ExecuteNonQuery()
+                conexionMasterServidor.Close()
+            End Try
+            'Se bloquean los controles principales
+            txtNombre.Enabled = False
+            txtDomicilio.Enabled = False
+            txtEstado.Enabled = False
+            txtCorreo.Enabled = False
+            txtTel.Enabled = False
+            txtTelEmergencia.Enabled = False
+            txtCiudad.Enabled = False
+            txtUNA.Enabled = False
+            cboSituacion.Enabled = False
+            dtpFechaNa.Enabled = False
+            btnBuscarF.Enabled = False
 
-        'Se bloquean los controles principales
-        txtNombre.Enabled = False
-        txtDomicilio.Enabled = False
-        txtEstado.Enabled = False
-        txtCorreo.Enabled = False
-        txtTel.Enabled = False
-        txtTelEmergencia.Enabled = False
-        txtCiudad.Enabled = False
-        txtUNA.Enabled = False
-        cboSituacion.Enabled = False
-        dtpFechaNa.Enabled = False
-        btnBuscarF.Enabled = False
 
-
-        btnPrimero.Enabled = True
-        btnSiguiente.Enabled = True
-        btnAnterior.Enabled = True
-        btnUltimo.Enabled = True
+            btnPrimero.Enabled = True
+            btnSiguiente.Enabled = True
+            btnAnterior.Enabled = True
+            btnUltimo.Enabled = True
+        Catch ex As Exception
+            conexionMasterServidor.Open()
+            MessageBox.Show("No existe la base de datos MasterEA. Tiene que restaurarla primero", "Error de apertura", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Dim st As New StackTrace(True)
+            st = New StackTrace(ex, True)
+            frame = Me.Name
+            descripcion = "Falla de registro de alumno"
+            comandoMasterServidor.CommandText = "SELECT COUNT(noFalla) FROM bitacora"
+            contFalla = comandoMasterServidor.ExecuteScalar + 1
+            comandoMasterServidor.CommandText = "INSERT INTO bitacora values(" & contFalla & ",'" & ex.Message & "','" & descripcion & "','" & frame & "','" & st.GetFrame(5).GetFileLineNumber.ToString & "','" & Now.Date & "','" & Now.TimeOfDay.ToString & "')"
+            comandoMasterServidor.ExecuteNonQuery()
+            conexionMasterServidor.Close()
+        End Try
     End Sub
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click

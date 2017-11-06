@@ -64,6 +64,7 @@ Partial Class principal
         Me.RestaurarBDToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.BitácoraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.msPrincipal.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -98,7 +99,7 @@ Partial Class principal
         Me.msPrincipal.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(122, Byte), Integer))
         Me.msPrincipal.Dock = System.Windows.Forms.DockStyle.Left
         Me.msPrincipal.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.msPrincipal.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CatálogosToolStripMenuItem, Me.MovimientosToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.RespaldarBaseDeDatosToolStripMenuItem, Me.RestaurarBDToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.msPrincipal.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CatálogosToolStripMenuItem, Me.MovimientosToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.RespaldarBaseDeDatosToolStripMenuItem, Me.RestaurarBDToolStripMenuItem, Me.BitácoraToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.msPrincipal.Location = New System.Drawing.Point(0, 0)
         Me.msPrincipal.Name = "msPrincipal"
         Me.msPrincipal.Size = New System.Drawing.Size(242, 627)
@@ -328,6 +329,13 @@ Partial Class principal
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
         '
+        'BitácoraToolStripMenuItem
+        '
+        Me.BitácoraToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.BitácoraToolStripMenuItem.Name = "BitácoraToolStripMenuItem"
+        Me.BitácoraToolStripMenuItem.Size = New System.Drawing.Size(229, 43)
+        Me.BitácoraToolStripMenuItem.Text = "Bitácora"
+        '
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
@@ -398,4 +406,5 @@ Partial Class principal
     Friend WithEvents ConstanciaDeNivelActualToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RespaldarBaseDeDatosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RestaurarBDToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BitácoraToolStripMenuItem As ToolStripMenuItem
 End Class

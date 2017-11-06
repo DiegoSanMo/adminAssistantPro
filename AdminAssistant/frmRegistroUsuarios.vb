@@ -1,19 +1,19 @@
 ﻿Public Class frmRegistroUsuarios
     Private Sub frmRegistroUsuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Conexion.Open()
+        conexionMasterServidor.Open()
         txtIdUsuario.Text = ""
         txtNombre.Text = ""
-        comandoGeneral.CommandText = "Select count(idUsuario) from usuarios"
-        Dim n As Integer = comandoGeneral.ExecuteScalar
+        comandoMasterServidor.CommandText = "Select count(idUsuario) from usuarios"
+        Dim n As Integer = comandoMasterServidor.ExecuteScalar
         If n > 0 Then
-            comandoGeneral.CommandText = "Select idUsuario, nombre, tipo from usuarios"
-            lectorGeneral = comandoGeneral.ExecuteReader
+            comandoMasterServidor.CommandText = "Select idUsuario, nombre, tipo from usuarios"
+            lectorMasterServidor = comandoMasterServidor.ExecuteReader
             dgUsuarios.Rows.Clear()
 
-            While lectorGeneral.Read
-                dgUsuarios.Rows.Add(lectorGeneral(0), lectorGeneral(1), lectorGeneral(2))
+            While lectorMasterServidor.Read
+                dgUsuarios.Rows.Add(lectorMasterServidor(0), lectorMasterServidor(1), lectorMasterServidor(2))
             End While
-            lectorGeneral.Close()
+            lectorMasterServidor.Close()
         End If
     End Sub
 
@@ -26,8 +26,8 @@
         txtNombre.Enabled = True
         cboTipo.Enabled = True
         txtContrasenia.Enabled = True
-        comandoGeneral.CommandText = "Select count(idUsuario) from usuarios"
-        Dim n As Integer = comandoGeneral.ExecuteScalar + 1
+        comandoMasterServidor.CommandText = "Select count(idUsuario) from usuarios"
+        Dim n As Integer = comandoMasterServidor.ExecuteScalar + 1
 
         txtIdUsuario.Text = n
     End Sub
@@ -42,8 +42,8 @@
         cboTipo.Enabled = False
         txtContrasenia.Enabled = False
 
-        comandoGeneral.CommandText = "Insert into usuarios values(" & CInt(txtIdUsuario.Text) & ", '" & txtNombre.Text & "', '" & txtContrasenia.Text & "', '" & cboTipo.Text & "')"
-        comandoGeneral.ExecuteNonQuery()
+        comandoMasterServidor.CommandText = "Insert into usuarios values(" & CInt(txtIdUsuario.Text) & ", '" & txtNombre.Text & "', '" & txtContrasenia.Text & "', '" & cboTipo.Text & "')"
+        comandoMasterServidor.ExecuteNonQuery()
 
         dgUsuarios.Rows.Add(txtIdUsuario.Text, txtNombre.Text, cboTipo.Text)
 
@@ -64,7 +64,7 @@
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-        Conexion.Close()
+        conexionMasterServidor.Close()
         Me.Dispose()
     End Sub
 End Class
