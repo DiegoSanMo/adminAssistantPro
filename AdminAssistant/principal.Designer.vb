@@ -62,10 +62,11 @@ Partial Class principal
         Me.ConstanciaDeNivelActualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RespaldarBaseDeDatosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RestaurarBDToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BitácoraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.BitácoraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.AyudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.msPrincipal.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -99,7 +100,7 @@ Partial Class principal
         Me.msPrincipal.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(122, Byte), Integer))
         Me.msPrincipal.Dock = System.Windows.Forms.DockStyle.Left
         Me.msPrincipal.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.msPrincipal.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CatálogosToolStripMenuItem, Me.MovimientosToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.RespaldarBaseDeDatosToolStripMenuItem, Me.RestaurarBDToolStripMenuItem, Me.BitácoraToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.msPrincipal.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CatálogosToolStripMenuItem, Me.MovimientosToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.RespaldarBaseDeDatosToolStripMenuItem, Me.RestaurarBDToolStripMenuItem, Me.BitácoraToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.msPrincipal.Location = New System.Drawing.Point(0, 0)
         Me.msPrincipal.Name = "msPrincipal"
         Me.msPrincipal.Size = New System.Drawing.Size(242, 627)
@@ -317,6 +318,13 @@ Partial Class principal
         Me.RestaurarBDToolStripMenuItem.Size = New System.Drawing.Size(229, 43)
         Me.RestaurarBDToolStripMenuItem.Text = "Restaurar BD"
         '
+        'BitácoraToolStripMenuItem
+        '
+        Me.BitácoraToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.BitácoraToolStripMenuItem.Name = "BitácoraToolStripMenuItem"
+        Me.BitácoraToolStripMenuItem.Size = New System.Drawing.Size(229, 43)
+        Me.BitácoraToolStripMenuItem.Text = "Bitácora"
+        '
         'SalirToolStripMenuItem
         '
         Me.SalirToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace
@@ -329,13 +337,6 @@ Partial Class principal
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
         '
-        'BitácoraToolStripMenuItem
-        '
-        Me.BitácoraToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BitácoraToolStripMenuItem.Name = "BitácoraToolStripMenuItem"
-        Me.BitácoraToolStripMenuItem.Size = New System.Drawing.Size(229, 43)
-        Me.BitácoraToolStripMenuItem.Text = "Bitácora"
-        '
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
@@ -346,6 +347,12 @@ Partial Class principal
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
+        'AyudaToolStripMenuItem
+        '
+        Me.AyudaToolStripMenuItem.Name = "AyudaToolStripMenuItem"
+        Me.AyudaToolStripMenuItem.Size = New System.Drawing.Size(229, 43)
+        Me.AyudaToolStripMenuItem.Text = "Ayuda"
+        '
         'principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -354,6 +361,7 @@ Partial Class principal
         Me.ClientSize = New System.Drawing.Size(1099, 627)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.msPrincipal)
+        Me.KeyPreview = True
         Me.MainMenuStrip = Me.msPrincipal
         Me.Name = "principal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -407,4 +415,5 @@ Partial Class principal
     Friend WithEvents RespaldarBaseDeDatosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RestaurarBDToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BitácoraToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AyudaToolStripMenuItem As ToolStripMenuItem
 End Class

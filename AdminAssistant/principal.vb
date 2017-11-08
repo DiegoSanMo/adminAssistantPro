@@ -1325,4 +1325,14 @@ Public Class principal
     Private Sub BitácoraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BitácoraToolStripMenuItem.Click
         frmBitacora.ShowDialog()
     End Sub
+
+    Private Sub AyudaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AyudaToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub principal_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If e.KeyCode = Keys.F1 Then
+            System.Diagnostics.Process.Start("C:\Users\Diego\Documents\GitHub\adminAssistantPro\Help.chm")
+        End If
+    End Sub
 End Class
