@@ -63,10 +63,10 @@ Partial Class principal
         Me.RespaldarBaseDeDatosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RestaurarBDToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BitácoraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AyudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.AyudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.msPrincipal.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -325,6 +325,13 @@ Partial Class principal
         Me.BitácoraToolStripMenuItem.Size = New System.Drawing.Size(229, 43)
         Me.BitácoraToolStripMenuItem.Text = "Bitácora"
         '
+        'AyudaToolStripMenuItem
+        '
+        Me.AyudaToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.AyudaToolStripMenuItem.Name = "AyudaToolStripMenuItem"
+        Me.AyudaToolStripMenuItem.Size = New System.Drawing.Size(229, 43)
+        Me.AyudaToolStripMenuItem.Text = "Ayuda"
+        '
         'SalirToolStripMenuItem
         '
         Me.SalirToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace
@@ -346,12 +353,6 @@ Partial Class principal
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
-        '
-        'AyudaToolStripMenuItem
-        '
-        Me.AyudaToolStripMenuItem.Name = "AyudaToolStripMenuItem"
-        Me.AyudaToolStripMenuItem.Size = New System.Drawing.Size(229, 43)
-        Me.AyudaToolStripMenuItem.Text = "Ayuda"
         '
         'principal
         '
