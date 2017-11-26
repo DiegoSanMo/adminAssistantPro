@@ -23,16 +23,16 @@ Partial Class frmConsultaAlumnos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.dgConsultaG = New System.Windows.Forms.DataGridView()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnSalir = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnSalir = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.dgConsultaG, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -44,6 +44,45 @@ Partial Class frmConsultaAlumnos
         Me.dgConsultaG.Name = "dgConsultaG"
         Me.dgConsultaG.Size = New System.Drawing.Size(917, 221)
         Me.dgConsultaG.TabIndex = 0
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "IdAlumno"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Nombre"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 200
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Domicilio"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 200
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "Télefono"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        Me.Column4.Width = 150
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Situación"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "Último nivel acreditado"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
         '
         'Label2
         '
@@ -95,45 +134,6 @@ Partial Class frmConsultaAlumnos
         Me.Label3.Size = New System.Drawing.Size(223, 56)
         Me.Label3.TabIndex = 69
         Me.Label3.Text = "alumnos"
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "IdAlumno"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Nombre"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        Me.Column2.Width = 200
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Domicilio"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        Me.Column3.Width = 200
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "Télefono"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        Me.Column4.Width = 150
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "Situación"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "Último nivel acreditado"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
         '
         'frmConsultaAlumnos
         '

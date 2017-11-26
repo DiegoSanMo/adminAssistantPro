@@ -37,17 +37,22 @@ Public Class principal
 
     Private Sub RegistroToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistroToolStripMenuItem.Click
         Try
+            Dim ban As Boolean = False
             conexionMasterServidor.Open()
             comandoMasterServidor.CommandText = "SELECT name FROM sys.databases WHERE name = 'MasterEA'"
             lectorMasterServidor = comandoMasterServidor.ExecuteReader
             lectorMasterServidor.Read()
             If lectorMasterServidor(0) = "MasterEA" Then
-                frmRegistroAlumno.Show()
+                ban = True
             End If
             lectorMasterServidor.Close()
-            conexionMasterServidor.Close()
+            If ban Then
+                conexionMasterServidor.Close()
+                frmRegistroAlumno.Show()
+            End If
+
         Catch ex As Exception
-            lectorMasterServidor.Close()
+
             MessageBox.Show("No existe la base de datos MasterEA. Tiene que restaurarla primero", "Error de apertura", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
             Dim st As New StackTrace(True)
@@ -129,7 +134,6 @@ Public Class principal
 
             Dim nombre As String = CStr(n) + "-" + CStr(Year(fecha))
             Dim estado As String = "Abierto"
-
             Dim ban As Boolean
 
             If n <= 1 Then
@@ -154,8 +158,8 @@ Public Class principal
                         comando.CommandText = "Create database""" & nombre & """;"
                         comando.ExecuteNonQuery()
 
-                        Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
-                        'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                        'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                        Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
                         Dim comando2 As SqlCommand = conexionsql2.CreateCommand
                         conexionsql2.Open()
                         comando2.CommandText = "Create table grupo(idGrupo int primary Key, idMaestro int, maxAlumnos int, cantInscritos int, nivel int, hLuIni varchar(20), hLuFin varchar(20),  hMaIni varchar(20), hMaFin varchar(20),  hMiIni varchar(20), hMiFin varchar(20),  hJuIni varchar(20), hJuFin varchar(20),  hViIni varchar(20), hViFin varchar(20),  hSaIni varchar(20), hSaFin varchar(20))"
@@ -226,8 +230,8 @@ Public Class principal
                             comando.CommandText = "Create database""" & nombre & """;"
                             comando.ExecuteNonQuery()
 
-                            Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
-                            'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                            'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                            Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
                             Dim comando2 As SqlCommand = conexionsql2.CreateCommand
                             conexionsql2.Open()
                             comando2.CommandText = "Create table grupo(idGrupo int primary Key, idMaestro int, maxAlumnos int, cantInscritos int, nivel int, hLuIni varchar(20), hLuFin varchar(20),  hMaIni varchar(20), hMaFin varchar(20),  hMiIni varchar(20), hMiFin varchar(20),  hJuIni varchar(20), hJuFin varchar(20),  hViIni varchar(20), hViFin varchar(20),  hSaIni varchar(20), hSaFin varchar(20))"
@@ -280,6 +284,8 @@ Public Class principal
             conexionMasterServidor.Close()
             conexionsql.Close()
         Catch ex As Exception
+            MsgBox(ex.Message
+                   )
             MessageBox.Show("No existe la base de datos MasterEA. Tiene que restaurarla primero", "Error de apertura", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Dim st As New StackTrace(True)
             st = New StackTrace(ex, True)
@@ -354,8 +360,8 @@ Public Class principal
 
             Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
             lectorGeneral.Close()
-            Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
-            'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+            'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+            Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
             Dim comando2 As SqlCommand = conexionsql2.CreateCommand
 
             If n = 0 Then
@@ -472,8 +478,8 @@ Public Class principal
 
                     Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
                     lectorGeneral.Close()
-                    Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
-                    'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                    'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                    Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
                     Dim comando2 As SqlCommand = conexionsql2.CreateCommand
 
                     conexionsql2.Open()
@@ -650,8 +656,8 @@ Public Class principal
 
                     Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
                     lectorGeneral.Close()
-                    'Dim conexionCiclo As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
-                    Dim conexionCiclo As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                    Dim conexionCiclo As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                    'Dim conexionCiclo As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
                     Dim comandoCiclo As SqlCommand = conexionCiclo.CreateCommand
 
                     conexionCiclo.Open()
@@ -702,160 +708,214 @@ Public Class principal
 
     Private Sub CerrarCicloToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CerrarCicloToolStripMenuItem.Click
         Try
+            'Try para intentar acceder a la conexion con el servidor sql
             conexionMasterServidor.Open()
-            Conexion.Open()
-
-            Dim n As Integer
-            comandoGeneral.CommandText = "Select count(idCiclo) from ciclo"
-            n = comandoGeneral.ExecuteScalar
-            If n = 0 Then
-                MessageBox.Show("No hay ningún ciclo registrado", "Error de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Else
-                comandoGeneral.CommandText = "Select estado From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
-                lectorGeneral = comandoGeneral.ExecuteReader
-                lectorGeneral.Read()
-
-                If lectorGeneral(0) = "Cerrado" Then
-                    lectorGeneral.Close()
-                    Conexion.Close()
-                    MessageBox.Show("ERROR, CICLO CERRADO", "CICLO CERRADO", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Else
-                    lectorGeneral.Close()
-                    Dim idCiclo As Integer
-                    Dim anioC As String
-
-                    comandoGeneral.CommandText = "Select idCiclo, anio From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
-                    lectorGeneral = comandoGeneral.ExecuteReader
-                    lectorGeneral.Read()
-
-                    idCiclo = lectorGeneral(0)
-                    anioC = lectorGeneral(1)
-
-                    Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
-                    lectorGeneral.Close()
-                    Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=True")
-                    'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=True")
-                    Dim comando2 As SqlCommand = conexionsql2.CreateCommand
-                    Dim comando3 As SqlCommand = conexionsql2.CreateCommand
-                    Dim lector2 As SqlDataReader
-                    Dim lector3 As SqlDataReader
-
-                    conexionsql2.Open()
-                    Dim contGrupos As Integer
-                    comando2.CommandText = "Select count(idGrupo) From grupo"
-                    contGrupos = comando2.ExecuteScalar
-
-                    Dim contListas As Integer
-                    For i = 1 To contGrupos
-                        comando2.CommandText = "Select count(*)from INFORMATION_SCHEMA.TABLES Where TABLE_NAME = 'lista" & i & "';"
-                        contListas = contListas + comando2.ExecuteScalar()
-                    Next
-
-                    If contListas = 0 Then
-                        MessageBox.Show("Error. No hay ninguna lista creada", "Error de listas", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Try
+                'Try PARA INTENTAR ACCEDER A LA CONEXION CON EL LA BASE DE DATOS MASTEREA
+                Conexion.Open()
+                Try
+                    'Try PARA INTENTAR CERRAR EL CICLO
+                    Dim n As Integer
+                    comandoGeneral.CommandText = "Select count(idCiclo) from ciclo"
+                    n = comandoGeneral.ExecuteScalar
+                    If n = 0 Then
+                        MessageBox.Show("No hay ningún ciclo registrado", "Error de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Else
-                        transaccion = Conexion.BeginTransaction("TransaccionCerrarCiclo")
-                        comandoGeneral.Connection = Conexion
-                        comandoGeneral.Transaction = transaccion
 
-                        transaccionMasterServidor = conexionMasterServidor.BeginTransaction("TransaccionCicloAuxiliar")
-                        comandoMasterServidor.Connection = conexionMasterServidor
-                        comandoMasterServidor.Transaction = transaccionMasterServidor
-                        Try
-                            For i = 1 To contListas
-                                comando2.CommandText = "Select nivel From grupo Where idGrupo=" & i & ""
-                                lector2 = comando2.ExecuteReader
-                                lector2.Read()
-                                Dim nivel As Integer = lector2(0)
-                                lector2.Close()
-                                comando2.CommandText = "Select idAlumno From lista" & i & ""
-                                lector2 = comando2.ExecuteReader
+                        comandoGeneral.CommandText = "Select estado From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
+                        lectorGeneral = comandoGeneral.ExecuteReader
+                        lectorGeneral.Read()
 
-                                While lector2.Read
-                                    Dim sit As String = "EN ESPERA"
-                                    Dim sitFin As String = "FINALIZADO"
-                                    comando3.CommandText = "Select calificacion From lista" & i & " Where idAlumno=" & lector2(0) & ""
-                                    lector3 = comando3.ExecuteReader
-                                    lector3.Read()
-                                    Dim calif As Decimal = lector3(0)
-                                    lector3.Close()
-                                    Dim est As String = "Cerrado"
-                                    If calif >= 80 Then
-                                        If nivel = 12 Then
-                                            comandoGeneral.CommandText = "Update kardex Set n" & nivel & "=" & calif & " Where idAlumno=" & lector2(0) & ""
-                                            comandoGeneral.ExecuteNonQuery()
-                                            comandoGeneral.CommandText = "Update alumno Set situacion='" & sitFin & "', ultimoNivelAcreditado=" & nivel & " Where idAlumno=" & lector2(0) & ""
-                                            comandoGeneral.ExecuteNonQuery()
-                                            comandoGeneral.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
-                                            comandoGeneral.ExecuteNonQuery()
-                                            comandoMasterServidor.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
-                                            comandoMasterServidor.ExecuteNonQuery()
-                                        Else
-                                            comandoGeneral.CommandText = "Update kardex Set n" & nivel & "=" & calif & " Where idAlumno=" & lector2(0) & ""
-                                            comandoGeneral.ExecuteNonQuery()
-                                            comandoGeneral.CommandText = "Update alumno Set situacion='" & sit & "', ultimoNivelAcreditado=" & nivel & " Where idAlumno=" & lector2(0) & ""
-                                            comandoGeneral.ExecuteNonQuery()
-                                            comandoGeneral.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
-                                            comandoGeneral.ExecuteNonQuery()
-                                            comandoMasterServidor.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
-                                            comandoMasterServidor.ExecuteNonQuery()
-                                        End If
-                                    Else
-                                        comandoGeneral.CommandText = "Update alumno Set situacion='" & sit & "' Where idAlumno=" & lector2(0) & ""
-                                        comandoGeneral.ExecuteNonQuery()
-                                        comandoGeneral.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
-                                        comandoGeneral.ExecuteNonQuery()
-                                        comandoMasterServidor.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
-                                        comandoMasterServidor.ExecuteNonQuery()
-                                    End If
-                                End While
-                                lector2.Close()
-                            Next
-                            If MessageBox.Show("¿Desea cerrar el ciclo?", "Cerrar ciclo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-                                transaccion.Commit()
-                                transaccionMasterServidor.Commit()
-                                MessageBox.Show("El ciclo fue cerrado exitosamente", "Cerrar ciclo", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            Else
-                                transaccion.Rollback()
-                                transaccionMasterServidor.Rollback()
-                                MessageBox.Show("El cerrado del ciclo fue cancelado", "Cancelación de cerrado", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                            End If
-                        Catch ex As Exception
-                            MessageBox.Show("Commit Exception Type: {0} No se pudo insertar por error")
-                            'MessageBox.Show("No existe la base de datos MasterEA. Tiene que restaurarla primero", "Error de apertura", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                            Dim st As New StackTrace(True)
-                            st = New StackTrace(ex, True)
-                            frame = Me.Name
-                            descripcion = "Falla de cierre de ciclo"
-                            comandoMasterServidor.CommandText = "SELECT COUNT(noFalla) FROM bitacora"
-                            contFalla = comandoMasterServidor.ExecuteScalar + 1
-                            comandoMasterServidor.CommandText = "INSERT INTO bitacora values(" & contFalla & ",'" & ex.Message & "','" & descripcion & "','" & frame & "','" & st.GetFrame(5).GetFileLineNumber.ToString & "','" & Now.Date & "','" & Now.TimeOfDay.ToString & "')"
-                            comandoMasterServidor.ExecuteNonQuery()
+                        If lectorGeneral(0) = "Cerrado" Then
+                            lectorGeneral.Close()
+
+                            'cerrando conexiones
+                            Conexion.Close()
                             conexionMasterServidor.Close()
-                            Try
-                                transaccion.Rollback()
-                                transaccionMasterServidor.Rollback()
-                            Catch ex2 As Exception
-                                MessageBox.Show("Error de listas")
-                                MessageBox.Show("No existe la base de datos MasterEA. Tiene que restaurarla primero", "Error de apertura", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                                Dim st2 As New StackTrace(True)
-                                st2 = New StackTrace(ex, True)
-                                frame = Me.Name
-                                descripcion = "Falla de cierre de ciclo"
-                                comandoMasterServidor.CommandText = "SELECT COUNT(noFalla) FROM bitacora"
-                                contFalla = comandoMasterServidor.ExecuteScalar + 1
-                                comandoMasterServidor.CommandText = "INSERT INTO bitacora values(" & contFalla & ",'" & ex2.Message & "','" & descripcion & "','" & frame & "','" & st2.GetFrame(5).GetFileLineNumber.ToString & "','" & Now.Date & "','" & Now.TimeOfDay.ToString & "')"
-                                comandoMasterServidor.ExecuteNonQuery()
+                            'termina seccion de cerrar conexiones
+
+                            MessageBox.Show("ERROR, CICLO CERRADO", "CICLO CERRADO", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Else
+                            lectorGeneral.Close()
+                            Dim idCiclo As Integer
+                            Dim anioC As String
+
+                            comandoGeneral.CommandText = "Select idCiclo, anio From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
+                            lectorGeneral = comandoGeneral.ExecuteReader
+                            lectorGeneral.Read()
+
+                            idCiclo = lectorGeneral(0)
+                            anioC = lectorGeneral(1)
+
+                            Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
+                            lectorGeneral.Close()
+                            'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=True")
+                            Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=True")
+                            Dim comando2 As SqlCommand = conexionsql2.CreateCommand
+                            Dim comando3 As SqlCommand = conexionsql2.CreateCommand
+                            Dim lector2 As SqlDataReader
+                            Dim lector3 As SqlDataReader
+
+                            conexionsql2.Open()
+                            Dim contGrupos As Integer
+                            comando2.CommandText = "Select count(idGrupo) From grupo"
+                            contGrupos = comando2.ExecuteScalar
+
+                            Dim contListas As Integer
+                            For i = 1 To contGrupos
+                                comando2.CommandText = "Select count(*)from INFORMATION_SCHEMA.TABLES Where TABLE_NAME = 'lista" & i & "';"
+                                contListas = contListas + comando2.ExecuteScalar()
+                            Next
+
+                            If contListas = 0 Then
+                                'cerrando conexiones
+                                Conexion.Close()
                                 conexionMasterServidor.Close()
-                            End Try
-                        End Try
+                                conexionsql2.Close()
+                                'termina seccion de cerrar conexiones
+
+                                MessageBox.Show("Error. No hay ninguna lista creada", "Error de listas", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Else
+                                transaccion = Conexion.BeginTransaction("TransaccionCerrarCiclo")
+                                comandoGeneral.Connection = Conexion
+                                comandoGeneral.Transaction = transaccion
+
+                                transaccionMasterServidor = conexionMasterServidor.BeginTransaction("TransaccionCicloAuxiliar")
+                                comandoMasterServidor.Connection = conexionMasterServidor
+                                comandoMasterServidor.Transaction = transaccionMasterServidor
+                                Try
+                                    For i = 1 To contListas
+                                        comando2.CommandText = "Select nivel From grupo Where idGrupo=" & i & ""
+                                        lector2 = comando2.ExecuteReader
+                                        lector2.Read()
+                                        Dim nivel As Integer = lector2(0)
+                                        lector2.Close()
+                                        comando2.CommandText = "Select idAlumno From lista" & i & ""
+                                        lector2 = comando2.ExecuteReader
+
+                                        While lector2.Read
+                                            Dim sit As String = "EN ESPERA"
+                                            Dim sitFin As String = "FINALIZADO"
+                                            comando3.CommandText = "Select calificacion From lista" & i & " Where idAlumno=" & lector2(0) & ""
+                                            lector3 = comando3.ExecuteReader
+                                            lector3.Read()
+                                            Dim calif As Decimal = lector3(0)
+                                            lector3.Close()
+                                            Dim est As String = "Cerrado"
+                                            If calif >= 80 Then
+                                                If nivel = 12 Then
+                                                    comandoGeneral.CommandText = "Update kardex Set n" & nivel & "=" & calif & " Where idAlumno=" & lector2(0) & ""
+                                                    comandoGeneral.ExecuteNonQuery()
+                                                    comandoGeneral.CommandText = "Update alumno Set situacion='" & sitFin & "', ultimoNivelAcreditado=" & nivel & " Where idAlumno=" & lector2(0) & ""
+                                                    comandoGeneral.ExecuteNonQuery()
+                                                    comandoGeneral.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
+                                                    comandoGeneral.ExecuteNonQuery()
+                                                    comandoMasterServidor.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
+                                                    comandoMasterServidor.ExecuteNonQuery()
+                                                Else
+                                                    comandoGeneral.CommandText = "Update kardex Set n" & nivel & "=" & calif & " Where idAlumno=" & lector2(0) & ""
+                                                    comandoGeneral.ExecuteNonQuery()
+                                                    comandoGeneral.CommandText = "Update alumno Set situacion='" & sit & "', ultimoNivelAcreditado=" & nivel & " Where idAlumno=" & lector2(0) & ""
+                                                    comandoGeneral.ExecuteNonQuery()
+                                                    comandoGeneral.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
+                                                    comandoGeneral.ExecuteNonQuery()
+                                                    comandoMasterServidor.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
+                                                    comandoMasterServidor.ExecuteNonQuery()
+                                                End If
+                                            Else
+                                                comandoGeneral.CommandText = "Update alumno Set situacion='" & sit & "' Where idAlumno=" & lector2(0) & ""
+                                                comandoGeneral.ExecuteNonQuery()
+                                                comandoGeneral.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
+                                                comandoGeneral.ExecuteNonQuery()
+                                                comandoMasterServidor.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
+                                                comandoMasterServidor.ExecuteNonQuery()
+                                            End If
+                                        End While
+                                        lector2.Close()
+                                    Next
+                                    If MessageBox.Show("¿Desea cerrar el ciclo?", "Cerrar ciclo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                                        transaccion.Commit()
+                                        transaccionMasterServidor.Commit()
+                                        MessageBox.Show("El ciclo fue cerrado exitosamente", "Cerrar ciclo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                                        'cerrando conexiones
+                                        conexionsql2.Close()
+                                        Conexion.Close()
+                                        conexionMasterServidor.Close()
+                                        'termina seccion de cerrar conexiones
+                                    Else
+                                        transaccion.Rollback()
+                                        transaccionMasterServidor.Rollback()
+                                        MessageBox.Show("El cerrado del ciclo fue cancelado", "Cancelación de cerrado", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+                                        'cerrando conexiones
+                                        conexionsql2.Close()
+                                        Conexion.Close()
+                                        conexionMasterServidor.Close()
+                                        'termina seccion de cerrar conexiones
+                                    End If
+                                Catch ex As Exception
+                                    MessageBox.Show("Commit Exception Type: {0} No se pudo insertar por error")
+                                    'MessageBox.Show("No existe la base de datos MasterEA. Tiene que restaurarla primero", "Error de apertura", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                    Dim st As New StackTrace(True)
+                                    st = New StackTrace(ex, True)
+                                    frame = Me.Name
+                                    descripcion = "Falla de cierre de ciclo"
+                                    comandoMasterServidor.CommandText = "SELECT COUNT(noFalla) FROM bitacora"
+                                    contFalla = comandoMasterServidor.ExecuteScalar + 1
+                                    comandoMasterServidor.CommandText = "INSERT INTO bitacora values(" & contFalla & ",'" & ex.Message & "','" & descripcion & "','" & frame & "','" & st.GetFrame(5).GetFileLineNumber.ToString & "','" & Now.Date & "','" & Now.TimeOfDay.ToString & "')"
+                                    comandoMasterServidor.ExecuteNonQuery()
+                                    conexionMasterServidor.Close()
+                                    Try
+                                        transaccion.Rollback()
+                                        transaccionMasterServidor.Rollback()
+                                    Catch ex2 As Exception
+                                        MessageBox.Show("Error de listas")
+                                        MessageBox.Show("No existe la base de datos MasterEA. Tiene que restaurarla primero", "Error de apertura", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                        Dim st2 As New StackTrace(True)
+                                        st2 = New StackTrace(ex, True)
+                                        frame = Me.Name
+                                        descripcion = "Falla de cierre de ciclo"
+                                        comandoMasterServidor.CommandText = "SELECT COUNT(noFalla) FROM bitacora"
+                                        contFalla = comandoMasterServidor.ExecuteScalar + 1
+                                        comandoMasterServidor.CommandText = "INSERT INTO bitacora values(" & contFalla & ",'" & ex2.Message & "','" & descripcion & "','" & frame & "','" & st2.GetFrame(5).GetFileLineNumber.ToString & "','" & Now.Date & "','" & Now.TimeOfDay.ToString & "')"
+                                        comandoMasterServidor.ExecuteNonQuery()
+                                        conexionMasterServidor.Close()
+                                    End Try
+                                End Try
+                            End If
+                            conexionsql2.Close()
+                        End If
                     End If
-                    conexionsql2.Close()
-                End If
-            End If
-            Conexion.Close()
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                    MessageBox.Show("NO SE PUDO ACCEDER CERRAR EL CICLO", "Error de apertura", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Dim st As New StackTrace(True)
+                    st = New StackTrace(ex, True)
+                    frame = Me.Name
+                    descripcion = "Falla de cierre de ciclo"
+                    comandoMasterServidor.CommandText = "SELECT COUNT(noFalla) FROM bitacora"
+                    contFalla = comandoMasterServidor.ExecuteScalar + 1
+                    comandoMasterServidor.CommandText = "INSERT INTO bitacora values(" & contFalla & ",'" & ex.Message & "','" & descripcion & "','" & frame & "','" & st.GetFrame(5).GetFileLineNumber.ToString & "','" & Now.Date & "','" & Now.TimeOfDay.ToString & "')"
+                    comandoMasterServidor.ExecuteNonQuery()
+                    Conexion.Close()
+                    conexionMasterServidor.Close()
+
+                End Try
+            Catch ex As Exception
+                MessageBox.Show("NO SE PUDO ACCEDER A LA BASE DE DATOS MASTEREA", "Error de apertura", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Dim st As New StackTrace(True)
+                st = New StackTrace(ex, True)
+                frame = Me.Name
+                descripcion = "Falla de cierre de ciclo"
+                comandoMasterServidor.CommandText = "SELECT COUNT(noFalla) FROM bitacora"
+                contFalla = comandoMasterServidor.ExecuteScalar + 1
+                comandoMasterServidor.CommandText = "INSERT INTO bitacora values(" & contFalla & ",'" & ex.Message & "','" & descripcion & "','" & frame & "','" & st.GetFrame(5).GetFileLineNumber.ToString & "','" & Now.Date & "','" & Now.TimeOfDay.ToString & "')"
+                comandoMasterServidor.ExecuteNonQuery()
+                Conexion.Close()
+            End Try
         Catch ex As Exception
-            MessageBox.Show("No existe la base de datos MasterEA. Tiene que restaurarla primero", "Error de apertura", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("NO SE PUDO ACCEDER A LA BASE DE DATOS DEL SERVIDOR SQL", "Error de apertura", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Dim st As New StackTrace(True)
             st = New StackTrace(ex, True)
             frame = Me.Name
@@ -866,6 +926,175 @@ Public Class principal
             comandoMasterServidor.ExecuteNonQuery()
             conexionMasterServidor.Close()
         End Try
+
+
+
+        'Try
+        '    conexionMasterServidor.Open()
+        '    Conexion.Open()
+
+        '    Dim n As Integer
+        '    comandoGeneral.CommandText = "Select count(idCiclo) from ciclo"
+        '    n = comandoGeneral.ExecuteScalar
+        '    If n = 0 Then
+        '        MessageBox.Show("No hay ningún ciclo registrado", "Error de ciclo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        '    Else
+        '        comandoGeneral.CommandText = "Select estado From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
+        '        lectorGeneral = comandoGeneral.ExecuteReader
+        '        lectorGeneral.Read()
+
+        '        If lectorGeneral(0) = "Cerrado" Then
+        '            lectorGeneral.Close()
+        '            Conexion.Close()
+        '            MessageBox.Show("ERROR, CICLO CERRADO", "CICLO CERRADO", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        '        Else
+        '            lectorGeneral.Close()
+        '            Dim idCiclo As Integer
+        '            Dim anioC As String
+
+        '            comandoGeneral.CommandText = "Select idCiclo, anio From ciclo Where idCiclo=(Select max(idCiclo) From ciclo)"
+        '            lectorGeneral = comandoGeneral.ExecuteReader
+        '            lectorGeneral.Read()
+
+        '            idCiclo = lectorGeneral(0)
+        '            anioC = lectorGeneral(1)
+
+        '            Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
+        '            lectorGeneral.Close()
+        '            Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=True")
+        '            'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=True")
+        '            Dim comando2 As SqlCommand = conexionsql2.CreateCommand
+        '            Dim comando3 As SqlCommand = conexionsql2.CreateCommand
+        '            Dim lector2 As SqlDataReader
+        '            Dim lector3 As SqlDataReader
+
+        '            conexionsql2.Open()
+        '            Dim contGrupos As Integer
+        '            comando2.CommandText = "Select count(idGrupo) From grupo"
+        '            contGrupos = comando2.ExecuteScalar
+
+        '            Dim contListas As Integer
+        '            For i = 1 To contGrupos
+        '                comando2.CommandText = "Select count(*)from INFORMATION_SCHEMA.TABLES Where TABLE_NAME = 'lista" & i & "';"
+        '                contListas = contListas + comando2.ExecuteScalar()
+        '            Next
+
+        '            If contListas = 0 Then
+        '                MessageBox.Show("Error. No hay ninguna lista creada", "Error de listas", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        '            Else
+        '                transaccion = Conexion.BeginTransaction("TransaccionCerrarCiclo")
+        '                comandoGeneral.Connection = Conexion
+        '                comandoGeneral.Transaction = transaccion
+
+        '                transaccionMasterServidor = conexionMasterServidor.BeginTransaction("TransaccionCicloAuxiliar")
+        '                comandoMasterServidor.Connection = conexionMasterServidor
+        '                comandoMasterServidor.Transaction = transaccionMasterServidor
+        '                Try
+        '                    For i = 1 To contListas
+        '                        comando2.CommandText = "Select nivel From grupo Where idGrupo=" & i & ""
+        '                        lector2 = comando2.ExecuteReader
+        '                        lector2.Read()
+        '                        Dim nivel As Integer = lector2(0)
+        '                        lector2.Close()
+        '                        comando2.CommandText = "Select idAlumno From lista" & i & ""
+        '                        lector2 = comando2.ExecuteReader
+
+        '                        While lector2.Read
+        '                            Dim sit As String = "EN ESPERA"
+        '                            Dim sitFin As String = "FINALIZADO"
+        '                            comando3.CommandText = "Select calificacion From lista" & i & " Where idAlumno=" & lector2(0) & ""
+        '                            lector3 = comando3.ExecuteReader
+        '                            lector3.Read()
+        '                            Dim calif As Decimal = lector3(0)
+        '                            lector3.Close()
+        '                            Dim est As String = "Cerrado"
+        '                            If calif >= 80 Then
+        '                                If nivel = 12 Then
+        '                                    comandoGeneral.CommandText = "Update kardex Set n" & nivel & "=" & calif & " Where idAlumno=" & lector2(0) & ""
+        '                                    comandoGeneral.ExecuteNonQuery()
+        '                                    comandoGeneral.CommandText = "Update alumno Set situacion='" & sitFin & "', ultimoNivelAcreditado=" & nivel & " Where idAlumno=" & lector2(0) & ""
+        '                                    comandoGeneral.ExecuteNonQuery()
+        '                                    comandoGeneral.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
+        '                                    comandoGeneral.ExecuteNonQuery()
+        '                                    comandoMasterServidor.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
+        '                                    comandoMasterServidor.ExecuteNonQuery()
+        '                                Else
+        '                                    comandoGeneral.CommandText = "Update kardex Set n" & nivel & "=" & calif & " Where idAlumno=" & lector2(0) & ""
+        '                                    comandoGeneral.ExecuteNonQuery()
+        '                                    comandoGeneral.CommandText = "Update alumno Set situacion='" & sit & "', ultimoNivelAcreditado=" & nivel & " Where idAlumno=" & lector2(0) & ""
+        '                                    comandoGeneral.ExecuteNonQuery()
+        '                                    comandoGeneral.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
+        '                                    comandoGeneral.ExecuteNonQuery()
+        '                                    comandoMasterServidor.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
+        '                                    comandoMasterServidor.ExecuteNonQuery()
+        '                                End If
+        '                            Else
+        '                                comandoGeneral.CommandText = "Update alumno Set situacion='" & sit & "' Where idAlumno=" & lector2(0) & ""
+        '                                comandoGeneral.ExecuteNonQuery()
+        '                                comandoGeneral.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
+        '                                comandoGeneral.ExecuteNonQuery()
+        '                                comandoMasterServidor.CommandText = "Update ciclo Set estado='" & est & "' Where idCiclo=" & idCiclo & ""
+        '                                comandoMasterServidor.ExecuteNonQuery()
+        '                            End If
+        '                        End While
+        '                        lector2.Close()
+        '                    Next
+        '                    If MessageBox.Show("¿Desea cerrar el ciclo?", "Cerrar ciclo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+        '                        transaccion.Commit()
+        '                        transaccionMasterServidor.Commit()
+        '                        MessageBox.Show("El ciclo fue cerrado exitosamente", "Cerrar ciclo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        '                    Else
+        '                        transaccion.Rollback()
+        '                        transaccionMasterServidor.Rollback()
+        '                        MessageBox.Show("El cerrado del ciclo fue cancelado", "Cancelación de cerrado", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        '                    End If
+        '                Catch ex As Exception
+        '                    MessageBox.Show("Commit Exception Type: {0} No se pudo insertar por error")
+        '                    'MessageBox.Show("No existe la base de datos MasterEA. Tiene que restaurarla primero", "Error de apertura", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        '                    Dim st As New StackTrace(True)
+        '                    st = New StackTrace(ex, True)
+        '                    frame = Me.Name
+        '                    descripcion = "Falla de cierre de ciclo"
+        '                    comandoMasterServidor.CommandText = "SELECT COUNT(noFalla) FROM bitacora"
+        '                    contFalla = comandoMasterServidor.ExecuteScalar + 1
+        '                    comandoMasterServidor.CommandText = "INSERT INTO bitacora values(" & contFalla & ",'" & ex.Message & "','" & descripcion & "','" & frame & "','" & st.GetFrame(5).GetFileLineNumber.ToString & "','" & Now.Date & "','" & Now.TimeOfDay.ToString & "')"
+        '                    comandoMasterServidor.ExecuteNonQuery()
+        '                    conexionMasterServidor.Close()
+        '                    Try
+        '                        transaccion.Rollback()
+        '                        transaccionMasterServidor.Rollback()
+        '                    Catch ex2 As Exception
+        '                        MessageBox.Show("Error de listas")
+        '                        MessageBox.Show("No existe la base de datos MasterEA. Tiene que restaurarla primero", "Error de apertura", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        '                        Dim st2 As New StackTrace(True)
+        '                        st2 = New StackTrace(ex, True)
+        '                        frame = Me.Name
+        '                        descripcion = "Falla de cierre de ciclo"
+        '                        comandoMasterServidor.CommandText = "SELECT COUNT(noFalla) FROM bitacora"
+        '                        contFalla = comandoMasterServidor.ExecuteScalar + 1
+        '                        comandoMasterServidor.CommandText = "INSERT INTO bitacora values(" & contFalla & ",'" & ex2.Message & "','" & descripcion & "','" & frame & "','" & st2.GetFrame(5).GetFileLineNumber.ToString & "','" & Now.Date & "','" & Now.TimeOfDay.ToString & "')"
+        '                        comandoMasterServidor.ExecuteNonQuery()
+        '                        conexionMasterServidor.Close()
+        '                    End Try
+        '                End Try
+        '            End If
+        '            conexionsql2.Close()
+        '        End If
+        '    End If
+        '    Conexion.Close()
+        'Catch ex As Exception
+
+        '    MessageBox.Show("No existe la base de datos MasterEA. Tiene que restaurarla primero", "Error de apertura", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        '    Dim st As New StackTrace(True)
+        '    st = New StackTrace(ex, True)
+        '    frame = Me.Name
+        '    descripcion = "Falla de cierre de ciclo"
+        '    comandoMasterServidor.CommandText = "SELECT COUNT(noFalla) FROM bitacora"
+        '    contFalla = comandoMasterServidor.ExecuteScalar + 1
+        '    comandoMasterServidor.CommandText = "INSERT INTO bitacora values(" & contFalla & ",'" & ex.Message & "','" & descripcion & "','" & frame & "','" & st.GetFrame(5).GetFileLineNumber.ToString & "','" & Now.Date & "','" & Now.TimeOfDay.ToString & "')"
+        '    comandoMasterServidor.ExecuteNonQuery()
+        '    conexionMasterServidor.Close()
+        'End Try
     End Sub
 
     Private Sub RegistroToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles RegistroToolStripMenuItem3.Click
@@ -936,8 +1165,8 @@ Public Class principal
                 Dim reportes As New ReportDataSource("DataSet1", data1.Tables(0))
                 frmReportes.ReportViewer1.LocalReport.DataSources.Clear()
                 frmReportes.ReportViewer1.LocalReport.DataSources.Add(reportes)
-                'frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteAlumnosInscritos.rdlc"
-                frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\AdminAssistant\Reportes\ReporteAlumnosInscritos.rdlc"
+                frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteAlumnosInscritos.rdlc"
+                'frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\AdminAssistant\Reportes\ReporteAlumnosInscritos.rdlc"
                 frmReportes.ReportViewer1.RefreshReport()
                 frmReportes.ShowDialog()
                 'lectorGeneral.Close()
@@ -959,8 +1188,8 @@ Public Class principal
             Dim reportes As New ReportDataSource("DataSet1", data.Tables(0))
             frmReportes.ReportViewer1.LocalReport.DataSources.Clear()
             frmReportes.ReportViewer1.LocalReport.DataSources.Add(reportes)
-            'frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteMaestros.rdlc"
-            frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\AdminAssistant\Reportes\ReporteMaestros.rdlc"
+            frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteMaestros.rdlc"
+            'frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\AdminAssistant\Reportes\ReporteMaestros.rdlc"
             frmReportes.ReportViewer1.RefreshReport()
             frmReportes.ShowDialog()
             Conexion.Close()
@@ -991,8 +1220,8 @@ Public Class principal
                     Dim nomBD As String = CStr(id) + "-" + CStr(anio)
 
 
-                    'Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
-                    Using conexioBDRemota As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+                    Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+                        'Using conexioBDRemota As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
                         Dim comandoBDRemota As SqlCommand = conexioBDRemota.CreateCommand
                         Dim comando2 As SqlCommand = conexioBDRemota.CreateCommand
                         Dim lector2 As SqlDataReader
@@ -1027,8 +1256,8 @@ Public Class principal
             Dim reportes As New ReportDataSource("DataSet1", data.Tables(0))
             frmReportes.ReportViewer1.LocalReport.DataSources.Clear()
             frmReportes.ReportViewer1.LocalReport.DataSources.Add(reportes)
-            'frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteGruposGeneral.rdlc"
-            frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\AdminAssistant\Reportes\ReporteGruposGeneral.rdlc"
+            frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteGruposGeneral.rdlc"
+            'frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\AdminAssistant\Reportes\ReporteGruposGeneral.rdlc"
             frmReportes.ReportViewer1.RefreshReport()
             frmReportes.ShowDialog()
             Conexion.Close()
@@ -1061,8 +1290,8 @@ Public Class principal
                 If lectorGeneral(2) = "Abierto" Then
                     lectorGeneral.Close()
 
-                    'Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
-                    Using conexioBDRemota As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+                    Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+                        'Using conexioBDRemota As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
                         Dim comandoBDRemota As SqlCommand = conexioBDRemota.CreateCommand
                         Dim comando2 As SqlCommand = conexioBDRemota.CreateCommand
                         Dim lectorBDRemota As SqlDataReader
@@ -1091,8 +1320,8 @@ Public Class principal
                     Dim reportes As New ReportDataSource("DataSet1", data.Tables(0))
                     frmReportes.ReportViewer1.LocalReport.DataSources.Clear()
                     frmReportes.ReportViewer1.LocalReport.DataSources.Add(reportes)
-                    'frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteGrupoCicloAbierto.rdlc"
-                    frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\AdminAssistant\Reportes\ReporteGrupoCicloAbierto.rdlc"
+                    frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Diego\Documents\GitHub\adminAssistantPro\AdminAssistant\Reportes\ReporteGrupoCicloAbierto.rdlc"
+                    'frmReportes.ReportViewer1.LocalReport.ReportPath = "C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\AdminAssistant\Reportes\ReporteGrupoCicloAbierto.rdlc"
                     frmReportes.ReportViewer1.RefreshReport()
                     frmReportes.ShowDialog()
                     Conexion.Close()
@@ -1327,14 +1556,14 @@ Public Class principal
     End Sub
 
     Private Sub AyudaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AyudaToolStripMenuItem.Click
-        'System.Diagnostics.Process.Start("C:\Users\Diego\Documents\GitHub\adminAssistantPro\Help.chm")
-        System.Diagnostics.Process.Start("C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\Ayuda.chm")
+        System.Diagnostics.Process.Start("C:\Users\Diego\Documents\GitHub\adminAssistantPro\Help.chm")
+        'System.Diagnostics.Process.Start("C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\Ayuda.chm")
     End Sub
 
     Private Sub principal_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.F1 Then
-            'System.Diagnostics.Process.Start("C:\Users\Diego\Documents\GitHub\adminAssistantPro\Help.chm")
-            System.Diagnostics.Process.Start("C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\Ayuda.chm")
+            System.Diagnostics.Process.Start("C:\Users\Diego\Documents\GitHub\adminAssistantPro\Help.chm")
+            'System.Diagnostics.Process.Start("C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\Ayuda.chm")
         End If
     End Sub
 End Class

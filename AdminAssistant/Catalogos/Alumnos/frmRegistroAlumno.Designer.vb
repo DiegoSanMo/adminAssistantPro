@@ -33,10 +33,10 @@ Partial Class frmRegistroAlumno
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.txtNombre = New System.Windows.Forms.TextBox()
-        Me.AlumnoBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.MasterEADataSetDiego = New AdminAssistant.MasterEADataSetDiego()
         Me.AlumnoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MasterEADataSet = New AdminAssistant.MasterEADataSet()
+        Me.AlumnoBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MasterEADataSetDiego = New AdminAssistant.MasterEADataSetDiego()
         Me.txtDomicilio = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.txtTelEmergencia = New System.Windows.Forms.TextBox()
@@ -82,10 +82,10 @@ Partial Class frmRegistroAlumno
         Me.AlumnoTableAdapter1 = New AdminAssistant.MasterEADataSetDiegoTableAdapters.alumnoTableAdapter()
         CType(Me.ptbFoto, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.AlumnoBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.MasterEADataSetDiego, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AlumnoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MasterEADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AlumnoBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MasterEADataSetDiego, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label2
@@ -192,16 +192,6 @@ Partial Class frmRegistroAlumno
         Me.txtNombre.Size = New System.Drawing.Size(641, 34)
         Me.txtNombre.TabIndex = 1
         '
-        'AlumnoBindingSource1
-        '
-        Me.AlumnoBindingSource1.DataMember = "alumno"
-        Me.AlumnoBindingSource1.DataSource = Me.MasterEADataSetDiego
-        '
-        'MasterEADataSetDiego
-        '
-        Me.MasterEADataSetDiego.DataSetName = "MasterEADataSetDiego"
-        Me.MasterEADataSetDiego.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'AlumnoBindingSource
         '
         Me.AlumnoBindingSource.DataMember = "alumno"
@@ -211,6 +201,16 @@ Partial Class frmRegistroAlumno
         '
         Me.MasterEADataSet.DataSetName = "MasterEADataSet"
         Me.MasterEADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'AlumnoBindingSource1
+        '
+        Me.AlumnoBindingSource1.DataMember = "alumno"
+        Me.AlumnoBindingSource1.DataSource = Me.MasterEADataSetDiego
+        '
+        'MasterEADataSetDiego
+        '
+        Me.MasterEADataSetDiego.DataSetName = "MasterEADataSetDiego"
+        Me.MasterEADataSetDiego.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'txtDomicilio
         '
@@ -708,10 +708,10 @@ Partial Class frmRegistroAlumno
         Me.Text = "frmRegistroAlumno"
         CType(Me.ptbFoto, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.AlumnoBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.MasterEADataSetDiego, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AlumnoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MasterEADataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AlumnoBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MasterEADataSetDiego, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

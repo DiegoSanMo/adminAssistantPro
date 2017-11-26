@@ -18,15 +18,21 @@ Public Class frmRegistroAlumno
     End Sub
 
     Private Sub frmRegistroAlumno_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'MasterEADataSetDiego.alumno' Puede moverla o quitarla según sea necesario.
-        'Me.AlumnoTableAdapter1.Fill(Me.MasterEADataSetDiego.alumno)
-        'TODO: esta línea de código carga datos en la tabla 'EasyEnglishDataSetMani.alumno' Puede moverla o quitarla según sea necesario.
-        Me.AlumnoTableAdapter.Fill(Me.MasterEADataSet.alumno)
+        Try
 
-        btnPrimero.Enabled = True
-        btnSiguiente.Enabled = True
-        btnAnterior.Enabled = True
-        btnUltimo.Enabled = True
+            'TODO: esta línea de código carga datos en la tabla 'MasterEADataSetDiego.alumno' Puede moverla o quitarla según sea necesario.
+            Me.AlumnoTableAdapter1.Fill(Me.MasterEADataSetDiego.alumno)
+            'TODO: esta línea de código carga datos en la tabla 'EasyEnglishDataSetMani.alumno' Puede moverla o quitarla según sea necesario.
+            'Me.AlumnoTableAdapter.Fill(Me.MasterEADataSet.alumno)
+
+            btnPrimero.Enabled = True
+            btnSiguiente.Enabled = True
+            btnAnterior.Enabled = True
+            btnUltimo.Enabled = True
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
 
     End Sub
 
@@ -77,6 +83,7 @@ Public Class frmRegistroAlumno
             btnAnterior.Enabled = True
             btnUltimo.Enabled = True
         Catch ex As Exception
+
             conexionMasterServidor.Open()
             MessageBox.Show("No existe la base de datos MasterEA. Tiene que restaurarla primero", "Error de apertura", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Dim st As New StackTrace(True)

@@ -3,7 +3,7 @@ Imports System.Configuration
 Module Module1
 
     'Public conexionsql As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; initial catalog = 'MasterEA'; integrated security = true; MultipleActiveResultSets=True")
-    Public conexionsql As New SqlConnection("Data source = 'PRO'; initial catalog = 'MasterEA'; integrated security = true")
+    Public conexionsql As New SqlConnection("Data source = 'PRO'; initial catalog = 'MasterEA'; integrated security = true; MultipleActiveResultSets=True")
 
     Public comando As SqlCommand = conexionsql.CreateCommand
     Public lector As SqlDataReader
@@ -38,6 +38,7 @@ Module Module1
     Public constanciaNivAct As Boolean = False
 
     'Public conexionMasterServidor As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; initial catalog = 'master'; integrated security = true")
+    'Public conexionMasterServidor As New SqlConnection("Data source = 'PRO'; initial catalog = 'master'; integrated security = true")
     Public contFalla As Integer
     Public frame As String = String.Empty
     Public descripcion As String = String.Empty
