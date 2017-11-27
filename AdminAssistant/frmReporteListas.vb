@@ -79,9 +79,9 @@ Public Class frmReporteListas
         If lectorGeneral(2) = "Abierto" Then
             lectorGeneral.Close()
             Dim contListas As Integer
-            'Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
-            Using conexioBDRemota As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
-                    Dim comandoBDRemota As SqlCommand = conexioBDRemota.CreateCommand
+            Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+                'Using conexioBDRemota As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+                Dim comandoBDRemota As SqlCommand = conexioBDRemota.CreateCommand
                     Dim comando2 As SqlCommand = conexioBDRemota.CreateCommand
                     Dim lectorBDRemota As SqlDataReader
 
