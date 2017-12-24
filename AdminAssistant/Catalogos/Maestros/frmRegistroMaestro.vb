@@ -3,9 +3,9 @@
 Public Class frmRegistroMaestro
     Private Sub frmRegistroMaestro_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'MasterEADataSetDiego.maestro' Puede moverla o quitarla según sea necesario.
-        Me.MaestroTableAdapter1.Fill(Me.MasterEADataSetDiego.maestro)
+        ' Me.MaestroTableAdapter1.Fill(Me.MasterEADataSetDiego.maestro)
         'TODO: esta línea de código carga datos en la tabla 'MasterEADataSet.maestro' Puede moverla o quitarla según sea necesario.
-        'Me.MaestroTableAdapter.Fill(Me.MasterEADataSet.maestro)
+        Me.MaestroTableAdapter.Fill(Me.MasterEADataSet.maestro)
     End Sub
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click

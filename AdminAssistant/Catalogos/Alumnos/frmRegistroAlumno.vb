@@ -32,8 +32,6 @@ Public Class frmRegistroAlumno
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-
-
     End Sub
 
     Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
@@ -63,17 +61,6 @@ Public Class frmRegistroAlumno
                 AlumnoTableAdapter.Fill(MasterEADataSet.alumno)
             End If
         Catch ex2 As Exception
-            'MessageBox.Show("Error al momento de insertar", "Error de inserción", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            'conexionMasterServidor.Open()
-            'Dim st2 As New StackTrace(True)
-            'st2 = New StackTrace(ex2, True)
-            'frame = Me.Name
-            'descripcion = "Falla de registro de alumno"
-            'comandoMasterServidor.CommandText = "SELECT COUNT(noFalla) FROM bitacora"
-            'contFalla = comandoMasterServidor.ExecuteScalar + 1
-            'comandoMasterServidor.CommandText = "INSERT INTO bitacora values(" & contFalla & ",'" & ex2.Message & "','" & descripcion & "','" & frame & "','" & st2.GetFrame(5).GetFileLineNumber.ToString & "','" & Now.Date & "','" & Now.TimeOfDay.ToString & "')"
-            'comandoMasterServidor.ExecuteNonQuery()
-            'conexionMasterServidor.Close()
             MsgBox(ex2.Message)
         End Try
         'Se bloquean los controles principales

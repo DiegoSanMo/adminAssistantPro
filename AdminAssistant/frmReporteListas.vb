@@ -43,8 +43,7 @@ Public Class frmReporteListas
                         conexioBDRemota.Close()
                     End Using
 
-
-                    Dim cmd As New SqlCommand("REPORTELISTASPORCICLO", Conexion)
+                Dim cmd As New SqlCommand("REPORTELISTASPORCICLO", Conexion)
                 cmd.CommandType = CommandType.StoredProcedure
                 Dim adaptador As New SqlDataAdapter(cmd)
                 Dim data As New DataSet
@@ -79,9 +78,9 @@ Public Class frmReporteListas
         If lectorGeneral(2) = "Abierto" Then
             lectorGeneral.Close()
             Dim contListas As Integer
-            Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
-                'Using conexioBDRemota As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
-                Dim comandoBDRemota As SqlCommand = conexioBDRemota.CreateCommand
+            'Using conexioBDRemota As New SqlConnection("Data source='PRO'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+            Using conexioBDRemota As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nomBD & "'; Integrated Security=true; MultipleActiveResultSets = True")
+                    Dim comandoBDRemota As SqlCommand = conexioBDRemota.CreateCommand
                     Dim comando2 As SqlCommand = conexioBDRemota.CreateCommand
                     Dim lectorBDRemota As SqlDataReader
 

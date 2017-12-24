@@ -33,7 +33,6 @@ Public Class frmGruposRegistro
             dgHorario.Rows.Add(lectorGeneral(0), lectorGeneral(1), lectorGeneral(2), lectorGeneral(3), lectorGeneral(4), lectorGeneral(5), lectorGeneral(6), lectorGeneral(7), lectorGeneral(8), lectorGeneral(9), lectorGeneral(10), lectorGeneral(11), lectorGeneral(12), lectorGeneral(13), lectorGeneral(14), lectorGeneral(15))
         End While
         lectorGeneral.Close()
-
     End Sub
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
@@ -85,8 +84,8 @@ Public Class frmGruposRegistro
         dtpSabadoI.Text = CDate("00:00")
         dtpSabadoF.Text = CDate("00:00")
 
-        'Using conexionRemota As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; integrated security = true")
-        Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
+        Using conexionRemota As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; integrated security = true")
+            'Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
             Dim comandoRemoto As SqlCommand = conexionRemota.CreateCommand
             Dim lectorRemoto As SqlDataReader
 
@@ -119,9 +118,8 @@ Public Class frmGruposRegistro
                         cboNivel.Focus()
                         MsgBox(cboNivel.SelectedValue)
                     Else
-
-                        'Using conexionRemota As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; integrated security = true")
-                        Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
+                        Using conexionRemota As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; integrated security = true")
+                            'Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
                             Dim comandoRemoto As SqlCommand = conexionRemota.CreateCommand
                             Dim lectorRemoto As SqlDataReader
 
@@ -177,7 +175,7 @@ Public Class frmGruposRegistro
                                 horarioSaF = "-"
                             End If
 
-                            MsgBox(dgHorario.RowCount)
+                            '               MsgBox(dgHorario.RowCount)
 
                             If dgHorario.RowCount = 0 Then
                                 Try
@@ -226,7 +224,6 @@ Public Class frmGruposRegistro
                                         dtpSabadoI.Enabled = False
                                         dtpSabadoF.Enabled = False
 
-
                                         txtMaxAlumnos.Text = ""
                                         txtIdMaestro.Text = ""
                                         txtClave.Text = ""
@@ -254,7 +251,6 @@ Public Class frmGruposRegistro
                                         dtpSabadoF.Text = CDate("00:00")
 
                                         conexionRemota.Close()
-
                                     Else
                                         transaccion.Rollback()
                                         MessageBox.Show("El registro de grupo ha sido cancelado", "Cancelación de grupo", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -270,10 +266,8 @@ Public Class frmGruposRegistro
                                         MsgBox(ex2.Message)
                                     End Try
                                 End Try
-
                                 conexionRemota.Close()
                             Else
-
                                 Dim ban As Boolean = False
 
                                 For x = 0 To dgHorario.RowCount - 1
@@ -358,7 +352,6 @@ Public Class frmGruposRegistro
                                             dtpSabadoI.Text = CDate("00:00")
                                             dtpSabadoF.Text = CDate("00:00")
                                             conexionRemota.Close()
-
                                         Else
                                             transaccion.Rollback()
                                             MessageBox.Show("El registro de grupo ha sido cancelado", "Cancelación de grupo", MessageBoxButtons.OK, MessageBoxIcon.Error)

@@ -27,15 +27,15 @@
             'conexionMasterServidor.Open()
             'MessageBox.Show("La base de datos MasterEA no existe")
             lectorMasterServidor.Close()
-            Dim st As New StackTrace(True)
-            st = New StackTrace(ex, True)
-            frame = Me.Name
-            descripcion = "Falla de restauración de BD"
-            comandoMasterServidor.CommandText = "SELECT COUNT(noFalla) FROM bitacora"
-            contFalla = comandoMasterServidor.ExecuteScalar + 1
-            comandoMasterServidor.CommandText = "INSERT INTO bitacora values(" & contFalla & ",'" & ex.Message & "','" & descripcion & "','" & frame & "','" & st.GetFrame(5).GetFileLineNumber.ToString & "','" & Now.Date & "','" & Now.TimeOfDay.ToString & "')"
-            comandoMasterServidor.ExecuteNonQuery()
-            'conexionMasterServidor.Close()
+            'Dim st As New StackTrace(True)
+            'st = New StackTrace(ex, True)
+            'frame = Me.Name
+            'descripcion = "Falla de restauración de BD"
+            'comandoMasterServidor.CommandText = "SELECT COUNT(noFalla) FROM bitacora"
+            'contFalla = comandoMasterServidor.ExecuteScalar + 1
+            'comandoMasterServidor.CommandText = "INSERT INTO bitacora values(" & contFalla & ",'" & ex.Message & "','" & descripcion & "','" & frame & "','" & st.GetFrame(5).GetFileLineNumber.ToString & "','" & Now.Date & "','" & Now.TimeOfDay.ToString & "')"
+            'comandoMasterServidor.ExecuteNonQuery()
+            conexionMasterServidor.Close()
             lectorMasterServidor.Close()
             'RadioButton2.Visible = False
 
@@ -71,14 +71,14 @@
                     conexionMasterServidor.Close()
                 Catch ex As Exception
                     MessageBox.Show("La base de datos no se restauró", "Error de restauración", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Dim st As New StackTrace(True)
-                    st = New StackTrace(ex, True)
-                    frame = Me.Name
-                    descripcion = "Falla de restauración de BD"
-                    comandoMasterServidor.CommandText = "SELECT COUNT(noFalla) FROM bitacora"
-                    contFalla = comandoMasterServidor.ExecuteScalar + 1
-                    comandoMasterServidor.CommandText = "INSERT INTO bitacora values(" & contFalla & ",'" & ex.Message & "','" & descripcion & "','" & frame & "','" & st.GetFrame(5).GetFileLineNumber.ToString & "','" & Now.Date & "','" & Now.TimeOfDay.ToString & "')"
-                    comandoMasterServidor.ExecuteNonQuery()
+                    'Dim st As New StackTrace(True)
+                    'st = New StackTrace(ex, True)
+                    'frame = Me.Name
+                    'descripcion = "Falla de restauración de BD"
+                    'comandoMasterServidor.CommandText = "SELECT COUNT(noFalla) FROM bitacora"
+                    'contFalla = comandoMasterServidor.ExecuteScalar + 1
+                    'comandoMasterServidor.CommandText = "INSERT INTO bitacora values(" & contFalla & ",'" & ex.Message & "','" & descripcion & "','" & frame & "','" & st.GetFrame(5).GetFileLineNumber.ToString & "','" & Now.Date & "','" & Now.TimeOfDay.ToString & "')"
+                    'comandoMasterServidor.ExecuteNonQuery()
                     conexionMasterServidor.Close()
                 End Try
             ElseIf RadioButton2.Checked Then
@@ -93,26 +93,26 @@
                     conexionMasterServidor.Close()
                 Catch ex As Exception
                     MessageBox.Show("La base de datos no se restauró", "Error de restauración", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Dim st As New StackTrace(True)
-                    st = New StackTrace(ex, True)
-                    frame = Me.Name
-                    descripcion = "Falla de restauración de BD"
-                    comandoMasterServidor.CommandText = "SELECT COUNT(noFalla) FROM bitacora"
-                    contFalla = comandoMasterServidor.ExecuteScalar + 1
-                    comandoMasterServidor.CommandText = "INSERT INTO bitacora values(" & contFalla & ",'" & ex.Message & "','" & descripcion & "','" & frame & "','" & st.GetFrame(5).GetFileLineNumber.ToString & "','" & Now.Date & "','" & Now.TimeOfDay.ToString & "')"
-                    comandoMasterServidor.ExecuteNonQuery()
+                    'Dim st As New StackTrace(True)
+                    'st = New StackTrace(ex, True)
+                    'frame = Me.Name
+                    'descripcion = "Falla de restauración de BD"
+                    'comandoMasterServidor.CommandText = "SELECT COUNT(noFalla) FROM bitacora"
+                    'contFalla = comandoMasterServidor.ExecuteScalar + 1
+                    'comandoMasterServidor.CommandText = "INSERT INTO bitacora values(" & contFalla & ",'" & ex.Message & "','" & descripcion & "','" & frame & "','" & st.GetFrame(5).GetFileLineNumber.ToString & "','" & Now.Date & "','" & Now.TimeOfDay.ToString & "')"
+                    'comandoMasterServidor.ExecuteNonQuery()
                     conexionMasterServidor.Close()
                 End Try
             End If
         Catch ex As Exception
-            Dim st As New StackTrace(True)
-            st = New StackTrace(ex, True)
-            frame = Me.Name
-            descripcion = "Falla de restauración de BD"
-            comandoMasterServidor.CommandText = "SELECT COUNT(noFalla) FROM bitacora"
-            contFalla = comandoMasterServidor.ExecuteScalar + 1
-            comandoMasterServidor.CommandText = "INSERT INTO bitacora values(" & contFalla & ",'" & ex.Message & "','" & descripcion & "','" & frame & "','" & st.GetFrame(5).GetFileLineNumber.ToString & "','" & Now.Date & "','" & Now.TimeOfDay.ToString & "')"
-            comandoMasterServidor.ExecuteNonQuery()
+            'Dim st As New StackTrace(True)
+            'st = New StackTrace(ex, True)
+            'frame = Me.Name
+            'descripcion = "Falla de restauración de BD"
+            'comandoMasterServidor.CommandText = "SELECT COUNT(noFalla) FROM bitacora"
+            'contFalla = comandoMasterServidor.ExecuteScalar + 1
+            'comandoMasterServidor.CommandText = "INSERT INTO bitacora values(" & contFalla & ",'" & ex.Message & "','" & descripcion & "','" & frame & "','" & st.GetFrame(5).GetFileLineNumber.ToString & "','" & Now.Date & "','" & Now.TimeOfDay.ToString & "')"
+            'comandoMasterServidor.ExecuteNonQuery()
             conexionMasterServidor.Close()
         End Try
     End Sub
