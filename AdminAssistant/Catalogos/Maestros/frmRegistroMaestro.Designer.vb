@@ -29,10 +29,10 @@ Partial Class frmRegistroMaestro
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtClave = New System.Windows.Forms.TextBox()
-        Me.MaestroBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.MasterEADataSetDiego = New AdminAssistant.MasterEADataSetDiego()
         Me.MaestroBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MasterEADataSet = New AdminAssistant.MasterEADataSet()
+        Me.MaestroBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MasterEADataSetDiego = New AdminAssistant.MasterEADataSetDiego()
         Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtDomicilio = New System.Windows.Forms.TextBox()
@@ -71,10 +71,10 @@ Partial Class frmRegistroMaestro
         Me.SqlDataAdapter2 = New System.Data.SqlClient.SqlDataAdapter()
         Me.MaestroTableAdapter1 = New AdminAssistant.MasterEADataSetDiegoTableAdapters.maestroTableAdapter()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.MaestroBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.MasterEADataSetDiego, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MaestroBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MasterEADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MaestroBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MasterEADataSetDiego, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PictureBox2
@@ -121,23 +121,13 @@ Partial Class frmRegistroMaestro
         '
         'txtClave
         '
-        Me.txtClave.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MaestroBindingSource, "idMaestro", True))
+        Me.txtClave.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MaestroBindingSource1, "idMaestro", True))
         Me.txtClave.Enabled = False
         Me.txtClave.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.txtClave.Location = New System.Drawing.Point(39, 243)
         Me.txtClave.Name = "txtClave"
         Me.txtClave.Size = New System.Drawing.Size(284, 26)
         Me.txtClave.TabIndex = 42
-        '
-        'MaestroBindingSource1
-        '
-        Me.MaestroBindingSource1.DataMember = "maestro"
-        Me.MaestroBindingSource1.DataSource = Me.MasterEADataSetDiego
-        '
-        'MasterEADataSetDiego
-        '
-        Me.MasterEADataSetDiego.DataSetName = "MasterEADataSetDiego"
-        Me.MasterEADataSetDiego.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'MaestroBindingSource
         '
@@ -149,9 +139,19 @@ Partial Class frmRegistroMaestro
         Me.MasterEADataSet.DataSetName = "MasterEADataSet"
         Me.MasterEADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'MaestroBindingSource1
+        '
+        Me.MaestroBindingSource1.DataMember = "maestro"
+        Me.MaestroBindingSource1.DataSource = Me.MasterEADataSetDiego
+        '
+        'MasterEADataSetDiego
+        '
+        Me.MasterEADataSetDiego.DataSetName = "MasterEADataSetDiego"
+        Me.MasterEADataSetDiego.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'txtNombre
         '
-        Me.txtNombre.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MaestroBindingSource, "nombre", True))
+        Me.txtNombre.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MaestroBindingSource1, "nombre", True))
         Me.txtNombre.Enabled = False
         Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.txtNombre.Location = New System.Drawing.Point(39, 324)
@@ -171,7 +171,7 @@ Partial Class frmRegistroMaestro
         '
         'txtDomicilio
         '
-        Me.txtDomicilio.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MaestroBindingSource, "domicilio", True))
+        Me.txtDomicilio.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MaestroBindingSource1, "domicilio", True))
         Me.txtDomicilio.Enabled = False
         Me.txtDomicilio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.txtDomicilio.Location = New System.Drawing.Point(453, 324)
@@ -257,7 +257,7 @@ Partial Class frmRegistroMaestro
         '
         'txtTel
         '
-        Me.txtTel.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MaestroBindingSource, "telefono", True))
+        Me.txtTel.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MaestroBindingSource1, "telefono", True))
         Me.txtTel.Enabled = False
         Me.txtTel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.txtTel.Location = New System.Drawing.Point(39, 402)
@@ -277,7 +277,7 @@ Partial Class frmRegistroMaestro
         '
         'txtCorreo
         '
-        Me.txtCorreo.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MaestroBindingSource, "correo", True))
+        Me.txtCorreo.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MaestroBindingSource1, "correo", True))
         Me.txtCorreo.Enabled = False
         Me.txtCorreo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.txtCorreo.Location = New System.Drawing.Point(291, 402)
@@ -297,7 +297,7 @@ Partial Class frmRegistroMaestro
         '
         'txtCertificado
         '
-        Me.txtCertificado.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MaestroBindingSource, "certificado", True))
+        Me.txtCertificado.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MaestroBindingSource1, "certificado", True))
         Me.txtCertificado.Enabled = False
         Me.txtCertificado.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.txtCertificado.Location = New System.Drawing.Point(39, 470)
@@ -327,8 +327,8 @@ Partial Class frmRegistroMaestro
         '
         'cboNivel
         '
-        Me.cboNivel.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.MaestroBindingSource, "nivelIngles", True))
-        Me.cboNivel.DataBindings.Add(New System.Windows.Forms.Binding("SelectedItem", Me.MaestroBindingSource, "nivelIngles", True))
+        Me.cboNivel.DataBindings.Add(New System.Windows.Forms.Binding("SelectedItem", Me.MaestroBindingSource1, "nivelIngles", True))
+        Me.cboNivel.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.MaestroBindingSource1, "nivelIngles", True))
         Me.cboNivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboNivel.Enabled = False
         Me.cboNivel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
@@ -554,10 +554,10 @@ Partial Class frmRegistroMaestro
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmRegistroMaestro"
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.MaestroBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.MasterEADataSetDiego, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MaestroBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MasterEADataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MaestroBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MasterEADataSetDiego, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

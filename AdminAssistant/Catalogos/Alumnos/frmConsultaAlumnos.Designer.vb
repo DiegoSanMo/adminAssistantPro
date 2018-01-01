@@ -91,7 +91,7 @@ Partial Class frmConsultaAlumnos
         Me.Label2.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label2.Location = New System.Drawing.Point(0, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(932, 59)
+        Me.Label2.Size = New System.Drawing.Size(927, 59)
         Me.Label2.TabIndex = 2
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -139,7 +139,7 @@ Partial Class frmConsultaAlumnos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(932, 351)
+        Me.ClientSize = New System.Drawing.Size(927, 351)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.Label1)

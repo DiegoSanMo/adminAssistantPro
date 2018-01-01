@@ -15,8 +15,8 @@ Public Class frmConsultaInscripciones
         lectorGeneral.Close()
         'asigna el nombre de la base de datos
         Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
-        Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
-        'Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
+        'Dim conexionBD2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true")
+        Dim conexionBD2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true")
         Dim comandoBD2 As SqlCommand = conexionBD2.CreateCommand
         Dim lectorBD2 As SqlDataReader
         conexionBD2.Open()

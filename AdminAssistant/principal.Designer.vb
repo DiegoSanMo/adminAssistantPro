@@ -34,6 +34,7 @@ Partial Class principal
         Me.RegistroToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.KardexToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConsultaGeneralToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MaestrosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistroToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -67,6 +68,7 @@ Partial Class principal
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ConsultaIndividualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.msPrincipal.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -130,7 +132,7 @@ Partial Class principal
         '
         'ConsultaToolStripMenuItem
         '
-        Me.ConsultaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.KardexToolStripMenuItem})
+        Me.ConsultaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.KardexToolStripMenuItem, Me.ConsultaGeneralToolStripMenuItem, Me.ConsultaIndividualToolStripMenuItem})
         Me.ConsultaToolStripMenuItem.Name = "ConsultaToolStripMenuItem"
         Me.ConsultaToolStripMenuItem.Size = New System.Drawing.Size(230, 44)
         Me.ConsultaToolStripMenuItem.Text = "Consulta"
@@ -138,8 +140,14 @@ Partial Class principal
         'KardexToolStripMenuItem
         '
         Me.KardexToolStripMenuItem.Name = "KardexToolStripMenuItem"
-        Me.KardexToolStripMenuItem.Size = New System.Drawing.Size(203, 44)
-        Me.KardexToolStripMenuItem.Text = "Kardex"
+        Me.KardexToolStripMenuItem.Size = New System.Drawing.Size(392, 44)
+        Me.KardexToolStripMenuItem.Text = "Kardex por alumno"
+        '
+        'ConsultaGeneralToolStripMenuItem
+        '
+        Me.ConsultaGeneralToolStripMenuItem.Name = "ConsultaGeneralToolStripMenuItem"
+        Me.ConsultaGeneralToolStripMenuItem.Size = New System.Drawing.Size(392, 44)
+        Me.ConsultaGeneralToolStripMenuItem.Text = "Consulta general"
         '
         'MaestrosToolStripMenuItem1
         '
@@ -354,6 +362,12 @@ Partial Class principal
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
+        'ConsultaIndividualToolStripMenuItem
+        '
+        Me.ConsultaIndividualToolStripMenuItem.Name = "ConsultaIndividualToolStripMenuItem"
+        Me.ConsultaIndividualToolStripMenuItem.Size = New System.Drawing.Size(392, 44)
+        Me.ConsultaIndividualToolStripMenuItem.Text = "Consulta individual"
+        '
         'principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -417,4 +431,6 @@ Partial Class principal
     Friend WithEvents RestaurarBDToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BitácoraToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AyudaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ConsultaGeneralToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ConsultaIndividualToolStripMenuItem As ToolStripMenuItem
 End Class

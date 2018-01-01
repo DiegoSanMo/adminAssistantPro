@@ -317,11 +317,12 @@ Partial Class frmKardexAlumno
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(16, 565)
+        Me.Button2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(16, 365)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(744, 39)
         Me.Button2.TabIndex = 40
-        Me.Button2.Text = "Button2"
+        Me.Button2.Text = "Aceptar"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'txtNombreId
@@ -390,7 +391,7 @@ Partial Class frmKardexAlumno
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Location = New System.Drawing.Point(16, 273)
+        Me.GroupBox1.Location = New System.Drawing.Point(16, 207)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(744, 143)
         Me.GroupBox1.TabIndex = 45
@@ -473,7 +474,8 @@ Partial Class frmKardexAlumno
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(780, 616)
+        Me.ClientSize = New System.Drawing.Size(780, 416)
+        Me.ControlBox = False
         Me.Controls.Add(Me.txtSitN)
         Me.Controls.Add(Me.lblSit)
         Me.Controls.Add(Me.Label13)
@@ -490,8 +492,10 @@ Partial Class frmKardexAlumno
         Me.Controls.Add(Me.cboIdAlumno)
         Me.Controls.Add(Me.rbNombre)
         Me.Controls.Add(Me.rbId)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmKardexAlumno"
-        Me.Text = "frmKardexAlumno"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Kardex de alumno"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

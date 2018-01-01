@@ -64,6 +64,8 @@ Public Class principal
                 lectorMasterServidor.Close()
                 If ban Then
                     conexionMasterServidor.Close()
+                    conexionsql.Close()
+
                     frmRegistroAlumno.Show()
                 Else
                     conexionMasterServidor.Close()
@@ -96,47 +98,7 @@ Public Class principal
     End Sub
 
     Private Sub ConsultaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultaToolStripMenuItem.Click
-        Try
-            conexionMasterServidor.Open()
-            Try
-                comandoMasterServidor.CommandText = "SELECT name FROM sys.databases WHERE name = 'MasterEA'"
-                lectorMasterServidor = comandoMasterServidor.ExecuteReader
-                lectorMasterServidor.Read()
-                If lectorMasterServidor(0) = "MasterEA" Then
-                    lectorMasterServidor.Close()
-                    conexionMasterServidor.Close()
-                    frmConsultaAlumnos.Show()
-                Else
-                    lectorMasterServidor.Close()
-                    conexionMasterServidor.Close()
-                End If
 
-            Catch ex As Exception
-                MessageBox.Show(ex.Message)
-
-                'Dim st As New StackTrace(True)
-                'st = New StackTrace(ex, True)
-                'frame = Me.Name
-                'descripcion = "Falla de consulta de alumnos"
-                'comandoMasterServidor.CommandText = "SELECT COUNT(noFalla) FROM bitacora"
-                'contFalla = comandoMasterServidor.ExecuteScalar + 1
-                'comandoMasterServidor.CommandText = "INSERT INTO bitacora values(" & contFalla & ",'" & ex.Message & "','" & descripcion & "','" & frame & "','" & st.GetFrame(5).GetFileLineNumber.ToString & "','" & Now.Date & "','" & Now.TimeOfDay.ToString & "')"
-                'comandoMasterServidor.ExecuteNonQuery()
-                'conexionMasterServidor.Close()
-            End Try
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-
-            'Dim st As New StackTrace(True)
-            'st = New StackTrace(ex, True)
-            'frame = Me.Name
-            'descripcion = "Falla de consulta de alumnos"
-            'comandoMasterServidor.CommandText = "SELECT COUNT(noFalla) FROM bitacora"
-            'contFalla = comandoMasterServidor.ExecuteScalar + 1
-            'comandoMasterServidor.CommandText = "INSERT INTO bitacora values(" & contFalla & ",'" & ex.Message & "','" & descripcion & "','" & frame & "','" & st.GetFrame(5).GetFileLineNumber.ToString & "','" & Now.Date & "','" & Now.TimeOfDay.ToString & "')"
-            'comandoMasterServidor.ExecuteNonQuery()
-            'conexionMasterServidor.Close()
-        End Try
     End Sub
 
     Private Sub ConsultaToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ConsultaToolStripMenuItem1.Click
@@ -222,8 +184,8 @@ Public Class principal
                                 comando.CommandText = "Create database""" & nombre & """;"
                                 comando.ExecuteNonQuery()
 
-                                Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
-                                'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                                'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                                Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
                                 Dim comando2 As SqlCommand = conexionsql2.CreateCommand
                                 conexionsql2.Open()
                                 comando2.CommandText = "Create table grupo(idGrupo int primary Key, idMaestro int, maxAlumnos int, cantInscritos int, nivel int, hLuIni varchar(20), hLuFin varchar(20),  hMaIni varchar(20), hMaFin varchar(20),  hMiIni varchar(20), hMiFin varchar(20),  hJuIni varchar(20), hJuFin varchar(20),  hViIni varchar(20), hViFin varchar(20),  hSaIni varchar(20), hSaFin varchar(20))"
@@ -292,8 +254,8 @@ Public Class principal
                                     comando.CommandText = "Create database""" & nombre & """;"
                                     comando.ExecuteNonQuery()
 
-                                    Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
-                                    'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                                    'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & nombre & "'; Integrated Security=true")
+                                    Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & nombre & "'; Integrated Security=true")
                                     Dim comando2 As SqlCommand = conexionsql2.CreateCommand
                                     conexionsql2.Open()
                                     comando2.CommandText = "Create table grupo(idGrupo int primary Key, idMaestro int, maxAlumnos int, cantInscritos int, nivel int, hLuIni varchar(20), hLuFin varchar(20),  hMaIni varchar(20), hMaFin varchar(20),  hMiIni varchar(20), hMiFin varchar(20),  hJuIni varchar(20), hJuFin varchar(20),  hViIni varchar(20), hViFin varchar(20),  hSaIni varchar(20), hSaFin varchar(20))"
@@ -471,8 +433,8 @@ Public Class principal
 
                     Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
                     lectorGeneral.Close()
-                    Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
-                    'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                    'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                    Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
                     Dim comando2 As SqlCommand = conexionsql2.CreateCommand
 
                     If n = 0 Then
@@ -672,8 +634,8 @@ Public Class principal
 
                             Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
                             lectorGeneral.Close()
-                            Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
-                            'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                            'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                            Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
                             Dim comando2 As SqlCommand = conexionsql2.CreateCommand
 
                             'DECLARACION Y APERTURA DE UNA NUEVA CONEXIÓN
@@ -919,8 +881,8 @@ Public Class principal
 
                             Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
                             lectorGeneral.Close()
-                            'Dim conexionCiclo As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
-                            Dim conexionCiclo As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                            Dim conexionCiclo As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
+                            'Dim conexionCiclo As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=true")
                             Dim comandoCiclo As SqlCommand = conexionCiclo.CreateCommand
 
                             'SE ABRE OTRA CONEXION
@@ -1056,8 +1018,8 @@ Public Class principal
 
                             Name = CStr(idCiclo) + CStr("-") + CStr(anioC)
                             lectorGeneral.Close()
-                            Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=True")
-                            'Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=True")
+                            'Dim conexionsql2 As New SqlConnection("Data source='DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=True")
+                            Dim conexionsql2 As New SqlConnection("Data source='PRO'; Initial Catalog='" & Name & "'; Integrated Security=true; MultipleActiveResultSets=True")
                             Dim comando2 As SqlCommand = conexionsql2.CreateCommand
                             Dim comando3 As SqlCommand = conexionsql2.CreateCommand
                             Dim lector2 As SqlDataReader
@@ -2285,5 +2247,92 @@ Public Class principal
             'System.Diagnostics.Process.Start("C:\Users\Diego\Documents\GitHub\adminAssistantPro\Help.chm")
             System.Diagnostics.Process.Start("C:\Users\Mani\Documents\GitHub\AdminAssistantProEdit\adminAssistantPro\Ayuda.chm")
         End If
+    End Sub
+
+    Private Sub ConsultaGeneralToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultaGeneralToolStripMenuItem.Click
+        Try
+            conexionMasterServidor.Open()
+            Try
+                comandoMasterServidor.CommandText = "SELECT name FROM sys.databases WHERE name = 'MasterEA'"
+                lectorMasterServidor = comandoMasterServidor.ExecuteReader
+                lectorMasterServidor.Read()
+                If lectorMasterServidor(0) = "MasterEA" Then
+                    lectorMasterServidor.Close()
+                    conexionMasterServidor.Close()
+                    frmConsultaAlumnos.Show()
+                Else
+                    lectorMasterServidor.Close()
+                    conexionMasterServidor.Close()
+                End If
+
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+
+                'Dim st As New StackTrace(True)
+                'st = New StackTrace(ex, True)
+                'frame = Me.Name
+                'descripcion = "Falla de consulta de alumnos"
+                'comandoMasterServidor.CommandText = "SELECT COUNT(noFalla) FROM bitacora"
+                'contFalla = comandoMasterServidor.ExecuteScalar + 1
+                'comandoMasterServidor.CommandText = "INSERT INTO bitacora values(" & contFalla & ",'" & ex.Message & "','" & descripcion & "','" & frame & "','" & st.GetFrame(5).GetFileLineNumber.ToString & "','" & Now.Date & "','" & Now.TimeOfDay.ToString & "')"
+                'comandoMasterServidor.ExecuteNonQuery()
+                'conexionMasterServidor.Close()
+            End Try
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+
+            'Dim st As New StackTrace(True)
+            'st = New StackTrace(ex, True)
+            'frame = Me.Name
+            'descripcion = "Falla de consulta de alumnos"
+            'comandoMasterServidor.CommandText = "SELECT COUNT(noFalla) FROM bitacora"
+            'contFalla = comandoMasterServidor.ExecuteScalar + 1
+            'comandoMasterServidor.CommandText = "INSERT INTO bitacora values(" & contFalla & ",'" & ex.Message & "','" & descripcion & "','" & frame & "','" & st.GetFrame(5).GetFileLineNumber.ToString & "','" & Now.Date & "','" & Now.TimeOfDay.ToString & "')"
+            'comandoMasterServidor.ExecuteNonQuery()
+            'conexionMasterServidor.Close()
+        End Try
+    End Sub
+
+    Private Sub ConsultaIndividualToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultaIndividualToolStripMenuItem.Click
+        Try
+            conexionMasterServidor.Open()
+            Try
+                Conexion.Open()
+                Try
+                    comandoGeneral.CommandText = "Select count(idAlumno) from alumno"
+                    Dim n As Integer = comandoGeneral.ExecuteScalar
+
+                    If n = 0 Then
+                        MessageBox.Show("NO HAY ALUMNOS REGISTRADOS", "ERROR, FALTA DE INFORMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        'CIERRE DE CONEXIONES
+                        Conexion.Close()
+                        conexionMasterServidor.Close()
+                        'TERMINA SECCION DE CONEXIONES
+                    Else
+                        'CIERRE DE CONEXIONES
+                        Conexion.Close()
+                        conexionMasterServidor.Close()
+                        'TERMINA SECCION DE CONEXIONES
+                        frmConsultaIndividual.ShowDialog()
+
+                    End If
+                Catch ex As Exception
+                    MessageBox.Show("ERROR, NO SE PUEDO ACCEDER A KARDEX", "Error de apertura", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+                    Conexion.Close()
+                    conexionMasterServidor.Close()
+                End Try
+            Catch ex As Exception
+                MessageBox.Show("ERROR, NO SE PUEDO ACCEDER A LA BASE DE DATOS MASTER EA (PRINCIPAL)", "Error de apertura", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+                Conexion.Close()
+                conexionMasterServidor.Close()
+            End Try
+
+        Catch ex As Exception
+            MessageBox.Show("ERROR, NO SE PUEDO ACCEDER A LA BASE DE DATOS DEL SERVIDOR", "Error de apertura", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+            conexionMasterServidor.Close()
+        End Try
     End Sub
 End Class

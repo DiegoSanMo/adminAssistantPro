@@ -52,7 +52,6 @@
     <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Basic 2005 Power Packs\3.0\Microsoft.VisualBasic.PowerPacks.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -127,6 +126,12 @@
       <DependentUpon>frmCalificacionesDet.vb</DependentUpon>
     </Compile>
     <Compile Include="frmCalificacionesDet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultaIndividual.Designer.vb">
+      <DependentUpon>frmConsultaIndividual.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsultaIndividual.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmKardexAlumno.Designer.vb">
@@ -265,6 +270,9 @@
     <EmbeddedResource Include="frmCalificacionesDet.resx">
       <DependentUpon>frmCalificacionesDet.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultaIndividual.resx">
+      <DependentUpon>frmConsultaIndividual.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmKardexAlumno.resx">
       <DependentUpon>frmKardexAlumno.vb</DependentUpon>
     </EmbeddedResource>
@@ -399,6 +407,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\evaluation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

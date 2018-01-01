@@ -117,4 +117,9 @@
         End While
         lectorGeneral.Close()
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Conexion.Close()
+        Me.Dispose()
+    End Sub
 End Class

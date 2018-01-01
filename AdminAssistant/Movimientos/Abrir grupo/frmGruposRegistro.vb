@@ -84,8 +84,8 @@ Public Class frmGruposRegistro
         dtpSabadoI.Text = CDate("00:00")
         dtpSabadoF.Text = CDate("00:00")
 
-        Using conexionRemota As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; integrated security = true")
-            'Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
+        'Using conexionRemota As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; integrated security = true")
+        Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
             Dim comandoRemoto As SqlCommand = conexionRemota.CreateCommand
             Dim lectorRemoto As SqlDataReader
 
@@ -118,8 +118,8 @@ Public Class frmGruposRegistro
                         cboNivel.Focus()
                         MsgBox(cboNivel.SelectedValue)
                     Else
-                        Using conexionRemota As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; integrated security = true")
-                            'Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
+                        'Using conexionRemota As New SqlConnection("Data source = 'DESKTOP-B3IP6AD\MANI'; Initial Catalog='" & Name & "'; integrated security = true")
+                        Using conexionRemota As New SqlConnection("Data source = 'PRO'; Initial Catalog='" & Name & "'; integrated security = true")
                             Dim comandoRemoto As SqlCommand = conexionRemota.CreateCommand
                             Dim lectorRemoto As SqlDataReader
 
